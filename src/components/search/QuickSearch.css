@@ -1,0 +1,21 @@
+/* Style the topnav links */
+
+.quicksearch {
+    text-align: center;
+}
+
+.qSearchInner {
+    width:700px;
+    padding:8px;
+    display: inline-block;
+}
+
+.qSearchFields {
+    display:flex;
+}
+
+.qSearchFields div {
+    display:flex;
+    text-decoration: none;
+    padding:10px;
+}

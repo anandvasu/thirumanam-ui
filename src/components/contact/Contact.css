@@ -1,0 +1,13 @@
+.addressContainer {
+    text-align: left;
+    padding-left: 50px;    
+}
+
+.contactParent {
+    display: inline;
+}
+
+.containerChild {
+    display:inline-block;
+    padding: 10px;
+}

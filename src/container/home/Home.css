@@ -1,0 +1,22 @@
+.container {
+    display: inline;
+}
+
+
+/* Middle column */
+.content {
+    display:inline-block;
+}
+
+.contentLeft {
+    display:inline-block;
+}
+
+.contentMiddle {
+    display:inline-block;
+}
+
+.contentRight {
+    display:inline-block;
+}
+

@@ -1,0 +1,24 @@
+.fcontainer {
+    text-align: center;
+}
+
+/* Style the top navigation bar */
+.footer {
+    overflow: hidden;
+    display: inline-block;
+}
+
+/* Style the topnav links */
+.footer a {
+    float: left;
+    display:'flex';
+    color: #108f5e;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change color on hover */
+.footer a:hover {
+    color: black;
+}

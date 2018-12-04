@@ -1,0 +1,38 @@
+.ricontainer {
+    text-align: center;
+    padding: 10px;   
+}
+
+.rlabel {
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+}
+
+.rfield {
+    display: inline-block;
+    width: 220px;
+    text-align: left;
+}
+
+.rcontainer {
+    position: fixed;
+    z-index: 500;
+    background-color: white;
+    width: 510px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px black;
+    padding: 16px;
+    left: 37%;
+    top: 25%;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+}
+
+@media (min-width: 600px) {
+    .Modal {
+        width: 500px;
+        left: calc(50% - 250px);
+    }
+}

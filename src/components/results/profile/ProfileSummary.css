@@ -1,0 +1,30 @@
+.profileContainer {   
+    display:flex;   
+    width:60%;
+}
+
+.profileDetail {
+    width:50%;    
+}
+
+.profileButton {
+    height:100%;
+    vertical-align:middle;
+}
+
+.verticalSpace {
+    width:1%;
+}
+
+.profileSummarImage {
+    width:20%;
+    border:1px solid;
+    border-color: darkgrey;  
+   
+}
+
+.profileSummary {
+    width:65%;
+    border:1px solid;
+    border-color: darkgrey;  
+}

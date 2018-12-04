@@ -1,0 +1,12 @@
+.filterParent {
+    border-style: solid;  
+    border-color: darkgrey;  
+    border-width: 1px;  
+}
+
+.filterContent {     
+    width: 100%;
+    vertical-align: middle;  
+    text-align: left;     
+    margin: 10px;
+  }

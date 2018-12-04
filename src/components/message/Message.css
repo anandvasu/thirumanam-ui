@@ -1,0 +1,35 @@
+.messageDisplay2234{
+    background: gold;
+    color: orangered;
+    padding: .5em;
+    font-weight: bold;  
+    display: block;
+    opacity: 1;
+    max-height: 500px;
+    transition: display 0s, opacity 0.6s, max-height 0.6s linear;
+  
+  }
+  
+  .messageHide {
+    display: none;
+    opacity: 0;
+    max-height: 0px;
+    transition: max-height 0.3s, opacity 0.6s linear;
+  }
+
+  .messageDisplay{  
+    margin: auto;  
+    left: 0; 
+    right: 0;
+    position:absolute;
+    top:0px;
+    width:50%;
+    height: 50px;  
+    color:red;  
+    text-align:center;
+    background:rgba(91, 170, 68, 0.6);
+    overflow:hidden;
+    box-sizing:border-box;
+    transition:height .3s;
+  } 
+ 

@@ -1,0 +1,44 @@
+.resultsContainer {
+    width:80%;
+    display:inline-block;  
+    background-color:yellow;   
+}
+
+.filtersection {
+    display:inline-block;
+    vertical-align: top;    
+    width:23%;
+}
+
+.resultsection {
+    display:inline-block;    
+    width:72%;
+    background-color:green;
+    text-align: center;
+}
+
+.pageButton {
+    width:40px;
+    font-size: 12px;
+}
+
+.firstButton {
+    width:40px;
+    font-size: 12px;
+}
+
+.lastButton {
+    width:40px;
+    font-size: 12px;
+}
+
+.pageNavigation {
+   width:80%;
+   text-align: right;
+   background-color:blue;
+}
+
+.profileResults {
+    text-align: center;
+    background-color:orange;
+}
