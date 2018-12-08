@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import TopMenu from './components/menu/TopMenu';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Home from './container/home/Home';
 import Contact from './components/contact/Contact';
@@ -9,6 +8,7 @@ import RegisterDetail from './container/register/RegisterDetail';
 import Message from './components/message/Message';
 import {ToastContainer} from 'react-toastify';
 import Register from './components/register/Register'
+import ConfirmSignUp from './components/login/ConfirmSignUp'
 
 class App extends Component {
 
@@ -28,10 +28,12 @@ class App extends Component {
           <Message id="message" message={this.state.message} messageClassName={this.state.messageClassName} />                  
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
+            <Route exact path="/signedIn" component={Home} />
             <Route exact path="/quickRegister" component={Register} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/results" component={Results} />
-            <Route exact path="/register" component={RegisterDetail} />        
+            <Route exact path="/register" component={RegisterDetail} />   
+            <Route exact path="/confirmSignUp" component={ConfirmSignUp} />      
         </div>
       </Router>
     );

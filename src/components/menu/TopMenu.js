@@ -2,25 +2,24 @@ import React, {Component} from 'react';
 import './TopMenu.css';
 import Login from '../login/Login';
 import Menu from '../menu/Menu';
+import config from '../../config';
 
 class TopMenu extends Component {
 
     constructor() {
         super();
         this.state={
-            login:false,
             content:[]
         }
     }
 
     componentDidMount () {
         let content = [];
-        if (this.state.login) {           
-            content.push(<div className="topmenucontainer"> <Menu /></div>);
+        if (sessionStorage.getItem("userSession") !== null) {           
+            content.push(<div key="menuKey" className="topmenucontainer"> <Menu /></div>);
         } else {           
-            content.push(<div className="topmenucontainer"> <Login /> </div>);
+            content.push(<div key="loginKey" className="topmenucontainer"> <Login /> </div>);
         }
-        console.log(content);
         this.setState({content:content});
     }
 

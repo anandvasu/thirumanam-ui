@@ -1,6 +1,13 @@
 .profileContainer {   
     display:flex;   
     width:60%;
+    background-color:#FFFFFF;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 2px 2px #ccc;
+}
+
+.profileName {
+    color: #CA326B
 }
 
 .profileDetail {
@@ -18,13 +25,28 @@
 
 .profileSummarImage {
     width:20%;
-    border:1px solid;
-    border-color: darkgrey;  
    
 }
 
 .profileSummary {
     width:65%;
-    border:1px solid;
-    border-color: darkgrey;  
+}
+
+.psBottom {
+    width:100%;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.profileId {
+    text-align: left;
+    height: 100%;
+    width:50%;
+    display: inline-block;
+}
+
+.viewProfileDiv {
+    text-align: right;
+    width:50%;
+    display: inline-block;
 }

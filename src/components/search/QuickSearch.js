@@ -65,7 +65,7 @@ class QuickSearch extends Component {
                                         Male
                                     </label>
                                 </div>
-                                <div className="radio">                               
+                            <div className="radio">                               
                                     <input type="radio" value="F" checked={this.state.gender === 'F'} onChange={this.genderChange}/>
                                     <label>
                                         Female
@@ -74,8 +74,8 @@ class QuickSearch extends Component {
                                 
                             <div>
                                 <label>Age:&nbsp;</label>
-                                <select onChange={this.ageFromChange}>
-                                    <option value="18" selected>18</option>
+                                <select value="18" onChange={this.ageFromChange}>
+                                    <option value="18">18</option>
                                     <option value="19">19</option>
                                     <option value="20">20</option>
                                     <option value="21">21</option>
@@ -100,7 +100,7 @@ class QuickSearch extends Component {
                                     <option value="40">40</option>                                  
                                 </select>
                                 <label>&nbsp;to&nbsp;</label>
-                                <select onChange={this.ageToChange}>
+                                <select value="35" onChange={this.ageToChange}>
                                     <option value="18" >18</option>
                                     <option value="19">19</option>
                                     <option value="20">20</option>
@@ -118,7 +118,7 @@ class QuickSearch extends Component {
                                     <option value="32">32</option>
                                     <option value="33">33</option>
                                     <option value="34">34</option>
-                                    <option value="35" selected>35</option>
+                                    <option value="35">35</option>
                                     <option value="36">36</option>
                                     <option value="37">37</option>
                                     <option value="38">38</option>
@@ -128,13 +128,13 @@ class QuickSearch extends Component {
                             </div>
                             <div>                   
                                 <label>Marital Status:&nbsp;</label>
-                                <select onChange={this.maritalStatusChange}>
-                                    <option value="Single" selected>Single</option>
-                                    <option value="Divorced">Divorced</option>                
+                                <select value="S" onChange={this.maritalStatusChange}>
+                                    <option value="S">Single</option>
+                                    <option value="D">Divorced</option>                
                                 </select>
                             </div>
-                            <div>
-                                <button onClick={this.quickSearch}>Search</button>                           
+                            <div>                               
+                                <button onClick={this.quickSearch}>Search</button>  
                             </div>
                         </div>
                     </div>

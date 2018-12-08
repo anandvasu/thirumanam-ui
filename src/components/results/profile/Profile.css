@@ -69,6 +69,9 @@
     display: inline-block;
     text-align: center;   
     vertical-align: middle;
+    color: #CA326B;
+    font-size: 18px;
+    font-weight: bold;
     width:95%;
 }
 

@@ -1,31 +1,61 @@
 import React, {Component} from 'react';
 
 import './ProfileSummary.css';
+import defaultFImage from '../../../assets/images/defalt_female.png';
+import defaultMImage from '../../../assets/images/default_male.jpg';
 
 class ProfileSummary extends Component {
 
     render () {
+
+        let image;
+        const preFix = (this.props.gender === "F") ? "Ms." : "Mr.";
+
+        if (this.props.thumbImage !== null) {
+            image = <img src={"data:image/jpeg;base64,"+this.props.thumbImage} alt="Not Available" width="100px" height="100px"></img>;            
+        } else {
+            if(this.props.gender === "F") {
+                image = <img src={defaultFImage} alt="Not Available" style={{width:'80px'}} onClick={this.goToHome} /> 
+            } else {
+                image = <img src={defaultMImage} alt="Not Available" style={{width:'80px'}} onClick={this.goToHome} />
+            }
+        }
+
         return (
             <div className="profileContainer">
                 <div className="profileSummarImage">
-                    <img src={"data:image/jpeg;base64,"+this.props.thumbImage} alt="Not Available" width="100px" height="100px"></img>&nbsp;&nbsp;&nbsp;
+                    {image}
                 </div> 
-                <div className="verticalSpace">
+                <div className="vs30" />
+                <div className="profileSummary">       
 
-                </div>
-                <div className="profileSummary">
-                    <div style={{textAlign:'left'}}>                       
-                       <label style={{width:'300px'}}> Mr. {this.props.firstName}, {this.props.lastName} </label>                        
+                    <div className="psBottom">
+                        <div className="profileId">
+                            <label className="profileName"> 
+                                <b>{preFix} {this.props.firstName}, {this.props.lastName} </b>
+                            </label>
+                        </div>
+                        <div className="viewProfileDiv">
+                            <label>{this.props.bDate}</label>
+                        </div> 
                     </div>
+
                     <div style={{textAlign:'left'}}>
                         <label> {this.props.age} years</label> 
                         <label> | {this.props.education}</label> 
                         <label> | {this.props.city}</label>
+                        
                     </div>
-                    <br/>
-                    <div style={{textAlign:'left'}}>
-                        <div> <a href="#" onClick={() => this.props.profileClick(this.props.id)}>View this profile</a> </div>
-                    </div>                   
+                    <div className="hs40"/>
+                    <div className="psBottom">
+                        <div className="profileId">
+                            <label><b>ID: {this.props.id}</b></label>
+                        </div>
+                        <div className="viewProfileDiv">
+                            <a href="#" onClick={() => this.props.profileClick(this.props.id)}><b>View this profile</b></a>
+                        </div> 
+                    </div>
+                                      
                 </div>
                 <div className="profileButton">
                    

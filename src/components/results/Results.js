@@ -5,6 +5,7 @@ import Filter from '../search/Filter';
 import TopMenu from '../menu/TopMenu';
 import Modal from '../modal/Modal';
 import Profile from '../../components/results/profile/Profile';
+import Footer from '../../components/footer/Footer';
 import './Results.css';
 
 
@@ -26,9 +27,10 @@ class Results extends Component {
             pages: [],
             totalDocs: 0,
             pageNo: 1,
-            docsPerPage: 5,
+            docsPerPage: 10,
             profile:'',
-            profileClicked:false
+            profileClicked:false,
+            gender:'F'
         };
     }
 
@@ -43,12 +45,12 @@ class Results extends Component {
             this.setState({data:data});
             this.setState({totalDocs:data.results.length});
             this.displayResults(1);
-        });*/
-        this.setState({
-            ageGreater:this.props.location.state.ageFrom,
-            ageLess:this.props.location.state.ageTo
-        });
-        this.searchProfile(this.props.location.state.ageFrom, this.props.location.state.ageTo);      
+        });*/        
+        this.searchProfile(
+            this.props.location.state.ageFrom, 
+            this.props.location.state.ageTo, 
+            this.props.location.state.gender,
+            this.props.location.state.mStatus);      
     }
 
     profileClick(profileId) {
@@ -64,11 +66,14 @@ class Results extends Component {
         })
     }
 
-    searchProfile(ageGrater,ageLess) {
+    searchProfile(ageGrater,ageLess, aGender, aMstatus) {
         console.log("this.state.ageFrom" + this.state.ageFrom);
         axios.post('http://localhost:8080/thirumanam/user/list', { 
             ageGreater:ageGrater,
-               ageLess:ageLess })
+               ageLess:ageLess,
+               gender:aGender,
+               mStatus:aMstatus
+             })
          .then(function (res) {
              console.log(res);
              return res.data;
@@ -84,6 +89,41 @@ class Results extends Component {
                 this.setState({pages:""});
              }
          });
+    }
+
+    formatMonth(aMonth) {
+        switch(aMonth) {
+            case 1:
+                return "Jan" ;
+            case 2:
+                return "Feb" ;
+            case 3:
+                return "Mar" ;
+            case 4:
+                return "Apr" ;
+            case 5:
+                return "May" ;
+            case 6:
+                return "Jun" ;
+            case 7:
+                return "July" ;
+            case 8:
+                return "Aug" ;
+            case 9:
+                return "Sep" ;
+            case 11:
+                return "Oct" ;
+            case 12:
+                return "Nov" ;
+            case 13:
+                return "Dec" ;
+            default:
+                return null;
+        }
+    }
+
+    formatDate(aDay, aMonth, aYear) {
+        return aDay.toString().padStart(2, '0') + "-" + this.formatMonth(aMonth) + "-" + aYear;
     }
 
     displayResults(pageNumber) {
@@ -121,6 +161,9 @@ class Results extends Component {
                         email = {data.email}
                         thumbImage = {data.image}
                         profileClick = {this.profileClick}
+                        gender = {data.gender}
+                        id = {data.id}
+                        bDate = {this.formatDate(data.bDay, data.bMonth, data.bYear)}
                     />
                     <span>&nbsp;&nbsp;</span>
                 </div>
@@ -153,7 +196,7 @@ class Results extends Component {
             pageContents.push(<button onClick={this.handleClick} key={'page'+i} value={i} className="pageButton">{i}</button>);
             pageContents.push(<span key={'spanpage'+i}>&nbsp;&nbsp;</span>);
             counter++;
-            if(counter == 11) {
+            if(counter === 11) {
                 break;
             }
         }
@@ -207,8 +250,10 @@ class Results extends Component {
 
     render () {
         return (
-            <div style={{backgroundColor:'red',textAlign:'center'}}>
+            <div style={{textAlign:'center'}}>
+             <div className="hs10" />
                  <TopMenu /> 
+                 <div className="hs30" />
                  <Modal show={this.state.profileClicked} modalClosed={this.profileClosed}>
                     <Profile
                         profile={this.state.profile}
@@ -222,24 +267,32 @@ class Results extends Component {
                                     ageFromChange = {this.ageFromChange}
                                 />
                             </div>
-                            <div className="verticalSeparator">
-
-                            </div>
-
+                            <div className="vs20" />
                             <div key="resultContent" className="resultsection">
-                                <div key="pageNagivationtop" className="pageNavigation">
+                            <div key="pageNagivationtop" className="pageNavContainer">
+                                <div className="searchResultsCount">
+                                       Search Results ({this.state.totalDocs}) 
+                                </div>
+                                <div  className="pageNavigation">
                                         {this.state.pages}
                                 </div>
+                            </div>
+                            <div className="hs10" />
                                 <div key="profileResults" className="profileResults">
                                     {this.state.pictures}
+                                </div>                                   
+                                <div key="pageNagivationBottom" className="pageNavContainer">
+                                <div className="searchResultsCount">                                        
                                 </div>
-                                <div key="pageNagivationbottom" className="pageNavigation">
-                                    <div style={{float:'right'}}>
+                                <div  className="pageNavigation" >
                                         {this.state.pages}
-                                    </div>
-                                </div>    
+                                </div>
+                            </div>
                             </div>                    
                  </div>
+                 <div className="hs30" />
+                 <Footer />
+                 <div className="hs10" />
             </div>
             
         );

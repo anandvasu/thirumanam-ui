@@ -5,7 +5,7 @@
 
 .rlabel {
     display: inline-block;
-    width: 200px;
+    width: 150px;
     text-align: left;
 }
 
@@ -15,11 +15,11 @@
     text-align: left;
 }
 
-.rcontainer {
+.rcontainerOld {
     position: fixed;
     z-index: 500;
     background-color: white;
-    width: 510px;
+    width: 450px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 1px 1px 1px black;
@@ -30,9 +30,31 @@
     transition: all 0.3s ease-out;
 }
 
+.rcontainer {   
+    background-color: white;
+    width: 450px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px grey;
+    padding: 16px;    
+    box-sizing: border-box;
+}
+
 @media (min-width: 600px) {
     .Modal {
         width: 500px;
         left: calc(50% - 250px);
     }
+}
+
+.tandc{
+    width:50%;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.registerButton {
+    width:50%;
+    display: inline-block;
+    text-align: right;
 }

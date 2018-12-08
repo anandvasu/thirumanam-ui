@@ -3,7 +3,9 @@ import logo from '../../assets/images/logo.gif';
 import './Login.css';
 import {Auth} from 'aws-amplify';
 import {toast} from 'react-toastify';
+import {Redirect} from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
+
 import {
     withRouter
   } from 'react-router-dom';
@@ -17,13 +19,14 @@ class Login extends Component {
         this.emailFocusOut = this.emailFocusOut.bind(this);
         this.passwordFocusOut = this.passwordFocusOut.bind(this);
         this.logoClick = this.logoClick.bind(this);
-
+        this.forgotPassword = this.forgotPassword.bind(this);
 
         this.state = {
             username:"Email or Phone",
             password:"Password",
             messageClassName:"messageHide",
-            message:""
+            message:"",
+            confirmUser:false
         }
     }
 
@@ -89,29 +92,42 @@ class Login extends Component {
 
         } else if (String.prototype.trim.call(this.state.password) === "" || 
             String.prototype.trim.call(this.state.password) === "Password") {
-                console.log("password");
-                this.setState({
-                    messageClassName:"messageDisplay",
-                    message:"Please enter Password."
+                console.log("password");               
+            toast.error("Please enter Password", 
+                {
+                    position:toast.POSITION.TOP_CENTER,
+                    hideProgressBar:true,
+                    autoClose:3000,
+                    testId:20
                 });
         } else {      
             Auth.signIn(this.state.username,this.state.password)
             .then((user) => {
-                console.log(user)
-                alert("Logged In");
+                console.log(user)      
+                sessionStorage.setItem("userSession", user.signInUserSession);      
+                this.props.history.push('/signedIn');           
             }).catch((err) => {
                 console.log(err);
                 var errMessage = "";
-                if (err.code === "UserNotFoundException") {
+                if (err.code === "UserNotFoundException" || err.code === "NotAuthorizedException") {
                     errMessage = "Invalid Email or Password."
+                } else if (err.code === "UserNotConfirmedException" || err.code === "UserNotConfirmedException") {                
+                    this.setState({
+                        confirmUser:true
+                    })
                 } else {
                     errMessage = "Server Error Occurred. Please try again later."
                 }
-                 
-                this.setState({
-                    messageClassName:"messageDisplay",
-                    message:errMessage
-                });
+
+                if (errMessage !== "") {
+                    toast.error(errMessage, 
+                    {
+                        position:toast.POSITION.TOP_CENTER,
+                        hideProgressBar:true,
+                        autoClose:3000,
+                        testId:20
+                    });
+                }
             });        
         }
     }
@@ -120,9 +136,23 @@ class Login extends Component {
         this.props.history.push('/home');
     }
 
+    forgotPassword(event) {
+
+    }
+
     render() {
+
+        if (this.state.confirmUser === true) {
+            return <Redirect to= {{
+                                    pathname:'/confirmSignUp' ,
+                                    state:{
+                                        profileId:this.state.profileId
+                                    }                                   
+                                 }}/>
+        }
+
         return(
-            <div style={{backgroundColor:'green'}}>           
+            <div>           
                 <div className="logo">
                     <img src={logo} alt="Not Available" style={{width:'80px'}} onClick={this.logoClick} /> 
                 </div>
@@ -145,7 +175,7 @@ class Login extends Component {
                            <input type="checkbox" /> Remeber me
                         </div>
                         <div className='lfield' style={{paddingLeft:'20px'}}>
-                            <a href="#">Forgot password?</a>
+                            <a href="#" onClick={this.forgotPassword}>Forgot password?</a>
                         </div>
                     </div>
                 </div>

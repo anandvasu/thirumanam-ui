@@ -3,6 +3,9 @@ import './Filter.css';
 import Height from '../utils/Height';
 import MaritalStatus from '../utils/MaritalStatus';
 import Education from '../utils/Education';
+import Occupation from '../utils/Occupation';
+import BodyType from '../utils/BodyType';
+import FoodHabit from '../utils/FoodHabit';
 
 class Filter extends Component {
 
@@ -42,7 +45,7 @@ class Filter extends Component {
         return (
             <div className="filterParent">
                 <div className="header2">
-                    <label>Filter Profiles</label   >
+                    <label>Filter Profiles</label>
                 </div>
                  <div className="header3Parent">
                                 <div className="header3"><label>Age</label></div>
@@ -106,9 +109,18 @@ class Filter extends Component {
                             <div className="header3Parent">
                                 <Education />
                             </div>
-                            <div>
+                            <div className="header3Parent">
                                 <MaritalStatus />
                             </div>
+                            <div className="header3Parent">
+                                <Occupation />
+                            </div>   
+                            <div className="header3Parent">
+                                <BodyType />
+                            </div>   
+                            <div>
+                                <FoodHabit />
+                            </div>                       
             </div>
         );
     }

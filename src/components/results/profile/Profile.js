@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 import './Profile.css';
-import close from '../../../assets/images/close_button.jpg';
 
 class Profile extends Component {
 
@@ -17,18 +16,24 @@ class Profile extends Component {
     render () {
         return (
             <div style={{backgroundColor:'#FFFFFF'}}> 
+            
                  <div className="profileTopBar">
                         <div className="profileHeading">Profile Detail</div>
                         <div className="closeButtonDiv"> 
                             <button className="closeButton" onClick={this.closeButtonHandler}>X</button>
                         </div>
                 </div>
+
+                <div className="hs20" />
+
                 <div className="pContainer">                    
                     <div className="profileImage">
                         <img src={"data:image/jpeg;base64,"+this.props.profile.image} alt="Not Available"></img>&nbsp;&nbsp;&nbsp;
                     </div> 
                     <div className="profileDetail">
-                        <div>Personal Information</div>
+                        <div className="header2">
+                            <label>Personal Information</label>
+                         </div>
                         <div>
                             <div className="profileLabel">
                                 <label> First Name </label>
@@ -110,7 +115,9 @@ class Profile extends Component {
                 </div>
                 <div className="pContainer">
                        <div className="profileLeftContainer">
-                            Location Information
+                            <div className="header2">
+                                <label>Location Information</label>
+                            </div>
                             <div>
                            
                                 <div className="profileLabel">
@@ -154,11 +161,12 @@ class Profile extends Component {
                                 </div>
                             </div>
                        </div>
-                       <div className="profileCenter">
-                            &nbsp;
-                       </div>
-                       <div className="profilRightContainer">
-                            Professional Information
+                       <div className="vs20" />
+                           
+                       <div className="profilRightContainer">                            
+                            <div className="header2">
+                                <label>Professional Information</label>
+                            </div>
                             <div>
                                 <div className="profileLabel">
                                     <label> Education </label>

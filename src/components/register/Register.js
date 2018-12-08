@@ -3,6 +3,7 @@ import './Register.css';
 import axios from 'axios';
 import {Redirect} from "react-router-dom";
 import {toast} from 'react-toastify';
+import {Auth} from 'aws-amplify';
 import 'react-toastify/dist/ReactToastify.css';
 
 class Register extends Component {
@@ -111,6 +112,20 @@ class Register extends Component {
                     })
             .then((res) => {
                 console.log(res);
+
+                Auth.signUp(
+                    {
+                        username:this.state.email,
+                        password:this.state.password,
+                        attributes: {
+                            email:this.state.email,
+                            phone_number:this.state.mobile,
+                            family_name:this.state.last,
+                            given_name:this.state.first
+                        },
+                        
+                    }
+                );
                 this.setState({
                     registersuccess:true,
                     profileId:res.data.code
@@ -165,20 +180,20 @@ class Register extends Component {
                     
                     <div>
                         <div className='rlabel'>
-                             <label>Registered By :</label>
+                             <label>Registered By </label>
                         </div>
                         
                         <div className='rfield'>
-                            <select  onChange={this.onChangeRegisteredBy}>
-                                <option value="self" selected>self</option>
-                                <option value="Father">Father</option>
-                                <option value="Mother">Mother</option>                            
+                            <select onChange={this.onChangeRegisteredBy}>
+                                <option value="S" selected>self</option>
+                                <option value="F">Father</option>
+                                <option value="M">Mother</option>                            
                             </select>
                         </div>
                     </div>
                     <div>
                         <div className='rlabel'>
-                            <label>First Name :</label>
+                            <label>First Name</label>
                         </div>
                         <div className='rfield'>
                             <input type='text'  onChange={this.onChangeFirst}></input>
@@ -186,7 +201,7 @@ class Register extends Component {
                     </div>
                     <div>
                         <div className='rlabel'>
-                            <label> Last Name :</label>
+                            <label> Last Name</label>
                         </div>
                         <div className='rfield'>
                             <input type='text' onChange={this.onChangeLast}></input>
@@ -194,10 +209,10 @@ class Register extends Component {
                     </div>
                     <div>
                         <div className='rlabel'>
-                            <label>Data of birth :</label>
+                            <label>Data of birth</label>
                         </div>
                         <div className='rfield'>
-                            <select  onChange={this.onChangeDay}>
+                            <select onChange={this.onChangeDay}>
                                 <option value="DD" selected>DD</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -212,7 +227,7 @@ class Register extends Component {
                                 <option value="11">11</option>
                                 <option value="12">12</option>
                             </select>&nbsp;&nbsp;
-                            <select  onChange={this.onChangeMonth}>
+                            <select onChange={this.onChangeMonth}>
                                 <option value="MM" selected>MM</option>
                                 <option value="1">Jan</option>
                                 <option value="2">Feb</option>
@@ -227,7 +242,7 @@ class Register extends Component {
                                 <option value="11">Nov</option>
                                 <option value="12">Dec</option>
                             </select>&nbsp;&nbsp;
-                            <select  onChange={this.onChangeYear}>
+                            <select onChange={this.onChangeYear}>
                                 <option value="YEAR" selected>YEAR</option>
                                 <option value="2000">2000</option>
                                 <option value="1999">1999</option>
@@ -265,27 +280,27 @@ class Register extends Component {
                     </div>
                     <div>
                         <div className='rlabel'>
-                            <label>Religion :</label>
+                            <label>Religion</label>
                         </div>
                         <div className='rfield'>
-                            <select  onChange={this.onChangeDay}>
-                                <option value="Hindu" selected>Hindu</option>                                                 
+                            <select onChange={this.onChangeDay}>
+                                <option value="H" selected>Hindu</option>                                                 
                             </select>&nbsp;&nbsp;
                         </div>
                     </div>
                     <div>
                         <div className='rlabel'>
-                            <label>Caste :</label>
+                            <label>Caste</label>
                         </div>
                         <div className='rfield'>
-                            <select  onChange={this.onChangeDay}>
-                                <option value="Vanniyar" selected>Vanniyar</option>                                                 
+                            <select onChange={this.onChangeDay}>
+                                <option selected>Vanniyar</option>                                                 
                             </select>&nbsp;&nbsp;
                         </div>
                     </div>
                     <div>
                         <div className='rlabel'>
-                            <label>Mobile Number :</label>
+                            <label>Mobile Number</label>
                         </div>
                         <div className='rfield'>
                             <input type='text'  onChange={this.onChangeMobile}></input>
@@ -293,7 +308,7 @@ class Register extends Component {
                     </div>
                     <div>
                         <div className='rlabel'>
-                            <label>Gender :</label>
+                            <label>Gender</label>
                         </div>
                         <div className='rfield'>        
                             <input type="radio" name='gender' value="M" onChange={this.genderChange}/>
@@ -308,7 +323,7 @@ class Register extends Component {
                     </div>
                     <div>
                         <div className='rlabel'>
-                            <label>Email :</label>
+                            <label>Email</label>
                         </div>
                         <div className='rfield'>
                             <input type='text'  onChange={this.onChangeEmail}></input>
@@ -316,7 +331,7 @@ class Register extends Component {
                     </div>
                     <div>
                         <div className='rlabel'>
-                            <label>Password :</label>
+                            <label>Password</label>
                         </div>
                         <div className='rfield'>
                             <input type='password'  onChange={this.onChangePassword}></input>
@@ -324,8 +339,13 @@ class Register extends Component {
                     </div>                   
                     <div className='rlabel'> 
                     </div>
-                    <div className='rfield'>
-                        <button onClick={this.register} >Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div style={{width:'100%'}}>
+                         <div className='tandc'>
+                            <input type="checkbox" />I have read and agree to the <b><u>T&amp;C</u></b> and <b><u>Privacy Policy</u></b>
+                        </div>
+                        <div className='registerButton'>
+                                <button onClick={this.register} >Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>
                     </div>
                 </div>                
             </div>

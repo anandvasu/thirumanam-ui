@@ -7,15 +7,17 @@
 .qSearchInner {
     width:700px;
     padding:8px;
-    display: inline-block;
+    display: inline-block;   
 }
 
 .qSearchFields {
-    display:flex;
+    display:inline-table;
+    vertical-align: middle;
 }
 
 .qSearchFields div {
-    display:flex;
+    display:inline-table;
+    vertical-align: middle;
     text-decoration: none;
     padding:10px;
 }

@@ -1,7 +1,6 @@
 .resultsContainer {
     width:80%;
     display:inline-block;  
-    background-color:yellow;   
 }
 
 .filtersection {
@@ -13,8 +12,8 @@
 .resultsection {
     display:inline-block;    
     width:72%;
-    background-color:green;
     text-align: center;
+    vertical-align: top;
 }
 
 .pageButton {
@@ -32,13 +31,27 @@
     font-size: 12px;
 }
 
+.pageNavContainer {
+    width:100%;
+    display:inline-block; 
+    vertical-align: top;
+}
+
+.searchResultsCount {
+    display:inline-block;
+    width:55%;
+    text-align: left;
+    vertical-align: top;
+    font-size: 18px; 
+    font-weight: bold;
+}
+
 .pageNavigation {
-   width:80%;
-   text-align: right;
-   background-color:blue;
+   width:45%;
+   display:inline-block;  
+   text-align: left;
 }
 
 .profileResults {
     text-align: center;
-    background-color:orange;
 }

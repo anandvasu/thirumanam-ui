@@ -11,7 +11,6 @@
 .logo {
     display:inline-block;
     width:40%;
-    background-color:yellow;
 }
 
 .logo img:hover {
@@ -24,7 +23,7 @@
     width:40%;
     height: 75px;
     overflow: hidden;
-    text-align: center;
+    text-align: left;
 }
 
 /* Style the topnav links */

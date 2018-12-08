@@ -7,7 +7,7 @@ body {
 
 .app  {  
   text-align: center;
-  width:99%;
+  width:100%;
 }
 
 font {
@@ -15,8 +15,10 @@ font {
 }
 
 button {
-  background-color: rgb(27, 133, 62);
+  border-color: rgb(27, 133, 62);
+  background-color:#0B6623;
   border-radius: 5px;
+  border-width: 1px;
   height:30px;
   width:100px;
   font-size: 18px;
@@ -63,13 +65,62 @@ hr {
   width:30px;
 }
 
-.verticalSeparator {
+.vs20 {
   width:20px;
   display: inline-block;
 }
+.vs30 {
+  width:30px;
+  display: inline-block;
+}
+
+.vs40 {
+  width:40px;
+  display: inline-block;
+}
+
+.vs50 {
+  width:50px;
+  display: inline-block;
+}
+
+.vs100 {
+  width:100px;
+  display: inline-block;
+}
+
+.vs200 {
+  width:200px;
+  display: inline-block;
+}
+
+.hs10 {
+  height: 10px;
+  width:100%;
+}
+
+.hs20 {
+  height: 20px;
+  width:100%;
+}
+
+.hs30 {
+  height: 30px;
+  width:100%;
+}
+
+.hs40 {
+  height: 40px;
+  width:100%;
+}
+
+.hs50 {
+  height: 50px;
+  width:100%;
+}
 
 .header2 {
-  height:35px;  
+  height:28px;  
   background-color:rgb(225, 229, 230);  
   border-style: solid;  
   border-color: darkgrey;  
@@ -114,4 +165,8 @@ hr {
   border-top-width: 0px;
   border-left-width: 0px;
   border-right-width: 0px; 
+}
+
+.paddingTop10 {
+  padding-top: 10px;
 }
