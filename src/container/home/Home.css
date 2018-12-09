@@ -2,6 +2,33 @@
     display: inline;
 }
 
+.barContainer {
+    width: 100%;
+    background-color: #565656;
+    vertical-align: middle;
+}
+
+.barIContainer {
+    display: inline-block;
+    width: 30%;
+    vertical-align: middle;
+}
+
+.barImage{
+    padding-top : 10px;
+    height: 80px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.barText{
+    display: inline-block;
+    color:white;
+    padding-left: 10px;
+    vertical-align: middle;
+    height: 80px;
+}
+
 
 /* Middle column */
 .content {
@@ -33,6 +60,6 @@
 }
 
 .qregister {
-    padding-top: 30px;
+    padding-top: 15px;
     display: inline-flex;    
 }
