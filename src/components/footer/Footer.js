@@ -21,7 +21,7 @@ class Footer extends Component {
         return(
            <div className="fcontainer">
                <div className="copyRight">
-                    Copyright © 2018. All rights reserved
+                    <label>Copyright © 2018. All rights reserved</label>
                 </div>
                <div className="socialMedia">
                         <img src={facebook} onClick={() => this.socialMediaClick("www.facebook.com")} />
