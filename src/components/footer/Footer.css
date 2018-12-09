@@ -1,7 +1,26 @@
 .fcontainer {
     text-align: center;
+    vertical-align: middle;
+    height: 40px;
 }
 
+.copyRight {
+    width:40%;    
+    display:inline-table; 
+}
+
+.socialMedia {
+    width:40%;
+    display:inline-table;    
+}
+
+.socialMedia img {
+    padding-right: 10px;
+}
+
+.socialMedia img:hover {
+    cursor: pointer;
+ }
 /* Style the top navigation bar */
 .footer {
     overflow: hidden;
