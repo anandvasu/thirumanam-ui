@@ -1,6 +1,5 @@
 .ricontainer {
     text-align: center;
-    padding: 10px;   
 }
 
 .rlabel {
@@ -36,7 +35,7 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 1px 1px 1px grey;
-    padding: 16px;    
+    padding: 5px;    
     box-sizing: border-box;
 }
 
@@ -47,14 +46,20 @@
     }
 }
 
+.rbTandButton {
+    text-align: center;
+    display: inline-block;
+}
+
 .tandc{
-    width:50%;
+    width:58%;
     display: inline-block;
     font-size: 14px;
 }
 
 .registerButton {
-    width:50%;
+    width:38%;
     display: inline-block;
     text-align: right;
+    vertical-align: top;
 }

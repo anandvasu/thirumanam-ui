@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import QuickSearch from '../../components/search/QuickSearch';
 import Register from '../../components/register/Register';
 import Footer from '../../components/footer/Footer'
-import mangalyam from '../../assets/images/mangalyam.png';
-import pair from '../../assets/images/pair.png';
 import mobile from '../../assets/images/mobile.png';
 import TopMenu from '../../components/menu/TopMenu';
 import './Home.css';
@@ -13,14 +11,15 @@ class Home extends Component {
     render () {
         return (
             <div>
-                 <div className="hs10" />
+                <div className="hs10" />
                 <TopMenu />  
+                <div className="hs10" />
                 <QuickSearch />
                 <div className="middlecontainer">  
                     <div className="qregister">
                          <Register />
                     </div> 
-                    <div className="vs200" />
+                    <div className="vs100" />
                 </div>
                 <div className="hs10" />
                 <div className="container"> 

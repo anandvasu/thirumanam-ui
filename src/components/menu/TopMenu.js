@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './TopMenu.css';
 import Login from '../login/Login';
 import Menu from '../menu/Menu';
-import config from '../../config';
 
 class TopMenu extends Component {
 
@@ -16,9 +15,9 @@ class TopMenu extends Component {
     componentDidMount () {
         let content = [];
         if (sessionStorage.getItem("userSession") !== null) {           
-            content.push(<div key="menuKey" className="topmenucontainer"> <Menu /></div>);
+            content.push(<Menu />);
         } else {           
-            content.push(<div key="loginKey" className="topmenucontainer"> <Login /> </div>);
+            content.push(<Login />);
         }
         this.setState({content:content});
     }
@@ -26,9 +25,7 @@ class TopMenu extends Component {
     render() {
         return(
                 <div className="topmenucontainer"> 
-                    <div>
                         {this.state.content}
-                    </div>            
                 </div>                   
         );
     }

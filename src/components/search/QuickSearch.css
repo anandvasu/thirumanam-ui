@@ -6,7 +6,7 @@
 
 .qSearchInner {
     width:700px;
-    padding:8px;
+    padding:4px;
     display: inline-block;   
 }
 
@@ -19,5 +19,5 @@
     display:inline-table;
     vertical-align: middle;
     text-decoration: none;
-    padding:10px;
+    padding:5px;
 }

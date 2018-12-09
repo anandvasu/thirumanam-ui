@@ -3,32 +3,12 @@
    /* border: 1px solid #DDFFCC;*/
 }
 
-.topmenuinnercontainer {
-    text-align: center;
-    height: 100%;
-}
-
 .logo {
     display:inline-block;
-    width:40%;
+    text-align: left;
+    width:25%;
 }
 
-/* Style the top navigation bar */
-.topnav {    
-    display:inline-block;
-    width:40%;
-    height: 75px;
-    overflow: hidden;
-    text-align: center;
-}
-
-/* Style the topnav links */
-.topnav a {    
-    text-align: center;
-    text-decoration: none;
-}
-
-/* Change color on hover */
-.topnav a:hover {
-    color: black;
-}
+.logo img:hover {
+    cursor: pointer;
+ }

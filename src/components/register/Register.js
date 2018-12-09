@@ -5,6 +5,7 @@ import {Redirect} from "react-router-dom";
 import {toast} from 'react-toastify';
 import {Auth} from 'aws-amplify';
 import 'react-toastify/dist/ReactToastify.css';
+import Constant from '../../Constant';
 
 class Register extends Component {
 
@@ -130,33 +131,40 @@ class Register extends Component {
                     registersuccess:true,
                     profileId:res.data.code
                 });
-                toast.success("Profile Saved Successfully", 
-                    {
-                        position:toast.POSITION.TOP_CENTER,
-                        hideProgressBar:true,
-                        autoClose:3000,
-                        testId:20
-                    });
+
+                if (! toast.isActive(this.toastId)) {
+                    toast.success("Profile Saved Successfully", 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            toastId:Constant.toastIdSuccess
+                        });
+                }
             })
             .catch((error) => {
                 console.log(error);
-                toast.error(error.response.data.message, 
+                if (! toast.isActive(this.toastId)) {
+                    toast.error(error.response.data.message, 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            toastId:Constant.toastIdErr
+                        });
+                }
+            
+            });
+        } else {
+            if (! toast.isActive(this.toastId)) {
+                toast.error(errorMessage, 
                     {
                         position:toast.POSITION.TOP_CENTER,
                         hideProgressBar:true,
                         autoClose:3000,
-                        testId:20
+                        toastId:Constant.toastIdErr
                     });
-            
-            });
-        } else {
-            toast.error(errorMessage, 
-                {
-                    position:toast.POSITION.TOP_CENTER,
-                    hideProgressBar:true,
-                    autoClose:3000,
-                    testId:20
-                });
+            }
         }
     }
 
@@ -336,15 +344,14 @@ class Register extends Component {
                         <div className='rfield'>
                             <input type='password'  onChange={this.onChangePassword}></input>
                         </div>
-                    </div>                   
-                    <div className='rlabel'> 
-                    </div>
-                    <div style={{width:'100%'}}>
+                    </div>                  
+                    <div className="hs10" />
+                    <div className="rbTandButton">
                          <div className='tandc'>
                             <input type="checkbox" />I have read and agree to the <b><u>T&amp;C</u></b> and <b><u>Privacy Policy</u></b>
                         </div>
                         <div className='registerButton'>
-                                <button onClick={this.register} >Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button onClick={this.register} >Register</button>
                         </div>
                     </div>
                 </div>                

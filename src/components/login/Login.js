@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {
     withRouter
   } from 'react-router-dom';
+import Constant from '../../Constant';
   
 class Login extends Component {
 
@@ -79,28 +80,18 @@ class Login extends Component {
     loginClick(event) {
         event.preventDefault();
 
+        let errorMessage = null;
+
         if(String.prototype.trim.call(this.state.username) === "" || 
             String.prototype.trim.call(this.state.username) === "Email or Phone") {
-                console.log("username");
-                toast.error("Please enter user name.", 
-                    {
-                        position:toast.POSITION.TOP_CENTER,
-                        hideProgressBar:true,
-                        autoClose:3000,
-                        testId:20
-                    });
-
+                errorMessage = "Please enter user name.";
         } else if (String.prototype.trim.call(this.state.password) === "" || 
             String.prototype.trim.call(this.state.password) === "Password") {
-                console.log("password");               
-            toast.error("Please enter Password", 
-                {
-                    position:toast.POSITION.TOP_CENTER,
-                    hideProgressBar:true,
-                    autoClose:3000,
-                    testId:20
-                });
-        } else {      
+                errorMessage = "Please enter Password.";   
+        } 
+        
+        
+        if (errorMessage === null) {      
             Auth.signIn(this.state.username,this.state.password)
             .then((user) => {
                 console.log(user)      
@@ -125,10 +116,18 @@ class Login extends Component {
                         position:toast.POSITION.TOP_CENTER,
                         hideProgressBar:true,
                         autoClose:3000,
-                        testId:20
+                        toastId:Constant.toastIdErr
                     });
                 }
             });        
+        } else {
+            toast.error(errorMessage, 
+                {
+                    position:toast.POSITION.TOP_CENTER,
+                    hideProgressBar:true,
+                    autoClose:3000,
+                    toastId:Constant.toastIdErr
+                });
         }
     }
 
@@ -157,6 +156,7 @@ class Login extends Component {
                     <img src={logo} alt="Not Available" style={{width:'80px'}} onClick={this.logoClick} /> 
                 </div>
                 <div className="loginSection">
+                    <div className="hs20" />
                     <div>
                         <div className='lfield'>
                             <input type='text'  onChange={this.onChangeEmail} 
@@ -171,12 +171,15 @@ class Login extends Component {
                         </div>
                     </div>
                     <div>
-                        <div className='lfield' style={{paddingRight:'20px'}}>
-                           <input type="checkbox" /> Remeber me
+                       
+                        <div className='rememberMe'>
+                           <input type="checkbox" /> <label>Remeber me</label>
                         </div>
-                        <div className='lfield' style={{paddingLeft:'20px'}}>
+                        <div className="vs50" />
+                        <div className='rememberMe'>
                             <a href="#" onClick={this.forgotPassword}>Forgot password?</a>
                         </div>
+                        <div className="vs100" />
                     </div>
                 </div>
             </div>

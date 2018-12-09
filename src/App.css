@@ -15,16 +15,13 @@ font {
 }
 
 button {
-  border-color: rgb(27, 133, 62);
   background-color:#0B6623;
   border-radius: 5px;
-  border-width: 1px;
   height:30px;
   width:100px;
   font-size: 18px;
   border: none;
   color: white;
-  margin: 5px 0;
 } 
 
 button:hover {
