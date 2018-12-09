@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import logo from '../../assets/images/logo.gif';
 import './Menu.css';
+import {Redirect} from "react-router-dom";
 import {
     withRouter
   } from 'react-router-dom';
@@ -11,6 +12,10 @@ class Menu extends Component {
         super(props);
         this.goToHome = this.goToHome.bind(this);
         this.logout = this.logout.bind(this);
+
+        this.state = {
+            logout : false
+        }
     }
 
     goToHome() {
@@ -19,10 +24,21 @@ class Menu extends Component {
 
     logout() {
        sessionStorage.clear();
-       this.props.history.push('/home');
+       this.setState({
+            logout:true
+       });
     }
 
     render() {
+
+        if (this.state.logout === true) {
+            return <Redirect to= {{
+                                    pathname:'/home' ,
+                                    state:{
+                                        logout:this.state.logout
+                                    }                                   
+                                 }}/>
+        }
         return(
             <div>
                 <div className="logo">

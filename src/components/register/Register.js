@@ -182,8 +182,8 @@ class Register extends Component {
         return (
             <div className='rcontainer'>             
                 <div className='ricontainer'>
-                     <div style={{padding:'10px',fontWeight:'bold'}}>
-                        Register. It is free!
+                     <div class="rHeading">
+                        FREE Registration
                     </div>
                     
                     <div>

@@ -2,11 +2,20 @@
     text-align: center;
 }
 
+.rHeading {
+    padding-top : 10px;
+    padding-bottom : 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 .rlabel {
     display: inline-block;
     width: 150px;
     text-align: left;
 }
+
+
 
 .rfield {
     display: inline-block;
