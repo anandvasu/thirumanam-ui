@@ -1,17 +1,25 @@
 .fcontainer {
     text-align: center;
     vertical-align: middle;
+<<<<<<< HEAD
     height: 40px;    
+=======
+    height: 40px;
+    display:table; 
+    width: 100%;
+>>>>>>> 5790abf15428d979384fa950e53385c6306d1013
 }
 
 .copyRight {
-    width:40%;    
-    display:inline-table; 
+    width:50%;    
+    display:table-cell; 
+    vertical-align: middle;
 }
 
 .socialMedia {
-    width:40%;
-    display:inline-table;    
+    width:50%;
+    vertical-align: middle;
+    display:table-cell;    
 }
 
 .socialMedia img {
