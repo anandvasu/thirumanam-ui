@@ -1,7 +1,8 @@
 .Modal {
     position: fixed;
     z-index: 500;
-    width: 70%;
+    width: 90%;
+    height: 750px;
     background-color:#FFFFFF;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
@@ -12,7 +13,7 @@
     transition: all 0.3s ease-out;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
     .Modal {
         width: 50%;
         left: calc(35% - 250px);

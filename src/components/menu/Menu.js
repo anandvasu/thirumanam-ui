@@ -48,6 +48,7 @@ class Menu extends Component {
                     <div className="hs20" />
                     <div className="menufield">
                         <a href="#" onClick={this.goToHome}>Home</a>
+                        <a href="/account">Account</a>
                         <a href="/contact">Payment</a>
                         <a href="/contact">Contact Us</a>
                         <a href="#" onClick={this.logout}>Logout</a>

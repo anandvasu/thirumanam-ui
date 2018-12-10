@@ -16,14 +16,25 @@ class RegisterDetail extends Component {
         this.imageHandler = this.imageHandler.bind(this);
         this.updateProfile = this.updateProfile.bind(this);
         this.countryChange = this.countryChange.bind(this);
-        this.stateChange = this.stateChange.bind(this);
+        this.profileStateChange = this.profileStateChange.bind(this);
         this.districtChange = this.districtChange.bind(this);
         this.cityChange = this.cityChange.bind(this);
+
+        this.maritalStatusChange = this.maritalStatusChange.bind(this);
+        this.heightChange = this.heightChange.bind(this);
+        this.weightChange = this.weightChange.bind(this);
+        this.familyTypeChange = this.familyTypeChange.bind(this);
+        this.familyValueChange = this.familyValueChange.bind(this);
+        this.disablityChange = this.disablityChange.bind(this);
+
+        this.educationChange = this.educationChange.bind(this);
+        this.employmentChange = this.employmentChange.bind(this);
+        this.incomeChange = this.incomeChange.bind(this);
 
         this.state = {
             image : null,
             country: "IND",
-            stateValue:"TN",
+            pstate:"TN",
             district:"",
             city:"",
             mStatus:"NM",
@@ -43,8 +54,8 @@ class RegisterDetail extends Component {
         this.setState({country:value});
     }
 
-    stateChange(value) {
-        this.setState({stateValue:value});
+    profileStateChange(value) {
+        this.setState({pstate:value});
     }
 
     districtChange(value) {
@@ -58,6 +69,43 @@ class RegisterDetail extends Component {
     imageHandler(image) {
         this.setState({image:image});
     }
+
+    maritalStatusChange(value) {
+        this.setState({mStatus:value});
+    }
+
+    heightChange(value) {
+        this.setState({height:value});
+    }
+
+    weightChange(value) {
+        this.setState({weight:value});
+    }
+
+    familyTypeChange(value) {
+        this.setState({familyType:value});
+    }
+
+    familyValueChange(value) {
+        this.setState({familyValue:value});
+    }
+
+    disablityChange(value) {
+        this.setState({disability:value});
+    }
+
+    educationChange(value) {
+        this.setState({education:value});
+    }
+
+    employmentChange(value) {
+        this.setState({employment:value});
+    }
+
+    incomeChange(value) {
+        this.setState({income:value});
+    }
+
 
     componentDidMount() {
         console.log("this.props.location.state" + this.props.location.state.profileId);
@@ -91,7 +139,7 @@ class RegisterDetail extends Component {
                 axios.put('http://localhost:8080/thirumanam/user/profile', 
                 { 
                     country:this.state.country,
-                    stateValue:this.state.stateValue,
+                    pstate:this.state.pstate,
                     district:this.state.district,
                     city:this.state.city,
                     mStatus: this.state.mStatus,
@@ -102,7 +150,8 @@ class RegisterDetail extends Component {
                     disabled: this.state.disability,
                     education: this.state.education,
                     employment: this.state.employment,
-                    income: this.state.income
+                    income: this.state.income,
+                    id:this.state.regProfileId
                 })
                 .then((res) => {
                     console.log(res);
@@ -148,19 +197,23 @@ class RegisterDetail extends Component {
                 <UploadImage imageHandler={this.imageHandler}/>                
                 <Location 
                     countryChange = {this.countryChange}
-                    stateChange = {this.stateChange}
+                    profileStateChange = {this.profileStateChange}
                     districtChange = {this.districtChange}
                     cityChange = {this.cityChange}
                 />
                 <PersonalDetail 
-                    mStatusChange = {this.mStatusChange}
+                    maritalStatusChange = {this.maritalStatusChange}
                     heightChange = {this.heightChange}
                     weightChange = {this.weightChange}
                     familyTypeChange = {this.familyTypeChange}
                     familyValueChange = {this.familyValueChange}
                     disabilityChange = {this.disabilityChange}
                 />
-                <ProfDetail />
+                <ProfDetail 
+                    educationChange = {this.educationChange}
+                    employmentChange = {this.employmentChange}
+                    incomeChange = {this.incomeChange}
+                />
                 <div className='rfield'>
                             <button onClick={this.updateProfile}>Submit</button>
                 </div>

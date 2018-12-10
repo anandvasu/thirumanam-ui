@@ -6,6 +6,11 @@ import defaultMImage from '../../../assets/images/default_male.jpg';
 
 class ProfileSummary extends Component {
 
+
+    getProfile() {
+
+    }
+
     render () {
 
         let image;

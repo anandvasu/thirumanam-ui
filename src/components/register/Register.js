@@ -114,7 +114,12 @@ class Register extends Component {
             .then((res) => {
                 console.log(res);
 
-                Auth.signUp(
+                this.setState({
+                    registersuccess:true,
+                    profileId:res.data.code
+                });
+
+             /*   Auth.signUp(
                     {
                         username:this.state.email,
                         password:this.state.password,
@@ -126,23 +131,29 @@ class Register extends Component {
                         },
                         
                     }
-                );
-                this.setState({
-                    registersuccess:true,
-                    profileId:res.data.code
-                });
-
-                if (! toast.isActive(this.toastId)) {
-                    toast.success("Profile Saved Successfully", 
-                        {
-                            position:toast.POSITION.TOP_CENTER,
-                            hideProgressBar:true,
-                            autoClose:3000,
-                            toastId:Constant.toastIdSuccess
-                        });
-                }
+                ) .then((res) => {
+                    this.setState({
+                        registersuccess:true,
+                        profileId:res.data.code
+                    });
+                  
+                }) .catch((error) => {
+                    console.log(error);
+                    if (! toast.isActive(this.toastId)) {
+                        toast.error(error.message, 
+                            {
+                                position:toast.POSITION.TOP_CENTER,
+                                hideProgressBar:true,
+                                autoClose:3000,
+                                toastId:Constant.toastIdErr
+                            });
+                    }
+                
+                }); */
+                
             })
             .catch((error) => {
+                console.log("before error");
                 console.log(error);
                 if (! toast.isActive(this.toastId)) {
                     toast.error(error.response.data.message, 
@@ -182,7 +193,7 @@ class Register extends Component {
         return (
             <div className='rcontainer'>             
                 <div className='ricontainer'>
-                     <div class="rHeading">
+                     <div className="rHeading">
                         FREE Registration
                     </div>
                     

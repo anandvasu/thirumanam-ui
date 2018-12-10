@@ -1,11 +1,19 @@
+.profileParentContainer {
+    background-color:#FFFFFF;
+    overflow: auto;
+}
+
 .pContainer {   
     background-color: #FFF;
     width:90%;
     padding: 10px;
+   
 }
 
-.ccsscolor{
-    border-color: rgb(165, 189, 173);
+.profileImage {
+    text-align: left;
+    width:420px;
+    display: inline-block;
 }
 
 .profileDetail {
@@ -13,7 +21,7 @@
     border-color: rgb(165, 189, 173);
     vertical-align: top;
     display: inline-block;
-    width:65%;    
+    width:350px;    
 }
 
 .profileButton {
@@ -35,13 +43,6 @@
     text-align: left;
     width:65%;
     display: inline-block;
-}
-
-.profileImage {
-    text-align: left;
-    width:30%;
-    display: inline-block;
-
 }
 
 .profileLeftContainer {

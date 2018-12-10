@@ -41,9 +41,9 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
+                
                 <div className="hs20" />
                 <Footer />
-                <div className="hs10" />
             </div>          
         );
     }

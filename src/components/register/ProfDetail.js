@@ -3,6 +3,26 @@ import './ProfDetail.css'
 
 class ProfDetail extends Component {
 
+    constructor(props) {
+        super(props); 
+
+        this.educationChange = this.educationChange.bind(this);
+        this.employmentChange = this.employmentChange.bind(this);
+        this.incomeChange = this.incomeChange.bind(this);
+    }
+
+    educationChange(event) {
+        this.props.educationChange(event.target.value);
+    }
+
+    employmentChange(event) {
+        this.props.employmentChange(event.target.value);
+    }
+
+    incomeChange(event) {
+        this.props.incomeChange(event.target.value);
+    }
+
     render () {
         return (
             <div className="rdlcontaniner">
@@ -22,7 +42,7 @@ class ProfDetail extends Component {
                         </div>
                         
                         <div className='rfield'>
-                            <select  onChange={this.onChangeRegisteredBy}>
+                            <select  onChange={this.educationChange}>
                                 <option value="BE" selected>Bachelor of Engineering</option>
                                 <option value="BTech">Bachelor of Technology</option>                     
                             </select>
@@ -35,7 +55,7 @@ class ProfDetail extends Component {
                         </div>
                         
                         <div className='rfield'>
-                        <select  onChange={this.onChangeRegisteredBy}>
+                        <select  onChange={this.employmentChange}>
                                 <option value="G" selected>Government</option>
                                 <option value="P">Private</option>
                                 <option value="B">Business</option> 
@@ -52,7 +72,7 @@ class ProfDetail extends Component {
                         </div>
                         
                         <div className='rfield'>
-                            <input type="text" />
+                            <input type="text" onBlur={this.incomeChange}/>
                         </div>                        
                     </div>
                     <hr />

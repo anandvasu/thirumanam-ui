@@ -7,7 +7,7 @@ class Location extends Component {
         super(props);
 
         this.countryChange = this.countryChange.bind(this);
-        this.stateChange = this.stateChange.bind(this);
+        this.profileStateChange = this.profileStateChange.bind(this);
         this.districtChange = this.districtChange.bind(this);
         this.cityChange = this.cityChange.bind(this);
     }
@@ -16,8 +16,8 @@ class Location extends Component {
         this.props.countryChange(event.target.value);
     }
 
-    stateChange(event) {
-        this.props.stateChange(event.target.value);
+    profileStateChange(event) {
+        this.props.profileStateChange(event.target.value);
     }
 
     districtChange(event) {
@@ -61,7 +61,7 @@ class Location extends Component {
                         </div>
                         
                         <div className='rfield'>
-                            <select  onChange={this.stateChange}>
+                            <select  onChange={this.profileStateChange}>
                             <option value='AP'>Andhra Pradesh</option>
                                 <option value='AN'>Andaman and Nicobar Islands</option>
                                 <option value='AR'>Arunachal Pradesh</option>

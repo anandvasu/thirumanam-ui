@@ -15,7 +15,7 @@ class Profile extends Component {
 
     render () {
         return (
-            <div style={{backgroundColor:'#FFFFFF'}}> 
+            <div className="profileParentContainer"> 
             
                  <div className="profileTopBar">
                         <div className="profileHeading">Profile Detail</div>
@@ -28,7 +28,7 @@ class Profile extends Component {
 
                 <div className="pContainer">                    
                     <div className="profileImage">
-                        <img src={"data:image/jpeg;base64,"+this.props.profile.image} alt="Not Available"></img>&nbsp;&nbsp;&nbsp;
+                        <img src={"data:image/jpeg;base64,"+this.props.profile.image} alt="Not Available" width="400px" height="500px"></img>&nbsp;&nbsp;&nbsp;
                     </div> 
                     <div className="profileDetail">
                         <div className="header2">
@@ -77,40 +77,7 @@ class Profile extends Component {
                             <div className="profileField">
                                 <label> {this.props.profile.email} </label>
                             </div>     
-                        </div>  
-                        <div>
-                            <div className="profileLabel">
-                                <label>Country </label>
-                            </div>
-                            <div className="profileCenter">
-                                <label> : </label>
-                            </div>
-                            <div className="profileField">
-                                <label> {this.props.profile.country} </label>
-                            </div>     
-                        </div>  
-                        <div>
-                            <div className="profileLabel">
-                                <label>State </label>
-                            </div>
-                            <div className="profileCenter">
-                                <label> : </label>
-                            </div>
-                            <div className="profileField">
-                                <label> {this.props.profile.state} </label>
-                            </div>     
-                        </div> 
-                        <div>
-                            <div className="profileLabel">
-                                <label>City </label>
-                            </div>
-                            <div className="profileCenter">
-                                <label> : </label>
-                            </div>
-                            <div className="profileField">
-                                <label> {this.props.profile.city} </label>
-                            </div>     
-                        </div> 
+                        </div>                         
                     </div>               
                 </div>
                 <div className="pContainer">
@@ -137,7 +104,7 @@ class Profile extends Component {
                                     <label> : </label>
                                 </div>
                                 <div className="profileField">
-                                    <label> {this.props.profile.country} </label>
+                                    <label> {this.props.profile.pstate} </label>
                                 </div> 
 
                                 <div className="profileLabel">
