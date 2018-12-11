@@ -15,7 +15,8 @@ font {
 }
 
 button {
-  background-color:#0B6623;
+  background-color:#0B6623; 
+  /* background-color: #BE29EC; */
   border-radius: 5px;
   height:30px;
   width:100px;
@@ -125,6 +126,7 @@ hr {
 .header2 {
   height:28px;  
   background-color:rgb(225, 229, 230);  
+  /*background-color: #BE29EC;*/
   border-style: solid;  
   border-color: darkgrey;  
   vertical-align: center;
@@ -138,7 +140,8 @@ hr {
 
 .header2allborder {
     height:28px;  
-    background-color:rgb(225, 229, 230);  
+    background-color:rgb(225, 229, 230);
+    /* background-color: #d896ff;  */
     border-style: solid;  
     border-color: darkgrey;  
     vertical-align: center;

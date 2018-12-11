@@ -177,8 +177,9 @@ class PersonalDetail extends Component {
                         
                         <div className='rdfield'>
                             <select  onChange={this.familyTypeChange}>
+                                <option value="">--Select--</option>
                                 <option value="JO">Joint</option>
-                                <option value="NU" selected>Nucler</option>                                
+                                <option value="NU">Nucler</option>                                
                             </select>
                         </div>                        
                     </div>
@@ -190,10 +191,11 @@ class PersonalDetail extends Component {
                         
                         <div className='rdfield'>
                             <select  onChange={this.familyValueChange}>
+                                <option value="">--Select--</option>
                                 <option value="OR">Orthodox</option>
-                                <option value="NU" selected>Traditional</option>    
-                                <option value="MO" selected>Moderate</option> 
-                                <option value="LI" selected>Liberal</option>                             
+                                <option value="NU">Traditional</option>    
+                                <option value="MO">Moderate</option> 
+                                <option value="LI">Liberal</option>                             
                             </select>
                         </div>                        
                     </div>
@@ -205,8 +207,9 @@ class PersonalDetail extends Component {
                         
                         <div className='rdfield'>
                             <select  onChange={this.disabledChange}>
+                                <option value="">--Select--</option>
                                 <option value="Y">Yes</option>
-                                <option value="N" selected>No</option>                                                       
+                                <option value="N">No</option>                                                       
                             </select>
                         </div>                        
                     </div>

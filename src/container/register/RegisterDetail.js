@@ -7,6 +7,7 @@ import './RegisterDetail.css';
 import TopMenu from '../../components/menu/TopMenu';
 import axios from 'axios';
 import {toast} from 'react-toastify';
+import {Redirect} from "react-router-dom";
 
 class RegisterDetail extends Component {
 
@@ -37,7 +38,7 @@ class RegisterDetail extends Component {
             pstate:"TN",
             district:"",
             city:"",
-            mStatus:"NM",
+            mStatus:"",
             height:0,
             weight:0,
             familyType:"",
@@ -46,7 +47,8 @@ class RegisterDetail extends Component {
             education:"",
             employment:"",
             income:0,
-            regProfileId:""            
+            regProfileId:"",
+            updateSuccess:false            
         }
     }
 
@@ -114,29 +116,8 @@ class RegisterDetail extends Component {
       //  });
     }
 
-
-    updateProfile(event) {
-        var errorMessage = "";
-
-        if (this.state.district === "") {
-            errorMessage = "Please select District."; 
-        } else if (this.state.city === "") {
-            errorMessage = "Please enter City.";      
-        } else if (this.state.height === "") {
-            errorMessage = "Please enter Weight."; 
-        } else if (this.state.weight === "") {
-            errorMessage = "Please enter Weight."; 
-        } 
-
-        if (errorMessage === "") {
-            const formData = new FormData();
-            formData.append("imageFile", this.state.image, this.state.profileId);
-            axios.post('http://localhost:8080/thirumanam/user/image?profileId='+this.state.regProfileId, formData,
-                    { 
-                        country:this.state.country,                        
-                    })
-            .then((res) => {
-                axios.put('http://localhost:8080/thirumanam/user/profile', 
+    updateProfile() {
+        axios.put('http://localhost:8080/thirumanam/user/profile', 
                 { 
                     country:this.state.country,
                     pstate:this.state.pstate,
@@ -156,8 +137,7 @@ class RegisterDetail extends Component {
                 .then((res) => {
                     console.log(res);
                     this.setState({
-                        registersuccess:true,
-                        profileId:res.data.code
+                        updateSuccess:true,
                     });
                     toast.success("Profile Saved Successfully", 
                         {
@@ -167,18 +147,51 @@ class RegisterDetail extends Component {
                             testId:20
                         });
                 })
-            })
-            .catch((error) => {
-                console.log(error);
-                toast.error(error.response.data.message, 
-                    {
-                        position:toast.POSITION.TOP_CENTER,
-                        hideProgressBar:true,
-                        autoClose:3000,
-                        testId:20
-                    });
-            
-            });
+    }
+
+
+    updateProfile(event) {
+        var errorMessage = "";
+
+        if (this.state.district === "") {
+            errorMessage = "Please select District."; 
+        } else if (this.state.city === "") {
+            errorMessage = "Please enter City.";      
+        } else if (this.state.mStatus === "") {
+            errorMessage = "Please select Marital Status."; 
+        } else if (this.state.height === "") {
+            errorMessage = "Please enter Height."; 
+        } else if (this.state.education === "") {
+            errorMessage = "Please select Education."; 
+        } else if (this.state.employment === "") {
+            errorMessage = "Please select Employment."; 
+        } else if (this.state.income === "") {
+            errorMessage = "Please enter Income."; 
+        } 
+
+        if (errorMessage === "") {
+            if(this.state.image !== null) {
+                const formData = new FormData();
+                formData.append("imageFile", this.state.image, this.state.profileId);
+                axios.post('http://localhost:8080/thirumanam/user/image?profileId='+this.state.regProfileId, formData,
+                        { 
+                            country:this.state.country,                        
+                        })
+                .then((res) => {
+                    this.updateProfile();
+                })
+                .catch((error) => {
+                    console.log(error);
+                    toast.error(error.response.data.message, 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            testId:20
+                        });
+                
+                });
+            }
         } else {
             toast.error(errorMessage, 
                 {
@@ -187,13 +200,29 @@ class RegisterDetail extends Component {
                     autoClose:3000,
                     testId:20
                 });
-        }
+        }        
     }
 
     render () {
+
+        if (this.state.updateSuccess === true) {
+            return <Redirect to= {{
+                    pathname:'/confirmSignUp' ,
+                    state:{
+                        profileId:this.state.profileId
+                    }                                   
+                    }}/>
+        }
         return(
             <div>
-                <TopMenu />  
+                <div style={{backgroundColor:'green',width:'100%', height:'150px'}}>
+
+                </div>
+                <div className="hs10" />
+                <div>
+                     You have successfully registered. Please complete the below detail to complete full registration.
+                </div>
+
                 <div className="rdcontaniner">
                     <div className="hs10" />
                     <UploadImage imageHandler={this.imageHandler}/>                
