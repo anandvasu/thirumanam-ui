@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './Location.css'
 
 class Location extends Component {
 
@@ -33,20 +32,20 @@ class Location extends Component {
             <div className="rdlcontaniner">
 
                          <div> 
-                            <div className='rlabel'>
+                            <div className='header2allborder'>
                                     <label>Current Location</label>
                             </div>
-                            <div className='rfield'>
+                            <div className='rdfield'>
                             </div>
                         </div>
 
                    
                  <div>                         
-                        <div className='rlabel'>
+                        <div className='rdlabel'>
                              <label>Country</label>
                         </div>
                         
-                        <div className='rfield'>
+                        <div className='rdfield'>
                             <select  onChange={this.countryChange}>
                                 <option value="IND" selected>India</option>
                                 <option value="USA">United States of America</option>
@@ -56,11 +55,11 @@ class Location extends Component {
                     </div>
 
                      <div>
-                        <div className='rlabel'>
+                        <div className='rdlabel'>
                              <label>State</label>
                         </div>
                         
-                        <div className='rfield'>
+                        <div className='rdfield'>
                             <select  onChange={this.profileStateChange}>
                             <option value='AP'>Andhra Pradesh</option>
                                 <option value='AN'>Andaman and Nicobar Islands</option>
@@ -103,11 +102,11 @@ class Location extends Component {
                     </div>
 
                     <div>
-                        <div className='rlabel'>
+                        <div className='rdlabel'>
                              <label>District</label>
                         </div>
                         
-                        <div className='rfield'>
+                        <div className='rdfield'>
                             <select  onChange={this.districtChange}>
                                 <option value=''>--Select--</option>
                                 <option value='AR'>Ariyalur</option>
@@ -147,15 +146,15 @@ class Location extends Component {
                     </div>
 
                      <div>
-                        <div className='rlabel'>
+                        <div className='rdlabel'>
                              <label>City</label>
                         </div>
                         
-                        <div className='rfield'>
-                            <input type="text" onBlur={this.cityChange}/>
+                        <div className='rdfield'>
+                            <div className="fieldLen200"> <input type="text" onBlur={this.cityChange}/> </div>                            
                         </div>                        
                     </div>
-                    <hr />
+                    <div className="hs10" />
             </div>
         );
     }

@@ -43,8 +43,16 @@ class UploadImage extends Component {
     render () {
         return(
             <div>
+                <div className='header2allborder'>
+                    <label>Profile Photo</label>
+                </div>  
+                <div className="hs10" />
+                <div>
+                    We recommend to upload your photo. Profile with photo receives higher response.
+                </div>                        
+                <div className="hs10" />
                 <input type="file" onChange={this.imageHandler} />
-                <hr />
+                <div className="hs10" />
             </div>
         );
     }

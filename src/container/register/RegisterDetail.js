@@ -108,10 +108,10 @@ class RegisterDetail extends Component {
 
 
     componentDidMount() {
-        console.log("this.props.location.state" + this.props.location.state.profileId);
-        this.setState({
-            regProfileId:this.props.location.state.profileId            
-        });
+       // console.log("this.props.location.state" + this.props.location.state.profileId);
+       // this.setState({
+      //      regProfileId:this.props.location.state.profileId            
+      //  });
     }
 
 
@@ -192,30 +192,34 @@ class RegisterDetail extends Component {
 
     render () {
         return(
-            <div className="rdcontaniner">
+            <div>
                 <TopMenu />  
-                <UploadImage imageHandler={this.imageHandler}/>                
-                <Location 
-                    countryChange = {this.countryChange}
-                    profileStateChange = {this.profileStateChange}
-                    districtChange = {this.districtChange}
-                    cityChange = {this.cityChange}
-                />
-                <PersonalDetail 
-                    maritalStatusChange = {this.maritalStatusChange}
-                    heightChange = {this.heightChange}
-                    weightChange = {this.weightChange}
-                    familyTypeChange = {this.familyTypeChange}
-                    familyValueChange = {this.familyValueChange}
-                    disabilityChange = {this.disabilityChange}
-                />
-                <ProfDetail 
-                    educationChange = {this.educationChange}
-                    employmentChange = {this.employmentChange}
-                    incomeChange = {this.incomeChange}
-                />
-                <div className='rfield'>
-                            <button onClick={this.updateProfile}>Submit</button>
+                <div className="rdcontaniner">
+                    <div className="hs10" />
+                    <UploadImage imageHandler={this.imageHandler}/>                
+                    <Location 
+                        countryChange = {this.countryChange}
+                        profileStateChange = {this.profileStateChange}
+                        districtChange = {this.districtChange}
+                        cityChange = {this.cityChange}
+                    />
+                    <PersonalDetail 
+                        maritalStatusChange = {this.maritalStatusChange}
+                        heightChange = {this.heightChange}
+                        weightChange = {this.weightChange}
+                        familyTypeChange = {this.familyTypeChange}
+                        familyValueChange = {this.familyValueChange}
+                        disabilityChange = {this.disabilityChange}
+                    />
+                    <ProfDetail 
+                        educationChange = {this.educationChange}
+                        employmentChange = {this.employmentChange}
+                        incomeChange = {this.incomeChange}
+                    />
+                    <div className="hs10" />
+                    <div className='rfield'>
+                                <button onClick={this.updateProfile}>Submit</button>
+                    </div>
                 </div>
             </div>
         );

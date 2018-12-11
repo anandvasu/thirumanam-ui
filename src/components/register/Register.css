@@ -15,9 +15,13 @@
     text-align: left;
 }
 
-
-
 .rfield {
+    display: inline-block;
+    width: 220px;
+    text-align: left;
+}
+
+.rfieldSelect {
     display: inline-block;
     width: 220px;
     text-align: left;

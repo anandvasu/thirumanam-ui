@@ -1,4 +1,20 @@
 .rdcontaniner {
-    width : 60%;
+    width : 40%;
     margin: auto;
+}
+
+.rdpcontaniner {
+    background-color:'red'
+}
+
+.rdlabel {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+
+.rdfield {
+    display: inline-block;
+    width: 300px;
+    text-align: left;
 }

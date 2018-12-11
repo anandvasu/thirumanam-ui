@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import './PersonalDetail.css'
 
 class PersonalDetail extends Component {
 
     constructor(props) {
         super(props);
         this.maritalStatusChange = this.maritalStatusChange.bind(this);
-        this.heightChange = this.heightChange.bind(this);
+        this.heightInchChange = this.heightInchChange.bind(this);
+        this.heightCmChange = this.heightCmChange.bind(this);
         this.weightChange = this.weightChange.bind(this);
         this.familyTypeChange = this.familyTypeChange.bind(this);
         this.familyValueChange = this.familyValueChange.bind(this);
@@ -17,9 +17,12 @@ class PersonalDetail extends Component {
         this.props.maritalStatusChange(event.target.value);
     }
 
-    heightChange(event) {
-        //this.props.heightChange(event.target.value);
-        this.props.heightChange(148);
+    heightInchChange(event) {
+        this.props.heightChange(event.target.value);
+    }
+
+    heightCmChange(event) {
+        this.props.heightChange(event.target.value);
     }
 
     weightChange(event) {
@@ -40,23 +43,21 @@ class PersonalDetail extends Component {
 
     render () {
         return (
-            <div className="rdlcontaniner">
+            <div>
 
                          <div> 
-                            <div className='rlabel'>
+                            <div className='header2allborder'>
                                     <label>Personal Information</label>
                             </div>
-                            <div className='rfield'>
+                            <div className='rdfield'>
                             </div>
-                        </div>
-
-                   
+                        </div>                   
                  <div>                         
-                        <div className='rlabel'>
+                        <div className='rdlabel'>
                              <label>Marital Status</label>
                         </div>
                         
-                        <div className='rfield'>
+                        <div className='rdfield'>
                             <select  onChange={this.maritalStatusChange}>
                                 <option value="NM" selected>Never Married</option>
                                 <option value="WD">Widowed</option>
@@ -68,13 +69,14 @@ class PersonalDetail extends Component {
 
                      <div>
 
-                        <div className='rlabel'>
+                        <div className='rdlabel'>
                              <label>Height</label>
                         </div>
 
-                        <div className='rlabel'>
-                            <select onChange={this.heightChange}>
-                                <option value="121" selected>4ft</option>
+                        <div className='rdfield'>
+                            <select onChange={this.heightInchChange}>
+                                <option value="">--Select--</option>
+                                <option value="121">4ft</option>
                                 <option value="124">4ft 1in</option>
                                 <option value="127">4ft 2in</option>
                                 <option value="129">4ft 3in</option>
@@ -112,25 +114,68 @@ class PersonalDetail extends Component {
                                 <option value="210">6ft 11in</option>  
                                 <option value="213">7ft</option>                               
                             </select>   
+                            <div className="vs20"/> 
+                            <div className="vs20">or</div>
+                            <div className="vs20" />
+                             <select onChange={this.heightCmChange}>
+                                <option value="">--Select--</option>
+                                <option value="121">121 cm</option>
+                                <option value="124">124 cm</option>
+                                <option value="127">127 cm</option>
+                                <option value="129">129 cm</option>
+                                <option value="132">132 cm</option>
+                                <option value="134">134 cm</option>
+                                <option value="137">137 cm</option>
+                                <option value="139">139 cm</option>
+                                <option value="142">142 cm</option>
+                                <option value="144">144 cm</option>
+                                <option value="147">147 cm</option>
+                                <option value="149">149 cm</option>
+                                <option value="152">152 cm</option>
+                                <option value="154">154 cm</option>
+                                <option value="157">157 cm</option>
+                                <option value="160">160 cm</option>
+                                <option value="162">162 cm</option>
+                                <option value="165">165 cm</option>
+                                <option value="167">167 cm</option>
+                                <option value="170">170 cm</option>
+                                <option value="172">172 cm</option>
+                                <option value="175">175 cm</option>
+                                <option value="177">177 cm</option>
+                                <option value="180">180 cm</option>  
+                                <option value="182">182 cm</option>
+                                <option value="185">185 cm</option>
+                                <option value="187">187 cm</option>
+                                <option value="190">190 cm</option>
+                                <option value="193">193 cm</option>
+                                <option value="195">195 cm</option>
+                                <option value="198">198 cm</option>
+                                <option value="200">200 cm</option>
+                                <option value="203">203 cm</option>
+                                <option value="205">205 cm</option>
+                                <option value="208">208 cm</option>
+                                <option value="210">210 cm</option>  
+                                <option value="213">213 cm</option>                               
+                            </select>   
                         </div>                
                     </div>
 
                     <div>
-                        <div className='rlabel'>
+                        <div className='rdlabel'>
                              <label>Weight</label>
                         </div>
                         
-                        <div className='rfield'>
-                            <input type='text' onBlur={this.weightChange} />
+                        <div className='rdfield'>
+                            <div className='fieldLen100'><input type='text' onBlur={this.weightChange} /> </div>
                         </div>                        
                     </div>
 
                     <div>
-                        <div className='rlabel'>
+                        <div className='rdlabel'>
                              <label>Family Type</label>
                         </div>
                         
-                        <div className='rfield'>
+                        <div className='rdfield'>
                             <select  onChange={this.familyTypeChange}>
                                 <option value="JO">Joint</option>
                                 <option value="NU" selected>Nucler</option>                                
@@ -139,11 +184,11 @@ class PersonalDetail extends Component {
                     </div>
 
                      <div>
-                        <div className='rlabel'>
+                        <div className='rdlabel'>
                              <label>Family Value</label>
                         </div>
                         
-                        <div className='rfield'>
+                        <div className='rdfield'>
                             <select  onChange={this.familyValueChange}>
                                 <option value="OR">Orthodox</option>
                                 <option value="NU" selected>Traditional</option>    
@@ -154,18 +199,18 @@ class PersonalDetail extends Component {
                     </div>
 
                      <div>
-                        <div className='rlabel'>
+                        <div className='rdlabel'>
                              <label>Any Disability?</label>
                         </div>
                         
-                        <div className='rfield'>
+                        <div className='rdfield'>
                             <select  onChange={this.disabledChange}>
                                 <option value="Y">Yes</option>
                                 <option value="N" selected>No</option>                                                       
                             </select>
                         </div>                        
                     </div>
-                    <hr />
+                    <div className="hs10" />
             </div>
         );
     }
