@@ -19,10 +19,12 @@ class PersonalDetail extends Component {
 
     heightInchChange(event) {
         this.props.heightChange(event.target.value);
+        document.getElementById("rdCmHeight").value = "";
     }
 
     heightCmChange(event) {
         this.props.heightChange(event.target.value);
+        document.getElementById("rdInchHeight").value = "";
     }
 
     weightChange(event) {
@@ -74,7 +76,7 @@ class PersonalDetail extends Component {
                         </div>
 
                         <div className='rdfield'>
-                            <select onChange={this.heightInchChange}>
+                            <select id="rdInchHeight" onChange={this.heightInchChange}>
                                 <option value="">--Select--</option>
                                 <option value="121">4ft</option>
                                 <option value="124">4ft 1in</option>
@@ -113,11 +115,11 @@ class PersonalDetail extends Component {
                                 <option value="208">6ft 10in</option>
                                 <option value="210">6ft 11in</option>  
                                 <option value="213">7ft</option>                               
-                            </select>   
+                            </select>(inch)   
                             <div className="vs20"/> 
                             <div className="vs20">or</div>
                             <div className="vs20" />
-                             <select onChange={this.heightCmChange}>
+                             <select id="rdCmHeight" onChange={this.heightCmChange}>
                                 <option value="">--Select--</option>
                                 <option value="121">121 cm</option>
                                 <option value="124">124 cm</option>
@@ -156,7 +158,7 @@ class PersonalDetail extends Component {
                                 <option value="208">208 cm</option>
                                 <option value="210">210 cm</option>  
                                 <option value="213">213 cm</option>                               
-                            </select>   
+                            </select>(cm)   
                         </div>                
                     </div>
 
@@ -166,7 +168,9 @@ class PersonalDetail extends Component {
                         </div>
                         
                         <div className='rdfield'>
-                            <div className='fieldLen100'><input type='text' onBlur={this.weightChange} /> </div>
+                            <div className='fieldLen100'>
+                                <input type='text' onBlur={this.weightChange} /> 
+                            </div> Kg
                         </div>                        
                     </div>
 
