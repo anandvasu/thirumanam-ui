@@ -204,6 +204,37 @@ class PersonalDetail extends Component {
                         </div>                        
                     </div>
 
+                    <div>
+                        <div className='rdlabel'>
+                             <label>Body Type</label>
+                        </div>
+                        
+                        <div className='rdfield'>
+                            <select  onChange={this.familyValueChange}>
+                                <option value="">--Select--</option>
+                                <option value="AG">Average</option>
+                                <option value="AT">Athletic</option>    
+                                <option value="HY">Heavy</option> 
+                                <option value="SM">Slim</option>                             
+                            </select>
+                        </div>                        
+                    </div>
+
+                    <div>
+                        <div className='rdlabel'>
+                             <label>Food Habit</label>
+                        </div>
+                        
+                        <div className='rdfield'>
+                            <select  onChange={this.familyValueChange}>
+                                <option value="">--Select--</option>
+                                <option value="V">Vegetarian</option>
+                                <option value="N">Non-Vegetarian</option>    
+                                <option value="E">Eggetarian</option>                           
+                            </select>
+                        </div>                        
+                    </div>
+
                      <div>
                         <div className='rdlabel'>
                              <label>Body Type</label>

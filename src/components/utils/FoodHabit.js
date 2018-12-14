@@ -6,14 +6,20 @@ class FoodHabit extends Component {
         return (
             <div className="heightParentDiv">
                 <div className="header3"><label>Food Habit</label></div>
-                <div className="filterContent">                          
-                    <select  onChange={this.onChangeRegisteredBy}>
-                                    <option value="" selected>All</option>
-                                    <option value="NM">Never Married</option>
-                                    <option value="WD">Widowed</option>
-                                    <option value="DI">Divorced</option> 
-                                    <option value="AD">Awaiting Divorce</option>                            
-                    </select>      
+                <div className="filterContent">    
+                        <div>                     
+                            <div className="filterLeft">
+                                <input type="checkbox" value="V"/>Vegetarian
+                            </div>
+                            <div className="filterRight">
+                                <input type="checkbox" value="N"/>Non-Vegetarian
+                            </div>
+                        </div> 
+                        <div> 
+                            <div className="filterLeft">
+                                <input type="checkbox" value="E"/>Eggetarian
+                            </div>                          
+                        </div> 
                 </div>
             </div>
         );
