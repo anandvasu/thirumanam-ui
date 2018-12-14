@@ -10,3 +10,13 @@
     text-align: left;     
     margin: 10px;
   }
+
+.filterLeft {
+    width:50%;
+    display:inline-block;
+}
+
+.filterRight {
+    width:50%;
+    display:inline-block;
+}

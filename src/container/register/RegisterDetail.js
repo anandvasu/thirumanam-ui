@@ -111,12 +111,12 @@ class RegisterDetail extends Component {
 
     componentDidMount() {
        // console.log("this.props.location.state" + this.props.location.state.profileId);
-       // this.setState({
-      //      regProfileId:this.props.location.state.profileId            
-      //  });
+        this.setState({
+            regProfileId:this.props.location.state.profileId            
+        });
     }
 
-    updateProfile() {
+    updateProfileInformation() {
         axios.put('http://localhost:8080/thirumanam/user/profile', 
                 { 
                     country:this.state.country,
@@ -146,7 +146,17 @@ class RegisterDetail extends Component {
                             autoClose:3000,
                             testId:20
                         });
-                })
+                }) .catch((error) => {
+                    console.log(error);
+                    toast.error("Server Error Occurred. Please try again", 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            testId:20
+                        });
+                
+                });
     }
 
 
@@ -165,7 +175,7 @@ class RegisterDetail extends Component {
             errorMessage = "Please select Education."; 
         } else if (this.state.employment === "") {
             errorMessage = "Please select Employment."; 
-        } else if (this.state.income === "") {
+        } else if (this.state.income === 0) {
             errorMessage = "Please enter Income."; 
         } 
 
@@ -178,7 +188,7 @@ class RegisterDetail extends Component {
                             country:this.state.country,                        
                         })
                 .then((res) => {
-                    this.updateProfile();
+                    this.updateProfileInformation();
                 })
                 .catch((error) => {
                     console.log(error);
@@ -191,6 +201,8 @@ class RegisterDetail extends Component {
                         });
                 
                 });
+            } else {
+                this.updateProfileInformation();
             }
         } else {
             toast.error(errorMessage, 
@@ -208,9 +220,9 @@ class RegisterDetail extends Component {
         if (this.state.updateSuccess === true) {
             return <Redirect to= {{
                     pathname:'/confirmSignUp' ,
-                    state:{
-                        profileId:this.state.profileId
-                    }                                   
+                        state:{
+                            profileId:this.state.profileId
+                        }                                   
                     }}/>
         }
         return(

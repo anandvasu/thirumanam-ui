@@ -128,9 +128,11 @@ class QuickSearch extends Component {
                             </div>
                             <div>                   
                                 <label>Marital Status:&nbsp;</label>
-                                <select value="S" onChange={this.maritalStatusChange}>
-                                    <option value="S">Single</option>
-                                    <option value="D">Divorced</option>                
+                                <select value="NM" onChange={this.maritalStatusChange}>
+                                    <option value="NM">Never Married</option>
+                                    <option value="WD">Widowed</option>  
+                                    <option value="DD">Divorced</option>
+                                    <option value="AD">Awaiting Divorce</option>              
                                 </select>
                             </div>
                             <div>                               
