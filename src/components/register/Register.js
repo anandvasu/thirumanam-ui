@@ -98,7 +98,9 @@ class Register extends Component {
             errorMessage = "Please enter Email."; 
         } else if (this.state.password === "") {
             errorMessage = "Please enter Password."; 
-        } 
+        } else if (document.getElementById("tcondition").checked === false) {
+            errorMessage = "Please read TandC.";
+        }
 
         if (errorMessage === "") {
             axios.post('http://localhost:8080/thirumanam/user/register',
@@ -359,7 +361,7 @@ class Register extends Component {
                     <div className="hs10" />
                     <div className="rbTandButton">
                          <div className='tandc'>
-                            <input type="checkbox" />I have read and agree to the <b><u>T&amp;C</u></b> and <b><u>Privacy Policy</u></b>
+                            <input type="checkbox" id="tcondition"/>I have read and agree to the <b><u>T&amp;C</u></b> and <b><u>Privacy Policy</u></b>
                         </div>
                         <div className='registerButton'>
                             <button onClick={this.register} >Register</button>
