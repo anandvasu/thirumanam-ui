@@ -61,7 +61,8 @@ class PersonalDetail extends Component {
                         
                         <div className='rdfield'>
                             <select  onChange={this.maritalStatusChange}>
-                                <option value="NM" selected>Never Married</option>
+                                <option value="">--Select--</option>
+                                <option value="NM">Never Married</option>
                                 <option value="WD">Widowed</option>
                                 <option value="DI">Divorced</option> 
                                 <option value="AD">Awaiting Divorce</option>                            

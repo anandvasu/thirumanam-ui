@@ -16,6 +16,11 @@ class Filter extends Component {
         this.ageFromChange = this.ageFromChange.bind(this);
         this.ageToChange = this.ageToChange.bind(this);
         this.maritalStatusChange = this.maritalStatusChange.bind(this);
+        this.clearFilters = this.clearFilters.bind(this);
+    }
+
+    clearFilters() {
+        alert("test");
     }
 
     ageFromChange(event) {       
@@ -30,22 +35,23 @@ class Filter extends Component {
         this.setState({gender:event.target.value});
     }
 
-    maritalStatusChange(event) {
-        this.setState({mStatus:event.target.value});
+    maritalStatusChange(mStatusValue) {
+        this.props.maritalStatusChange(mStatusValue);
     }
 
     searchClicked() {
         this.setState({searchClicked:true});
-    }
-
-
+    }    
 
     render () {
 
         return (
             <div className="filterParent">
                 <div className="header2">
-                    <label>Filter Profiles</label>
+                    <div className="inlineLeft50Per"><label>Filter Profiles</label></div>
+                    <div className="clearAllFilter">
+                       <a href="#" onClick={this.clearFilters}>[Clear Filters]</a>&nbsp;&nbsp;
+                    </div>
                 </div>
                  <div className="header3Parent">
                                 <div className="header3"><label>Age</label></div>
@@ -110,7 +116,9 @@ class Filter extends Component {
                                 <Education />
                             </div>
                             <div className="header3Parent">
-                                <MaritalStatus />
+                                <MaritalStatus 
+                                    maritalStatusChange = {this.maritalStatusChange}
+                                />
                             </div>
                             <div className="header3Parent">
                                 <Occupation />

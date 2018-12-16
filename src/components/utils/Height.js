@@ -48,7 +48,7 @@ class Height extends Component {
                     </select>   
                         <label>&nbsp;to&nbsp;</label>  
                     <select onChange={this.maxHeightChange}>
-                        <option value="121" selected>4ft</option>
+                        <option value="121">4ft</option>
                         <option value="124">4ft 1in</option>
                         <option value="127">4ft 2in</option>
                         <option value="129">4ft 3in</option>
@@ -84,7 +84,7 @@ class Height extends Component {
                         <option value="205">6ft 9in</option>
                         <option value="208">6ft 10in</option>
                         <option value="210">6ft 11in</option>  
-                        <option value="213">7ft</option>                               
+                        <option value="213" selected>7ft</option>                               
                     </select>    
                 </div>
             </div>

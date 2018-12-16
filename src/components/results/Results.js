@@ -30,7 +30,8 @@ class Results extends Component {
             docsPerPage: 10,
             profile:'',
             profileClicked:false,
-            gender:'F'
+            gender:'F',
+            maritalStatus:''
         };
     }
 
@@ -72,7 +73,7 @@ class Results extends Component {
             ageGreater:ageGrater,
                ageLess:ageLess,
                gender:aGender,
-               mStatus:aMstatus
+               maritalStatus:aMstatus
              })
          .then(function (res) {
              console.log(res);
@@ -242,6 +243,20 @@ class Results extends Component {
         this.searchProfile(value, this.state.ageTo);
     }
 
+    maritalStatusChange = ( aMStatus ) => {
+        this.setState({
+            maritalStatus:aMStatus
+        });      
+       
+        this.searchProfile(
+            this.state.ageFrom,
+            this.state.ageTo, 
+            this.state.gender, 
+            aMStatus );
+    }
+
+     
+
     profileCloseHandler() {
         this.setState({
             profileClicked:false
@@ -265,6 +280,7 @@ class Results extends Component {
                                 <Filter 
                                     ageToChange = {this.ageToChange}
                                     ageFromChange = {this.ageFromChange}
+                                    maritalStatusChange = {this.maritalStatusChange}
                                 />
                             </div>
                             <div className="vs20" />

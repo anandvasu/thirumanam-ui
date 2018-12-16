@@ -2,7 +2,7 @@ body {
   margin: 0;
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
-  font-size:17px;
+  font-size:16.5px;
 }
 
 .app  {  
@@ -125,6 +125,8 @@ hr {
 
 .header2 {
   height:28px;  
+  width:100%;
+  display: table;
   background-color:rgb(225, 229, 230);  
   /*background-color: #BE29EC;*/
   border-style: solid;  
@@ -136,7 +138,7 @@ hr {
   border-left-width: 0px;
   border-right-width: 0px;  
   vertical-align: middle;
-  }
+}
 
 .header2allborder {
     height:28px;  
@@ -214,4 +216,17 @@ hr {
   display:inline-block;
   width: 300px;
   text-align: left;
+}
+
+.inlineLeft50Per {
+  display:table-cell;
+  width: 50%;
+  text-align: left;
+}
+
+.inlineRight50Per {
+  display:table-cell;
+  width: 50%;
+  text-align: right;
+  vertical-align: middle;
 }
