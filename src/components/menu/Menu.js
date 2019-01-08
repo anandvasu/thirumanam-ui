@@ -33,11 +33,11 @@ class Menu extends Component {
 
         if (this.state.logout === true) {
             return <Redirect to= {{
-                                    pathname:'/home' ,
-                                    state:{
-                                        logout:this.state.logout
-                                    }                                   
-                                 }}/>
+                        pathname:'/home' ,
+                        state:{
+                            logout:this.state.logout
+                        }                                   
+                    }}/>
         }
         return(
             <div>

@@ -26,60 +26,140 @@ class Profile extends Component {
 
                 <div className="hs20" />
 
-                <div className="pContainer">                    
-                    <div className="profileImage">
-                        <img src={"data:image/jpeg;base64,"+this.props.profile.image} alt="Not Available" width="400px" height="500px"></img>&nbsp;&nbsp;&nbsp;
-                    </div> 
-                    <div className="profileDetail">
-                        <div className="header2">
-                            <label>Personal Information</label>
-                         </div>
-                        <div>
-                            <div className="profileLabel">
-                                <label> First Name </label>
+                <div className="pContainer">       
+                    <div className="profileLeftConNoborder">             
+                        <div className="profileImage">
+                            <img src={"data:image/jpeg;base64,"+this.props.profile.image} alt="Not Available" width="400px" height="500px"></img>&nbsp;&nbsp;&nbsp;
+                        </div> 
+                    </div>
+                    <div className="vs20" />
+                    <div className="profilRightConNoborder">
+                        <div className="profilRight100Per">
+                            <div className="header2">
+                                <label>Personal Information</label>
                             </div>
-                            <div className="profileCenter">
-                                <label>:</label>
-                            </div>
-                            <div className="profileField">
-                                <label> {this.props.profile.firstName} </label>
+                            <div>
+                                <div className="profileLabel">
+                                    <label> First Name </label>
+                                </div>
+                                <div className="profileCenter">
+                                    <label>:</label>
+                                </div>
+                                <div className="profileField">
+                                    <label> {this.props.profile.firstName} </label>
+                                </div>     
                             </div>     
-                        </div>     
-                        <div>
-                            <div className="profileLabel">
-                                <label> Last Name </label>
-                            </div>
-                            <div className="profileCenter">
-                                <label> : </label>
-                            </div>
-                            <div className="profileField">
-                                <label> {this.props.profile.lastName} </label>
+                            <div>
+                                <div className="profileLabel">
+                                    <label> Last Name </label>
+                                </div>
+                                <div className="profileCenter">
+                                    <label> : </label>
+                                </div>
+                                <div className="profileField">
+                                    <label> {this.props.profile.lastName} </label>
+                                </div>     
                             </div>     
-                        </div>     
-                        <div>
-                            <div className="profileLabel">
-                                <label>Age </label>
-                            </div>
-                            <div className="profileCenter">
-                                <label> : </label>
-                            </div>
-                            <div className="profileField">
-                                <label> {this.props.profile.age} </label>
-                            </div>     
-                        </div>       
-                        <div>
-                            <div className="profileLabel">
-                                <label>Email </label>
-                            </div>
-                            <div className="profileCenter">
-                                <label> : </label>
-                            </div>
-                            <div className="profileField">
-                                <label> {this.props.profile.email} </label>
-                            </div>     
-                        </div>                         
-                    </div>               
+                            <div>
+                                <div className="profileLabel">
+                                    <label>Age </label>
+                                </div>
+                                <div className="profileCenter">
+                                    <label> : </label>
+                                </div>
+                                <div className="profileField">
+                                    <label> {this.props.profile.age} </label>
+                                </div>     
+                            </div>                                          
+                        </div>    
+
+                        <div className="hs20" />  
+
+                        <div className="profilRight100Per">                         
+                                    <div className="header2">
+                                        <label>Contact Information</label>
+                                    </div>
+                                    <div>
+                                        <div className="profileLabel">
+                                            <label>Email </label>
+                                        </div>
+                                        <div className="profileCenter">
+                                            <label> : </label>
+                                        </div>
+                                        <div className="profileField">
+                                            <b><label> {this.props.profile.email} </label></b>
+                                        </div>      
+                                    </div>    
+                                    <div>
+                                        <div className="profileLabel">
+                                            <label>Phone Number </label>
+                                        </div>
+                                        <div className="profileCenter">
+                                            <label> : </label>
+                                        </div>
+                                        <div className="profileField">
+                                            <b> <label> {this.props.profile.phone} </label>  </b>
+                                        </div>      
+                                    </div>    
+
+                        </div>
+
+                        <div className="hs20" />  
+
+                        <div className="profilRight100Per">                         
+                                    <div className="header2">
+                                        <label>Religion Information</label>
+                                    </div>
+                                    <div>
+                                        <div className="profileLabel">
+                                            <label>Caste </label>
+                                        </div>
+                                        <div className="profileCenter">
+                                            <label> : </label>
+                                        </div>
+                                        <div className="profileField">
+                                            <b><label> </label></b>
+                                        </div>      
+                                    </div>    
+                                    <div>
+                                        <div className="profileLabel">
+                                            <label>Sub Caste </label>
+                                        </div>
+                                        <div className="profileCenter">
+                                            <label> : </label>
+                                        </div>
+                                        <div className="profileField">
+                                            <b> <label>  </label>  </b>
+                                        </div>      
+                                    </div>   
+                                    <div>
+                                        <div className="profileLabel">
+                                            <label>Gothra (m) </label>
+                                        </div>
+                                        <div className="profileCenter">
+                                            <label> : </label>
+                                        </div>
+                                        <div className="profileField">
+                                            <b> <label> </label>  </b>
+                                        </div>      
+                                    </div>   
+                                    <div>
+                                        <div className="profileLabel">
+                                            <label>Dhosham </label>
+                                        </div>
+                                        <div className="profileCenter">
+                                            <label> : </label>
+                                        </div>
+                                        <div className="profileField">
+                                            <b> <label> </label>  </b>
+                                        </div>      
+                                    </div>   
+                        </div>
+
+                    </div>    
+                          
                 </div>
+
                 <div className="pContainer">
                        <div className="profileLeftContainer">
                             <div className="header2">

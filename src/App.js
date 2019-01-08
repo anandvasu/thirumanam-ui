@@ -10,6 +10,8 @@ import {ToastContainer} from 'react-toastify';
 import Register from './components/register/Register'
 import ConfirmSignUp from './components/login/ConfirmSignUp'
 import ILogin from './components/login/ILogin'
+import Account from './container/account/Account';
+import Aux from './hoc/Aux';
 
 class App extends Component {
 
@@ -24,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="app">
+        <Aux className="app">
         <ToastContainer />          
           <Message id="message" message={this.state.message} messageClassName={this.state.messageClassName} />                  
             <Route exact path="/" component={Home} />
@@ -35,8 +37,9 @@ class App extends Component {
             <Route exact path="/results" component={Results} />
             <Route exact path="/register" component={RegisterDetail} />   
             <Route exact path="/confirmSignUp" component={ConfirmSignUp} />  
-            <Route exact path="/ilogin" component={ILogin} />     
-        </div>
+            <Route exact path="/ilogin" component={ILogin} />
+            <Route exact path="/account" component={Account} />     
+        </Aux>
       </Router>
     );
   }

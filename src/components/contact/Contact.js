@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './Contact.css';
 import house from '../../assets/images/villupuram.jpg';
 import Footer from '../footer/Footer';
+import TopMenu from '../../components/menu/TopMenu';
 
 
 class Contact extends Component {
@@ -22,7 +23,7 @@ class Contact extends Component {
             console.log(data)
             const contacts = data.map((contact) => {
                 return (
-                    <div >
+                    <div>                       
                         <div className="contactParent">
                             <div className="containerChild" style={{verticalAlign:'top'}}>
                                 <div className="image">
@@ -61,7 +62,8 @@ class Contact extends Component {
     render () {
         return (
             <div>
-                <div className="addressContainer" key="contactContainer">
+                <TopMenu />
+                <div className="addressContainer" key="contactContainer">                
                     {this.state.contacts}
                 </div>
                 <Footer />

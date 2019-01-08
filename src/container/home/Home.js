@@ -5,19 +5,22 @@ import Footer from '../../components/footer/Footer'
 import mobile from '../../assets/images/mobile.png';
 import TopMenu from '../../components/menu/TopMenu';
 import './Home.css';
+import Aux from '../../hoc/Aux';
 
 class Home extends Component {
 
     render () {
         return (
-            <div>
+            <Aux>
                 <div className="hs10" />
                 <TopMenu />  
                 <div className="hs10" />
                 <QuickSearch />
                 <div className="middlecontainer">  
                     <div className="qregister">
-                         <Register />
+                         <div className="rcontainer">
+                            <Register />
+                         </div>
                     </div> 
                     <div className="vs100" />
                 </div>
@@ -44,7 +47,7 @@ class Home extends Component {
                 
                 <div className="hs20" />
                 <Footer />
-            </div>          
+            </Aux>          
         );
     }
 }

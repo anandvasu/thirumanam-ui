@@ -15,14 +15,22 @@ class ConfirmSignUp extends Component {
         this.resendSingnUpCode = this.resendSingnUpCode.bind(this);
 
         this.state = {
+            username: "",
             code:"",
             success:false
         }
     }
 
+    componentDidMount() {
+         console.log("this.props.location.state" + this.props.location.state.username);
+         this.setState({
+            username:this.props.location.state.username            
+         });
+     }
+
     resendSingnUpCode(event) {
         
-        Auth.resendSignUp("anandakumarv@gmail.com"
+        Auth.resendSignUp(this.state.username
         ).then((user) => {
             console.log(user);
 
@@ -68,12 +76,13 @@ class ConfirmSignUp extends Component {
                 }); 
         } else {
 
-            Auth.confirmSignUp("anandakumarv@gmail.com",this.state.code
+            Auth.confirmSignUp(this.state.username,this.state.code
             ).then((user) => {
                 console.log(user)
                 this.setState({
                     success:true
                 })
+                this.props.history.push('/ILogin'); 
             }).catch((err) => {
                 console.log(err);
                 var errMessage = "";

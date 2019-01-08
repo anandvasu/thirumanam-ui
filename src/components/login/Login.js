@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import logo from '../../assets/images/logo.gif';
 import './Login.css';
+import axios from 'axios';
 import {Auth} from 'aws-amplify';
 import {toast} from 'react-toastify';
 import {Redirect} from "react-router-dom";
@@ -95,7 +96,13 @@ class Login extends Component {
             Auth.signIn(this.state.username,this.state.password)
             .then((user) => {
                 console.log(user)      
-                sessionStorage.setItem("userSession", user.signInUserSession);      
+                sessionStorage.setItem("userSession", user.signInUserSession);   
+                axios.get('http://localhost:8080/thirumanam/user/external/'+user.username,
+                {                    
+                }) .then((res) => {
+                   // Update User Detail to session
+                  
+                })
                 this.props.history.push('/signedIn');           
             }).catch((err) => {
                 console.log(err);
@@ -145,7 +152,7 @@ class Login extends Component {
             return <Redirect to= {{
                                     pathname:'/confirmSignUp' ,
                                     state:{
-                                        profileId:this.state.profileId
+                                        username:this.state.username
                                     }                                   
                                  }}/>
         }

@@ -52,6 +52,16 @@
     box-sizing: border-box;
 }
 
+.rwlogincontainer {   
+    background-color: white;
+    width: 450px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px grey;
+    padding: 5px;    
+    box-sizing: border-box;
+}
+
 @media (min-width: 600px) {
     .Modal {
         width: 500px;

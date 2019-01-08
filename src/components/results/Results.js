@@ -7,6 +7,8 @@ import Modal from '../modal/Modal';
 import Profile from '../../components/results/profile/Profile';
 import Footer from '../../components/footer/Footer';
 import './Results.css';
+import RegisterWithLogin from '../register/RegisterWithLogin';
+import Aux from '../../hoc/Aux';
 
 
 class Results extends Component {
@@ -30,23 +32,14 @@ class Results extends Component {
             docsPerPage: 10,
             profile:'',
             profileClicked:false,
+            registerDisplay:false,
             gender:'F',
             maritalStatus:''
         };
     }
 
     componentDidMount() {
-       /* axios.get ('https://randomuser.me/api/?results=500')
-        .then(function (res) {
-            console.log(res.data.results);
-            return res.data;
-        })
-        .then((data) => {
-            
-            this.setState({data:data});
-            this.setState({totalDocs:data.results.length});
-            this.displayResults(1);
-        });*/        
+           
         this.searchProfile(
             this.props.location.state.ageFrom, 
             this.props.location.state.ageTo, 
@@ -55,16 +48,26 @@ class Results extends Component {
     }
 
     profileClick(profileId) {
-        axios.get('http://localhost:8080/thirumanam/user/'+profileId)
-            .then(res => {
-                console.log(res);
-                this.setState(
-                    {
-                        profile:res.data,
-                        profileClicked:true
-                    }
-                );
-        })
+
+        if (sessionStorage.getItem("userSession") != null) {
+
+            axios.get('http://localhost:8080/thirumanam/user/'+profileId)
+                .then(res => {
+                    console.log(res);
+                    this.setState(
+                        {
+                            profile:res.data,
+                            profileClicked:true
+                        }
+                    );
+            });
+        } else {
+            this.setState(
+                {
+                    registerDisplay:true
+                }
+            );
+        }
     }
 
     searchProfile(ageGrater,ageLess, aGender, aMstatus) {
@@ -265,16 +268,21 @@ class Results extends Component {
 
     render () {
         return (
-            <div style={{textAlign:'center'}}>
+            <Aux style={{textAlign:'center'}}>
              <div className="hs10" />
                  <TopMenu /> 
                  <div className="hs30" />
-                 <Modal show={this.state.profileClicked} modalClosed={this.profileClosed}>
+                 <Modal show={this.state.profileClicked} modalClosed={this.profileClosed} className="Modal">
                     <Profile
                         profile={this.state.profile}
                         closeProfile = {this.profileCloseHandler}
                     />
-                 </Modal>
+                 </Modal>       
+                 <Modal show={this.state.registerDisplay} modalClosed={this.profileClosed} className="RegisterModal">   
+                        <RegisterWithLogin /> 
+                 </Modal>    
+               
+
                 <div className="resultsContainer">                                       
                             <div className="filtersection">
                                 <Filter 
@@ -309,7 +317,7 @@ class Results extends Component {
                  <div className="hs30" />
                  <Footer />
                  <div className="hs10" />
-            </div>
+            </Aux>
             
         );
     }

@@ -8,6 +8,7 @@ import TopMenu from '../../components/menu/TopMenu';
 import axios from 'axios';
 import {toast} from 'react-toastify';
 import {Redirect} from "react-router-dom";
+import Aux from '../../hoc/Aux';
 
 class RegisterDetail extends Component {
 
@@ -34,6 +35,8 @@ class RegisterDetail extends Component {
 
         this.state = {
             image : null,
+            email : null,
+            phonenumber : null,
             country: "IND",
             pstate:"TN",
             district:"",
@@ -112,7 +115,8 @@ class RegisterDetail extends Component {
     componentDidMount() {
        // console.log("this.props.location.state" + this.props.location.state.profileId);
         this.setState({
-            regProfileId:this.props.location.state.profileId            
+            regProfileId:this.props.location.state.profileId,
+            email:this.props.location.state.email            
         });
     }
 
@@ -221,12 +225,12 @@ class RegisterDetail extends Component {
             return <Redirect to= {{
                     pathname:'/confirmSignUp' ,
                         state:{
-                            profileId:this.state.profileId
+                            username:this.state.email
                         }                                   
                     }}/>
         }
         return(
-            <div>
+            <Aux>
                 <div style={{backgroundColor:'green',width:'100%', height:'150px'}}>
 
                 </div>
@@ -262,7 +266,7 @@ class RegisterDetail extends Component {
                                 <button onClick={this.updateProfile}>Submit</button>
                     </div>
                 </div>
-            </div>
+            </Aux>
         );
     }
 }
