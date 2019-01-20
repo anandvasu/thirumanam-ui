@@ -1,0 +1,30 @@
+.fieldParent {
+    display: inline-block;
+    width:400px;
+}
+
+.iloginLabel {
+    display: inline-block;
+    width:150px;
+}
+
+.iloginField {
+    display: inline-block;
+    width:200px;
+    text-align: right;
+    padding-bottom: 15px;
+   
+}
+
+.iLoginRight {
+    vertical-align: middle;
+    display: inline-block;
+    width:50%;
+    
+}
+
+.iLoginLeft {
+    vertical-align: middle;
+    display: inline-block;
+    width:50%;
+}

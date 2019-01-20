@@ -26,8 +26,6 @@ class Login extends Component {
         this.state = {
             username:"Email or Phone",
             password:"Password",
-            messageClassName:"messageHide",
-            message:"",
             confirmUser:false
         }
     }
@@ -49,14 +47,12 @@ class Login extends Component {
         if(String.prototype.trim.call(event.target.value) === "") {
             event.target.value = "Email or Phone";
             this.setState({
-                username:"Email or Phone",
-                messageClassName:"messageHide"
+                username:"Email or Phone"
             })
         } else {
             const username = String.prototype.trim.call(event.target.value);
             this.setState({
-                username:username,
-                messageClassName:"messageHide"
+                username:username
             })
         }
     }
@@ -66,14 +62,12 @@ class Login extends Component {
             event.target.type= "text";
             event.target.value = "Password";
             this.setState({
-                password:"Password",
-                messageClassName:"messageHide"
+                password:"Password"
             })
         } else {
             const password = String.prototype.trim.call(event.target.value);
             this.setState({
-                password:password,
-                messageClassName:"messageHide"
+                password:password
             })
         }
     }

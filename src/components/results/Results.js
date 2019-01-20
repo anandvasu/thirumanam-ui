@@ -9,6 +9,7 @@ import Footer from '../../components/footer/Footer';
 import './Results.css';
 import RegisterWithLogin from '../register/RegisterWithLogin';
 import Aux from '../../hoc/Aux';
+import Config from '../../'
 
 
 class Results extends Component {
@@ -230,7 +231,7 @@ class Results extends Component {
 
     }
 
-    ageToChange = ( value ) => {
+    ageToChange (value){
         this.setState({
             ageTo:value
         });      
@@ -238,7 +239,7 @@ class Results extends Component {
         this.searchProfile(this.state.ageFrom, value);
     }
 
-    ageFromChange = ( value ) => {
+    ageFromChange(value) {
         this.setState({
             ageFrom:value
         });      
@@ -246,16 +247,16 @@ class Results extends Component {
         this.searchProfile(value, this.state.ageTo);
     }
 
-    maritalStatusChange = ( aMStatus ) => {
+    maritalStatusChange (value) {
         this.setState({
-            maritalStatus:aMStatus
+            maritalStatus:value
         });      
        
         this.searchProfile(
             this.state.ageFrom,
             this.state.ageTo, 
             this.state.gender, 
-            aMStatus );
+            value );
     }
 
      

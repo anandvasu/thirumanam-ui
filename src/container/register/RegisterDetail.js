@@ -9,6 +9,7 @@ import axios from 'axios';
 import {toast} from 'react-toastify';
 import {Redirect} from "react-router-dom";
 import Aux from '../../hoc/Aux';
+import TopBar from '../../components/menu/TopBar';
 
 class RegisterDetail extends Component {
 
@@ -231,9 +232,7 @@ class RegisterDetail extends Component {
         }
         return(
             <Aux>
-                <div style={{backgroundColor:'green',width:'100%', height:'150px'}}>
-
-                </div>
+                <TopBar />
                 <div className="hs10" />
                 <div>
                      You have successfully registered. Please complete the below detail to complete full registration.

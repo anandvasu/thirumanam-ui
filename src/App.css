@@ -3,6 +3,7 @@ body {
   text-align: center;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
   font-size:16.5px;
+  /*background-color:#DEFDE0;*/
 }
 
 .app  {  
@@ -98,6 +99,16 @@ hr {
   display: inline-block;
 }
 
+.hs1{
+  height: 1px;
+  width:100%;
+}
+
+.hs2{
+  height: 2px;
+  width:100%;
+}
+
 .hs10 {
   height: 10px;
   width:100%;
@@ -120,6 +131,16 @@ hr {
 
 .hs50 {
   height: 50px;
+  width:100%;
+}
+
+.hs100 {
+  height: 100px;
+  width:100%;
+}
+
+.hs200 {
+  height: 200px;
   width:100%;
 }
 
@@ -229,4 +250,10 @@ hr {
   width: 50%;
   text-align: right;
   vertical-align: middle;
+}
+
+.footerDiv {
+  position:absolute;
+  bottom: 0;
+  width: 100%;
 }

@@ -12,6 +12,7 @@ import ConfirmSignUp from './components/login/ConfirmSignUp'
 import ILogin from './components/login/ILogin'
 import Account from './container/account/Account';
 import Aux from './hoc/Aux';
+import LoggedInHome from './components/login/LoggedInHome';
 
 class App extends Component {
 
@@ -31,7 +32,7 @@ class App extends Component {
           <Message id="message" message={this.state.message} messageClassName={this.state.messageClassName} />                  
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
-            <Route exact path="/signedIn" component={Home} />
+            <Route exact path="/signedIn" component={LoggedInHome} />
             <Route exact path="/quickRegister" component={Register} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/results" component={Results} />
@@ -39,6 +40,7 @@ class App extends Component {
             <Route exact path="/confirmSignUp" component={ConfirmSignUp} />  
             <Route exact path="/ilogin" component={ILogin} />
             <Route exact path="/account" component={Account} />     
+            <Route exact path="/loggedInHome" component={LoggedInHome} /> 
         </Aux>
       </Router>
     );

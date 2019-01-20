@@ -1,11 +1,15 @@
 import React,{Component} from 'react';
 import './ConfirmSignUp.css';
 import Constant from '../../Constant';
-import confirmSignUp from '../../assets/images/confirmSignUp.jpg';
+import welcomeImage from '../../assets/images/wedding.png';
 import {Auth} from 'aws-amplify';
 import 'react-toastify/dist/ReactToastify.css';
 import {toast} from 'react-toastify';
 import axios from 'axios';
+import './ILogin.css';
+import TopBar from '../menu/TopBar';
+import GlobalMenu from '../menu/GlobalMenu';
+import Footer from '../footer/Footer';
 
 class ILogin extends Component {
 
@@ -15,34 +19,36 @@ class ILogin extends Component {
         this.loginClick = this.loginClick.bind(this);
 
         this.state = {
+            username:"",
+            password:"",
             success:false
         }
     }
-
+  
     loginClick(event) {
         event.preventDefault();
 
         let errorMessage = null;
 
-        if(String.prototype.trim.call(this.state.username) === "" || 
-            String.prototype.trim.call(this.state.username) === "Email or Phone") {
+        var username = document.getElementById("iLoginUser").value;
+        var password = document.getElementById("iLoginPass").value;
+
+        if(String.prototype.trim.call(username) === "" ) {
                 errorMessage = "Please enter user name.";
-        } else if (String.prototype.trim.call(this.state.password) === "" || 
-            String.prototype.trim.call(this.state.password) === "Password") {
+        } else if (String.prototype.trim.call(password) === "" ) {
                 errorMessage = "Please enter Password.";   
-        } 
-        
+        }         
         
         if (errorMessage === null) {      
-            Auth.signIn(this.state.username,this.state.password)
+            Auth.signIn(username,password)
             .then((user) => {
                 console.log(user)      
                 sessionStorage.setItem("userSession", user.signInUserSession);   
-                axios.get('http://localhost:8080/thirumanam/user/external/'+user.username,
+                axios.get('/thirumanam/user/external/'+user.username,
                 {                    
                 }) .then((res) => {
                    // Update User Detail to session
-                  
+                   sessionStorage.setItem("userSession", res.signInUserSession);   
                 })
                 this.props.history.push('/signedIn');           
             }).catch((err) => {
@@ -81,27 +87,52 @@ class ILogin extends Component {
 
     render() {
         return (
-            <div className="confirmSignUpContainer">
-                <div className="signUpLeft">
-                    <img src={confirmSignUp} alt="Not Available"></img>
+            <div className="ilogincontainer">
+               <TopBar />
+               <div className='hs1'></div>
+               <GlobalMenu />
+               <div className='hs200'></div>             
+                <div className="iLoginLeft">
+                    <img src={welcomeImage} alt="Not Available"></img>
                 </div>
-                <div className="signUpRight">
-                    <div> <h2>Welcome to Chandramathi Matrimony! </h2> </div>
-                    <div> <h3>You hava successfully confirmed the code. Please login to continue. </h3></div>
-                   
-                    <div className="codeParent">
-                        <div className='lfield'>
-                            <input type='text'  onChange={this.onChangeEmail} 
-                            defaultValue="Email or Phone" onFocus={this.emailFocus} onBlur={this.emailFocusOut}></input>
+                <div className="iLoginRight">         
+                    <div className="iLoginImage"> 
+                        <div>
+                        <div>
+                            <div className='fieldParent'>
+                                <div className="iloginLabel">
+                                Email or Phone:
+                                </div>
+                                <div className="iloginField">
+                                    <input type='text'  id="iLoginUser" ></input>
+                                </div>
+                            </div>                            
                         </div>
-                        <div className='lfield'>
-                            <input type='text' onChange={this.onChangePassword} 
-                                defaultValue="Password" onFocus={this.passwordFocus} onBlur={this.passwordFocusOut}></input>
-                        </div>
-                        <div className='lfield'>
-                            <button onClick={this.loginClick}>Login</button>
-                        </div>
+                        <div>
+                            <div className='fieldParent'>
+                                <div className="iloginLabel">
+                                    Password:
+                                </div>
+                                <div className="iloginField">
+                                <input type='password' id="iLoginPass" ></input>
+                                </div>
+                            </div>                            
+                        </div>      
+                        <div>
+                            <div className='fieldParent'>
+                                <div className="iloginLabel">                                  
+                                </div>
+                                <div className="iloginField">
+                                    <button onClick={this.loginClick}>Login</button>
+                                </div>
+                            </div>                            
+                        </div>   
+                        </div>  
                     </div>
+                </div>
+                <div className='hs20'></div>
+                <div className="footerDiv">
+                    <Footer />
                 </div>
             </div>
         );

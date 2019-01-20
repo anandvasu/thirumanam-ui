@@ -19,3 +19,15 @@
 .menufield a {
     padding-right : 30px;
 }
+
+.globalMenu{
+    display: inline-block;
+    padding-right : 5px;    
+    padding-top: 5px;
+}
+
+.globalMenu a {
+    padding-right : 30px;
+    color:white;
+    font-weight: bold;
+}

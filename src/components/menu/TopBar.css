@@ -1,0 +1,30 @@
+.topBar{
+    height:120px;
+    background-color: green;
+    width:100%;
+}
+
+.globalBar {
+    height:35px;
+    background-color: green;
+    width:100%;
+}
+
+.globalLogoOuter {    
+    width:60%;
+    text-align: center;
+    display: inline-block;
+}
+
+.globalLogoLeft {
+    display: inline-block;
+    width:50%;
+    text-align: left;
+}
+
+.globalLogoRight {
+    display: inline-block;
+    width:45%;
+    padding-top:10px;
+    text-align: right;
+}

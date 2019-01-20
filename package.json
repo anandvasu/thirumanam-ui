@@ -7,17 +7,21 @@
     "amazon-cognito-identity-js": "^3.0.3",
     "aws-amplify": "^1.1.9",
     "axios": "^0.18.0",
+    "express": "^4.16.4",
     "react": "^16.6.0",
-    "react-bootstrap-dropdown-menu": "^1.1.15",
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.5",
+    "react-scripts": "^2.1.3",
     "react-toastify": "^4.4.3",
+    "rimraf": "^2.6.3",
     "universal-cookie": "^3.0.7"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start-old": "react-scripts start",
+    "build-old": "react-scripts build",
+    "start": "webpack-dev-server",
+    "build-prod": "webpack --config webpack.prod.config.js --progress --profile --color",
+    "server-prod": "node src/server/server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -31,6 +35,27 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "json-loader": "^0.5.7"
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "css-loader": "^2.1.0",
+    "file-loader": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "json-loader": "^0.5.7",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1"
   }
 }

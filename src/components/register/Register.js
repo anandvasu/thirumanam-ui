@@ -127,7 +127,7 @@ class Register extends Component {
                 console.log(res);             
                 externalIdValue = res.userSub;   
                 console.log(externalIdValue);
-                axios.post('http://localhost:8080/thirumanam/user/register',
+                axios.post('/thirumanam/user/register',
                 { 
                     firstName:this.state.first,
                     lastName:this.state.last,
