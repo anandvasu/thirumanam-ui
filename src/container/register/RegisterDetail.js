@@ -10,6 +10,7 @@ import {toast} from 'react-toastify';
 import {Redirect} from "react-router-dom";
 import Aux from '../../hoc/Aux';
 import TopBar from '../../components/menu/TopBar';
+import ApiConstant from '../utils/ApiConstant';
 
 class RegisterDetail extends Component {
 
@@ -122,7 +123,7 @@ class RegisterDetail extends Component {
     }
 
     updateProfileInformation() {
-        axios.put('http://localhost:8080/thirumanam/user/profile', 
+        axios.put(ApiConstant.USER_PROFILE_API, 
                 { 
                     country:this.state.country,
                     pstate:this.state.pstate,

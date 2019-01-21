@@ -6,6 +6,7 @@ import {toast} from 'react-toastify';
 import {Auth} from 'aws-amplify';
 import 'react-toastify/dist/ReactToastify.css';
 import Constant from '../../Constant';
+import ApiConstant from '../utils/ApiConstant';
 
 class Register extends Component {
 
@@ -127,7 +128,7 @@ class Register extends Component {
                 console.log(res);             
                 externalIdValue = res.userSub;   
                 console.log(externalIdValue);
-                axios.post('/thirumanam/user/register',
+                axios.post(ApiConstant.USER_REGISTER_API,
                 { 
                     firstName:this.state.first,
                     lastName:this.state.last,

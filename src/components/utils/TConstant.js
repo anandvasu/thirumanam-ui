@@ -1,1 +1,0 @@
-export const EXTERNAL_USER_API = "/thirumanam/user/external/";

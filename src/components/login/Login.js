@@ -6,6 +6,8 @@ import {Auth} from 'aws-amplify';
 import {toast} from 'react-toastify';
 import {Redirect} from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
+import ApiConstant from '../utils/ApiConstant';
+
 
 import {
     withRouter
@@ -91,7 +93,7 @@ class Login extends Component {
             .then((user) => {
                 console.log(user)      
                 sessionStorage.setItem("userSession", user.signInUserSession);   
-                axios.get('http://localhost:8080/thirumanam/user/external/'+user.username,
+                axios.get(ApiConstant.EXTERNAL_USER_API+user.username,
                 {                    
                 }) .then((res) => {
                    // Update User Detail to session
