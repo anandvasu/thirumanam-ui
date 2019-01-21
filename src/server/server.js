@@ -12,6 +12,6 @@ app.use(
     proxy("**/thirumanam/**", appRoutes.thirumanamService)
     );
 
-app.listen(3000, () => {
+app.listen(3000, function() {
     console.log("Server Started @:" + 3000);
 });

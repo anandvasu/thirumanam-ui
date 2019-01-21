@@ -9,7 +9,7 @@ import Footer from '../../components/footer/Footer';
 import './Results.css';
 import RegisterWithLogin from '../register/RegisterWithLogin';
 import Aux from '../../hoc/Aux';
-import Config from '../../'
+import ApiConstant from '../../components/utils/ApiConstant';
 
 
 class Results extends Component {
@@ -52,7 +52,7 @@ class Results extends Component {
 
         if (sessionStorage.getItem("userSession") != null) {
 
-            axios.get('http://localhost:8080/thirumanam/user/'+profileId)
+            axios.get(ApiConstant.USER_API+profileId)
                 .then(res => {
                     console.log(res);
                     this.setState(
@@ -73,7 +73,7 @@ class Results extends Component {
 
     searchProfile(ageGrater,ageLess, aGender, aMstatus) {
         console.log("this.state.ageFrom" + this.state.ageFrom);
-        axios.post('http://localhost:8080/thirumanam/user/list', { 
+        axios.post(ApiConstant.QUICK_SEARCH_API, { 
             ageGreater:ageGrater,
                ageLess:ageLess,
                gender:aGender,

@@ -10,7 +10,7 @@ import {toast} from 'react-toastify';
 import {Redirect} from "react-router-dom";
 import Aux from '../../hoc/Aux';
 import TopBar from '../../components/menu/TopBar';
-import ApiConstant from '../utils/ApiConstant';
+import ApiConstant from '../../components/utils/ApiConstant';
 
 class RegisterDetail extends Component {
 
@@ -189,7 +189,7 @@ class RegisterDetail extends Component {
             if(this.state.image !== null) {
                 const formData = new FormData();
                 formData.append("imageFile", this.state.image, this.state.profileId);
-                axios.post('http://localhost:8080/thirumanam/user/image?profileId='+this.state.regProfileId, formData,
+                axios.post(ApiConstant.USER_PROFILE_IMAGE_API+'?profileId='+this.state.regProfileId, formData,
                         { 
                             country:this.state.country,                        
                         })
