@@ -20,6 +20,9 @@ class Results extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.profileClick = this.profileClick.bind(this);
         this.profileCloseHandler = this.profileCloseHandler.bind(this);
+        this.ageToChange = this.ageToChange.bind(this);
+        this.ageFromChange = this.ageFromChange.bind(this);
+        this.maritalStatusChange = this.maritalStatusChange.bind(this);
                
         //this.pageDisplay = this.pageDisplay.bind(this);
         this.state = {
@@ -257,9 +260,7 @@ class Results extends Component {
             this.state.ageTo, 
             this.state.gender, 
             value );
-    }
-
-     
+    }     
 
     profileCloseHandler() {
         this.setState({
