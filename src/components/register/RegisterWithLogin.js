@@ -10,7 +10,7 @@ class RegisterWithLogin extends Component {
                     <div className="hs10" />
                     <hr />
                     <div>
-                        <label>Registered Already? Login</label>
+                        <label>Registered Already? <a href="#" onClick={() => this.props.loginClick()}>Login</a></label>
                     </div>
            </div>
         );

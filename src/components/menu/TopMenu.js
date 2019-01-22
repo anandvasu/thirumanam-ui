@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './TopMenu.css';
 import Login from '../login/Login';
 import Menu from '../menu/Menu';
+import ResultsMenu from '../menu/ResultsMenu';
 
 class TopMenu extends Component {
 
@@ -16,6 +17,8 @@ class TopMenu extends Component {
         let content = [];
         if (sessionStorage.getItem("userSession") !== null) {           
             content.push(<Menu />);
+        } else if (this.props.resultsPage === true) {
+            content.push(<ResultsMenu />)
         } else {           
             content.push(<Login />);
         }

@@ -1,6 +1,6 @@
 .profileContainer {   
     display:flex;   
-    width:60%;
+    width:80%;
     background-color:#FFFFFF;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 2px 2px #ccc;
@@ -29,7 +29,7 @@
 }
 
 .profileSummary {
-    width:65%;
+    width:90%;
 }
 
 .psBottom {
@@ -41,12 +41,12 @@
 .profileId {
     text-align: left;
     height: 100%;
-    width:50%;
+    width:70%;
     display: inline-block;
 }
 
 .viewProfileDiv {
     text-align: right;
-    width:50%;
+    width:25%;
     display: inline-block;
 }

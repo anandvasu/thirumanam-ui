@@ -45,11 +45,15 @@ class ProfileSummary extends Component {
                         </div> 
                     </div>
 
-                    <div style={{textAlign:'left'}}>
-                        <label> {this.props.age} years</label> 
-                        <label> | {this.props.education}</label> 
-                        <label> | {this.props.city}</label>
-                        
+                    <div className="psBottom">
+                        <div className="profileId">
+                            <label> {this.props.age} years</label> 
+                            <label> | {this.props.education}</label> 
+                            <label> | {this.props.city}</label>
+                        </div>
+                        <div className="viewProfileDiv">
+                            
+                        </div>                         
                     </div>
                     <div className="hs40"/>
                     <div className="psBottom">

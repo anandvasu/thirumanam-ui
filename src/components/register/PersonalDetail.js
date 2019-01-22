@@ -39,6 +39,14 @@ class PersonalDetail extends Component {
         this.props.familyValueChange(event.target.value);
     }
 
+    foodHabitChange(event) {
+        this.props.foodHabitChange(event.target.value);
+    }
+
+    bodyTypeChange(event) {
+        this.props.bodyTypeChange(event.target.value);
+    }
+
     disablityChange(event) {
         this.props.disablityChange(event.target.value);
     }
@@ -198,7 +206,7 @@ class PersonalDetail extends Component {
                             <select  onChange={this.familyValueChange}>
                                 <option value="">--Select--</option>
                                 <option value="OR">Orthodox</option>
-                                <option value="NU">Traditional</option>    
+                                <option value="TL">Traditional</option>    
                                 <option value="MO">Moderate</option> 
                                 <option value="LI">Liberal</option>                             
                             </select>
@@ -210,7 +218,7 @@ class PersonalDetail extends Component {
                         </div>
                         
                         <div className='rdfield'>
-                            <select  onChange={this.familyValueChange}>
+                            <select  onChange={this.foodHabitChange}>
                                 <option value="">--Select--</option>
                                 <option value="V">Vegetarian</option>
                                 <option value="N">Non-Vegetarian</option>    
@@ -225,7 +233,7 @@ class PersonalDetail extends Component {
                         </div>
                         
                         <div className='rdfield'>
-                            <select  onChange={this.familyValueChange}>
+                            <select  onChange={this.bodyTypeChange}>
                                 <option value="">--Select--</option>
                                 <option value="AG">Average</option>
                                 <option value="AT">Athletic</option>    

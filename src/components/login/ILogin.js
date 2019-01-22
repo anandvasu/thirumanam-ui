@@ -91,7 +91,7 @@ class ILogin extends Component {
                <TopBar />
                <div className='hs1'></div>
                <GlobalMenu />
-               <div className='hs200'></div>             
+               <div className='hs100'></div>             
                 <div className="iLoginLeft">
                     <img src={welcomeImage} alt="Not Available"></img>
                 </div>

@@ -1,5 +1,5 @@
 var thirumanamService = {
-    target:"http://18.191.66.127:8080",
+    target:"http://localhost:8085",
     changeOrigin:true,
     ws:true,
     secure:false

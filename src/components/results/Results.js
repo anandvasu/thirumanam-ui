@@ -11,7 +11,6 @@ import RegisterWithLogin from '../register/RegisterWithLogin';
 import Aux from '../../hoc/Aux';
 import ApiConstant from '../../components/utils/ApiConstant';
 
-
 class Results extends Component {
 
     constructor(props) {
@@ -23,8 +22,8 @@ class Results extends Component {
         this.ageToChange = this.ageToChange.bind(this);
         this.ageFromChange = this.ageFromChange.bind(this);
         this.maritalStatusChange = this.maritalStatusChange.bind(this);
+        this.loginClickHandler = this.loginClickHandler.bind(this);
                
-        //this.pageDisplay = this.pageDisplay.bind(this);
         this.state = {
             ageFrom:18,
             ageTo:35,
@@ -183,32 +182,30 @@ class Results extends Component {
     }
 
     displayPageNumbers(pageNumber) {
-        const pages = this.state.totalDocs/this.state.docsPerPage;
+        const pages = Math.ceil(this.state.totalDocs/this.state.docsPerPage);
         let pageStart = 1;
         //console.log("pages" + pages);
        // console.log("pageNumber" + pageNumber);
-        if (pages > 10 ) {
-           // console.log("pages more than 10" + (pageNumber + 10));
-            if ((parseInt(pageNumber) + 10) < pages) {
-              // console.log("inside if");
-                pageStart = pageNumber;
+        if (pages > 5 ) {
+            if ((parseInt(pageNumber) + 5) < pages) {
+                pageStart = pageNumber;                              
             } else {
-                pageStart = pages - 10;
+                pageStart = pages - 5;
             }
         }
         let pageContents = [];
         let counter = 1;
-        pageContents.push(<button onClick={this.handleClick} key="firstPage" value="Last" className="firstButton">First</button>);
-        pageContents.push(<span key='firstPageSpan'>&nbsp;&nbsp;</span>);
+        pageContents.push(<button onClick={this.handleClick} key="firstPage" value="First" className="pageButton">First</button>);
+        pageContents.push(<span key='firstPageSpan'>&nbsp;</span>);
         for (let i= pageStart; i < (pages + 1); i ++ ) {
             pageContents.push(<button onClick={this.handleClick} key={'page'+i} value={i} className="pageButton">{i}</button>);
-            pageContents.push(<span key={'spanpage'+i}>&nbsp;&nbsp;</span>);
+            pageContents.push(<span key={'spanpage'+i}>&nbsp;</span>);
             counter++;
-            if(counter === 11) {
+            if(counter === 6) {
                 break;
             }
         }
-        pageContents.push(<button onClick={this.handleClick} key="lastPage" value="Last" className="lastButton">Last</button>);
+        pageContents.push(<button onClick={this.handleClick} key="lastPage" value="Last" className="pageButton">Last</button>);
         this.setState({pages:pageContents});
     }
 
@@ -219,7 +216,10 @@ class Results extends Component {
         if (event.target.value === "First") {
             pageNumber = 1;
         } else if (event.target.value === "Last") {
-            pageNumber = Math.ceil(this.state.totalDocs/this.state.docsPerPage);
+            const lastPage = this.state.totalDocs/this.state.docsPerPage;
+            console.log("lastPage" + lastPage);
+            pageNumber = Math.ceil(lastPage);
+            console.log("pageNumber" + pageNumber);
         } else {
             pageNumber = event.target.value;
         }
@@ -268,11 +268,17 @@ class Results extends Component {
         });
     }
 
+    loginClickHandler() {
+        this.props.history.push('/ilogin');
+    }
+    
     render () {
         return (
             <Aux style={{textAlign:'center'}}>
              <div className="hs10" />
-                 <TopMenu /> 
+                 <TopMenu
+                        resultsPage ={ true}
+                  /> 
                  <div className="hs30" />
                  <Modal show={this.state.profileClicked} modalClosed={this.profileClosed} className="Modal">
                     <Profile
@@ -281,7 +287,9 @@ class Results extends Component {
                     />
                  </Modal>       
                  <Modal show={this.state.registerDisplay} modalClosed={this.profileClosed} className="RegisterModal">   
-                        <RegisterWithLogin /> 
+                        <RegisterWithLogin 
+                            loginClick = {this.loginClickHandler}
+                        /> 
                  </Modal>    
                
 
@@ -293,27 +301,33 @@ class Results extends Component {
                                     maritalStatusChange = {this.maritalStatusChange}
                                 />
                             </div>
+
                             <div className="vs20" />
+
                             <div key="resultContent" className="resultsection">
-                            <div key="pageNagivationtop" className="pageNavContainer">
-                                <div className="searchResultsCount">
-                                       Search Results ({this.state.totalDocs}) 
-                                </div>
-                                <div  className="pageNavigation">
-                                        {this.state.pages}
-                                </div>
-                            </div>
-                            <div className="hs10" />
+                                
+                                <div key="pageNagivationtop" className="pageNavContainer">
+                                    <div className="searchResultsCount">
+                                        Search Results ({this.state.totalDocs}) 
+                                    </div>
+                                    <div  className="pageNavigation">
+                                            {this.state.pages}
+                                    </div>
+                                </div>                                   
+
+                                <div className="hs10" />
+
                                 <div key="profileResults" className="profileResults">
                                     {this.state.pictures}
-                                </div>                                   
+                                </div>                             
+
                                 <div key="pageNagivationBottom" className="pageNavContainer">
-                                <div className="searchResultsCount">                                        
+                                    <div className="searchResultsCount">                                        
+                                    </div>
+                                    <div  className="pageNavigation" >
+                                            {this.state.pages}
+                                    </div>
                                 </div>
-                                <div  className="pageNavigation" >
-                                        {this.state.pages}
-                                </div>
-                            </div>
                             </div>                    
                  </div>
                  <div className="hs30" />

@@ -3,7 +3,7 @@ import './Contact.css';
 import house from '../../assets/images/villupuram.jpg';
 import Footer from '../footer/Footer';
 import TopMenu from '../../components/menu/TopMenu';
-
+import ApiConstant from '../../components/utils/ApiConstant';
 
 class Contact extends Component {
 
@@ -15,7 +15,7 @@ class Contact extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8080/thirumanam/contact/list')
+        fetch(ApiConstant.CONTACT_API)
         .then(function (response) {
             return response.json();
         })
