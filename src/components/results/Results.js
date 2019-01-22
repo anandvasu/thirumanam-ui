@@ -16,7 +16,7 @@ class Results extends Component {
     constructor(props) {
         super(props);
 
-        this.handleClick = this.handleClick.bind(this);
+        this.handlePageClick = this.handlePageClick.bind(this);
         this.profileClick = this.profileClick.bind(this);
         this.profileCloseHandler = this.profileCloseHandler.bind(this);
         this.ageToChange = this.ageToChange.bind(this);
@@ -47,7 +47,9 @@ class Results extends Component {
             this.props.location.state.ageFrom, 
             this.props.location.state.ageTo, 
             this.props.location.state.gender,
-            this.props.location.state.mStatus);      
+            this.props.location.state.mStatus,
+            1
+        );      
     }
 
     profileClick(profileId) {
@@ -73,23 +75,29 @@ class Results extends Component {
         }
     }
 
-    searchProfile(ageGrater,ageLess, aGender, aMstatus) {
+    searchProfile(ageGrater,ageLess, aGender, aMstatus, pageNumber) {
         console.log("this.state.ageFrom" + this.state.ageFrom);
+        var totalDocs = 0;
         axios.post(ApiConstant.QUICK_SEARCH_API, { 
             ageGreater:ageGrater,
                ageLess:ageLess,
                gender:aGender,
-               maritalStatus:aMstatus
+               maritalStatus:aMstatus,
+               totalDocs:this.state.totalDocs,
+               pageNumber:pageNumber 
              })
          .then(function (res) {
              console.log(res);
+             totalDocs = res.headers["x-total-docs"]; 
              return res.data;
          })
          .then((data) => {             
-             this.setState({data:data});
-             this.setState({totalDocs:data.length});
+             this.setState({
+                 data:data,
+                 totalDocs:totalDocs
+             });             
              if (data.length > 0) {
-                this.displayResults(1);
+                this.displayResults(pageNumber);
              } else {
                  const content = <div> Sorry. No Profiles Found. </div>
                 this.setState({pictures:content});
@@ -143,16 +151,16 @@ class Results extends Component {
         }
         
         console.log("startNumber"+ startNumber);
-        let picData = [];
+        let picData = this.state.data;
      
-        for (let i= startNumber; i < maxDocs; i ++) {
+        //for (let i= startNumber; i < maxDocs; i ++) {
 
            // console.log(this.state.data[i]);
 
-            let results = this.state.data[i];
-            console.log("results"+ results);
-            picData.push(results);
-        }
+            //let results = this.state.data[i];
+           // console.log("results"+ results);
+           // picData.push(results);
+       // }
 
         console.log(picData);
 
@@ -184,32 +192,32 @@ class Results extends Component {
     displayPageNumbers(pageNumber) {
         const pages = Math.ceil(this.state.totalDocs/this.state.docsPerPage);
         let pageStart = 1;
-        //console.log("pages" + pages);
-       // console.log("pageNumber" + pageNumber);
+        console.log("pages" + pages);
+        console.log("pageNumber" + pageNumber);
         if (pages > 5 ) {
-            if ((parseInt(pageNumber) + 5) < pages) {
+            if ((parseInt(pageNumber) + 4) < pages) {
                 pageStart = pageNumber;                              
             } else {
-                pageStart = pages - 5;
+                pageStart = pages - 4;
             }
         }
         let pageContents = [];
         let counter = 1;
-        pageContents.push(<button onClick={this.handleClick} key="firstPage" value="First" className="pageButton">First</button>);
+        pageContents.push(<button onClick={this.handlePageClick} key="firstPage" value="First" className="pageButton">First</button>);
         pageContents.push(<span key='firstPageSpan'>&nbsp;</span>);
         for (let i= pageStart; i < (pages + 1); i ++ ) {
-            pageContents.push(<button onClick={this.handleClick} key={'page'+i} value={i} className="pageButton">{i}</button>);
+            pageContents.push(<button onClick={this.handlePageClick} key={'page'+i} value={i} className="pageButton">{i}</button>);
             pageContents.push(<span key={'spanpage'+i}>&nbsp;</span>);
             counter++;
             if(counter === 6) {
                 break;
             }
         }
-        pageContents.push(<button onClick={this.handleClick} key="lastPage" value="Last" className="pageButton">Last</button>);
+        pageContents.push(<button onClick={this.handlePageClick} key="lastPage" value="Last" className="pageButton">Last</button>);
         this.setState({pages:pageContents});
     }
 
-    handleClick(event) {
+    handlePageClick(event) {
         event.preventDefault();
         console.log(event.target.value);
         let pageNumber = 1;
@@ -223,7 +231,14 @@ class Results extends Component {
         } else {
             pageNumber = event.target.value;
         }
-        this.displayResults(pageNumber);
+        //this.displayResults(pageNumber);
+        this.searchProfile(
+            this.state.ageFrom,
+            this.state.ageTo,
+            this.state.gender,
+            this.state.maritalStatus,
+            pageNumber
+        );
     }
 
     getFormData() {
@@ -239,7 +254,12 @@ class Results extends Component {
             ageTo:value
         });      
        
-        this.searchProfile(this.state.ageFrom, value);
+        this.searchProfile(
+            this.state.ageFrom,
+            value, 
+            this.state.gender, 
+            this.state.maritalStatus,
+            1 );
     }
 
     ageFromChange(value) {
@@ -247,7 +267,12 @@ class Results extends Component {
             ageFrom:value
         });      
        
-        this.searchProfile(value, this.state.ageTo);
+        this.searchProfile(
+            value,
+            this.state.ageTo, 
+            this.state.gender, 
+            this.state.maritalStatus,
+            1 );
     }
 
     maritalStatusChange (value) {
@@ -259,7 +284,8 @@ class Results extends Component {
             this.state.ageFrom,
             this.state.ageTo, 
             this.state.gender, 
-            value );
+            value,
+            1);
     }     
 
     profileCloseHandler() {
