@@ -6,12 +6,13 @@ import mobile from '../../assets/images/mobile.png';
 import TopMenu from '../../components/menu/TopMenu';
 import './Home.css';
 import Aux from '../../hoc/Aux';
+import ImageGalleryAnimation from '../../components/profiles/ImageGalleryAnimation';
 
 class Home extends Component {
 
     render () {
         return (
-            <Aux>
+            <Aux>                 
                 <div className="hs10" />
                 <TopMenu />  
                 <div className="hs10" />
@@ -43,8 +44,9 @@ class Home extends Component {
                             <label>20 Years of Experience</label>       
                         </div>
                     </div>
-                </div>
-                
+                </div>                
+                <div className="hs20" />
+                <ImageGalleryAnimation />
                 <div className="hs20" />
                 <Footer />
             </Aux>          

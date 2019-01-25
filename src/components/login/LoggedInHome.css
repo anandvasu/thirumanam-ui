@@ -1,0 +1,17 @@
+.topLeftSection {
+    width:15%;
+    display: inline-block;
+    background-color: red;
+}
+
+.topMiddleSection {
+    width:60%;
+    display: inline-block;
+    background-color: yellow;
+}
+
+.topRightSection {
+    width:20%;
+    display: inline-block;
+    background-color: blue;
+}

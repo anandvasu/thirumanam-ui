@@ -177,7 +177,6 @@ class Results extends Component {
                         thumbImage = {data.image}
                         profileClick = {this.profileClick}
                         gender = {data.gender}
-                        id = {data.id}
                         bDate = {this.formatDate(data.bDay, data.bMonth, data.bYear)}
                     />
                     <span>&nbsp;&nbsp;</span>

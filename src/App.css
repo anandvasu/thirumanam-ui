@@ -257,3 +257,7 @@ hr {
   bottom: 0;
   width: 100%;
 }
+
+.inlineBlock {
+  display: inline-block;
+}
