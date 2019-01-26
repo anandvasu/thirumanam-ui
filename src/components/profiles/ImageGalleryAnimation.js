@@ -5,13 +5,14 @@ import ApiConstant from '../../components/utils/ApiConstant';
 import FeaturedProfile from '../../components/profiles/FeaturedProfile';
 import Modal from '../../components/modal/Modal';
 
-let pics1Temp = [{"image":"Loading", "profileId":"1234"}]
+let pics1Temp = [{"image":"Loading", "profileId":"1234"},{"image":"Loading", "profileId":"1234"},{"image":"Loading", "profileId":"1234"},{"image":"Loading", "profileId":"1234"}]
 
 class ImageGalleryAnimation extends React.Component {
     constructor(props) {
       super(props);
 
       this.imageClick = this.imageClick.bind(this);
+      this.closeProfileHandler = this.closeProfileHandler.bind(this);  
 
       const idxStart = 0;
       this.state = {
@@ -34,9 +35,16 @@ class ImageGalleryAnimation extends React.Component {
         age:"",
         city:"",
         education:"",
+        bDay:0,
+        bMonth:0,
+        bYear:0,
         image:"",
         featureProfileClick: false
       };
+    }
+
+    componentWillUnmount(){
+
     }
 
     imageClick(imageNo, indexValue) {        
@@ -67,6 +75,9 @@ class ImageGalleryAnimation extends React.Component {
             gender:picArray[0].gender,
             education : picArray[0].education,
             image : picArray[0].image,
+            bDay:picArray[0].bDay,
+            bMonth:picArray[0].bMonth,
+            bYear:picArray[0].bYear,            
             featureProfileClick:true
         });
     }
@@ -133,31 +144,73 @@ class ImageGalleryAnimation extends React.Component {
                
                 return dataObject;
             }); 
-        });     
 
-        setInterval(() => {
-            // on
-            this.setState({
-              move: true,
-              pics1: pics1,
-              pics2: pics2,
-              pics3: pics3,
-              pics4: pics4,
-              pics5: pics5,
-              pics6: pics6,
-              pics7: pics7,
-              pics8: pics8,
-            });
-            // off
-            setTimeout(() => {
-              this.setState({
-                move: false
-              });
-              this.setIndexes(this.getNextIndex(this.state.index));
-            }, 500); // same delay as in the css transition here
-      
-          }, 2000); // next slide delay
+            setInterval(() => {
+                // on
+                this.setState({
+                  move: true,
+                  pics1: pics1,
+                  pics2: pics2,
+                  pics3: pics3,
+                  pics4: pics4,
+                  pics5: pics5,
+                  pics6: pics6,
+                  pics7: pics7,
+                  pics8: pics8,
+                });
+                // off
+                setTimeout(() => {
+                  this.setState({
+                    move: false
+                  });
+                  this.setIndexes(this.getNextIndex(this.state.index));
+                }, 500); // same delay as in the css transition here
+          
+              }, 2000); // next slide delay
+        });             
     }
+
+    closeProfileHandler() {
+        this.setState({
+            featureProfileClick:false
+        });
+    }
+
+    formatDate(aDay, aMonth, aYear) {
+        return aDay.toString().padStart(2, '0') + "-" + this.formatMonth(aMonth) + "-" + aYear;
+    }
+
+    formatMonth(aMonth) {
+        switch(aMonth) {
+            case 1:
+                return "Jan" ;
+            case 2:
+                return "Feb" ;
+            case 3:
+                return "Mar" ;
+            case 4:
+                return "Apr" ;
+            case 5:
+                return "May" ;
+            case 6:
+                return "Jun" ;
+            case 7:
+                return "July" ;
+            case 8:
+                return "Aug" ;
+            case 9:
+                return "Sep" ;
+            case 11:
+                return "Oct" ;
+            case 12:
+                return "Nov" ;
+            case 13:
+                return "Dec" ;
+            default:
+                return null;
+        }
+    }
+
     render() {
       const move = this.state.move ? 'move' : '';
       if (this.state.move) {
@@ -165,17 +218,21 @@ class ImageGalleryAnimation extends React.Component {
       }
       return (
         <div style={{width:'100%'}}>
-            <Modal show={this.state.featureProfileClick} modalClosed={this.profileClosed} className="Modal">
+            <Modal show={this.state.featureProfileClick} modalClosed={this.profileClosed} className="FeatureProfileModal">
+                <div className="fprofilecontainer">
                     <FeaturedProfile
                         profileId={this.state.profileId}
                         age={this.state.age}
                         firstName = {this.state.firstName}
                         lastName = {this.state.lastName}                        
-                        thumbImage = {this.state.image}
+                        image = {this.state.image}
                         profileClose = {this.profileCloseHandler}
+                        closeProfile = {this.closeProfileHandler}
+                        education = {this.state.education}
                         gender = {this.state.gender}
-                        bDate = "12/12/1987"
+                        bDate = {this.formatDate(this.state.bDay, this.state.bMonth, this.state.bYear)}
                     />
+                </div>
             </Modal> 
             <div><h2>Featured Profiles</h2></div>
             <div className="hs20" />

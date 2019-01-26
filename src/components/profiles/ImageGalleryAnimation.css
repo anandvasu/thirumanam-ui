@@ -43,3 +43,17 @@
     height: 200px;
     display: inline-block;
   }
+
+.fprofilecontainer {   
+    background-color: white;
+    width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px grey;
+    padding: 5px;    
+    box-sizing: border-box;
+}
+
+.featureProfileCloseDiv img:hover {  
+  cursor: pointer;    
+}

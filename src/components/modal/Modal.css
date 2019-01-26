@@ -30,6 +30,16 @@
     transition: all 0.3s ease-out;
 }
 
+.FeatureProfileModal {
+    position: fixed;
+    z-index: 500;
+    width: 800px;
+    left: 25%;
+    top: 10%;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+}
+
 .overlay {
     position: fixed; /* Positioning and size */
     top: 0;

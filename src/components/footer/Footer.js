@@ -9,7 +9,7 @@ class Footer extends Component {
     constructor() {
         super();
 
-        this.socialMediaClick = this.socialMediaClick.bind(this);
+        this.socialMediaClick = this.socialMediaClick.bind(this); 
     }
 
     socialMediaClick(newURLPage) {
@@ -21,7 +21,7 @@ class Footer extends Component {
         return(
            <div className="fcontainer">
                <div className="copyRight">
-                    <label>Copyright © 2018. All rights reserved</label>
+                    <label>Copyright © 2019. All rights reserved</label>
                 </div>
                <div className="socialMedia">
                         <img src={facebook} onClick={() => this.socialMediaClick("www.facebook.com")} />

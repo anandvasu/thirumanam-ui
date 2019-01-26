@@ -1,18 +1,21 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    devtool: 'cheap-module-source-map',
-    mode:'production',
+    devtool: 'inline-source-map',
+    mode:'development',
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'src/public'),
         filename: 'bundle.js',
         chunkFilename: '[id].js',
         publicPath: '/'
+    },
+    devServer: {
+             contentBase: '/src/public',
+             hot: true
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -36,23 +39,9 @@ module.exports = {
                 loader: 'url-loader?limit=8000&name=images/[name].[ext]'
             }
         ]
-    },
-    optimization: {
-        minimizer: [
-          // we specify a custom UglifyJsPlugin here to get source maps in production
-          new UglifyJsPlugin({
-            cache: true,
-            parallel: true,
-            uglifyOptions: {
-              compress: false,
-              ecma: 6,
-              mangle: true
-            },
-            sourceMap: true
-          })
-        ]
-      },
+    },    
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new CleanWebpackPlugin(['/src/public']),
         new HtmlWebpackPlugin({
             template: __dirname + '/src/public/index.html',
