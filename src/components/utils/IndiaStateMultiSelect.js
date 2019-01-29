@@ -8,7 +8,6 @@ class IndiaStateMultiSelect extends Component {
         super(props);
 
         this.state = {
-            multiValue: [],
             filterOptions: [
               { value: "AR", label: "Arunachal Pradesh" },
               { value: "AS", label: "Assam" },
@@ -54,9 +53,9 @@ class IndiaStateMultiSelect extends Component {
                 <Select
                     name="filters"
                     placeholder="Filters"
-                    value={this.props.casteSelecteOption}
+                    value={this.props.states}
                     options={this.state.filterOptions}
-                    onChange={this.props.handleCasteChange}
+                    onChange={this.props.handleStateChange}
                     isMulti = {true}
                     />
             </div>

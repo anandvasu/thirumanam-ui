@@ -23,7 +23,7 @@ class CountryMultiSelect extends Component {
                 <Select
                     name="filters"
                     placeholder="Filters"
-                    value={this.props.countrySelecteOption}
+                    value={this.props.countries}
                     options={this.state.filterOptions}
                     onChange={this.props.handleCountryChange}
                     isMulti = {true}

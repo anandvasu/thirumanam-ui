@@ -22,7 +22,7 @@ class CasteMultiSelect extends Component {
                 <Select
                     name="filters"
                     placeholder="Filters"
-                    value={this.props.casteSelecteOption}
+                    value={this.props.castes}
                     options={this.state.filterOptions}
                     onChange={this.props.handleCasteChange}
                     isMulti = {true}

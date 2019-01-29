@@ -34,10 +34,6 @@ class Preference extends Component {
         this.handleStateChange = this.handleStateChange.bind(this);
 
         this.state = {
-            religionSelecteOption:[],
-            casteSelectedOption:[],
-            countrySelectedOption:[],
-            stateSelectedOption:[],
             ageFrom:18,
             ageTo:40,           
             minHeight:0,
@@ -54,28 +50,28 @@ class Preference extends Component {
     handleReligionChange(option) {
         console.log(option);
         this.setState({
-            religionSelecteOption: option
+            religions: option
         });
     }
 
     handleCasteChange(option) {
         console.log(option);
         this.setState({
-            casteSelecteOption: option
+            castes: option
         });
     }
 
     handleCountryChange(option) {
         console.log(option);
         this.setState({
-            countrySelecteOption: option
+            countries: option
         });
     }
 
     handleStateChange(option) {
         console.log(option);
         this.setState({
-            stateSelecteOption: option
+            states: option
         });
     }
 
@@ -178,14 +174,20 @@ class Preference extends Component {
         console.log(profileId);
         axios.put(ApiConstant.PREFERENCE_API, 
             { 
+                id:profileId,
                 ageFrom:this.state.ageFrom,
                 ageTo:this.state.ageTo,
                 mStatus:this.state.mStatus,
                 city:this.state.city,
                 minHeight: this.state.minHeight,
                 maxHeight: this.state.maxHeight,
-                foodHabits: this.state.foodHabits,                
-                id:profileId
+                foodHabits: this.state.foodHabits,  
+                religions:this.state.religions,
+                castes:this.state.castes,
+                countries:this.state.countries,              
+                states:this.state.states
+                
+                
             })
             .then((res) => {
                 console.log(res);                
@@ -286,7 +288,7 @@ class Preference extends Component {
                         <div className="prefDataDiv">
                             <ReligionMultiSelect
                                 handleReligionChange = {this.handleReligionChange}
-                                religionSelectOption = {this.state.religionSelectOption}
+                                religions = {this.state.religions}
                             />
                         </div>
                     </div>
@@ -297,7 +299,7 @@ class Preference extends Component {
                         <div className="prefDataDiv">
                             <CasteMultiSelect 
                                  handleCasteChange = {this.handleCasteChange}
-                                 casteSelectOption = {this.state.casteSelectOption}
+                                 castes = {this.state.castes}
                             />
                         </div>
                     </div>                      
@@ -316,7 +318,7 @@ class Preference extends Component {
                         <div className="prefDataDiv">
                            <CountryMultiSelect 
                                  handleCountryChange = {this.handleCountryChange}
-                                 countrySelectOption = {this.state.countrySelectOption}
+                                 countries = {this.state.countries}
                            />
                         </div>
                     </div>
@@ -327,7 +329,7 @@ class Preference extends Component {
                         <div className="prefDataDiv">
                            <IndiaStateMultiSelect
                                 handleStateChange = {this.handleStateChange}
-                                stateSelectOption = {this.state.stateSelectOption}
+                                states = {this.state.states}
                            />
                         </div>
                     </div>                                        

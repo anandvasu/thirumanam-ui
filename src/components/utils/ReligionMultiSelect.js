@@ -20,7 +20,7 @@ class ReligionMultiSelect extends Component {
                 <Select
                     name="filters"
                     placeholder="Filters"
-                    value={this.props.religionSelecteOption}
+                    value={this.props.religions}
                     options={this.state.filterOptions}
                     onChange={this.props.handleReligionChange}
                     isMulti = {true}
