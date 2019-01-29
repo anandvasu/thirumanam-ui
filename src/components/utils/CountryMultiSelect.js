@@ -7,8 +7,6 @@ class CountryMultiSelect extends Component {
     constructor(props) {
         super(props);
 
-        this.handleMultiChange = this.handleMultiChange.bind(this);
-
         this.state = {
             multiValue: [],
             filterOptions: [
@@ -19,21 +17,15 @@ class CountryMultiSelect extends Component {
           };
     }
 
-    handleMultiChange(option) {
-        this.setState({
-            multiValue: option
-        });
-      }
-
     render() {       
         return(
             <div>
                 <Select
                     name="filters"
                     placeholder="Filters"
-                    value={this.state.multiValue}
+                    value={this.props.countrySelecteOption}
                     options={this.state.filterOptions}
-                    onChange={this.handleMultiChange}
+                    onChange={this.props.handleCountryChange}
                     isMulti = {true}
                     />
             </div>

@@ -18,7 +18,6 @@ class ProfileSelfSummary extends Component {
     }
 
     goToPreference() {
-        event.preventDefault();
         const profileId = sessionStorage.getItem("profileId");
         console.log("profileId:"+profileId)
         axios.get(ApiConstant.PREFERENCE_API+profileId, {                

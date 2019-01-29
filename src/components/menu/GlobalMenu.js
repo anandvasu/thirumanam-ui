@@ -14,12 +14,10 @@ class GlobalMenu extends Component {
     }
 
     goToHome() {
-        event.preventDefault();
         this.props.history.push('/LoggedInHome');
     }
 
     goToPayment() {
-        event.preventDefault();
         this.props.history.push('/payment');
     }
 

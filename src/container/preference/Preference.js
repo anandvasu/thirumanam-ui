@@ -28,8 +28,16 @@ class Preference extends Component {
         this.updatePartnerPref = this.updatePartnerPref.bind(this);
         this.maritalStatusChange = this.maritalStatusChange.bind(this);
         this.foodHabitChange = this.foodHabitChange.bind(this);
+        this.handleReligionChange = this.handleReligionChange.bind(this);
+        this.handleCasteChange = this.handleCasteChange.bind(this);
+        this.handleCountryChange = this.handleCountryChange.bind(this);
+        this.handleStateChange = this.handleStateChange.bind(this);
 
         this.state = {
+            religionSelecteOption:[],
+            casteSelectedOption:[],
+            countrySelectedOption:[],
+            stateSelectedOption:[],
             ageFrom:18,
             ageTo:40,           
             minHeight:0,
@@ -41,6 +49,34 @@ class Preference extends Component {
             religions:[],
             castes:[]
         }
+    }
+
+    handleReligionChange(option) {
+        console.log(option);
+        this.setState({
+            religionSelecteOption: option
+        });
+    }
+
+    handleCasteChange(option) {
+        console.log(option);
+        this.setState({
+            casteSelecteOption: option
+        });
+    }
+
+    handleCountryChange(option) {
+        console.log(option);
+        this.setState({
+            countrySelecteOption: option
+        });
+    }
+
+    handleStateChange(option) {
+        console.log(option);
+        this.setState({
+            stateSelecteOption: option
+        });
     }
 
     componentDidMount() {
@@ -249,7 +285,8 @@ class Preference extends Component {
                         </div>
                         <div className="prefDataDiv">
                             <ReligionMultiSelect
-                                religions = {this.state.religions}
+                                handleReligionChange = {this.handleReligionChange}
+                                religionSelectOption = {this.state.religionSelectOption}
                             />
                         </div>
                     </div>
@@ -258,7 +295,10 @@ class Preference extends Component {
                             Caste
                         </div>
                         <div className="prefDataDiv">
-                            <CasteMultiSelect />
+                            <CasteMultiSelect 
+                                 handleCasteChange = {this.handleCasteChange}
+                                 casteSelectOption = {this.state.casteSelectOption}
+                            />
                         </div>
                     </div>                      
                 </div>  
@@ -274,7 +314,10 @@ class Preference extends Component {
                             Country Living In
                         </div>
                         <div className="prefDataDiv">
-                           <CountryMultiSelect />
+                           <CountryMultiSelect 
+                                 handleCountryChange = {this.handleCountryChange}
+                                 countrySelectOption = {this.state.countrySelectOption}
+                           />
                         </div>
                     </div>
                     <div className="prefDataRow">
@@ -282,7 +325,10 @@ class Preference extends Component {
                             State
                         </div>
                         <div className="prefDataDiv">
-                           <IndiaStateMultiSelect />
+                           <IndiaStateMultiSelect
+                                handleStateChange = {this.handleStateChange}
+                                stateSelectOption = {this.state.stateSelectOption}
+                           />
                         </div>
                     </div>                                        
                 </div>   

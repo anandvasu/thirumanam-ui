@@ -5,25 +5,13 @@ class ReligionMultiSelect extends Component {
 
     constructor(props) {
         super(props);
-
-        this.handleMultiChange = this.handleMultiChange.bind(this);
-
-        this.state = {
-            multiValue: [],
+           this.state = {
             filterOptions: [
               { value: "H", label: "Hindu" },
               { value: "M", label: "Muslim" }
             ]
           };
-
     }
-
-    handleMultiChange(option) {
-        console.log(option);
-        this.setState({
-            multiValue: option
-        });
-      }
 
     render() {     
         
@@ -32,9 +20,9 @@ class ReligionMultiSelect extends Component {
                 <Select
                     name="filters"
                     placeholder="Filters"
-                    value={this.state.multiValue}
+                    value={this.props.religionSelecteOption}
                     options={this.state.filterOptions}
-                    onChange={this.handleMultiChange}
+                    onChange={this.props.handleReligionChange}
                     isMulti = {true}
                     />
             </div>
