@@ -208,8 +208,8 @@ class Register extends Component {
                         </div>
                         
                         <div className='rfield'>
-                            <select onChange={this.onChangeRegisteredBy}>
-                                <option value="S" selected>self</option>
+                            <select onChange={this.onChangeRegisteredBy} defaultValue="S">
+                                <option value="S">self</option>
                                 <option value="F">Father</option>
                                 <option value="M">Mother</option>                            
                             </select>
@@ -236,8 +236,8 @@ class Register extends Component {
                             <label>Data of birth</label>
                         </div>
                         <div className='rfield'>
-                            <select onChange={this.onChangeDay}>
-                                <option value="DD" selected>DD</option>
+                            <select onChange={this.onChangeDay} defaultValue="DD">
+                                <option value="DD">DD</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -251,8 +251,8 @@ class Register extends Component {
                                 <option value="11">11</option>
                                 <option value="12">12</option>
                             </select>&nbsp;&nbsp;
-                            <select onChange={this.onChangeMonth}>
-                                <option value="MM" selected>MM</option>
+                            <select onChange={this.onChangeMonth} defaultValue="MM">
+                                <option value="MM">MM</option>
                                 <option value="1">Jan</option>
                                 <option value="2">Feb</option>
                                 <option value="3">Mar</option>
@@ -266,8 +266,8 @@ class Register extends Component {
                                 <option value="11">Nov</option>
                                 <option value="12">Dec</option>
                             </select>&nbsp;&nbsp;
-                            <select onChange={this.onChangeYear}>
-                                <option value="YEAR" selected>YEAR</option>
+                            <select onChange={this.onChangeYear} defaultValue="YEAR">
+                                <option value="YEAR">YEAR</option>
                                 <option value="2000">2000</option>
                                 <option value="1999">1999</option>
                                 <option value="1998">1998</option>
@@ -307,8 +307,8 @@ class Register extends Component {
                             <label>Religion</label>
                         </div>
                         <div className='rfield'>
-                            <select onChange={this.onChangeDay}>
-                                <option value="H" selected>Hindu</option>                                                 
+                            <select onChange={this.onChangeDay} defaultValue="H">
+                                <option value="H">Hindu</option>                                                 
                             </select>&nbsp;&nbsp;
                         </div>
                     </div>
@@ -318,7 +318,7 @@ class Register extends Component {
                         </div>
                         <div className='rfield'>
                             <select onChange={this.onChangeDay}>
-                                <option selected>Vanniyar</option>                                                 
+                                <option >Vanniyar</option>                                                 
                             </select>&nbsp;&nbsp;
                         </div>
                     </div>
@@ -327,7 +327,7 @@ class Register extends Component {
                             <label>Mobile Number</label>
                         </div>
                         <div className='rfield'>
-                            <select onChange={this.onChangeCountryCode} style={{width:'97px'}}>
+                            <select onChange={this.onChangeCountryCode} style={{width:'97px'}} defaultValue="+91">
                             <option value='+93'>Afghanistan(+93)</option>
                                 <option value='+355'>Albania(+355)</option>
                                 <option value='+213'>Algeria(+213)</option>
@@ -422,7 +422,7 @@ class Register extends Component {
                                 <option value='+504'>Honduras(+504)</option>
                                 <option value='+36'>Hungary(+36)</option>
                                 <option value='+354'>Iceland(+354)</option>
-                                <option value='+91' selected>India(+91)</option>
+                                <option value='+91'>India(+91)</option>
                                 <option value='+62'>Indonesia(+62)</option>
                                 <option value='+98'>Iran, Islamic Republic of(+98)</option>
                                 <option value='+964'>Iraq(+964)</option>

@@ -74,7 +74,7 @@ class QuickSearch extends Component {
                                 
                             <div>
                                 <label>Age:&nbsp;</label>
-                                <select value="18" onChange={this.ageFromChange}>
+                                <select onChange={this.ageFromChange} defaultValue="18">
                                     <option value="18">18</option>
                                     <option value="19">19</option>
                                     <option value="20">20</option>
@@ -100,7 +100,7 @@ class QuickSearch extends Component {
                                     <option value="40">40</option>                                  
                                 </select>
                                 <label>&nbsp;to&nbsp;</label>
-                                <select onChange={this.ageToChange}>
+                                <select onChange={this.ageToChange} defaultValue="35">
                                     <option value="18" >18</option>
                                     <option value="19">19</option>
                                     <option value="20">20</option>
@@ -118,7 +118,7 @@ class QuickSearch extends Component {
                                     <option value="32">32</option>
                                     <option value="33">33</option>
                                     <option value="34">34</option>
-                                    <option value="35" selected>35</option>
+                                    <option value="35">35</option>
                                     <option value="36">36</option>
                                     <option value="37">37</option>
                                     <option value="38">38</option>

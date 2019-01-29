@@ -6,6 +6,7 @@ import Education from '../utils/Education';
 import Occupation from '../utils/Occupation';
 import BodyType from '../utils/BodyType';
 import FoodHabit from '../utils/FoodHabit';
+import Age from '../utils/Age';
 
 class Filter extends Component {
 
@@ -56,69 +57,30 @@ class Filter extends Component {
                  <div className="header3Parent">
                                 <div className="header3"><label>Age</label></div>
                                 <div className="filterContent">
-                                <select onChange={this.ageFromChange}>
-                                    <option value="18" selected>18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                    <option value="32">32</option>
-                                    <option value="33">33</option>
-                                    <option value="34">34</option>
-                                    <option value="35">35</option>
-                                    <option value="36">36</option>
-                                    <option value="37">37</option>
-                                    <option value="38">38</option>
-                                    <option value="39">39</option>
-                                    <option value="40">40</option>                                  
-                                </select>
-                                <label>&nbsp;to&nbsp;</label>
-                                <select onChange={this.ageToChange}>
-                                    <option value="18" >18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                    <option value="32">32</option>
-                                    <option value="33">33</option>
-                                    <option value="34">34</option>
-                                    <option value="35" selected>35</option>
-                                    <option value="36">36</option>
-                                    <option value="37">37</option>
-                                    <option value="38">38</option>
-                                    <option value="39">39</option>
-                                    <option value="40">40</option> 
-                                </select>  
+                                    <Age 
+                                        ageFromChange={this.ageFromChange}
+                                        ageToChange={this.ageToChange}
+                                    />
                                 </div>                             
                             </div>
                             <div className="header3Parent">
-                                <Height />
+                                    <div className="header3">
+                                        <label>Height</label>
+                                    </div>
+                                    <div className="filterContent"> 
+                                        <Height />
+                                    </div>                                
                             </div>
                             <div className="header3Parent">
                                 <Education />
                             </div>
                             <div className="header3Parent">
-                                <MaritalStatus 
-                                    maritalStatusChange = {this.maritalStatusChange}
-                                />
+                                <div className="header3"><label>Marital Status</label></div>
+                                <div className="filterContent">   
+                                    <MaritalStatus 
+                                        maritalStatusChange = {this.maritalStatusChange}
+                                    />
+                                </div>
                             </div>
                             <div className="header3Parent">
                                 <Occupation />
@@ -127,8 +89,11 @@ class Filter extends Component {
                                 <BodyType />
                             </div>   
                             <div>
-                                <FoodHabit />
-                            </div>                       
+                                <div className="header3"><label>Food Habit</label></div>
+                                <div className="filterContent">   
+                                    <FoodHabit />
+                                </div>        
+                            </div>               
             </div>
         );
     }

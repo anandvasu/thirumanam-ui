@@ -19,7 +19,15 @@ class Menu extends Component {
     }
 
     goToHome() {
-        this.props.history.push('/home');
+        this.props.history.push('/loggedInHome');
+    }
+
+    goToContact() {
+        this.props.history.push('/contact');
+    }
+
+    goToPayment() {
+        this.props.history.push('/payment');
     }
 
     logout() {
@@ -48,9 +56,8 @@ class Menu extends Component {
                     <div className="hs20" />
                     <div className="menufield">
                         <a href="#" onClick={this.goToHome}>Home</a>
-                        <a href="/account">Account</a>
-                        <a href="/contact">Payment</a>
-                        <a href="/contact">Contact Us</a>
+                        <a href="#" onClick={this.goToHome}>Payment</a>
+                        <a href="#" onClick={this.goToHome}>Contact Us</a>
                         <a href="#" onClick={this.logout}>Logout</a>
                     </div>
                 </div>

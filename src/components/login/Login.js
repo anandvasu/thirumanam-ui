@@ -97,8 +97,13 @@ class Login extends Component {
                 {                    
                 }) .then((res) => {
                    // Update User Detail to session
-                  
-                })
+                   console.log(res);
+                   console.log(res.data.id);
+                   sessionStorage.setItem("thirumanamUser", res.data);   
+                   sessionStorage.setItem("profileId", res.data.id);  
+                }).catch((err) => {
+                    console.log(err);
+                });
                 this.props.history.push('/signedIn');           
             }).catch((err) => {
                 console.log(err);

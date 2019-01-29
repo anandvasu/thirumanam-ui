@@ -16,18 +16,18 @@ class TopMenu extends Component {
     componentDidMount () {
         let content = [];
         if (sessionStorage.getItem("userSession") !== null) {           
-            content.push(<Menu />);
+            content.push(<Menu key="menuTopmenu"/>);
         } else if (this.props.resultsPage === true) {
-            content.push(<ResultsMenu />)
+            content.push(<ResultsMenu key="menuResultsmenu" />)
         } else {           
-            content.push(<Login />);
+            content.push(<Login key="menuLogin" />);
         }
         this.setState({content:content});
     }
 
     render() {
         return(
-                <div className="topmenucontainer"> 
+                <div className="topmenucontainer" key="TopMenu"> 
                         {this.state.content}
                 </div>                   
         );

@@ -8,7 +8,7 @@
                 ]
             }
         }],
-        "@babel/react"
+        "@babel/react",
     ],
     "plugins": [
         "@babel/plugin-syntax-dynamic-import",

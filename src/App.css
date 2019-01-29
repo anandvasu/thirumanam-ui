@@ -261,3 +261,12 @@ hr {
 .inlineBlock {
   display: inline-block;
 }
+
+.linkButton {
+  background:none!important;
+  color:blue;
+  border:none; 
+  padding:0!important;
+  font: inherit;
+  cursor: pointer;
+}

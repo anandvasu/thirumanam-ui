@@ -11,8 +11,10 @@ import Register from './components/register/Register'
 import ConfirmSignUp from './components/login/ConfirmSignUp'
 import ILogin from './components/login/ILogin'
 import Account from './container/account/Account';
+import Payment from './components/payment/Payment';
 import Aux from './hoc/Aux';
 import LoggedInHome from './components/login/LoggedInHome';
+import Preference from './container/preference/Preference';
 
 class App extends Component {
 
@@ -41,6 +43,8 @@ class App extends Component {
             <Route exact path="/ilogin" component={ILogin} />
             <Route exact path="/account" component={Account} />     
             <Route exact path="/loggedInHome" component={LoggedInHome} /> 
+            <Route exact path="/payment" component={Payment} /> 
+            <Route exact path="/preference" component={Preference} /> 
         </Aux>
       </Router>
     );

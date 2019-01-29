@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './Contact.css';
 import house from '../../assets/images/villupuram.jpg';
 import Footer from '../footer/Footer';
-import TopMenu from '../../components/menu/TopMenu';
+import TopBar from '../menu/TopBar';
+import GlobalMenu from '../menu/GlobalMenu';
 import ApiConstant from '../../components/utils/ApiConstant';
 
 class Contact extends Component {
@@ -62,7 +63,10 @@ class Contact extends Component {
     render () {
         return (
             <div>
-                <TopMenu />
+                <TopBar />
+               <div className='hs1'></div>
+               <GlobalMenu />
+               <div className='hs100'></div>      
                 <div className="addressContainer" key="contactContainer">                
                     {this.state.contacts}
                 </div>

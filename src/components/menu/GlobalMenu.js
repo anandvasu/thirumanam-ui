@@ -9,12 +9,18 @@ class GlobalMenu extends Component {
     constructor(props) {
         super(props);
         this.contactClick = this.contactClick.bind(this);
+        this.goToPayment = this.goToPayment.bind(this);
         this.goToHome = this.goToHome.bind(this);
     }
 
     goToHome() {
         event.preventDefault();
-        this.props.history.push('/home');
+        this.props.history.push('/LoggedInHome');
+    }
+
+    goToPayment() {
+        event.preventDefault();
+        this.props.history.push('/payment');
     }
 
     contactClick(event) {
@@ -26,10 +32,9 @@ class GlobalMenu extends Component {
         return(
             <div className="globalBar"> 
                 <div className="globalMenu">
-                        <a href="#" onClick={this.goToHome}>Registration</a>
-                        <a href="/contact">Search</a>
-                        <a href="/contact">Payment</a>
-                        <a href="/contact">Success Stories</a>
+                        <a href="#" onClick={this.goToHome}>Home</a>
+                        <a href="#" onClick={this.goToHome}>Search</a>
+                        <a href="#" onClick={this.goToPayment}>Payment</a>
                         <a href="#" onClick={this.contactClick}>Contact Us</a>
                 </div>
             </div>

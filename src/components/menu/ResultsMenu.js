@@ -11,6 +11,7 @@ class ResultsMenu extends Component {
         super(props);
         this.goToHome = this.goToHome.bind(this);
         this.loginClick = this.loginClick.bind(this);
+        this.goToPayment = this.goToPayment.bind(this);
         this.contactClick = this.contactClick.bind(this);
     }
 
@@ -21,6 +22,11 @@ class ResultsMenu extends Component {
     loginClick(event) {
         event.preventDefault();
         this.props.history.push('/ilogin');
+    }
+
+    goToPayment() {
+        event.preventDefault();
+        this.props.history.push('/payment');
     }
 
     contactClick(event) {
@@ -39,7 +45,7 @@ class ResultsMenu extends Component {
                     <div className="menufield">
                         <a href="#" onClick={this.goToHome}><b>Home</b></a>
                         <a href="/"><b>Register</b></a>
-                        <a href="/payment"><b>Payment</b></a>
+                        <a href="#" onClick={this.goToPayment}><b>Payment</b></a>
                         <a href="#" onClick={this.contactClick}><b>Contact Us</b></a>
                         <button onClick={this.loginClick}>Login</button>
                     </div>
