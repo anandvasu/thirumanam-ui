@@ -7,8 +7,6 @@ class CasteMultiSelect extends Component {
     constructor(props) {
         super(props);
 
-        this.handleMultiChange = this.handleMultiChange.bind(this);
-
         this.state = {
             multiValue: [],
             filterOptions: [
@@ -18,21 +16,15 @@ class CasteMultiSelect extends Component {
           };
     }
 
-    handleMultiChange(option) {
-        this.setState({
-            multiValue: option
-        });
-      }
-
     render() {       
         return(
             <div>
                 <Select
                     name="filters"
                     placeholder="Filters"
-                    value={this.state.multiValue}
+                    value={this.props.casteSelecteOption}
                     options={this.state.filterOptions}
-                    onChange={this.handleMultiChange}
+                    onChange={this.props.handleCasteChange}
                     isMulti = {true}
                     />
             </div>

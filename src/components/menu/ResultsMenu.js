@@ -25,7 +25,6 @@ class ResultsMenu extends Component {
     }
 
     goToPayment() {
-        event.preventDefault();
         this.props.history.push('/payment');
     }
 
