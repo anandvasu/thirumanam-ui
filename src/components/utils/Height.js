@@ -1,14 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Height extends Component {
+function height (props) {
 
-    render () {
         return (
-            <div className="heightParentDiv">
-                <div className="header3"><label>Height</label></div>
-                <div className="filterContent">                          
-                    <select onChange={this.minHeightChange}>
-                        <option value="121" selected>4ft</option>
+            <div>                               
+                    <select onChange={props.minHeightChange} value={props.minHeight}>
+                        <option value="121">4ft</option>
                         <option value="124">4ft 1in</option>
                         <option value="127">4ft 2in</option>
                         <option value="129">4ft 3in</option>
@@ -47,7 +44,7 @@ class Height extends Component {
                         <option value="213">7ft</option>                               
                     </select>   
                         <label>&nbsp;to&nbsp;</label>  
-                    <select onChange={this.maxHeightChange}>
+                    <select onChange={props.maxHeightChange} value={props.maxHeight}>
                         <option value="121">4ft</option>
                         <option value="124">4ft 1in</option>
                         <option value="127">4ft 2in</option>
@@ -84,13 +81,11 @@ class Height extends Component {
                         <option value="205">6ft 9in</option>
                         <option value="208">6ft 10in</option>
                         <option value="210">6ft 11in</option>  
-                        <option value="213" selected>7ft</option>                               
-                    </select>    
-                </div>
+                        <option value="213">7ft</option>                               
+                    </select>   
             </div>
         );
-    }
 }
 
-export default Height;
+export default height;
 

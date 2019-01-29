@@ -6,10 +6,10 @@ import mobile from '../../assets/images/mobile.png';
 import TopMenu from '../../components/menu/TopMenu';
 import './Home.css';
 import Aux from '../../hoc/Aux';
-import ImageGalleryAnimation from '../../components/profiles/ImageGalleryAnimation';
+import ImageGalleryAnimation from '../../components/featuredprofile/ImageGalleryAnimation';
 
 class Home extends Component {
-
+ 
     render () {
         return (
             <Aux>                 

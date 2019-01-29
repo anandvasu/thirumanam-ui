@@ -4,7 +4,6 @@ import PersonalDetail from '../../components/register/PersonalDetail';
 import ProfDetail from '../../components/register/ProfDetail';
 import UploadImage from '../../components/register/UploadImage';
 import './RegisterDetail.css';
-import TopMenu from '../../components/menu/TopMenu';
 import axios from 'axios';
 import {toast} from 'react-toastify';
 import {Redirect} from "react-router-dom";
