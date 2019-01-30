@@ -5,6 +5,8 @@ import GlobalMenu from '../menu/GlobalMenu';
 import TopBar from '../menu/TopBar';
 import ProfileSelfSummary from '../results/profile/ProfileSelfSummary'
 import './LoggedInHome.css';
+import PercentageCompleted from '../profile/PercentageCompleted';
+import MyMatches from '../results/MyMatches';
 
 class LoggedInHome extends Component {
        
@@ -16,17 +18,24 @@ class LoggedInHome extends Component {
                         <div className='hs1'></div>
                         <GlobalMenu />
                         <div className='hs10' />
-                        <div>               
-                                <div className="topLeftSection">
-                                        <ProfileSelfSummary />
-                                </div>
-                                <div className="topMiddleSection">
-                                        Top Column2
-                                </div>
-                                <div className="topRightSection">
-                                        Top Column3
-                                </div>
+                        <div style={{textAlign:'left',paddingLeft:'5%'}}><b>Hello! {sessionStorage.getItem("name")}</b></div>
+                        <div className='hs10' />
+                        <div className="topLeftSection">
+                                <ProfileSelfSummary />
                         </div>
+                        <div className='vs15' />
+                        <div className="topMiddleSection">
+                                <PercentageCompleted 
+                                        profileCompPercent= {sessionStorage.getItem("percentageCompleted")}
+                                />
+                                <div className='hs10' />
+                                <MyMatches />
+                        </div>
+                        <div className='vs15' />
+                        <div className="topRightSection">
+                                Top Column3
+                        </div>
+                       
                 </div>
                         <Footer />
                 </Aux>

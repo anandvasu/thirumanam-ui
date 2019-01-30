@@ -15,6 +15,7 @@ import Payment from './components/payment/Payment';
 import Aux from './hoc/Aux';
 import LoggedInHome from './components/login/LoggedInHome';
 import Preference from './container/preference/Preference';
+import ProfileSelf from './container/profile/ProfileSelf';
 
 class App extends Component {
 
@@ -45,6 +46,7 @@ class App extends Component {
             <Route exact path="/loggedInHome" component={LoggedInHome} /> 
             <Route exact path="/payment" component={Payment} /> 
             <Route exact path="/preference" component={Preference} /> 
+            <Route exact path="/profileSelf" component={ProfileSelf} /> 
         </Aux>
       </Router>
     );

@@ -99,12 +99,21 @@ class Login extends Component {
                    // Update User Detail to session
                    console.log(res);
                    console.log(res.data.id);
+                   const prefix = ((res.data.gender==="M") ? "Mr." : "Ms.");
                    sessionStorage.setItem("thirumanamUser", res.data);   
                    sessionStorage.setItem("profileId", res.data.id);  
+                   sessionStorage.setItem("name", prefix + " " +res.data.firstName + " " + res.data.lastName);  
+                   sessionStorage.setItem("percentageCompleted", res.data.profileCompPercent); 
+                   this.props.history.push('/signedIn'); 
                 }).catch((err) => {
-                    console.log(err);
-                });
-                this.props.history.push('/signedIn');           
+                    toast.error("Server Error Occurred. Please try again later.", 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            toastId:Constant.toastIdErr
+                        });
+                });                          
             }).catch((err) => {
                 console.log(err);
                 var errMessage = "";

@@ -1,0 +1,10 @@
+.myMatchProSummaryContainer {   
+    display:flex;   
+    width:80%;
+    background-color:#FFFFFF;
+}
+
+.myMatchContainer {   
+    background-color:#FFFFFF;
+    border: 1px solid #ccc;
+}

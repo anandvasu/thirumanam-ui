@@ -15,6 +15,36 @@ class ProfileSelfSummary extends Component {
     constructor(props) {
         super(props);
         this.goToPreference = this.goToPreference.bind(this);
+        this.editProfile = this.editProfile.bind(this);
+        this.uploadPhoto = this.uploadPhoto.bind(this);
+    }
+
+    uploadPhoto() {
+
+    }
+
+    editProfile() {
+        axios.get(ApiConstant.USER_API+sessionStorage.getItem("profileId"),
+            {                    
+            }) .then((res) => {
+               console.log(res);
+               console.log(res.data.id);              
+               this.props.history.push(
+                   {
+                       path:'/profileSelf',
+                       state: {
+                         profile : res.data                                    
+                       }
+                   }); 
+            }).catch((err) => {
+                toast.error("Server Error Occurred. Please try again later.", 
+                    {
+                        position:toast.POSITION.TOP_CENTER,
+                        hideProgressBar:true,
+                        autoClose:3000,
+                        toastId:Constant.toastIdErr
+                    });
+            });    
     }
 
     goToPreference() {
@@ -57,21 +87,19 @@ class ProfileSelfSummary extends Component {
 
         return(
             <div className="profileSummaryContainer">
-                <div>
+                <div style={{paddingBottom:'5px'}}>
                     {image}
                 </div>
-                <div>
-                   Add Photo testing
+                <div style={{paddingBottom:'5px'}}>
+                   <a href="#" onClick={this.uploadPhoto} style={{color:'blue'}}>Add Photo</a>
+                </div>
+                <div style={{paddingBottom:'5px'}}>
+                   <a href="#" onClick={this.editProfile} style={{color:'blue'}}> Edit Profile </a>
                 </div>
                 <div>
-                   Edit Profile
-                </div>
-                <div>
-                   <button className="linkButton" onClick={this.goToPreference}>Edit Preferences</button>
-                </div>
-                <div>
-                   Privacy
-                </div>
+                   <a href="#" onClick={this.goToPreference} style={{color:'blue'}}>Edit Preferences</a>
+                </div>   
+                <div className="hs10" />
             </div>
         );
     }
