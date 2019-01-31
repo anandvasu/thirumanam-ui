@@ -91,7 +91,7 @@ class ProfileSelfSummary extends Component {
                     {image}
                 </div>
                 <div style={{paddingBottom:'5px'}}>
-                   <a href="#" onClick={this.uploadPhoto} style={{color:'blue'}}>Add Photo</a>
+                   <a href="#" onClick={this.uploadPhoto} style={{color:'blue'}}>Upload Photo</a>
                 </div>
                 <div style={{paddingBottom:'5px'}}>
                    <a href="#" onClick={this.editProfile} style={{color:'blue'}}> Edit Profile </a>

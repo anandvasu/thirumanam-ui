@@ -1,10 +1,6 @@
 import React from 'react'
 
 function age (props) {
-
-    console.log("age From:" + props.ageFrom);
-    console.log("age To:" + props.ageTo);
-
     return (
         <div>
               <select id="ageFrom" onChange={props.ageFromChange} value={props.ageFrom}>

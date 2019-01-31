@@ -104,6 +104,7 @@ class Login extends Component {
                    sessionStorage.setItem("profileId", res.data.id);  
                    sessionStorage.setItem("name", prefix + " " +res.data.firstName + " " + res.data.lastName);  
                    sessionStorage.setItem("percentageCompleted", res.data.profileCompPercent); 
+                   sessionStorage.setItem("gender", res.data.gender); 
                    this.props.history.push('/signedIn'); 
                 }).catch((err) => {
                     toast.error("Server Error Occurred. Please try again later.", 

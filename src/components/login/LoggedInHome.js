@@ -7,6 +7,8 @@ import ProfileSelfSummary from '../results/profile/ProfileSelfSummary'
 import './LoggedInHome.css';
 import PercentageCompleted from '../profile/PercentageCompleted';
 import MyMatches from '../results/MyMatches';
+import adImage from '../../assets/images/ad.jpg';
+import DashboardSearch from '../../components/search/DashboardSearch';
 
 class LoggedInHome extends Component {
        
@@ -32,8 +34,14 @@ class LoggedInHome extends Component {
                                 <MyMatches />
                         </div>
                         <div className='vs15' />
-                        <div className="topRightSection">
-                                Top Column3
+                        <div className="topRightSection">                               
+                               <div style={{paddingBottom:'20px'}}>
+                                       <DashboardSearch />
+                               </div>
+                               <div>
+                                        <img src={adImage} alt="Not Available" style={{height:'300px'}}/>
+                               </div>
+
                         </div>
                        
                 </div>

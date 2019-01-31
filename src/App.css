@@ -64,6 +64,11 @@ hr {
   width:30px;
 }
 
+.vs5px {
+  width:10px;
+  display: inline-block;
+}
+
 .vs10 {
   width:10px;
   display: inline-block;
@@ -279,4 +284,9 @@ hr {
   padding:0!important;
   font: inherit;
   cursor: pointer;
+}
+
+.hyperlinkHeader{
+  color: #0000EE;
+  font-size: 14px;
 }

@@ -69,7 +69,10 @@ class MyMatches extends Component {
         
         return(
             <div className="myMatchContainer">
-               <div className="header2"> <b>My Matches ({this.state.totalMatches})</b> <b>View All Matches</b></div>
+               <div className="header2" style={{paddingTop:'5px'}}> 
+                    <div className="vs5px"/>
+                    <b>My Matches ({this.state.totalMatches})</b>&nbsp;&nbsp;<a href="#" onClick={this.viewAllMyMatches} className="hyperlinkHeader">View All</a>
+                    </div>
                <div className="hs10" />
                {this.state.profiles}
                <div className="hs10" />

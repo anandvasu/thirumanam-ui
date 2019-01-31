@@ -2,19 +2,16 @@
     width:15%;
     display: inline-block;
     vertical-align: top;
-    background-color: red;
 }
 
 .topMiddleSection {
     width:60%;
     display: inline-block;
     vertical-align: top;
-    background-color: yellow;
 }
 
 .topRightSection {
     width:20%;
     vertical-align: top;
     display: inline-block;
-    background-color: blue;
 }

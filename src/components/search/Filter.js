@@ -58,6 +58,8 @@ class Filter extends Component {
                                 <div className="header3"><label>Age</label></div>
                                 <div className="filterContent">
                                     <Age 
+                                        ageFrom = {this.props.ageFrom}
+                                        ageTo = {this.props.ageTo}
                                         ageFromChange={this.ageFromChange}
                                         ageToChange={this.ageToChange}
                                     />

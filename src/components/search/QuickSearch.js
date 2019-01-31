@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './QuickSearch.css';
 import {Redirect} from "react-router-dom";
+import Constant from '../../Constant';
 
 class QuickSearch extends Component {
 
@@ -13,10 +14,12 @@ class QuickSearch extends Component {
         this.maritalStatusChange = this.maritalStatusChange.bind(this);
         this.state = {
             searchClicked: false,
-            gender:'F',
-            ageFrom:18,
-            ageTo:35,
-            mStatus:'NM'
+            gender:Constant.genderF,
+            ageFrom:Constant.ageFrom,
+            ageTo:Constant.ageTo,
+            minHeight:Constant.minHeight,
+            maxHeight:Constant.maxHeight,
+            mStatus:Constant.mStatus_NM
         }
     }
 
@@ -50,6 +53,8 @@ class QuickSearch extends Component {
                                         gender:this.state.gender,
                                         ageFrom:this.state.ageFrom,
                                         ageTo:this.state.ageTo,
+                                        minHeight:this.state.minHeight,
+                                        maxHeight:this.state.maxHeight,
                                         mStatus:this.state.mStatus
                                     }
                                  }}/>

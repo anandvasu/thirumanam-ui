@@ -10,6 +10,7 @@ import './Results.css';
 import RegisterWithLogin from '../register/RegisterWithLogin';
 import Aux from '../../hoc/Aux';
 import ApiConstant from '../../components/utils/ApiConstant';
+import Constant from '../../Constant';
 
 class Results extends Component {
 
@@ -25,8 +26,10 @@ class Results extends Component {
         this.loginClickHandler = this.loginClickHandler.bind(this);
                
         this.state = {
-            ageFrom:18,
-            ageTo:35,
+            ageFrom:Constant.ageFrom,
+            ageTo:Constant.ageTo,
+            minHeight:Constant.minHeight,
+            maxHeight:Constant.maxHeight,
             data: null,
             pictures: [],
             pages: [],
@@ -36,16 +39,28 @@ class Results extends Component {
             profile:'',
             profileClicked:false,
             registerDisplay:false,
-            gender:'F',
-            maritalStatus:''
+            gender:((sessionStorage.getItem("gender")===Constant.genderM) ? Constant.genderF : Constant.genderM),
+            maritalStatus:Constant.mStatus_NM
         };
     }
 
     componentDidMount() {
+
+        console.log("age from comp:" + this.props.location.state.ageFrom)
+        this.setState({
+            ageFrom:this.props.location.state.ageFrom, 
+            ageTo:this.props.location.state.ageTo, 
+            minHeight:this.props.location.state.minHeight, 
+            maxHeight:this.props.location.state.maxHeight, 
+            gender:this.props.location.state.gender,
+            mStatus:this.props.location.state.mStatus,
+        });
            
         this.searchProfile(
             this.props.location.state.ageFrom, 
             this.props.location.state.ageTo, 
+            this.props.location.state.minHeight,
+            this.props.location.state.maxHeight,
             this.props.location.state.gender,
             this.props.location.state.mStatus,
             1
@@ -75,16 +90,25 @@ class Results extends Component {
         }
     }
 
-    searchProfile(ageGrater,ageLess, aGender, aMstatus, pageNumber) {
-        console.log("this.state.ageFrom" + this.state.ageFrom);
+    searchProfile(
+        ageGrater,
+        ageLess, 
+        minHeight,
+        maxHeight,
+        aGender, 
+        aMstatus, 
+        pageNumber) {
+        console.log(aMstatus);
         var totalDocs = 0;
         axios.post(ApiConstant.QUICK_SEARCH_API, { 
             ageGreater:ageGrater,
-               ageLess:ageLess,
-               gender:aGender,
-               maritalStatus:aMstatus,
-               totalDocs:this.state.totalDocs,
-               pageNumber:pageNumber 
+            ageLess:ageLess,
+            minHeight:minHeight,
+            maxHeight:maxHeight,
+            gender:aGender,
+            maritalStatus:aMstatus,
+            totalDocs:this.state.totalDocs,
+            pageNumber:pageNumber 
              })
          .then(function (res) {
              console.log(res);
@@ -256,6 +280,8 @@ class Results extends Component {
         this.searchProfile(
             this.state.ageFrom,
             value, 
+            this.state.minHeight,
+            this.state.maxHeight,
             this.state.gender, 
             this.state.maritalStatus,
             1 );
@@ -269,6 +295,8 @@ class Results extends Component {
         this.searchProfile(
             value,
             this.state.ageTo, 
+            this.state.minHeight,
+            this.state.maxHeight,
             this.state.gender, 
             this.state.maritalStatus,
             1 );
@@ -282,6 +310,8 @@ class Results extends Component {
         this.searchProfile(
             this.state.ageFrom,
             this.state.ageTo, 
+            this.state.minHeight,
+            this.state.maxHeight,
             this.state.gender, 
             value,
             1);
@@ -321,6 +351,8 @@ class Results extends Component {
                 <div className="resultsContainer">                                       
                             <div className="filtersection">
                                 <Filter 
+                                    ageFrom = {this.state.ageFrom}
+                                    ageTo = {this.state.ageTo}
                                     ageToChange = {this.ageToChange}
                                     ageFromChange = {this.ageFromChange}
                                     maritalStatusChange = {this.maritalStatusChange}
