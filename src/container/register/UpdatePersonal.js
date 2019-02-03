@@ -38,6 +38,7 @@ class UpdatePersonal extends Component {
             disability:"",
             disablityInfo:null,
             profileId:"",
+            religion:"",
             email:""
         }        
     }
@@ -107,6 +108,7 @@ class UpdatePersonal extends Component {
                 state:{
                     profileId : this.state.profileId,
                     email : this.state.email,
+                    religion:this.state.religion
                 }                                   
             }
         );
@@ -125,7 +127,7 @@ class UpdatePersonal extends Component {
             errorMessage = "Please select Food Habit."; 
         } 
 
-        if(errorMessage !== null) {
+        if(errorMessage === null) {
             axios.put(ApiConstant.USER_PERSONAL_PROFILE_API, 
                     {
                         mStatus: this.state.mStatus,

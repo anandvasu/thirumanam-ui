@@ -3,6 +3,8 @@ import TopBar from '../../components/menu/TopBar';
 import GlobalMenu from '../../components/menu/GlobalMenu';
 import ApiConstant from '../../components/utils/ApiConstant';
 import ReligionDetail from '../../components/register/ReligionDetail';
+import {populateArray} from '../../components/utils/Util';
+import {getValueFromReactSelect} from '../../components/utils/Util';
 import {toast} from 'react-toastify';
 import axios from 'axios';
 
@@ -11,21 +13,28 @@ class UpdateReligion extends Component {
     constructor(props) {
         super(props);
 
-        this.casteChange = this.casteChange.bind(this);
-        this.subCasteChange = this.subCasteChange.bind(this);
-        this.gothramChange = this.gothramChange.bind(this);
-        this.dhoshamChange = this.dhoshamChange.bind(this);
-
+        this.otherCasteChange = this.otherCasteChange.bind(this);
+        this.hinduCasteChange = this.hinduCasteChange.bind(this);
+        this.subCasteChange = this.subCasteChange.bind(this);        
+        this.otherGothramChange = this.otherGothramChange.bind(this);
+        this.hinduGothramChange = this.hinduGothramChange.bind(this);
+        this.otherDhoshamChange = this.otherDhoshamChange.bind(this);
+        this.hinduDhoshamChange = this.hinduDhoshamChange.bind(this);
+        
         this.redirectLocationDetail = this.redirectLocationDetail.bind(this);
         this.doThisLater = this.doThisLater.bind(this);
         this.updateReligionDetail = this.updateReligionDetail.bind(this);
 
         this.state = {
-            caste: "",
-            subcaste:"TN",
+            casteObj:[],
+            caste:"",
+            subcaste:"",
+            gothramObj:[],
             gothram:"",
+            dhoshamObj:[],
             dhosham:"",
             profileId:"",
+            religion:0,
             email:""
         }        
     }
@@ -34,10 +43,30 @@ class UpdateReligion extends Component {
         this.setState({
             profileId : this.props.location.state.profileId,
             email : this.props.location.state.email,
+            religion:this.props.location.state.religion
         });       
+        if(this.props.location.state.religion === 1) {
+            document.getElementById("otherCaste").style.display = "none";
+            document.getElementById("otherGothram").style.display = "none";
+            document.getElementById("otherDhosham").style.display = "none"; 
+        } else {
+            document.getElementById("hinduCaste").style.display = "none";
+            document.getElementById("hinduGothram").style.display = "none";
+            document.getElementById("hinduDhosham").style.display = "none";
+        }
     }
 
-    casteChange(event) {
+    hinduCasteChange(valueObj) {
+        console.log("caste:" + valueObj.value);
+        this.setState(
+            {
+                casteObj:populateArray(valueObj),
+                caste:valueObj.value
+            }
+        );
+    }
+
+    otherCasteChange(event) {
         this.setState({caste:event.target.value});
     }
 
@@ -45,11 +74,28 @@ class UpdateReligion extends Component {
         this.setState({subcaste:event.target.value});
     }
 
-    gothramChange(event) {
+    hinduGothramChange(valueObj) {
+        this.setState(
+            {
+                gothramObj:populateArray(valueObj),
+                gothram:valueObj.value
+            }
+        );
+    }
+
+    otherGothramChange(event) {
         this.setState({gothram:event.target.value});
     }
 
-    dhoshamChange(event) {
+    hinduDhoshamChange(valueObj) {
+        this.setState(
+            {
+                dhoshamObj:populateArray(valueObj),
+                dhosham:valueObj.value
+            }
+        );
+    }
+    otherDhoshamChange(event) {
         this.setState({dhosham:event.target.value});
     }
 
@@ -81,8 +127,7 @@ class UpdateReligion extends Component {
         } else if (this.state.dhosham === "") {
             errorMessage = "Please select Dhosham."; 
         } 
-
-        if(errorMessage !== null) {
+        if(errorMessage === null) {
             axios.put(ApiConstant.USER_RELIGION_API, 
                 {
                     caste: this.state.caste,
@@ -94,7 +139,7 @@ class UpdateReligion extends Component {
                 {                                            
                 })
             .then((res) => {                
-                this.redirectToProfDetail();
+                this.redirectLocationDetail();
             })
             .catch((error) => {
                 console.log(error);
@@ -107,7 +152,9 @@ class UpdateReligion extends Component {
                     });
             
             });
+            
         } else {
+            console.log("Error:" + errorMessage)
             toast.error(errorMessage, 
                 {
                     position:toast.POSITION.TOP_CENTER,
@@ -126,7 +173,25 @@ class UpdateReligion extends Component {
                <GlobalMenu />
                <div className='hs30' />  
                <div className="prefSectionContainer"> 
-                    <ReligionDetail />
+                    <ReligionDetail 
+                        casteObj = {this.state.casteObj}
+                        caste = {this.state.caste}
+                        hinduCasteChange = {this.hinduCasteChange}
+                        otherCasteChange = {this.otherCasteChange}  
+                        
+                        subcaste = {this.state.subcaste}
+                        subCasteChange = {this.subCasteChange}
+                       
+                        gothramObj = {this.state.gothramObj}
+                        gothram = {this.state.gothram}
+                        hinduGothramChange = {this.hinduGothramChange}
+                        otherGothramChange = {this.otherGothramChange}
+                        
+                        dhoshamObj = {this.state.dhoshamObj}
+                        dhosham = {this.state.dhosham}
+                        hinduDhoshamChange = {this.hinduDhoshamChange}
+                        otherDhoshamChange = {this.otherDhoshamChange}
+                    />
                     <div className="hs30" />
                     <div style={{width:'100%'}}>
                         <div className="inlineBlock" style={{width:'50%'}}>

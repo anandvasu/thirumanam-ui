@@ -2,19 +2,19 @@ import React from 'react';
 import Select from "react-select";
 import DropDownConstant from './DropDownConstant';
 
-function gothramSelect(props) {     
+function dhoshamSelect(props) {     
         
         return(
             <div>
                 <Select
                     name="gothramSelect"
                     placeholder={DropDownConstant.dropdownDefault}
-                    value={props.gothramObj}
-                    options={DropDownConstant.gothramValues}
-                    onChange={props.hinduGothramChange}                  
+                    value={props.dhoshamObj}
+                    options={DropDownConstant.dhoshamValues}
+                    onChange={props.hinduDhoshamChange}                  
                     />
             </div>
         ) ;
 }
 
-export default gothramSelect;
+export default dhoshamSelect;

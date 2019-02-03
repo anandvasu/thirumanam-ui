@@ -45,6 +45,7 @@ class Register extends Component {
             profileId:"",
             countryCode:"+91",
             registersuccess:false,
+            religionValue:0,
             religion:[]          
         }
     }
@@ -95,7 +96,8 @@ class Register extends Component {
 
     religionChangeHandler(value) {
         this.setState({
-            religion:populateArray(value)
+            religion:populateArray(value),
+            religionValue:getValueFromReactSelect(this.state.religion)
         });
     }
 
@@ -147,7 +149,7 @@ class Register extends Component {
                     dob:this.state.bmonth+"/"+this.state.bday+"/"+this.state.byear,
                     email:this.state.email,
                     gender: this.state.gender,
-                    religion: getValueFromReactSelect(this.state.religion),
+                    religion:this.state.religionValue,
                     mobile: this.state.countryCode + this.state.mobile,
                     registerBy: this.state.registerBy,
                     externalId: externalIdValue
@@ -205,6 +207,7 @@ class Register extends Component {
                         state:{
                             profileId:this.state.profileId,
                             email:this.state.email,
+                            religion:this.state.religionValue
                         }                                   
                     }}/>
         }

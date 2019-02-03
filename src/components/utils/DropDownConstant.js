@@ -57,6 +57,14 @@ export default {
         { value: "DD", label: "Divorced" },
         { value: "AD", label: "Awaiting Divorce" }
      ],
+     dhoshamValues :[
+      { value: "-", label: "--Nil--" },
+      { value: "C", label: "Chevvai dosham" },
+      { value: "N", label: "Naga dosham Kala" },
+      { value: "R", label: "Rahu dosham" },
+      { value: "K", label: "Kethu dosham" },
+      { value: "A", label: "Kalathra dosham" },
+   ],
      countries :[
          { value: "IND", label: "India" },
          { value: "USA", label: "United States of America" },

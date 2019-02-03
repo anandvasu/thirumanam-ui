@@ -82,7 +82,7 @@ class UpdateLocation extends Component {
             errorMessage = "Please enter City."; 
         } 
 
-        if(errorMessage !== null) {
+        if(errorMessage === null) {
             axios.put(ApiConstant.USER_LOCATION_API, 
                     {
                         country:this.state.country,

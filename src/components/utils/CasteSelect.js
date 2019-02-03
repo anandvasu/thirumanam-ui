@@ -9,9 +9,9 @@ function casteSelect(props) {
                 <Select
                     name="religionSelect"
                     placeholder={DropDownConstant.dropdownDefault}
-                    value={props.caste}
-                    options={props.casteValues}
-                    onChange={props.casteChangeHandler}  
+                    value={props.casteObj}
+                    options={DropDownConstant.casteValues}
+                    onChange={props.hinduCasteChange}  
                     styles={{ 
                         control: (base, _state) => ({...base, minHeight: '30px', height: '30px'})
                     }}                

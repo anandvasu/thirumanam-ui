@@ -74,7 +74,7 @@ class UpdateProfessional extends Component {
             errorMessage = "Please enter income."; 
         } 
 
-        if(errorMessage !== null) {
+        if(errorMessage === null) {
             axios.put(ApiConstant.USER_PROF_API, 
                     {
                         education: this.state.education,

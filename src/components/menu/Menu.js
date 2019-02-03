@@ -22,10 +22,11 @@ class Menu extends Component {
         //this.props.history.push('/loggedInHome');
         this.props.history.push(
             {
-                pathname:'/updatePersonal' ,
+                pathname:'/updateLocation' ,
                 state:{
-                    profileId:"CM974811",
+                    profileId:"CM650914",
                     email:"anandakumarv@gmail.com",
+                    religion:1,
                 }                                   
             }
         );
