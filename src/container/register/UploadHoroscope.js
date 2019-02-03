@@ -5,67 +5,36 @@ import UploadImage from '../../components/register/UploadImage';
 import ApiConstant from '../../components/utils/ApiConstant';
 import {toast} from 'react-toastify';
 import axios from 'axios';
+import Horoscope from '../../components/register/Horoscope';
 
-class UploadProfilePhoto extends Component {
+class UploadHoroscope extends Component {
 
     constructor(props) {
         super(props);
 
-        this.imageHandler = this.imageHandler.bind(this);
-        this.redirectToNextPage = this.redirectToNextPage.bind(this);
-        this.doThisLater = this.doThisLater.bind(this);
-        this.uploadProfilePhoto = this.uploadProfilePhoto.bind(this);
+        this.horoscopeImageHandler = this.horoscopeImageHandler.bind(this);
+        this.uploadHoroscope = this.uploadHoroscope.bind(this);
+        this.redirectToUpdageGroomBride = this.redirectToUpdageGroomBride.bind(this);
 
         this.state = {
-            image:null,
+            horoscope:null,
             email:null,
-            religion:0,
             fromPage:null,
             profileId:null
-        }
-        
+        }        
     }
 
     componentDidMount() {
         this.setState({
             profileId : this.props.location.state.profileId,
             email : this.props.location.state.email,
-            religion:this.props.location.state.religion,
             fromPage:this.props.location.state.fromPage
         });       
     }
 
-    doThisLater() {
-        this.redirectToNextPage();
-    }
-
-    redirectToNextPage() {
-        if(this.state.religion === 1) {
-            this.props.history.push(
-                {
-                    pathname:'/uploadHoroscope' ,
-                    state:{
-                        profileId : this.state.profileId,
-                        email : this.state.email,
-                    }                                   
-                }
-            );
-        } else {
-            this.props.history.push(
-                {
-                    pathname:'/updateGroomBride' ,
-                    state:{
-                        profileId : this.state.profileId,
-                        email : this.state.email,
-                    }                                   
-                }
-            );
-        }
-    }
-
-    imageHandler(event) {
+    horoscopeImageHandler(event) {
         if (event.target.files[0].size > 1048576) {
-            toast.error("Your profile image is greater than 1MB. Please reduce the size and upload.", 
+            toast.error("Your Horoscope document size is greater than 1MB. Please reduce the size and upload.", 
                 {
                     position:toast.POSITION.TOP_CENTER,
                     hideProgressBar:true,
@@ -73,15 +42,32 @@ class UploadProfilePhoto extends Component {
                     testId:20
                 });
         } else {
-            this.setState({image:event.target.files[0]});
+            this.setState({horoscope:event.target.files[0]});
         }
+        
     }
 
-    uploadProfilePhoto() {
-        if(this.state.image !== null) {
+    doThisLater() {
+        this.redirectToUpdageGroomBride();
+    }
+
+    redirectToUpdageGroomBride() {
+        this.props.history.push(
+            {
+                pathname:'/updateGroomBride' ,
+                state:{
+                    profileId : this.state.profileId,
+                    email : this.state.email
+                }                                   
+            }
+        );
+    }
+
+    uploadHoroscope() {
+        if(this.state.horoscope !== null) {
             const formData = new FormData();
-            formData.append("imageFile", this.state.image, sessionStorage.getItem("profileId"));
-            axios.post(ApiConstant.USER_PROFILE_IMAGE_API+'?profileId='+sessionStorage.getItem("profileId"), formData,
+            formData.append("horoscopeImage", this.state.horoscope, sessionStorage.getItem("profileId"));
+            axios.post(ApiConstant.USER_PROFILE_HOROSCOPE_API+'?profileId='+sessionStorage.getItem("profileId"), formData,
                     {                                            
                     })
             .then((res) => {
@@ -105,7 +91,7 @@ class UploadProfilePhoto extends Component {
             
             });
         } else {
-            toast.error("Please your photo image to upload.", 
+            toast.error("Please your horoscope to upload.", 
                 {
                     position:toast.POSITION.TOP_CENTER,
                     hideProgressBar:true,
@@ -123,12 +109,13 @@ class UploadProfilePhoto extends Component {
                <GlobalMenu />
                <div className='hs50' />  
                <div className="prefSectionContainer"> 
-                    <UploadImage imageHandler={this.imageHandler}/>  
-                
+                    <Horoscope horoscopeImageHandler={this.horoscopeImageHandler}/>  
+                 
                     <div className="hs30" />
+
                     { (this.state.fromPage === null) &&
                         <div>
-                            <button onClick={this.uploadProfilePhoto}>Upload</button>
+                            <button onClick={this.uploadHoroscope}>Upload</button>
                         </div>
                     }
                     { (this.state.fromPage !== null) &&
@@ -137,14 +124,14 @@ class UploadProfilePhoto extends Component {
                                 <a href="#" onClick={this.doThisLater}><b>I will do this later</b></a>
                             </div>
                             <div className="inlineBlock" style={{width:'50%'}}>
-                                <button onClick={this.uploadProfilePhoto}>Upload</button>
+                                <button onClick={this.uploadHoroscope}>Upload</button>
                             </div>                    
                         </div>
-                    }
-               </div> 
+                    }                    
+                </div>
             </div>
         );
     }
 }
 
-export default UploadProfilePhoto;
+export default UploadHoroscope;

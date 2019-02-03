@@ -26,7 +26,8 @@ class UpdateLocation extends Component {
             district:"",
             city:"",
             profileId:"",
-            email:""
+            email:"",
+            religion:0
         }        
     }
 
@@ -34,6 +35,7 @@ class UpdateLocation extends Component {
         this.setState({
             profileId : this.props.location.state.profileId,
             email : this.props.location.state.email,
+            religion:this.props.location.state.religion
         });       
     }
 

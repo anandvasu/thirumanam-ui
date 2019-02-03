@@ -21,6 +21,7 @@ export default {
    USER_PROF_API:"http://localhost:8085/thirumanam/user/profile/professional",
    USER_COMPLETE_PROFILE_API:"http://localhost:8085/thirumanam/user/completeprofile/",
    USER_PROFILE_IMAGE_API:"http://localhost:8085/thirumanam/user/image/",
+   USER_PROFILE_HOROSCOPE_API:"http://localhost:8085/thirumanam/user/horoscope/",
    QUICK_SEARCH_API:"http://localhost:8085/thirumanam/user/list/",
    USER_API:"http://localhost:8085/thirumanam/user/",
    CONTACT_API:"http://localhost:8085/thirumanam/contact/list",
