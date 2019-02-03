@@ -19,7 +19,17 @@ class Menu extends Component {
     }
 
     goToHome() {
-        this.props.history.push('/loggedInHome');
+        //this.props.history.push('/loggedInHome');
+        this.props.history.push(
+            {
+                pathname:'/updatePersonal' ,
+                state:{
+                    profileId:"CM974811",
+                    email:"anandakumarv@gmail.com",
+                }                                   
+            }
+        );
+        
     }
 
     goToContact() {

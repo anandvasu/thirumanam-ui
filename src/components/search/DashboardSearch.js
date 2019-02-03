@@ -7,7 +7,7 @@ import Age from '../../components/utils/Age';
 import ReligionSelect from '../utils/ReligionSelect';
 import MaritalStatusSelect from '../utils/MaritalStatusSelect';
 import GothramSelect from '../utils/GothramSelect';
-import Constant from '../../Constant';
+import Constant from '../utils/Constant';
 import {populateArray} from '../utils/Util';
 
 class DashboardSearch extends Component {
@@ -31,7 +31,7 @@ class DashboardSearch extends Component {
             ageTo:Constant.ageTo,
             minHeight:Constant.minHeight,
             maxHeight:Constant.maxHeight,
-            mStatus:Constant.mStatus_NM,
+            mStatus:"NM",
             religions:[],
             gothrams:[]          
         }
@@ -57,9 +57,9 @@ class DashboardSearch extends Component {
         this.setState({gender:event.target.value});
     }
 
-    maritalStatusChange(maritalStatus) {   
+    maritalStatusChange(event) {   
         this.setState({
-            mStatus:populateArray(maritalStatus)
+            mStatus:event.target.value
         });    
     }
     
@@ -90,7 +90,7 @@ class DashboardSearch extends Component {
                     minHeight:this.state.minHeight,
                     maxHeight:this.state.maxHeight,
                     gender:this.state.gender,
-                    mStatus:this.state.mStatus,
+                    mStatus:populateArray(this.state.mStatus),
                     religions:this.state.religions
                 }
                 }}/>
@@ -151,26 +151,7 @@ class DashboardSearch extends Component {
                                 religionChangeHandler = {this.religionChangeHandler}
                              />
                         </div>
-                    </div>
-                    <div style={{width:'100%',paddingBottom:'10px'}}>  
-                        <div className="dashLeftLabel">                
-                            <label>Caste:</label>
-                        </div> 
-                        <div className="dashRightField">
-                           <ReligionSelect />
-                        </div>
-                    </div>
-                    <div style={{width:'100%',paddingBottom:'10px'}}>  
-                        <div className="dashLeftLabel">                
-                            <label>Gothram:</label>
-                        </div> 
-                        <div className="dashRightField">
-                           <GothramSelect
-                                gothramChangeHandler = {this.gothramChangeHandler}
-                           />
-                        </div>
-                    </div>
-
+                    </div>                                      
                     <div style={{paddingBottom:'10px'}}>                               
                         <button onClick={this.searchProfile}>Search</button>  
                     </div>

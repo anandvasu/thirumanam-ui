@@ -1,18 +1,18 @@
 import React from 'react';
 import Select from "react-select";
-import Constant from '../../Constant';
+import DropDownConstant from './DropDownConstant';
 
 function maritalStatusSelect(props) {     
         
         return(
             <div>
-                <Select
-                    name="maritalStatusSelect"
-                    placeholder={Constant.dropdownDefault}
-                    value={props.mStatus}
-                    options={Constant.maritalStatusValues}
-                    onChange={props.maritalStatusChange}                  
-                    />
+                <select  onChange={props.maritalStatusChange} value={props.mStatus}>
+                                <option value="">--Select--</option>
+                                <option value="NM">Never Married</option>
+                                <option value="WD">Widowed</option>
+                                <option value="DI">Divorced</option> 
+                                <option value="AD">Awaiting Divorce</option>                            
+                </select>
             </div>
         ) ;
 }

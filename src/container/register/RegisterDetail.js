@@ -10,6 +10,8 @@ import {Redirect} from "react-router-dom";
 import Aux from '../../hoc/Aux';
 import TopBar from '../../components/menu/TopBar';
 import ApiConstant from '../../components/utils/ApiConstant';
+import Footer from '../../components/footer/Footer';
+import ReligionDetail from '../../components/register/ReligionDetail';
 
 class RegisterDetail extends Component {
 
@@ -23,12 +25,7 @@ class RegisterDetail extends Component {
         this.districtChange = this.districtChange.bind(this);
         this.cityChange = this.cityChange.bind(this);
 
-        this.maritalStatusChange = this.maritalStatusChange.bind(this);
-        this.heightChange = this.heightChange.bind(this);
-        this.weightChange = this.weightChange.bind(this);
-        this.familyTypeChange = this.familyTypeChange.bind(this);
-        this.familyValueChange = this.familyValueChange.bind(this);
-        this.disablityChange = this.disablityChange.bind(this);
+        
 
         this.educationChange = this.educationChange.bind(this);
         this.employmentChange = this.employmentChange.bind(this);
@@ -42,12 +39,7 @@ class RegisterDetail extends Component {
             pstate:"TN",
             district:"",
             city:"",
-            mStatus:"",
-            height:0,
-            weight:0,
-            familyType:"",
-            familyValue:"",
-            disability:"",
+           
             education:"",
             employment:"",
             income:0,
@@ -56,62 +48,38 @@ class RegisterDetail extends Component {
         }
     }
 
-    countryChange(value) {
-        this.setState({country:value});
+    countryChange(event) {
+        this.setState({country:event.target.value});
     }
 
-    profileStateChange(value) {
-        this.setState({pstate:value});
+    profileStateChange(event) {
+        this.setState({pstate:event.target.value});
     }
 
-    districtChange(value) {
-        this.setState({district:value});
+    districtChange(event) {
+        this.setState({district:event.target.value});
     }
 
-    cityChange(value) {
-        this.setState({city:value});
+    cityChange(event) {
+        this.setState({city:event.target.value});
     }
 
     imageHandler(image) {
         this.setState({image:image});
     }
 
-    maritalStatusChange(value) {
-        this.setState({mStatus:value});
+   
+    educationChange(event) {
+        this.setState({education:event.target.value});
     }
 
-    heightChange(value) {
-        this.setState({height:value});
+    employmentChange(event) {
+        this.setState({employment:event.target.value});
     }
 
-    weightChange(value) {
-        this.setState({weight:value});
+    incomeChange(event) {
+        this.setState({income:event.target.value});
     }
-
-    familyTypeChange(value) {
-        this.setState({familyType:value});
-    }
-
-    familyValueChange(value) {
-        this.setState({familyValue:value});
-    }
-
-    disablityChange(value) {
-        this.setState({disability:value});
-    }
-
-    educationChange(value) {
-        this.setState({education:value});
-    }
-
-    employmentChange(value) {
-        this.setState({employment:value});
-    }
-
-    incomeChange(value) {
-        this.setState({income:value});
-    }
-
 
     componentDidMount() {
        // console.log("this.props.location.state" + this.props.location.state.profileId);
@@ -128,12 +96,7 @@ class RegisterDetail extends Component {
                     pstate:this.state.pstate,
                     district:this.state.district,
                     city:this.state.city,
-                    mStatus: this.state.mStatus,
-                    height: this.state.height,
-                    weight: this.state.weight,
-                    familyType: this.state.familyType,
-                    familyValue: this.state.familyValue,
-                    disabled: this.state.disability,
+                   
                     education: this.state.education,
                     employment: this.state.employment,
                     income: this.state.income,
@@ -240,21 +203,29 @@ class RegisterDetail extends Component {
 
                 <div className="rdcontaniner">
                     <div className="hs10" />
-                    <UploadImage imageHandler={this.imageHandler}/>                
+                    <UploadImage imageHandler={this.imageHandler}/>               
+                    <div className="hs10" />
+                    <PersonalDetail 
+                        maritalStatusChange = {this.maritalStatusChange}
+                        heightInchChange = {this.heightInchChange}
+                        heightCmChange = {this.heightCmChange}
+                        weightChange = {this.weightChange}
+                        familyTypeChange = {this.familyTypeChange}
+                        familyValueChange = {this.familyValueChange}
+                        foodHabitChange = {this.foodHabitChange}
+                        bodyTypeChange = {this.bodyTypeChange}
+                        disabilityChange = {this.disabilityChange}
+                    />
+                     <div className="hs10" />
+                    <ReligionDetail />
+                    <div className="hs10" />
                     <Location 
                         countryChange = {this.countryChange}
                         profileStateChange = {this.profileStateChange}
                         districtChange = {this.districtChange}
                         cityChange = {this.cityChange}
                     />
-                    <PersonalDetail 
-                        maritalStatusChange = {this.maritalStatusChange}
-                        heightChange = {this.heightChange}
-                        weightChange = {this.weightChange}
-                        familyTypeChange = {this.familyTypeChange}
-                        familyValueChange = {this.familyValueChange}
-                        disabilityChange = {this.disabilityChange}
-                    />
+                     <div className="hs10" />
                     <ProfDetail 
                         educationChange = {this.educationChange}
                         employmentChange = {this.employmentChange}
@@ -264,6 +235,10 @@ class RegisterDetail extends Component {
                     <div className='rfield'>
                                 <button onClick={this.updateProfile}>Submit</button>
                     </div>
+                    <div className="hs20" />
+                    <Footer />
+
+                    
                 </div>
             </Aux>
         );

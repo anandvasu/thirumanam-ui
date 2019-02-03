@@ -5,7 +5,6 @@ import Home from './container/home/Home';
 import Contact from './components/contact/Contact';
 import Results from './components/results/Results';
 import RegisterDetail from './container/register/RegisterDetail';
-import Message from './components/message/Message';
 import {ToastContainer} from 'react-toastify';
 import Register from './components/register/Register'
 import ConfirmSignUp from './components/login/ConfirmSignUp'
@@ -16,37 +15,39 @@ import Aux from './hoc/Aux';
 import LoggedInHome from './components/login/LoggedInHome';
 import Preference from './container/preference/Preference';
 import ProfileSelf from './container/profile/ProfileSelf';
+import UploadProfilePhoto from './container/profile/UploadProfilePhoto';
+import UpdatePersonal from './container/register/UpdatePersonal';
+import UpdateProfessional from './container/register/UpdateProfessional';
+import UpdateReligion from './container/register/UpdateReligion';
+import UpdateLocation from './container/register/UpdateLocation';
 
 class App extends Component {
-
-  constructor() {
-    super();
-    this.state = {     
-      messageClassName:"messageHide",
-      message:""
-    }
-  }
 
   render() {
     return (
       <Router>
         <Aux className="app">
-        <ToastContainer />          
-          <Message id="message" message={this.state.message} messageClassName={this.state.messageClassName} />                  
+        <ToastContainer />                    
             <Route exact path="/" component={Home} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/signedIn" component={LoggedInHome} />
-            <Route exact path="/quickRegister" component={Register} />
-            <Route exact path="/contact" component={Contact} />
-            <Route exact path="/results" component={Results} />
-            <Route exact path="/register" component={RegisterDetail} />   
-            <Route exact path="/confirmSignUp" component={ConfirmSignUp} />  
-            <Route exact path="/ilogin" component={ILogin} />
-            <Route exact path="/account" component={Account} />     
-            <Route exact path="/loggedInHome" component={LoggedInHome} /> 
-            <Route exact path="/payment" component={Payment} /> 
-            <Route exact path="/preference" component={Preference} /> 
-            <Route exact path="/profileSelf" component={ProfileSelf} /> 
+            <Route path="/home" component={Home} />
+            <Route path="/signedIn" component={LoggedInHome} />
+            <Route path="/quickRegister" component={Register} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/results" component={Results} />
+            <Route path="/register" component={RegisterDetail} />   
+            <Route path="/confirmSignUp" component={ConfirmSignUp} />  
+            <Route path="/ilogin" component={ILogin} />
+            <Route path="/account" component={Account} />     
+            <Route path="/loggedInHome" component={LoggedInHome} /> 
+            <Route path="/payment" component={Payment} /> 
+            <Route path="/preference" component={Preference} /> 
+            <Route path="/profileSelf" component={ProfileSelf} /> 
+            <Route path="/updatePersonal" component={UpdatePersonal} /> 
+            <Route path="/updateLocation" component={UpdateLocation} /> 
+            <Route path="/updateProfessional" component={UpdateProfessional} /> 
+            <Route path="/updateReligion" component={UpdateReligion} /> 
+            <Route path="/uploadProfilePhoto" component={UploadProfilePhoto} /> 
+            
         </Aux>
       </Router>
     );

@@ -1,0 +1,107 @@
+export default {
+
+    mStatus_NM:[{value:'NM',label:"Never Married"}],
+    dropdownDefault:"--Select--",
+    
+    regilionValues :[
+        { value: 1, label: "Hindu" },
+        { value: 2, label: "Buddhist" },      
+        { value: 3, label: "Christian" },
+        { value: 4, label: "Muslim - Shia" },
+        { value: 5, label: "Muslim - Sunni" },
+        { value: 6, label: "Muslim - Others" },
+        { value: 7, label: "Sikh" },
+        { value: 8, label: "Jain - Digambar" },
+        { value: 9, label: "Jain - Shwetambar" },
+        { value: 10, label: "Jain - Others" },
+        { value: 11, label: "Parsi" },
+        { value: 12, label: "Inter-Religion" }
+     ],
+     gothramValues :[
+        { value: "1", label: "Anuradha / Anusham / Anizham" },
+        { value: "2", label: "Ardra / Thiruvathira" },
+        { value: "3", label: "Ashlesha / Ayilyam" },
+        { value: "4", label: "Ashwini / Ashwathi" },
+        { value: "5", label: "Bharani" },
+        { value: "6", label: "Chitra / Chitha" },
+        { value: "7", label: "Dhanista / Avittam" },
+        { value: "8", label: "Hastha / Atham" },
+        { value: "9", label: "Jyesta / Kettai" },
+        { value: "10", label: "Kettai" },
+        { value: "11", label: "Krithika / Karthika" },
+        { value: "12", label: "Makha / Magam" },
+        { value: "13", label: "Moolam / Moola" },
+        { value: "14", label: "Mrigasira / Makayiram" },
+        { value: "15", label: "Poorvabadrapada / Puratathi" },
+        { value: "16", label: "Poorvapalguni / Puram / Pubbhe" },
+        { value: "17", label: "Poorvashada / Pooradam" },
+        { value: "18", label: "Punarvasu / Punarpusam" },
+        { value: "19", label: "Pushya / Poosam / Pooyam" },
+        { value: "20", label: "Revathi" },
+        { value: "21", label: "Rohini" },
+        { value: "22", label: "Shatataraka / Sadayam / Satabishek" },
+        { value: "23", label: "Shravan / Thiruvonam" },
+        { value: "24", label: "Swati / Choth" },
+        { value: "25", label: "Uthram" },
+        { value: "26", label: "Uttarabadrapada / Uthratadhi" },
+        { value: "27", label: "Uttarapalguni / UthramUttarashada / Uthradam" },
+        { value: "28", label: "Vishaka / Vishakam" },
+     ],
+     casteValues :[
+        { value: "VAN", label: "Vanniyar" },
+        { value: "MUL", label: "Mudaliyar" }  
+     ],
+     maritalStatusValues :[
+        { value: "NM", label: "Never Married" },
+        { value: "WD", label: "Widowed" },
+        { value: "DD", label: "Divorced" },
+        { value: "AD", label: "Awaiting Divorce" }
+     ],
+     countries :[
+         { value: "IND", label: "India" },
+         { value: "USA", label: "United States of America" },
+         { value: "GBR", label: "United Kingdom" } 
+     ],
+     indiaStates : [
+         { value: "AR", label: "Arunachal Pradesh" },
+         { value: "AS", label: "Assam" },
+         { value: "BR", label: "Bihar" },
+         { value: "CH", label: "Chandigarh" },
+         { value: "CG", label: "Chhattisgarh" },
+         { value: "DN", label: "Dadra and Nagar Haveli" },
+         { value: "DD", label: "Daman and Diu" },
+         { value: "DL", label: "Delhi" },
+         { value: "GA", label: "Goa" },
+         { value: "GJ", label: "Gujarat" },
+         { value: "HR", label: "Haryana" },
+         { value: "HP", label: "Himachal Pradesh" },
+         { value: "JK", label: "Jammu and Kashmir" },
+         { value: "JH", label: "Jharkhand" },
+         { value: "KA", label: "Karnataka" },
+         { value: "KL", label: "Kerala" },
+         { value: "LD", label: "Lakshadweep" },
+         { value: "MP", label: "Madhya Pradesh" },
+         { value: "MH", label: "Maharashtra" },
+         { value: "MN", label: "Manipur" },
+         { value: "ML", label: "Meghalaya" },
+         { value: "MZ", label: "Mizoram" },
+         { value: "NL", label: "Nagaland" },
+         { value: "OD", label: "Odisha" },
+         { value: "PY", label: "Puducherry" },
+         { value: "PB", label: "Punjab" },
+         { value: "RJ", label: "Rajasthan" },
+         { value: "SK", label: "Sikkim" },
+         { value: "TN", label: "Tamil Nadu" },
+         { value: "TS", label: "Telangana" },
+         { value: "TR", label: "Tripura" },
+         { value: "UP", label: "Uttar Pradesh" },
+         { value: "UK", label: "Uttarakhand" },
+         { value: "WB", label: "West Bengal" }
+     ],
+     customSelectStyles : {     
+        control: () => ({
+          maxHeight:30,
+          minHeight:30
+        })     
+      }
+}

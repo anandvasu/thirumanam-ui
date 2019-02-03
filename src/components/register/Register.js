@@ -5,13 +5,17 @@ import {Redirect} from "react-router-dom";
 import {toast} from 'react-toastify';
 import {Auth} from 'aws-amplify';
 import 'react-toastify/dist/ReactToastify.css';
-import Constant from '../../Constant';
+import Constant from '../utils/Constant';
 import ApiConstant from '../utils/ApiConstant';
+import ReligionSelect from '../utils/ReligionSelect';
+import {populateArray} from '../utils/Util';
+import {getValueFromReactSelect} from '../utils/Util';
+
 
 class Register extends Component {
 
     constructor(props) {
-        super(props);
+        super(props); 
 
         this.onChangeFirst = this.onChangeFirst.bind(this);
         this.onChangeLast = this.onChangeLast.bind(this);
@@ -25,6 +29,7 @@ class Register extends Component {
         this.genderChange = this.genderChange.bind(this);
         this.onChangeRegisteredBy = this.onChangeRegisteredBy.bind(this);   
         this.onChangeCountryCode = this.onChangeCountryCode.bind(this);   
+        this.religionChangeHandler = this.religionChangeHandler.bind(this);         
         
         this.state = {
             first:"",
@@ -39,7 +44,8 @@ class Register extends Component {
             registerBy:"self",
             profileId:"",
             countryCode:"+91",
-            registersuccess:false           
+            registersuccess:false,
+            religion:[]          
         }
     }
 
@@ -85,6 +91,12 @@ class Register extends Component {
 
     onChangeCountryCode(event){
         this.setState({countryCode:event.target.value});
+    }
+
+    religionChangeHandler(value) {
+        this.setState({
+            religion:populateArray(value)
+        });
     }
 
     register(event) {
@@ -135,6 +147,7 @@ class Register extends Component {
                     dob:this.state.bmonth+"/"+this.state.bday+"/"+this.state.byear,
                     email:this.state.email,
                     gender: this.state.gender,
+                    religion: getValueFromReactSelect(this.state.religion),
                     mobile: this.state.countryCode + this.state.mobile,
                     registerBy: this.state.registerBy,
                     externalId: externalIdValue
@@ -307,21 +320,12 @@ class Register extends Component {
                             <label>Religion</label>
                         </div>
                         <div className='rfield'>
-                            <select onChange={this.onChangeDay} defaultValue="H">
-                                <option value="H">Hindu</option>                                                 
-                            </select>&nbsp;&nbsp;
+                            <ReligionSelect 
+                                 religions = {this.state.religion}
+                                 religionChangeHandler = {this.religionChangeHandler}
+                            />
                         </div>
-                    </div>
-                    <div>
-                        <div className='rlabel'>
-                            <label>Caste</label>
-                        </div>
-                        <div className='rfield'>
-                            <select onChange={this.onChangeDay}>
-                                <option >Vanniyar</option>                                                 
-                            </select>&nbsp;&nbsp;
-                        </div>
-                    </div>
+                    </div>                   
                     <div>
                         <div className='rlabel'>                           
                             <label>Mobile Number</label>

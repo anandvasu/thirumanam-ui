@@ -7,12 +7,12 @@ import {toast} from 'react-toastify';
 import {Redirect} from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import ApiConstant from '../utils/ApiConstant';
-
+import Constant from '../utils/Constant';
 
 import {
     withRouter
   } from 'react-router-dom';
-import Constant from '../../Constant';
+
   
 class Login extends Component {
 

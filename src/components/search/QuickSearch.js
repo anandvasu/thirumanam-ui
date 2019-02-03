@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import './QuickSearch.css';
 import {Redirect} from "react-router-dom";
-import Constant from '../../Constant';
+import Constant from '../utils/Constant';
+import {populateArray} from '../utils/Util';
+
 
 class QuickSearch extends Component {
 
@@ -19,7 +21,7 @@ class QuickSearch extends Component {
             ageTo:Constant.ageTo,
             minHeight:Constant.minHeight,
             maxHeight:Constant.maxHeight,
-            mStatus:Constant.mStatus_NM
+            mStatus:"NM"
         }
     }
 
@@ -55,7 +57,7 @@ class QuickSearch extends Component {
                                         ageTo:this.state.ageTo,
                                         minHeight:this.state.minHeight,
                                         maxHeight:this.state.maxHeight,
-                                        mStatus:this.state.mStatus
+                                        mStatus:populateArray(this.state.mStatus)
                                     }
                                  }}/>
         }

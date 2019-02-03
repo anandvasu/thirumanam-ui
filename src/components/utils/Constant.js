@@ -4,6 +4,7 @@ export default {
    genderM:"M",
    genderF:"F",
    ageFrom:18,
+   RELIGION_HINDU:"H",
    ageTo:40,
    minHeight:'121',
    maxHeight:'213',
@@ -59,4 +60,10 @@ export default {
       { value: "DD", label: "Divorced" },
       { value: "AD", label: "Awaiting Divorce" }
    ],
+   customSelectStyles : {     
+      control: () => ({
+        maxHeight:30,
+        minHeight:30
+      })     
+    }
 };

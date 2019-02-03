@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import './ConfirmSignUp.css';
-import Constant from '../../Constant';
+import Constant from '../utils/Constant';
 import welcomeImage from '../../assets/images/wedding.png';
 import {Auth} from 'aws-amplify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,7 +25,7 @@ class ILogin extends Component {
         }
     }
   
-    loginClick(event) {
+    loginClick(event) { 
         event.preventDefault();
 
         let errorMessage = null;
@@ -48,7 +48,13 @@ class ILogin extends Component {
                 {                    
                 }) .then((res) => {
                    // Update User Detail to session
-                   sessionStorage.setItem("userSession", res.signInUserSession);   
+                   const prefix = ((res.data.gender==="M") ? "Mr." : "Ms.");
+                   sessionStorage.setItem("thirumanamUser", res.data);   
+                   sessionStorage.setItem("profileId", res.data.id);  
+                   sessionStorage.setItem("name", prefix + " " +res.data.firstName + " " + res.data.lastName);  
+                   sessionStorage.setItem("percentageCompleted", res.data.profileCompPercent); 
+                   sessionStorage.setItem("gender", res.data.gender); 
+
                 })
                 this.props.history.push('/signedIn');           
             }).catch((err) => {

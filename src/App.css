@@ -34,7 +34,7 @@ input[type=text] {
   width: 100%;
   padding: 5px 5px;
   margin: 5px 0;
-  box-sizing: border-box;
+  border-width: 1px;
 }
 
 input[type=password] {
@@ -164,11 +164,11 @@ hr {
   width:100%;
   display: table;
   background-color:rgb(225, 229, 230);  
-  /*background-color: #BE29EC;*/
-  border-style: solid;  
-  border-color: darkgrey;  
+  /*background-color: #BE29EC;*/   
   vertical-align: center;
   text-align: left;   
+  border-style: solid;  
+  border-color: darkgrey;
   border-bottom-width: 1px;
   border-top-width: 0px;
   border-left-width: 0px;
@@ -289,4 +289,18 @@ hr {
 .hyperlinkHeader{
   color: #0000EE;
   font-size: 14px;
+}
+
+.selectClassStyle {
+  height: 40px;
+}
+
+.sectionDataDiv {
+  background-color: #FFFFFF;
+  border-color: darkgrey;
+  border-style: solid;  
+  border-bottom-width: 1px;
+  border-top-width: 0px;
+  border-left-width: 1px;
+  border-right-width: 1px; 
 }

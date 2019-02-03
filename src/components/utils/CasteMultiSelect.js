@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Select from "react-select";
 import Animated from 'react-select/lib/animated';
+import DropDownConstant from './DropDownConstant';
 
 class CasteMultiSelect extends Component {
 
@@ -23,7 +24,7 @@ class CasteMultiSelect extends Component {
                     name="filters"
                     placeholder="Filters"
                     value={this.props.castes}
-                    options={this.state.filterOptions}
+                    options={DropDownConstant.casteValues}
                     onChange={this.props.handleCasteChange}
                     isMulti = {true}
                     />

@@ -4,7 +4,7 @@ function indiaState(props) {
 
     return(
         <div>
-            <select  onChange={props.profileStateChange} defaultValue="TN">
+            <select  onChange={props.profileStateChange} defaultValue="TN" value={props.pstate}>
             <option value='AP'>Andhra Pradesh</option>
                 <option value='AN'>Andaman and Nicobar Islands</option>
                 <option value='AR'>Arunachal Pradesh</option>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Select from "react-select";
-import Constant from '../../Constant';
+import DropDownConstant from './DropDownConstant';
 
 function gothramSelect(props) {     
         
@@ -8,9 +8,9 @@ function gothramSelect(props) {
             <div>
                 <Select
                     name="gothramSelect"
-                    placeholder={Constant.dropdownDefault}
+                    placeholder={DropDownConstant.dropdownDefault}
                     value={props.gothram}
-                    options={Constant.gothramValues}
+                    options={DropDownConstant.gothramValues}
                     onChange={props.gothramChangeHandler}                  
                     />
             </div>

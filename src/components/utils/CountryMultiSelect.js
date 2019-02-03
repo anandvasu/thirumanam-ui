@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Select from "react-select";
 import Animated from 'react-select/lib/animated';
+import DropDownConstant from './DropDownConstant';
 
 class CountryMultiSelect extends Component {
 
@@ -8,12 +9,7 @@ class CountryMultiSelect extends Component {
         super(props);
 
         this.state = {
-            multiValue: [],
-            filterOptions: [
-              { value: "IND", label: "India" },
-              { value: "USA", label: "United States of America" },
-              { value: "GBR", label: "United Kingdom" }            
-            ]
+            multiValue: []           
           };
     }
 
@@ -24,7 +20,7 @@ class CountryMultiSelect extends Component {
                     name="filters"
                     placeholder="Filters"
                     value={this.props.countries}
-                    options={this.state.filterOptions}
+                    options={DropDownConstant.countries}
                     onChange={this.props.handleCountryChange}
                     isMulti = {true}
                     />

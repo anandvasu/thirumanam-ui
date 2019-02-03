@@ -3,7 +3,7 @@ import React from 'react';
 function tamilnaduDistrict(props) {
     return(
         <div>
-             <select  onChange={props.districtChange}>
+             <select  onChange={props.districtChange} value={props.district}>
                 <option value=''>--Select--</option>
                 <option value='AR'>Ariyalur</option>
                 <option value='CH'>Chennai</option>

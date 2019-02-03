@@ -14,6 +14,9 @@ import {toast} from 'react-toastify';
 import CountryMultiSelect from '../../components/utils/CountryMultiSelect';
 import IndiaStateMultiSelect from '../../components/utils/IndiaStateMultiSelect';
 import CasteMultiSelect from '../../components/utils/CasteMultiSelect';
+import {getValueArrFromReactSelect, convertReactSelectValues} from '../../components/utils/Util';
+import DropDownConstant from '../../components/utils/DropDownConstant';
+
 
 class Preference extends Component {
 
@@ -85,11 +88,9 @@ class Preference extends Component {
             maxHeight:this.props.location.state.preference.maxHeight,
             mStatus:this.props.location.state.preference.mStatus,
             foodHabits:this.props.location.state.preference.foodHabits,
-            countries:this.props.location.state.preference.countries,
-            states:this.props.location.state.preference.states,
-            religions:this.props.location.state.preference.religions,
-            castes:this.props.location.state.preference.castes
-            
+            countries:convertReactSelectValues(this.props.location.state.preference.countries, DropDownConstant.countries),
+            states:convertReactSelectValues(this.props.location.state.preference.states, DropDownConstant.indiaStates),
+            religions:convertReactSelectValues(this.props.location.state.preference.religions, DropDownConstant.regilionValues)            
         });
     }
 
@@ -179,15 +180,13 @@ class Preference extends Component {
                 ageTo:this.state.ageTo,
                 mStatus:this.state.mStatus,
                 city:this.state.city,
-                minHeight: this.state.minHeight,
-                maxHeight: this.state.maxHeight,
-                foodHabits: this.state.foodHabits,  
-                religions:this.state.religions,
-                castes:this.state.castes,
-                countries:this.state.countries,              
-                states:this.state.states
-                
-                
+                minHeight:this.state.minHeight,
+                maxHeight:this.state.maxHeight,
+                foodHabits:this.state.foodHabits,  
+                religions:getValueArrFromReactSelect(this.state.religions),
+                castes:getValueArrFromReactSelect(this.state.castes),
+                countries:getValueArrFromReactSelect(this.state.countries),              
+                states:getValueArrFromReactSelect(this.state.states)      
             })
             .then((res) => {
                 console.log(res);                
@@ -258,7 +257,6 @@ class Preference extends Component {
                         <div className="prefDataDiv">
                         <MaritalStatus 
                             mStatus = {this.state.mStatus}
-                            test = "testValue"
                             maritalStatusChange={this.maritalStatusChange}
                         />
                         </div>

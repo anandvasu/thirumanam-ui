@@ -10,7 +10,8 @@ import './Results.css';
 import RegisterWithLogin from '../register/RegisterWithLogin';
 import Aux from '../../hoc/Aux';
 import ApiConstant from '../../components/utils/ApiConstant';
-import Constant from '../../Constant';
+import Constant from '../utils/Constant';
+import DropDownConstant from '../utils/DropDownConstant';
 
 class Results extends Component {
 
@@ -40,7 +41,7 @@ class Results extends Component {
             profileClicked:false,
             registerDisplay:false,
             gender:((sessionStorage.getItem("gender")===Constant.genderM) ? Constant.genderF : Constant.genderM),
-            maritalStatus:Constant.mStatus_NM
+            maritalStatus:[]
         };
     }
 
@@ -98,6 +99,7 @@ class Results extends Component {
         aGender, 
         aMstatus, 
         pageNumber) {
+        console.log("in searchProfile");    
         console.log(aMstatus);
         var totalDocs = 0;
         axios.post(ApiConstant.QUICK_SEARCH_API, { 
@@ -258,6 +260,8 @@ class Results extends Component {
         this.searchProfile(
             this.state.ageFrom,
             this.state.ageTo,
+            this.state.minHeight,
+            this.state.maxHeight,
             this.state.gender,
             this.state.maritalStatus,
             pageNumber
