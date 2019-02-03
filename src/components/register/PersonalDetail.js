@@ -1,60 +1,8 @@
 import React, {Component} from 'react';
 
-class PersonalDetail extends Component {
-
-    constructor(props) {
-        super(props);
-        this.maritalStatusChange = this.maritalStatusChange.bind(this);
-        this.heightInchChange = this.heightInchChange.bind(this);
-        this.heightCmChange = this.heightCmChange.bind(this);
-        this.weightChange = this.weightChange.bind(this);
-        this.familyTypeChange = this.familyTypeChange.bind(this);
-        this.familyValueChange = this.familyValueChange.bind(this);
-        this.foodHabitChange = this.foodHabitChange.bind(this);
-        this.bodyTypeChange = this.bodyTypeChange.bind(this);
-        this.disablityChange = this.disablityChange.bind(this);
-    }
-
-    maritalStatusChange(event) {
-        this.props.maritalStatusChange(event.target.value);
-    }
-
-    heightInchChange(event) {
-        this.props.heightInchChange(event.target.value);
-        document.getElementById("rdCmHeight").value = "";
-    }
-
-    heightCmChange(event) {
-        this.props.heightCmChange(event.target.value);
-        document.getElementById("rdInchHeight").value = "";
-    }
-
-    weightChange(event) {
-        this.props.weightChange(event.target.value);
-    }
-
-    familyTypeChange(event) {
-        this.props.familyTypeChange(event.target.value);
-    }
-
-    familyValueChange(event) {
-        this.props.familyValueChange(event.target.value);
-    }
-
-    foodHabitChange(event) {
-        this.props.foodHabitChange(event.target.value);
-    }
-
-    bodyTypeChange(event) {
-        this.props.bodyTypeChange(event.target.value);
-    }
-
-    disablityChange(event) {
-        this.props.disablityChange(event.target.value);
-    }
-
-    render () {
-        return (
+function personalDetail(props) {   
+   
+    return (
                 <div>
                     <div> 
                         <div className='header2allborder'>
@@ -67,7 +15,7 @@ class PersonalDetail extends Component {
                                 <label>Marital Status</label>
                             </div>
                             <div className='rdfield'>
-                                <select  onChange={this.maritalStatusChange}>
+                                <select  onChange={props.maritalStatusChange}>
                                     <option value="">--Select--</option>
                                     <option value="NM">Never Married</option>
                                     <option value="WD">Widowed</option>
@@ -84,7 +32,7 @@ class PersonalDetail extends Component {
                             </div>
 
                             <div className='rdfield'>
-                                <select id="rdInchHeight" onChange={this.heightInchChange}>
+                                <select id="rdInchHeight" onChange={props.heightInchChange}>
                                     <option value="">--Select--</option>
                                     <option value="121">4ft</option>
                                     <option value="124">4ft 1in</option>
@@ -127,7 +75,7 @@ class PersonalDetail extends Component {
                                 <div className="vs20"/> 
                                 <div className="vs20">or</div>
                                 <div className="vs20" />
-                                <select id="rdCmHeight" onChange={this.heightCmChange}>
+                                <select id="rdCmHeight" onChange={props.heightCmChange}>
                                     <option value="">--Select--</option>
                                     <option value="121">121 cm</option>
                                     <option value="124">124 cm</option>
@@ -177,8 +125,11 @@ class PersonalDetail extends Component {
                             
                             <div className='rdfield'>
                                 <div className='fieldLen100'>
-                                    <input type='text' onBlur={this.weightChange} /> 
-                                </div> Kg
+                                    <input type='text' onBlur={props.weightChange} /> 
+                                </div> 
+                                <div style={{display:'inline-block',textAlign:'right',width:'40px'}}>
+                                    Kg 
+                                </div>  
                             </div>                        
                         </div>
 
@@ -188,7 +139,7 @@ class PersonalDetail extends Component {
                             </div>
                             
                             <div className='rdfield'>
-                                <select  onChange={this.familyTypeChange}>
+                                <select  onChange={props.familyTypeChange}>
                                     <option value="">--Select--</option>
                                     <option value="JO">Joint</option>
                                     <option value="NU">Nucler</option>                                
@@ -202,7 +153,7 @@ class PersonalDetail extends Component {
                             </div>
                             
                             <div className='rdfield'>
-                                <select  onChange={this.familyValueChange}>
+                                <select  onChange={props.familyValueChange}>
                                     <option value="">--Select--</option>
                                     <option value="OR">Orthodox</option>
                                     <option value="TL">Traditional</option>    
@@ -217,7 +168,7 @@ class PersonalDetail extends Component {
                             </div>
                             
                             <div className='rdfield'>
-                                <select  onChange={this.foodHabitChange}>
+                                <select  onChange={props.foodHabitChange}>
                                     <option value="">--Select--</option>
                                     <option value="V">Vegetarian</option>
                                     <option value="N">Non-Vegetarian</option>    
@@ -232,7 +183,7 @@ class PersonalDetail extends Component {
                             </div>
                             
                             <div className='rdfield'>
-                                <select  onChange={this.bodyTypeChange}>
+                                <select  onChange={props.bodyTypeChange}>
                                     <option value="">--Select--</option>
                                     <option value="AG">Average</option>
                                     <option value="AT">Athletic</option>    
@@ -248,18 +199,26 @@ class PersonalDetail extends Component {
                             </div>
                             
                             <div className='rdfield'>
-                                <select  onChange={this.disabledChange}>
+                                <select  onChange={props.disablityChange}>
                                     <option value="">--Select--</option>
-                                    <option value="Y">Yes</option>
-                                    <option value="N">No</option>                                                       
+                                    <option value="N">Normal</option>
+                                    <option value="Y">Physically Challenged</option>                                                       
                                 </select>
-                            </div>                        
+                            </div>                                                    
+                        </div>
+                        <div id="disablityReason">
+                            <div className='rdlabel' style={{verticalAlign:'top'}}>
+                                <label>Disablity Detail:</label>
+                            </div>
+                            
+                            <div className='rdfield'>
+                               <textarea rows="5" cols="40" onBlur={props.disablityReasonChange}></textarea>
+                            </div> 
                         </div>
                         <div className="hs10" />
                     </div>  
             </div>
         );
-    }
 }
 
-export default PersonalDetail;
+export default personalDetail;

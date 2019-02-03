@@ -19,7 +19,8 @@ class UpdatePersonal extends Component {
         this.familyValueChange = this.familyValueChange.bind(this);
         this.foodHabitChange = this.foodHabitChange.bind(this);
         this.bodyTypeChange = this.bodyTypeChange.bind(this);         
-        this.disablityChange = this.disablityChange.bind(this);        
+        this.disablityChange = this.disablityChange.bind(this);       
+        this.disablityReasonChange = this.disablityReasonChange.bind(this);          
 
         this.redirectToReligionDetail = this.redirectToReligionDetail.bind(this);
         this.doThisLater = this.doThisLater.bind(this);
@@ -35,57 +36,69 @@ class UpdatePersonal extends Component {
             bodyType:"",
             foodHabit:"",
             disability:"",
+            disablityInfo:null,
             profileId:"",
             email:""
         }        
     }
 
     componentDidMount() {
+        document.getElementById("disablityReason").style.display = "none";
         this.setState({
             profileId : this.props.location.state.profileId,
             email : this.props.location.state.email,
         });       
     }
 
-    maritalStatusChange(value) {
-        this.setState({mStatus:value});
+    maritalStatusChange(event) {
+        this.setState({mStatus:event.target.value});
     }
 
-    heightCmChange(value) {
-        this.setState({heightCm:value});
+    heightCmChange(event) {
+        this.setState({heightCm:event.target.value});
     }
 
-    heightInchChange(value) {
-        this.setState({heightInch:value});
+    heightInchChange(event) {
+        this.setState({heightInch:event.target.value});
     }
 
-    weightChange(value) {
-        this.setState({weight:value});
+    weightChange(event) {
+        this.setState({weight:event.target.value});
     }
 
-    familyTypeChange(value) {
-        this.setState({familyType:value});
+    familyTypeChange(event) {
+        this.setState({familyType:event.target.value});
     }
 
-    familyValueChange(value) {
-        this.setState({familyValue:value});
+    familyValueChange(event) {
+        this.setState({familyValue:event.target.value});
     }
 
-    foodHabitChange(value) {
-        this.setState({foodHabit:value});
+    foodHabitChange(event) {
+        this.setState({foodHabit:event.target.value});
     }
 
-    bodyTypeChange(value) {
-        this.setState({bodyType:value});
+    bodyTypeChange(event) {
+        this.setState({bodyType:event.target.value});
     }
 
-    disablityChange(value) {
-        this.setState({disability:value});
+    disablityChange(event) {
+        this.setState({disability:event.target.value});       
+        if(event.target.value === 'Y') {
+            document.getElementById("disablityReason").style.display = "block";
+        } else {
+            document.getElementById("disablityReason").style.display = "none";
+        }
     }    
+
+    disablityReasonChange(event) {
+        console.log(event.target.value);
+        this.setState({disablityInfo:event.target.value});
+    }
 
     doThisLater() {
        this.redirectToReligionDetail();
-    }
+    }   
 
     redirectToReligionDetail() {
         this.props.history.push(
@@ -113,7 +126,7 @@ class UpdatePersonal extends Component {
         } 
 
         if(errorMessage !== null) {
-            axios.post(ApiConstant.USER_PERSONAL_PROFILE_API, 
+            axios.put(ApiConstant.USER_PERSONAL_PROFILE_API, 
                     {
                         mStatus: this.state.mStatus,
                         heightCm: this.state.heightCm,
@@ -124,7 +137,8 @@ class UpdatePersonal extends Component {
                         foodHabit:this.state.foodHabit,
                         bodyType:this.state.bodyType,
                         disabled: this.state.disability,
-                        id:this.state.regProfileId
+                        disablityInfo:this.state.disablityInfo,
+                        id:this.state.profileId
                     },
                     {                                            
                     })
@@ -170,7 +184,8 @@ class UpdatePersonal extends Component {
                         familyValueChange = {this.familyValueChange}
                         foodHabitChange = {this.foodHabitChange}
                         bodyTypeChange = {this.bodyTypeChange}
-                        disabilityChange = {this.disabilityChange}
+                        disablityChange = {this.disablityChange}
+                        disablityReasonChange = {this.disablityReasonChange}
                     /> 
                     <div className="hs30" />
                     <div style={{width:'100%'}}>

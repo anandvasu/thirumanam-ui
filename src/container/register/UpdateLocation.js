@@ -83,13 +83,13 @@ class UpdateLocation extends Component {
         } 
 
         if(errorMessage !== null) {
-            axios.post(ApiConstant.USER_LOCATION_API, 
+            axios.put(ApiConstant.USER_LOCATION_API, 
                     {
                         country:this.state.country,
                         pstate:this.state.pstate,
                         district:this.state.district,
                         city:this.state.city,
-                        id:this.state.regProfileId
+                        id:this.state.profileId
                     },
                     {                                            
                     })

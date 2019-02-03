@@ -83,13 +83,13 @@ class UpdateReligion extends Component {
         } 
 
         if(errorMessage !== null) {
-            axios.post(ApiConstant.USER_RELIGION_API, 
+            axios.put(ApiConstant.USER_RELIGION_API, 
                 {
                     caste: this.state.caste,
                     subcaste:this.state.subcaste,
                     gothram:this.state.gothram,
                     dhosham:this.state.dhosham,
-                    id:this.state.regProfileId
+                    id:this.state.profileId
                 },
                 {                                            
                 })

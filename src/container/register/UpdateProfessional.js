@@ -75,12 +75,12 @@ class UpdateProfessional extends Component {
         } 
 
         if(errorMessage !== null) {
-            axios.post(ApiConstant.USER_PROF_API, 
+            axios.put(ApiConstant.USER_PROF_API, 
                     {
                         education: this.state.education,
                         employment: this.state.employment,
                         income: this.state.income,
-                        id:this.state.regProfileId
+                        id:this.state.profileId
                     },
                     {                                            
                     })
