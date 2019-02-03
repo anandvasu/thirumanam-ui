@@ -20,6 +20,7 @@ import UpdatePersonal from './container/register/UpdatePersonal';
 import UpdateProfessional from './container/register/UpdateProfessional';
 import UpdateReligion from './container/register/UpdateReligion';
 import UpdateLocation from './container/register/UpdateLocation';
+import UpdateGroomBride from './container/register/UpdateGroomBride';
 
 class App extends Component {
 
@@ -47,6 +48,7 @@ class App extends Component {
             <Route path="/updateProfessional" component={UpdateProfessional} /> 
             <Route path="/updateReligion" component={UpdateReligion} /> 
             <Route path="/uploadProfilePhoto" component={UploadProfilePhoto} /> 
+            <Route path="/updateGroomBride" component={UpdateGroomBride} /> 
             
         </Aux>
       </Router>
