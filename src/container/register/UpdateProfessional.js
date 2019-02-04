@@ -85,7 +85,7 @@ class UpdateProfessional extends Component {
                     {                                            
                     })
             .then((res) => {                
-                this.redirectToProfDetail();
+                this.redirectToProfImage();
             })
             .catch((error) => {
                 console.log(error);

@@ -22,9 +22,9 @@ class Menu extends Component {
         //this.props.history.push('/loggedInHome');
         this.props.history.push(
             {
-                pathname:'/uploadHoroscope' ,
+                pathname:'/updatePersonal' ,
                 state:{
-                    profileId:"CM650914",
+                    profileId:"CM456679",
                     email:"anandakumarv@gmail.com",
                     religion:1,
                 }                                   

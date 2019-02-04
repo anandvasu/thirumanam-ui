@@ -85,13 +85,7 @@ class UploadProfilePhoto extends Component {
                     {                                            
                     })
             .then((res) => {
-                toast.success("Your Photo Image Uploaded Successfully", 
-                    {
-                        position:toast.POSITION.TOP_CENTER,
-                        hideProgressBar:true,
-                        autoClose:3000,
-                        testId:20
-                    });
+                this.redirectToNextPage();
             })
             .catch((error) => {
                 console.log(error);

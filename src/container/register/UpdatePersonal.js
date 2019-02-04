@@ -120,7 +120,7 @@ class UpdatePersonal extends Component {
 
         if (this.state.mStatus === "") {
             errorMessage = "Please select Marital Status."; 
-        } else if (this.state.heightCm === 0 || this.state.heightInch === 0) {
+        } else if (this.state.heightCm === 0 && this.state.heightInch === 0) {
             errorMessage = "Please enter Height."; 
         } else if (this.state.familyType === "") {
             errorMessage = "Please select Family Type."; 
@@ -199,8 +199,7 @@ class UpdatePersonal extends Component {
                             <button onClick={this.updatePersonalDetail}>Save</button>
                         </div>                    
                     </div>
-               </div>  
-               
+               </div>                 
             </div>
         );
     }
