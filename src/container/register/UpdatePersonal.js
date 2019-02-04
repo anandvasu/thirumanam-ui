@@ -38,7 +38,7 @@ class UpdatePersonal extends Component {
             disability:"",
             disablityInfo:null,
             profileId:"",
-            religion:"",
+            religion:0,
             email:""
         }        
     }

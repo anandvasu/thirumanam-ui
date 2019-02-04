@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TopBar from '../../components/menu/TopBar';
 import GlobalMenu from '../../components/menu/GlobalMenu';
 import ApiConstant from '../../components/utils/ApiConstant';
+import {Redirect} from "react-router-dom";
 import {toast} from 'react-toastify';
 import axios from 'axios';
 import AboutGroomBride from '../../components/register/AboutGroomBride';

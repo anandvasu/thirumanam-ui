@@ -24,7 +24,8 @@ class UpdateProfessional extends Component {
             employment:"",
             income:0,
             profileId:"",
-            email:""
+            email:"",
+            religion:0
         }        
     }
 
@@ -32,6 +33,7 @@ class UpdateProfessional extends Component {
         this.setState({
             profileId : this.props.location.state.profileId,
             email : this.props.location.state.email,
+            religion:this.props.location.state.religion
         });       
     }
 
@@ -58,6 +60,7 @@ class UpdateProfessional extends Component {
                 state:{
                     profileId : this.state.profileId,
                     email : this.state.email,
+                    religion:this.state.religion
                 }                                   
             }
         );

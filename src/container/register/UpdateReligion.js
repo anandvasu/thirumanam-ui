@@ -110,6 +110,7 @@ class UpdateReligion extends Component {
                 state:{
                     profileId : this.state.profileId,
                     email : this.state.email,
+                    religion:this.state.religion
                 }                                   
             }
         );
