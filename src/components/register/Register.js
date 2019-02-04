@@ -94,10 +94,10 @@ class Register extends Component {
         this.setState({countryCode:event.target.value});
     }
 
-    religionChangeHandler(value) {
+    religionChangeHandler(valueObj) {
         this.setState({
-            religion:populateArray(value),
-            religionValue:getValueFromReactSelect(this.state.religion)
+            religion:populateArray(valueObj),
+            religionValue:valueObj.value
         });
     }
 
@@ -112,6 +112,8 @@ class Register extends Component {
             errorMessage = "Please enter Last Name."; 
         } else if (this.state.bday === "" || this.state.byear === "" || this.state.byear === "") {
             errorMessage = "Please enter Data of birth."; 
+        } else if (this.state.religionValue === 0) {
+            errorMessage = "Please select Religion."; 
         } else if (this.state.mobile === "") {
             errorMessage = "Please enter Mobile Number"; 
         } else if (this.state.gender === "") {

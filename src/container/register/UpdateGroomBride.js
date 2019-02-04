@@ -61,7 +61,9 @@ class UpdateGroomBride extends Component {
                     {                                            
                     })
             .then((res) => {                
-                this.redirectToProfDetail();
+                this.setState({
+                    updateSuccess:true
+                })
             })
             .catch((error) => {
                 console.log(error);
