@@ -18,6 +18,7 @@ class ProfileSelfSummary extends Component {
         this.goToPreference = this.goToPreference.bind(this);
         this.editProfile = this.editProfile.bind(this);
         this.uploadPhoto = this.uploadPhoto.bind(this);
+        this.uploadHoroscope = this.uploadHoroscope.bind(this);        
 
         this.state = {
             image:null
@@ -26,7 +27,19 @@ class ProfileSelfSummary extends Component {
 
     uploadPhoto() {
         this.props.history.push({
-            pathname: '/uploadProfilePhoto'
+            pathname: '/uploadProfilePhoto',
+            state:{
+                fromPage : 'E',
+            }
+        });
+    }
+
+    uploadHoroscope() {
+        this.props.history.push({
+            pathname: '/uploadHoroscope',
+            state:{
+                fromPage : 'E',
+            }
         });
     }
 
@@ -149,11 +162,14 @@ class ProfileSelfSummary extends Component {
                     {image}
                 </div>
                 <div style={{paddingBottom:'5px'}}>
+                   <a href="#" onClick={this.editProfile} style={{color:'blue'}}> Edit Profile </a>
+                </div>
+                <div style={{paddingBottom:'5px'}}>
                    <a href="#" onClick={this.uploadPhoto} style={{color:'blue'}}>Upload Photo</a>
                 </div>
                 <div style={{paddingBottom:'5px'}}>
-                   <a href="#" onClick={this.editProfile} style={{color:'blue'}}> Edit Profile </a>
-                </div>
+                   <a href="#" onClick={this.uploadHoroscope} style={{color:'blue'}}>Upload Horoscope</a>
+                </div>               
                 <div>
                    <a href="#" onClick={this.goToPreference} style={{color:'blue'}}>Edit Preferences</a>
                 </div>   

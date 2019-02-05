@@ -71,13 +71,7 @@ class UploadHoroscope extends Component {
                     {                                            
                     })
             .then((res) => {
-                toast.success("Your Photo Image Uploaded Successfully", 
-                    {
-                        position:toast.POSITION.TOP_CENTER,
-                        hideProgressBar:true,
-                        autoClose:3000,
-                        testId:20
-                    });
+                this.redirectToUpdageGroomBride();
             })
             .catch((error) => {
                 console.log(error);
@@ -113,12 +107,12 @@ class UploadHoroscope extends Component {
                  
                     <div className="hs30" />
 
-                    { (this.state.fromPage === null) &&
+                    { (this.state.fromPage === "E") &&
                         <div>
                             <button onClick={this.uploadHoroscope}>Upload</button>
                         </div>
                     }
-                    { (this.state.fromPage !== null) &&
+                    { (this.state.fromPage === "R") &&
                         <div style={{width:'100%'}}>
                             <div className="inlineBlock" style={{width:'50%'}}>
                                 <a href="#" onClick={this.doThisLater}><b>I will do this later</b></a>

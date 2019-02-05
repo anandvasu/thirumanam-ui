@@ -28,10 +28,10 @@ class UploadProfilePhoto extends Component {
 
     componentDidMount() {
         this.setState({
+            fromPage:this.props.location.state.fromPage,
             profileId : this.props.location.state.profileId,
             email : this.props.location.state.email,
-            religion:this.props.location.state.religion,
-            fromPage:this.props.location.state.fromPage
+            religion:this.props.location.state.religion,            
         });       
     }
 
@@ -47,6 +47,7 @@ class UploadProfilePhoto extends Component {
                     state:{
                         profileId : this.state.profileId,
                         email : this.state.email,
+                        fromPage : 'R'
                     }                                   
                 }
             );
@@ -56,7 +57,7 @@ class UploadProfilePhoto extends Component {
                     pathname:'/updateGroomBride' ,
                     state:{
                         profileId : this.state.profileId,
-                        email : this.state.email,
+                        email : this.state.email
                     }                                   
                 }
             );
@@ -120,12 +121,12 @@ class UploadProfilePhoto extends Component {
                     <UploadImage imageHandler={this.imageHandler}/>  
                 
                     <div className="hs30" />
-                    { (this.state.fromPage === null) &&
+                    { (this.state.fromPage === "E") &&
                         <div>
                             <button onClick={this.uploadProfilePhoto}>Upload</button>
                         </div>
                     }
-                    { (this.state.fromPage !== null) &&
+                    { (this.state.fromPage === "R") &&
                         <div style={{width:'100%'}}>
                             <div className="inlineBlock" style={{width:'50%'}}>
                                 <a href="#" onClick={this.doThisLater}><b>I will do this later</b></a>
