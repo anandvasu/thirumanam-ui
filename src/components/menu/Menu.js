@@ -20,16 +20,21 @@ class Menu extends Component {
 
     goToHome() {
         //this.props.history.push('/loggedInHome');
-        this.props.history.push(
-            {
-                pathname:'/loggedInHome' ,
-                state:{
-                    profileId:"CM999685",
-                    email:"anandakumarv@gmail.com",
-                    religion:1,
-                }                                   
-            }
-        );
+
+        if (sessionStorage.getItem("userSession") !== null) {  
+            this.props.history.push(
+                {
+                    pathname:'/loggedInHome' ,
+                    state:{
+                        profileId:"CM999685",
+                        email:"anandakumarv@gmail.com",
+                        religion:1,
+                    }                                   
+                }
+            );    
+        } else {
+            this.props.history.push('/home');
+        }      
         
     }
 

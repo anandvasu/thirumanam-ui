@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import TopBar from '../../components/menu/TopBar';
-import GlobalMenu from '../../components/menu/GlobalMenu';
 import ApiConstant from '../../components/utils/ApiConstant';
 import ProfDetail from '../../components/register/ProfDetail';
 import {toast} from 'react-toastify';
@@ -117,8 +116,6 @@ class UpdateProfessional extends Component {
         return (
             <div>
                 <TopBar />
-               <div className='hs1'></div>
-               <GlobalMenu />
                <div className='hs30' />  
                <div className="prefSectionContainer"> 
                     <ProfDetail 

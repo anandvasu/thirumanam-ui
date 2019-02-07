@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import Aux from '../../hoc/Aux';
 import Footer from '../../components/footer/Footer';
-import GlobalMenu from '../menu/GlobalMenu';
 import TopBar from '../menu/TopBar';
 import ProfileSelfSummary from '../results/profile/ProfileSelfSummary'
 import './LoggedInHome.css';

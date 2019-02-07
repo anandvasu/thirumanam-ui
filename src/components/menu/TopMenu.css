@@ -2,13 +2,3 @@
     width:100%;
    /* border: 1px solid #DDFFCC;*/
 }
-
-.logo {
-    display:inline-block;
-    text-align: left;
-    width:25%;
-}
-
-.logo img:hover {
-    cursor: pointer;
- }

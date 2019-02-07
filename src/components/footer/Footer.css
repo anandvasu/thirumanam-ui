@@ -5,7 +5,8 @@
     display:table; 
     width: 100%;
     /* background-color: #E7D4F8; */
-    background-color : #D6DBDF;
+    /* background-color : #D6DBDF; */
+    background-color : #F4ECF7;
 }
 
 .copyRight {
@@ -16,6 +17,7 @@
 
 .socialMedia {
     width:50%;
+    padding-top:5px;
     vertical-align: middle;
     display:table-cell;    
 }

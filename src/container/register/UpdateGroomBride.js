@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import TopBar from '../../components/menu/TopBar';
-import GlobalMenu from '../../components/menu/GlobalMenu';
 import ApiConstant from '../../components/utils/ApiConstant';
 import {Redirect} from "react-router-dom";
 import {toast} from 'react-toastify';
@@ -102,7 +101,6 @@ class UpdateGroomBride extends Component {
             <div>
                 <TopBar />
                <div className='hs1'></div>
-               <GlobalMenu />
                <div className='hs30' />  
                <div className="prefSectionContainer"> 
                     <AboutGroomBride 

@@ -171,7 +171,12 @@ class Login extends Component {
         return(
             <div className="loginContainer">   
                 <div className="logo">
-                    <img src={logo} alt="Not Available" onClick={this.logoClick} /> 
+                    <div style={{display:'inline-block'}}>
+                        <img src={logo} alt="Not Available" onClick={this.logoClick} /> 
+                    </div>                    
+                    <div className="matrimonyName">
+                        <label><h2>Chandramathi Matrimony</h2></label> 
+                    </div>                 
                 </div>
                 <div className="loginSection">
                     <div className="hs20" />

@@ -15,8 +15,7 @@ class Home extends Component {
         return (
             <Aux>                 
                 <div className="hs10" />
-                <TopMenu />  
-                <div style={{backgroundColor:'#6E2C00', height:'0.2px'}} />               
+                <TopMenu />          
                 <div className="middlecontainer">                     
                     <div className="qsearchContainer">
                             <QuickSearch />

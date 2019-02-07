@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import TopBar from '../../components/menu/TopBar';
-import GlobalMenu from '../../components/menu/GlobalMenu';
 import ApiConstant from '../../components/utils/ApiConstant';
 import ReligionDetail from '../../components/register/ReligionDetail';
 import {populateArray} from '../../components/utils/Util';
@@ -170,8 +169,6 @@ class UpdateReligion extends Component {
         return (
             <div>
                 <TopBar />
-               <div className='hs1'></div>
-               <GlobalMenu />
                <div className='hs30' />  
                <div className="prefSectionContainer"> 
                     <ReligionDetail 

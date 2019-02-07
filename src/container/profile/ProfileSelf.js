@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import TopBar from '../../components/menu/TopBar';
-import GlobalMenu from '../../components/menu/GlobalMenu';
 import Footer from '../../components/footer/Footer';
 import Location from '../../components/register/Location';
 import ProfDetail from '../../components/register/ProfDetail';
@@ -321,8 +320,6 @@ class ProfileSelf extends Component {
         return (
             <div>
                <TopBar />
-               <div className='hs1'></div>
-               <GlobalMenu />
                <div className='hs50' />  
                <div className="prefSectionContainer"> 
 

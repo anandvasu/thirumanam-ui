@@ -8,7 +8,6 @@ import {toast} from 'react-toastify';
 import axios from 'axios';
 import './ILogin.css';
 import TopBar from '../menu/TopBar';
-import GlobalMenu from '../menu/GlobalMenu';
 import Footer from '../footer/Footer';
 
 class ILogin extends Component {

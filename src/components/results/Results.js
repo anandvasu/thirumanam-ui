@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ProfileSummary from './profile/ProfileSummary';
 import axios from 'axios';
 import Filter from '../search/Filter';
-import TopMenu from '../menu/TopMenu';
 import Modal from '../modal/Modal';
 import Profile from '../../components/results/profile/Profile';
 import Footer from '../../components/footer/Footer';
@@ -12,6 +11,7 @@ import Aux from '../../hoc/Aux';
 import ApiConstant from '../../components/utils/ApiConstant';
 import Constant from '../utils/Constant';
 import DropDownConstant from '../utils/DropDownConstant';
+import TopBar from '../menu/TopBar';
 
 class Results extends Component {
 
@@ -333,11 +333,8 @@ class Results extends Component {
     
     render () {
         return (
-            <Aux style={{textAlign:'center'}}>
-             <div className="hs10" />
-                 <TopMenu
-                        resultsPage ={ true}
-                  /> 
+            <div>
+                 <TopBar />
                  <div className="hs30" />
                  <Modal show={this.state.profileClicked} modalClosed={this.profileClosed} className="Modal">
                     <Profile
@@ -393,7 +390,7 @@ class Results extends Component {
                  </div>
                  <div className="hs30" />
                  <Footer />                 
-            </Aux>
+            </div>
             
         );
     }

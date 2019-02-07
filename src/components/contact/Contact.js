@@ -3,7 +3,6 @@ import './Contact.css';
 import house from '../../assets/images/villupuram.jpg';
 import Footer from '../footer/Footer';
 import TopBar from '../menu/TopBar';
-import GlobalMenu from '../menu/GlobalMenu';
 import ApiConstant from '../../components/utils/ApiConstant';
 
 class Contact extends Component {

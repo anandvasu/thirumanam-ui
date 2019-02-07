@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './Preference.css';
 import TopBar from '../../components/menu/TopBar';
-import GlobalMenu from '../../components/menu/GlobalMenu';
 import Footer from '../../components/footer/Footer';
 import Age from '../../components/utils/Age';
 import Height from '../../components/utils/Height';
@@ -216,8 +215,6 @@ class Preference extends Component {
         return(
             <div>
                 <TopBar />
-               <div className='hs1'></div>
-               <GlobalMenu />
                <div className='hs50' />   
                <div className="prefSectionContainer">
                     <div className="prefHeader">

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import TopBar from '../../components/menu/TopBar';
-import GlobalMenu from '../../components/menu/GlobalMenu';
 import UploadImage from '../../components/register/UploadImage';
 import ApiConstant from '../../components/utils/ApiConstant';
 import {toast} from 'react-toastify';
@@ -114,8 +113,6 @@ class UploadProfilePhoto extends Component {
         return (
             <div>
                 <TopBar />
-               <div className='hs1'></div>
-               <GlobalMenu />
                <div className='hs50' />  
                <div className="prefSectionContainer"> 
                     <UploadImage imageHandler={this.imageHandler}/>  
