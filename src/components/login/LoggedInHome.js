@@ -17,8 +17,6 @@ class LoggedInHome extends Component {
                 <Aux>
                 <div>
                         <TopBar />
-                        <div className='hs1'></div>
-                        <GlobalMenu />
                         <div className='hs10' />
                         <div style={{textAlign:'left',paddingLeft:'5%'}}><b>Hello! {sessionStorage.getItem("name")}</b></div>
                         <div className='hs10' />

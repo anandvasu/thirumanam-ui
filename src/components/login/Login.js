@@ -169,7 +169,7 @@ class Login extends Component {
         }
 
         return(
-            <div className="topBarContainer">           
+            <div className="loginContainer">   
                 <div className="logo">
                     <img src={logo} alt="Not Available" onClick={this.logoClick} /> 
                 </div>

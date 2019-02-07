@@ -7,7 +7,7 @@ import TopMenu from '../../components/menu/TopMenu';
 import './Home.css';
 import Aux from '../../hoc/Aux';
 import ImageGalleryAnimation from '../../components/featuredprofile/ImageGalleryAnimation';
-import Aboutus from '../../components/help/Aboutus';
+import Aboutus from '../../components/home/Aboutus';
 
 class Home extends Component {
  
@@ -51,11 +51,7 @@ class Home extends Component {
                 <div className="hs20" />
                 <ImageGalleryAnimation />
                 <div className="hs20" />
-                <div style={{width:'100%',textAlign:'center'}}>
-                    <div style={{width:'80%',textAlign:'center'}}>
-                        <Aboutus />
-                    </div>
-                </div>
+                <Aboutus /> 
                 <div className="hs20" />
                 <Footer />
             </Aux>          

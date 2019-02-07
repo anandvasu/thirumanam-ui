@@ -27,7 +27,7 @@ class TopMenu extends Component {
 
     render() {
         return(
-                <div className="topBarContainer" key="TopMenu"> 
+                <div key="TopMenu"> 
                         {this.state.content}
                 </div>                   
         );

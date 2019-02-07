@@ -35,7 +35,7 @@ class ResultsMenu extends Component {
 
     render() {
         return(
-            <div>
+            <div className="topBarContainer">
                 <div className="logo">
                     <img src={logo} alt="Not Available" onClick={this.goToHome} /> 
                 </div>
