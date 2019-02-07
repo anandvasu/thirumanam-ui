@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import logo from '../../assets/images/logo.gif';
+import logo from '../../assets/images/logo.png';
 import './Menu.css';
 import {Redirect} from "react-router-dom";
 import {
@@ -61,7 +61,7 @@ class Menu extends Component {
         return(
             <div>
                 <div className="logo">
-                    <img src={logo} alt="Not Available" style={{width:'80px'}} onClick={this.goToHome} /> 
+                    <img src={logo} alt="Not Available"  onClick={this.goToHome} /> 
                 </div>
                 <div className="menuContainer">
                     <div className="hs20" />

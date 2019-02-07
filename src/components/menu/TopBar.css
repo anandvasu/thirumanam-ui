@@ -1,17 +1,17 @@
 .topBar{
     height:120px;
-    background-color: green;
+    background-color: #229954;
     width:100%;
 }
 
 .globalBar {
     height:35px;
-    background-color: green;
+    background-color: #229954;
     width:100%;
 }
 
 .globalLogoOuter {    
-    width:60%;
+    width:90%;
     text-align: center;
     display: inline-block;
 }
@@ -24,7 +24,8 @@
 
 .globalLogoRight {
     display: inline-block;
-    width:45%;
+    width:30%;
     padding-top:10px;
     text-align: right;
+    vertical-align: top;
 }

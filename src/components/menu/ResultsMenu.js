@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import logo from '../../assets/images/logo.gif';
+import logo from '../../assets/images/logo.png';
 import './Menu.css';
 import {
     withRouter
@@ -37,15 +37,15 @@ class ResultsMenu extends Component {
         return(
             <div>
                 <div className="logo">
-                    <img src={logo} alt="Not Available" style={{width:'80px'}} onClick={this.goToHome} /> 
+                    <img src={logo} alt="Not Available" onClick={this.goToHome} /> 
                 </div>
                 <div className="menuContainer">
                     <div className="hs20" />
-                    <div className="menufield">
+                    <div className="globalMenu">
                         <a href="#" onClick={this.goToHome}><b>Home</b></a>
                         <a href="/"><b>Register</b></a>
                         <a href="#" onClick={this.goToPayment}><b>Payment</b></a>
-                        <a href="#" onClick={this.contactClick}><b>Contact Us</b></a>
+                        <a href="#" onClick={this.contactClick}> <b>Contact Us</b></a>
                         <button onClick={this.loginClick}>Login</button>
                     </div>
                 </div>

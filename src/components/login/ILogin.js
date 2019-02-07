@@ -94,9 +94,7 @@ class ILogin extends Component {
     render() {
         return (
             <div className="ilogincontainer">
-               <TopBar />
-               <div className='hs1'></div>
-               <GlobalMenu />
+               <TopBar />              
                <div className='hs100'></div>             
                 <div className="iLoginLeft">
                     <img src={welcomeImage} alt="Not Available"></img>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from '../../assets/images/logo.gif';
+import logo from '../../assets/images/logo.png';
 import './Login.css';
 import axios from 'axios';
 import {Auth} from 'aws-amplify';
@@ -169,9 +169,9 @@ class Login extends Component {
         }
 
         return(
-            <div>           
+            <div className="topBarContainer">           
                 <div className="logo">
-                    <img src={logo} alt="Not Available" style={{width:'80px'}} onClick={this.logoClick} /> 
+                    <img src={logo} alt="Not Available" onClick={this.logoClick} /> 
                 </div>
                 <div className="loginSection">
                     <div className="hs20" />

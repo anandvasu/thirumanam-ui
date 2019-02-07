@@ -64,13 +64,13 @@ class Contact extends Component {
         return (
             <div>
                 <TopBar />
-               <div className='hs1'></div>
-               <GlobalMenu />
-               <div className='hs100'></div>      
+               <div className='hs50'></div>      
                 <div className="addressContainer" key="contactContainer">                
                     {this.state.contacts}
                 </div>
-                <Footer />
+                <div className="footerDiv">
+                    <Footer />
+                </div>
             </div>
         );
     }
