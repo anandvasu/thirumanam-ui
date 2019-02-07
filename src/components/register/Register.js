@@ -11,7 +11,6 @@ import ReligionSelect from '../utils/ReligionSelect';
 import {populateArray} from '../utils/Util';
 import {getValueFromReactSelect} from '../utils/Util';
 
-
 class Register extends Component {
 
     constructor(props) {
@@ -327,7 +326,7 @@ class Register extends Component {
                         <div className='rfield'>
                             <ReligionSelect 
                                  religions = {this.state.religion}
-                                 religionChangeHandler = {this.religionChangeHandler}
+                                 religionChangeHandler = {this.religionChangeHandler}                                
                             />
                         </div>
                     </div>                   

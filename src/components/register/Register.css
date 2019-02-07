@@ -1,7 +1,3 @@
-.ricontainer {
-    text-align: center;
-}
-
 .rHeading {
     padding-top : 10px;
     padding-bottom : 10px;
@@ -50,6 +46,7 @@
     box-shadow: 1px 1px 1px grey;
     padding: 5px;    
     box-sizing: border-box;
+    display: inline-block;  
 }
 
 .rwlogincontainer {   

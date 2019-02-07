@@ -392,8 +392,7 @@ class Results extends Component {
                             </div>                    
                  </div>
                  <div className="hs30" />
-                 <Footer />
-                 <div className="hs10" />
+                 <Footer />                 
             </Aux>
             
         );

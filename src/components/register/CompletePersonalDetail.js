@@ -9,10 +9,10 @@ function completePersonalDetail (props) {
             <div> 
                 <div className='header2allborder'>
                         <label>Personal Information</label>
-                </div>
-                <div className='rdfield'>
-                </div>
+                </div>              
             </div> 
+
+            <div className="sectionDataDiv">         
 
             <div>
                 <div className='rdlabel'>
@@ -318,6 +318,7 @@ function completePersonalDetail (props) {
                         </div>                        
                     </div>
                     <div className="hs10" />
+                </div>
 
         </div>
     );

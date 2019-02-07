@@ -2,6 +2,15 @@ import React from 'react';
 import Select from "react-select";
 import DropDownConstant from './DropDownConstant';
 
+const customStyles = {
+    control : (base, state) => (
+       {...base,
+        boxShadow:"none",
+        border: '1px solid red',
+        borderRadius: '4px'
+       })
+   }
+
 function religionSelect(props) {     
         
         return(
@@ -12,9 +21,7 @@ function religionSelect(props) {
                     value={props.religions}
                     options={DropDownConstant.regilionValues}
                     onChange={props.religionChangeHandler}  
-                    styles={{ 
-                        control: (base, _state) => ({...base, minHeight: '30px', height: '30px'})
-                    }}                
+                    className = "reactSelectStyle"             
                     />
             </div>
         ) ;

@@ -7,6 +7,7 @@ import TopMenu from '../../components/menu/TopMenu';
 import './Home.css';
 import Aux from '../../hoc/Aux';
 import ImageGalleryAnimation from '../../components/featuredprofile/ImageGalleryAnimation';
+import Aboutus from '../../components/help/Aboutus';
 
 class Home extends Component {
  
@@ -15,16 +16,18 @@ class Home extends Component {
             <Aux>                 
                 <div className="hs10" />
                 <TopMenu />  
-                <div className="hs10" />
-                <QuickSearch />
-                <div className="middlecontainer">  
-                    <div className="qregister">
+                <div style={{backgroundColor:'#6E2C00', height:'0.2px'}} />               
+                <div className="middlecontainer">                     
+                    <div className="qsearchContainer">
+                            <QuickSearch />
+                    </div>                    
+                    <div className="qregister">                    
                          <div className="rcontainer">
                             <Register />
                          </div>
-                    </div> 
-                    <div className="vs100" />
+                    </div>                
                 </div>
+               
                 <div className="barContainer"> 
                     <div className="barIContainer">
                         <div className="barImage">
@@ -47,6 +50,12 @@ class Home extends Component {
                 </div>                
                 <div className="hs20" />
                 <ImageGalleryAnimation />
+                <div className="hs20" />
+                <div style={{width:'100%',textAlign:'center'}}>
+                    <div style={{width:'80%',textAlign:'center'}}>
+                        <Aboutus />
+                    </div>
+                </div>
                 <div className="hs20" />
                 <Footer />
             </Aux>          
