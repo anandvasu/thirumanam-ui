@@ -100,7 +100,7 @@ class UploadProfilePhoto extends Component {
             
             });
         } else {
-            toast.error("Please your photo image to upload.", 
+            toast.error("Please select your photo image to upload.", 
                 {
                     position:toast.POSITION.TOP_CENTER,
                     hideProgressBar:true,
