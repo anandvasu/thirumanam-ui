@@ -66,11 +66,6 @@
     }
 }
 
-.rbTandButton {
-    text-align: center;
-    display: inline-block;
-}
-
 .tandc{
     width:58%;
     display: inline-block;
@@ -82,4 +77,5 @@
     display: inline-block;
     text-align: right;
     vertical-align: top;
+    padding-right:10px;
 }

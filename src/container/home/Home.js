@@ -52,7 +52,9 @@ class Home extends Component {
                 <div className="hs20" />
                 <Aboutus /> 
                 <div className="hs20" />
-                <Footer />
+                <Footer 
+                    backgroundColor="#D6DBDF"
+                />
             </Aux>          
         );
     }

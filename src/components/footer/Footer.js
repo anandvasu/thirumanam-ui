@@ -6,8 +6,8 @@ import facebook from '../../assets/images/facebook.png';
 
 class Footer extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.socialMediaClick = this.socialMediaClick.bind(this); 
     }
@@ -18,15 +18,17 @@ class Footer extends Component {
 
     render () {
 
+        const backgroundColor = this.props.backgroundColor;
+
         return(
-           <div className="fcontainer">
+           <div className="fcontainer" style={{backgroundColor:backgroundColor}}>
                <div className="copyRight">
                     <label>Copyright © 2019. All rights reserved</label>
                 </div>
                <div className="socialMedia">
-                        <img src={facebook} onClick={() => this.socialMediaClick("www.facebook.com")} />
-                        <img src={twitter} onClick={() => this.socialMediaClick("www.twitter.com")} />
-                        <img src={linkedin} onClick={() => this.socialMediaClick("www.linkedin.com")} />
+                    <img src={facebook} onClick={() => this.socialMediaClick("www.facebook.com")}/>
+                    <img src={twitter} onClick={() => this.socialMediaClick("www.twitter.com")} />
+                    <img src={linkedin} onClick={() => this.socialMediaClick("www.linkedin.com")} />
                </div>
            </div>     
         );

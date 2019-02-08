@@ -9,6 +9,7 @@ import axios from 'axios';
 import './ILogin.css';
 import TopBar from '../menu/TopBar';
 import Footer from '../footer/Footer';
+import ApiConstant from '../utils/ApiConstant';
 
 class ILogin extends Component {
 
@@ -43,7 +44,7 @@ class ILogin extends Component {
             .then((user) => {
                 console.log(user)      
                 sessionStorage.setItem("userSession", user.signInUserSession);   
-                axios.get('/thirumanam/user/external/'+user.username,
+                axios.get(ApiConstant.EXTERNAL_USER_API+user.username,
                 {                    
                 }) .then((res) => {
                    // Update User Detail to session
@@ -53,9 +54,9 @@ class ILogin extends Component {
                    sessionStorage.setItem("name", prefix + " " +res.data.firstName + " " + res.data.lastName);  
                    sessionStorage.setItem("percentageCompleted", res.data.profileCompPercent); 
                    sessionStorage.setItem("gender", res.data.gender); 
-
+                   this.props.history.push('/signedIn'); 
                 })
-                this.props.history.push('/signedIn');           
+                         
             }).catch((err) => {
                 console.log(err);
                 var errMessage = "";

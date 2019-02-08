@@ -597,7 +597,7 @@ class Register extends Component {
                         </div>
                     </div>                  
                     <div className="hs10" />
-                    <div className="rbTandButton">
+                    <div>
                          <div className='tandc'>
                             <input type="checkbox" id="tcondition"/>I have read and agree to the <b><u>T&amp;C</u></b> and <b><u>Privacy Policy</u></b>
                         </div>
