@@ -9,6 +9,11 @@
     background-color : #D7BDE2;
 }
 
+.footerBottom {
+    position: fixed;
+    bottom: 0;   
+}
+
 .copyRight {
     width:50%;    
     display:table-cell; 

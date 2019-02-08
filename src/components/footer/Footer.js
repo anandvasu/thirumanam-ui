@@ -10,18 +10,23 @@ class Footer extends Component {
         super(props);
 
         this.socialMediaClick = this.socialMediaClick.bind(this); 
+        this.positionFooter = this.positionFooter.bind(this); 
+    }
+   
+    positionFooter() {
+        if (document.getElementById('root').scrollHeight < window.innerHeight) {             
+            return "footerBottom";
+        } 
     }
 
     socialMediaClick(newURLPage) {
         window.open("http://"+newURLPage, "_blank");
-     }
+    }
 
-    render () {
-
-        const backgroundColor = this.props.backgroundColor;
+    render () {        
 
         return(
-           <div className="fcontainer" style={{backgroundColor:backgroundColor}}>
+           <div className={"fcontainer " + this.positionFooter()} style={{backgroundColor:this.props.backgroundColor}} id="footer">
                <div className="copyRight">
                     <label>Copyright © 2019. All rights reserved</label>
                 </div>

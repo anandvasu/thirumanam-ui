@@ -67,9 +67,7 @@ class Contact extends Component {
                 <div className="addressContainer" key="contactContainer">                
                     {this.state.contacts}
                 </div>
-                <div className="footerDiv">
-                    <Footer />
-                </div>
+                <Footer />
             </div>
         );
     }
