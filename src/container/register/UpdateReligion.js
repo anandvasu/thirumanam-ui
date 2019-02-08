@@ -3,6 +3,7 @@ import TopBar from '../../components/menu/TopBar';
 import ApiConstant from '../../components/utils/ApiConstant';
 import ReligionDetail from '../../components/register/ReligionDetail';
 import {populateArray} from '../../components/utils/Util';
+import Footer from '../../components/footer/Footer';
 import {getValueFromReactSelect} from '../../components/utils/Util';
 import {toast} from 'react-toastify';
 import axios from 'axios';
@@ -200,7 +201,7 @@ class UpdateReligion extends Component {
                         </div>                    
                     </div>
                </div>  
-               
+               <Footer />
             </div>
         );
     }

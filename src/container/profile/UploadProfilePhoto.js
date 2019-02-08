@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TopBar from '../../components/menu/TopBar';
 import UploadImage from '../../components/register/UploadImage';
 import ApiConstant from '../../components/utils/ApiConstant';
+import Footer from '../../components/footer/Footer';
 import {toast} from 'react-toastify';
 import axios from 'axios';
 
@@ -134,6 +135,7 @@ class UploadProfilePhoto extends Component {
                         </div>
                     }
                </div> 
+               <Footer />
             </div>
         );
     }

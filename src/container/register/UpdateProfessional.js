@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TopBar from '../../components/menu/TopBar';
 import ApiConstant from '../../components/utils/ApiConstant';
 import ProfDetail from '../../components/register/ProfDetail';
+import Footer from '../../components/footer/Footer';
 import {toast} from 'react-toastify';
 import axios from 'axios';
 
@@ -115,7 +116,7 @@ class UpdateProfessional extends Component {
     render () {
         return (
             <div>
-                <TopBar />
+               <TopBar />
                <div className='hs30' />  
                <div className="prefSectionContainer"> 
                     <ProfDetail 
@@ -133,7 +134,7 @@ class UpdateProfessional extends Component {
                         </div>                    
                     </div>
                </div>  
-               
+               <Footer />
             </div>
         );
     }

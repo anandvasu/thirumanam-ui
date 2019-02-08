@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TopBar from '../../components/menu/TopBar';
 import ApiConstant from '../../components/utils/ApiConstant';
 import Location from '../../components/register/Location';
+import Footer from '../../components/footer/Footer';
 import {toast} from 'react-toastify';
 import axios from 'axios';
 
@@ -123,7 +124,7 @@ class UpdateLocation extends Component {
     render () {
         return (
             <div>
-                <TopBar />
+               <TopBar />
                <div className='hs30' />  
                <div className="prefSectionContainer"> 
                     <Location 
@@ -142,6 +143,7 @@ class UpdateLocation extends Component {
                         </div>                    
                     </div>
                </div> 
+               <Footer />
             </div>
         );
     }

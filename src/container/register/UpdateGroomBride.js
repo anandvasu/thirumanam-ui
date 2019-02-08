@@ -5,6 +5,7 @@ import {Redirect} from "react-router-dom";
 import {toast} from 'react-toastify';
 import axios from 'axios';
 import AboutGroomBride from '../../components/register/AboutGroomBride';
+import Footer from '../../components/footer/Footer';
 
 class UpdateGroomBride extends Component {
 
@@ -99,7 +100,7 @@ class UpdateGroomBride extends Component {
         }
         return (
             <div>
-                <TopBar />
+               <TopBar />
                <div className='hs1'></div>
                <div className='hs30' />  
                <div className="prefSectionContainer"> 
@@ -115,8 +116,8 @@ class UpdateGroomBride extends Component {
                             <button onClick={this.updateAbout}>Save</button>
                         </div>                    
                     </div>
-               </div>  
-               
+               </div> 
+               <Footer />                
             </div>
         );
     }

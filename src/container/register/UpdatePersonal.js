@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TopBar from '../../components/menu/TopBar';
 import ApiConstant from '../../components/utils/ApiConstant';
 import PersonalDetail from '../../components/register/PersonalDetail';
+import Footer from '../../components/footer/Footer';
 import {toast} from 'react-toastify';
 import axios from 'axios';
 
@@ -196,7 +197,8 @@ class UpdatePersonal extends Component {
                             <button onClick={this.updatePersonalDetail}>Save</button>
                         </div>                    
                     </div>
-               </div>                 
+               </div>   
+               <Footer />              
             </div>
         );
     }

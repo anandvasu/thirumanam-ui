@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TopBar from '../../components/menu/TopBar';
 import ApiConstant from '../../components/utils/ApiConstant';
 import {toast} from 'react-toastify';
+import Footer from '../../components/footer/Footer';
 import axios from 'axios';
 import Horoscope from '../../components/register/Horoscope';
 
@@ -119,6 +120,7 @@ class UploadHoroscope extends Component {
                         </div>
                     }                    
                 </div>
+                <Footer />
             </div>
         );
     }
