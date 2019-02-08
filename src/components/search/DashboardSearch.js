@@ -6,7 +6,6 @@ import Height from '../../components/utils/Height';
 import Age from '../../components/utils/Age';
 import ReligionSelect from '../utils/ReligionSelect';
 import MaritalStatusSelect from '../utils/MaritalStatusSelect';
-import GothramSelect from '../utils/GothramSelect';
 import Constant from '../utils/Constant';
 import {populateArray} from '../utils/Util';
 
@@ -22,7 +21,6 @@ class DashboardSearch extends Component {
         this.minHeightChange = this.minHeightChange.bind(this);
         this.maxHeightChange = this.maxHeightChange.bind(this);
         this.religionChangeHandler = this.religionChangeHandler.bind(this);
-        this.gothramChangeHandler = this.gothramChangeHandler.bind(this);
         
         this.state = {
             searchClicked: false,
@@ -33,7 +31,8 @@ class DashboardSearch extends Component {
             maxHeight:Constant.maxHeight,
             mStatus:"NM",
             religions:[],
-            gothrams:[]          
+            gothrams:[],
+            religionValue:null        
         }
     }
 
@@ -63,18 +62,13 @@ class DashboardSearch extends Component {
         });    
     }
     
-    religionChangeHandler(value) {
+    religionChangeHandler(valueObj) {
         this.setState({
-            religions:populateArray(value)
+            religions:populateArray(valueObj),
+            religionValue:valueObj.value
         });
     }
-
-    gothramChangeHandler(value) {
-        this.setState({
-            gothrams:populateArray(value)
-        });
-    }
-
+   
     searchProfile(event) {
         this.setState({searchClicked:true});
         console.log(this.state.searchClicked);
@@ -91,7 +85,7 @@ class DashboardSearch extends Component {
                     maxHeight:this.state.maxHeight,
                     gender:this.state.gender,
                     mStatus:populateArray(this.state.mStatus),
-                    religions:this.state.religions
+                    religions:populateArray(this.state.religionValue)
                 }
                 }}/>
         }

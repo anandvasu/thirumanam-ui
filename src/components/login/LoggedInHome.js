@@ -13,7 +13,6 @@ class LoggedInHome extends Component {
        
         render () {
                 return (
-                <Aux>
                 <div>
                         <TopBar />
                         <div className='hs10' />
@@ -40,10 +39,8 @@ class LoggedInHome extends Component {
                                </div>
 
                         </div>
-                       
-                </div>
-                        <Footer />
-                </Aux>
+                        <Footer />                       
+                </div>                        
                 );
         };
 }

@@ -41,7 +41,8 @@ class Results extends Component {
             profileClicked:false,
             registerDisplay:false,
             gender:((sessionStorage.getItem("gender")===Constant.genderM) ? Constant.genderF : Constant.genderM),
-            maritalStatus:[]
+            maritalStatus:[],
+            religions:[]
         };
     }
 
@@ -55,6 +56,7 @@ class Results extends Component {
             maxHeight:this.props.location.state.maxHeight, 
             gender:this.props.location.state.gender,
             mStatus:this.props.location.state.mStatus,
+            religions:this.props.location.state.mStatus
         });
            
         this.searchProfile(
@@ -64,6 +66,7 @@ class Results extends Component {
             this.props.location.state.maxHeight,
             this.props.location.state.gender,
             this.props.location.state.mStatus,
+            this.props.location.state.religions,
             1
         );      
     }
@@ -98,6 +101,7 @@ class Results extends Component {
         maxHeight,
         aGender, 
         aMstatus, 
+        aReligions,
         pageNumber) {
         console.log("in searchProfile");    
         console.log(aMstatus);
@@ -110,6 +114,7 @@ class Results extends Component {
             gender:aGender,
             maritalStatus:aMstatus,
             totalDocs:this.state.totalDocs,
+            religions:aReligions,
             pageNumber:pageNumber 
              })
          .then(function (res) {
@@ -264,6 +269,7 @@ class Results extends Component {
             this.state.maxHeight,
             this.state.gender,
             this.state.maritalStatus,
+            this.state.religions,
             pageNumber
         );
     }
@@ -288,6 +294,7 @@ class Results extends Component {
             this.state.maxHeight,
             this.state.gender, 
             this.state.maritalStatus,
+            this.state.religions,
             1 );
     }
 
@@ -303,6 +310,7 @@ class Results extends Component {
             this.state.maxHeight,
             this.state.gender, 
             this.state.maritalStatus,
+            this.state.religions,
             1 );
     }
 
@@ -317,6 +325,7 @@ class Results extends Component {
             this.state.minHeight,
             this.state.maxHeight,
             this.state.gender, 
+            this.state.religions,
             value,
             1);
     }     
