@@ -2,15 +2,23 @@
     position: fixed;
     z-index: 500;
     width: 90%;
-    height: 750px;
-    background-color:#FFFFFF;
+    height: 800px;
+    background-color:#8E44AD;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
     padding: 16px;
     left: 15%;
-    top: 15%;
+    top: 5%;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
+}
+
+.closeImage{
+    text-align: right;
+}
+
+.closeImage:hover {
+    cursor: pointer;
 }
 
 @media (min-width: 800px) {

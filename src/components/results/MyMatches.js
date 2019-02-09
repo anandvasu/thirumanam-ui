@@ -3,17 +3,54 @@ import axios from 'axios';
 import {toast} from 'react-toastify';
 import ApiConstant from '../utils/ApiConstant';
 import '../profile/MyMatchProfileSummary.css';
-import MyMatchProfileSummary from '../../components/profile/MyMatchProfileSummary'
+import MyMatchProfileSummary from '../../components/profile/MyMatchProfileSummary';
+import Modal from '../modal/Modal';
+import Profile from './profile/Profile';
 
 class MyMatches extends Component {
 
     constructor(props) {
         super(props);
 
+        this.profileClick = this.profileClick.bind(this);
+        this.profileClosed = this.profileClosed.bind(this);     
+        this.profileCloseHandler = this.profileCloseHandler.bind(this);          
+
         this.state = {
             profiles:[],
-            totalMatches:0
+            totalMatches:0,
+            profileClicked:false,
+            profile:''
         }
+    }
+        
+    profileClick(profileId) {
+
+        if (sessionStorage.getItem("userSession") != null) {
+
+            axios.get(ApiConstant.USER_API+profileId)
+                .then(res => {
+                    console.log(res);
+                    this.setState(
+                        {
+                            profile:res.data,
+                            profileClicked:true
+                        }
+                    );
+            });
+        } 
+    }
+
+    profileCloseHandler() {
+        this.setState({
+            profileClicked:false
+        });
+    }
+
+    profileClosed() {
+        this.setState({
+            profileClicked:false
+        });
     }
 
     componentDidMount() {
@@ -69,6 +106,12 @@ class MyMatches extends Component {
         
         return(
             <div className="myMatchContainer">
+                <Modal show={this.state.profileClicked} modalClosed={this.profileClosed} className="Modal">
+                    <Profile
+                        profile={this.state.profile}
+                        closeProfile = {this.profileCloseHandler}
+                    />
+                </Modal> 
                <div className="header2" style={{paddingTop:'5px'}}> 
                     <div className="vs5px"/>
                     <b>My Matches ({this.state.totalMatches})</b>&nbsp;&nbsp;<a href="#" onClick={this.viewAllMyMatches} className="hyperlinkHeader">View All</a>

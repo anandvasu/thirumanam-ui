@@ -24,9 +24,9 @@ class Menu extends Component {
         if (sessionStorage.getItem("userSession") !== null) {  
             this.props.history.push(
                 {
-                    pathname:'/updatePersonal' ,
+                    pathname:'/loggedInHome' ,
                     state:{
-                        profileId:"CM203748",
+                        profileId:"CM537845",
                         email:"anandakumarv@gmail.com",
                         religion:1,
                         fromPage : 'R'

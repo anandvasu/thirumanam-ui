@@ -12,7 +12,7 @@ import ILogin from './components/login/ILogin'
 import Account from './container/account/Account';
 import Payment from './components/payment/Payment';
 import Aux from './hoc/Aux';
-import LoggedInHome from './components/login/LoggedInHome';
+import LoggedInHome from './container/home/LoggedInHome';
 import Preference from './container/preference/Preference';
 import ProfileSelf from './container/profile/ProfileSelf';
 import UploadProfilePhoto from './container/profile/UploadProfilePhoto';

@@ -18,10 +18,7 @@ class Profile extends Component {
             <div className="profileParentContainer"> 
             
                  <div className="profileTopBar">
-                        <div className="profileHeading">Profile Detail</div>
-                        <div className="closeButtonDiv"> 
-                            <button className="closeButton" onClick={this.closeButtonHandler}>X</button>
-                        </div>
+                        <div className="profileHeading">Profile Detail</div>                        
                 </div>
 
                 <div className="hs20" />
@@ -251,6 +248,10 @@ class Profile extends Component {
                             </div>
                        </div>
                 </div>
+                <div>
+                    <button onClick={this.props.closeProfile}>Close</button>
+                </div>
+                <div className="hs10" />
             </div>
         );
     }

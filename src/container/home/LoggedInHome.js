@@ -1,11 +1,10 @@
 import React,{Component} from 'react';
-import Aux from '../../hoc/Aux';
 import Footer from '../../components/footer/Footer';
-import TopBar from '../menu/TopBar';
-import ProfileSelfSummary from '../results/profile/ProfileSelfSummary'
+import TopBar from '../../components/menu/TopBar';
+import ProfileSelfSummary from '../../components/results/profile/ProfileSelfSummary'
 import './LoggedInHome.css';
-import PercentageCompleted from '../profile/PercentageCompleted';
-import MyMatches from '../results/MyMatches';
+import PercentageCompleted from '../../components/profile/PercentageCompleted';
+import MyMatches from '../../components/results/MyMatches';
 import adImage from '../../assets/images/ad.jpg';
 import DashboardSearch from '../../components/search/DashboardSearch';
 

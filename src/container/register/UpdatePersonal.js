@@ -176,28 +176,32 @@ class UpdatePersonal extends Component {
                 <TopBar />
                <div className='hs30' />  
                <div className="prefSectionContainer"> 
-                    <PersonalDetail 
-                        maritalStatusChange = {this.maritalStatusChange}
-                        heightInchChange = {this.heightInchChange}
-                        heightCmChange = {this.heightCmChange}
-                        weightChange = {this.weightChange}
-                        familyTypeChange = {this.familyTypeChange}
-                        familyValueChange = {this.familyValueChange}
-                        foodHabitChange = {this.foodHabitChange}
-                        bodyTypeChange = {this.bodyTypeChange}
-                        disablityChange = {this.disablityChange}
-                        disablityReasonChange = {this.disablityReasonChange}
-                    /> 
-                    <div className="hs30" />
-                    <div style={{width:'100%'}}>
-                        <div className="inlineBlock" style={{width:'50%'}}>
-                            <a href="#" onClick={this.doThisLater}>I will do this later</a>
-                        </div>
-                        <div className="inlineBlock" style={{width:'50%'}}>
-                            <button onClick={this.updatePersonalDetail}>Save</button>
-                        </div>                    
+                    <div className="inlineBlock" style={{width:'10%'}} >                      
                     </div>
-               </div>   
+                    <div className="inlineBlock" style={{width:'90%'}}>
+                        <PersonalDetail 
+                            maritalStatusChange = {this.maritalStatusChange}
+                            heightInchChange = {this.heightInchChange}
+                            heightCmChange = {this.heightCmChange}
+                            weightChange = {this.weightChange}
+                            familyTypeChange = {this.familyTypeChange}
+                            familyValueChange = {this.familyValueChange}
+                            foodHabitChange = {this.foodHabitChange}
+                            bodyTypeChange = {this.bodyTypeChange}
+                            disablityChange = {this.disablityChange}
+                            disablityReasonChange = {this.disablityReasonChange}
+                        /> 
+                        <div className="hs30" />
+                        <div style={{width:'100%'}}>
+                            <div className="inlineBlock" style={{width:'50%'}}>
+                                <a href="#" onClick={this.doThisLater}>I will do this later</a>
+                            </div>
+                            <div className="inlineBlock" style={{width:'50%'}}>
+                                <button onClick={this.updatePersonalDetail}>Save</button>
+                            </div>                    
+                        </div>
+                    </div>
+                </div>   
                <Footer />              
             </div>
         );

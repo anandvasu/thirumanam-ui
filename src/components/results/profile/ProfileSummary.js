@@ -6,12 +6,7 @@ import defaultMImage from '../../../assets/images/default_male.jpg';
 
 class ProfileSummary extends Component {
 
-
-    getProfile() {
-
-    }
-
-    render () {
+     render () {
 
         let image;
         const preFix = (this.props.gender === "F") ? "Ms." : "Mr.";
