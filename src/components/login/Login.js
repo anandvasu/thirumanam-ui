@@ -24,16 +24,17 @@ class Login extends Component {
         this.passwordFocusOut = this.passwordFocusOut.bind(this);
         this.logoClick = this.logoClick.bind(this);
         this.forgotPassword = this.forgotPassword.bind(this);
+        this.loginKeySubmit = this.loginKeySubmit.bind(this);        
 
         this.state = {
-            username:"Email or Phone",
+            username:"Email",
             password:"Password",
             confirmUser:false
         }
     }
 
     emailFocus(event) {
-        if(event.target.value === "Email or Phone") {
+        if(event.target.value === "Email") {
             event.target.value = "";
         }
     }
@@ -47,9 +48,9 @@ class Login extends Component {
 
     emailFocusOut(event) {
         if(String.prototype.trim.call(event.target.value) === "") {
-            event.target.value = "Email or Phone";
+            event.target.value = "Email";
             this.setState({
-                username:"Email or Phone"
+                username:"Email"
             })
         } else {
             const username = String.prototype.trim.call(event.target.value);
@@ -74,22 +75,36 @@ class Login extends Component {
         }
     }
 
+    loginKeySubmit(event) {
+        if(event.keyCode === 13) {           
+            this.loginClick(event);
+        }
+    }
+
     loginClick(event) {
         event.preventDefault();
 
         let errorMessage = null;
 
-        if(String.prototype.trim.call(this.state.username) === "" || 
-            String.prototype.trim.call(this.state.username) === "Email or Phone") {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        if(String.prototype.trim.call(username) === "" || 
+            String.prototype.trim.call(username) === "Email") {
                 errorMessage = "Please enter user name.";
-        } else if (String.prototype.trim.call(this.state.password) === "" || 
-            String.prototype.trim.call(this.state.password) === "Password") {
+        } else if (String.prototype.trim.call(password) === "" || 
+            String.prototype.trim.call(password) === "Password") {
                 errorMessage = "Please enter Password.";   
         } 
         
         
-        if (errorMessage === null) {      
-            Auth.signIn(this.state.username,this.state.password)
+        if (errorMessage === null) {   
+            //We need to set here again because user may enter key press to submit. during that time onblur may not happen.   
+            this.setState({
+                username:username,
+                password:password
+            });
+            Auth.signIn(username,password)
             .then((user) => {
                 console.log(user)      
                 sessionStorage.setItem("userSession", user.signInUserSession);   
@@ -182,12 +197,12 @@ class Login extends Component {
                     <div className="hs20" />
                     <div>
                         <div className='lfield'>
-                            <input type='text'  onChange={this.onChangeEmail} 
-                            defaultValue="Email or Phone" onFocus={this.emailFocus} onBlur={this.emailFocusOut}></input>
+                            <input type='text'  onChange={this.onChangeEmail} id="username"
+                            defaultValue="Email" onFocus={this.emailFocus} onBlur={this.emailFocusOut} onKeyDown={this.loginKeySubmit}></input>
                         </div>
                         <div className='lfield'>
-                            <input type='text' onChange={this.onChangePassword} 
-                                defaultValue="Password" onFocus={this.passwordFocus} onBlur={this.passwordFocusOut}></input>
+                            <input type='text' onChange={this.onChangePassword} id="password"
+                                defaultValue="Password" onFocus={this.passwordFocus} onBlur={this.passwordFocusOut} onKeyDown={this.loginKeySubmit}></input>
                         </div>
                         <div className='lfield'>
                             <button onClick={this.loginClick}>Login</button>

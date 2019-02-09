@@ -14,6 +14,7 @@ class UploadHoroscope extends Component {
         this.horoscopeImageHandler = this.horoscopeImageHandler.bind(this);
         this.uploadHoroscope = this.uploadHoroscope.bind(this);
         this.redirectToUpdageGroomBride = this.redirectToUpdageGroomBride.bind(this);
+        this.doThisLater = this.doThisLater.bind(this);
 
         this.state = {
             horoscope:null,

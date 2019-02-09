@@ -10,7 +10,7 @@ class Payment extends Component {
                 <TopBar />
                <div className='hs1'></div>
                <div className='hs100'></div>      
-                    Payment Information goes here1.
+                    Payment Information goes here!.
                 <Footer />
             </div>
         );

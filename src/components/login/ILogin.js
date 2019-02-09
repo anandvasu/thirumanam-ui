@@ -17,11 +17,18 @@ class ILogin extends Component {
         super();
 
         this.loginClick = this.loginClick.bind(this);
+        this.loginKeySubmit = this.loginKeySubmit.bind(this);       
 
         this.state = {
             username:"",
             password:"",
             success:false
+        }
+    }
+
+    loginKeySubmit(event) {
+        if(event.keyCode === 13) {           
+            this.loginClick(event);
         }
     }
   
@@ -40,6 +47,11 @@ class ILogin extends Component {
         }         
         
         if (errorMessage === null) {      
+            //We need to set here again because user may enter key press to submit. during that time onblur may not happen.   
+            this.setState({
+                username:username,
+                password:password
+            })
             Auth.signIn(username,password)
             .then((user) => {
                 console.log(user)      
@@ -108,7 +120,7 @@ class ILogin extends Component {
                                 Email or Phone:
                                 </div>
                                 <div className="iloginField">
-                                    <input type='text'  id="iLoginUser" ></input>
+                                    <input type='text'  id="iLoginUser" onKeyDown={this.loginKeySubmit}></input>
                                 </div>
                             </div>                            
                         </div>
@@ -118,7 +130,7 @@ class ILogin extends Component {
                                     Password:
                                 </div>
                                 <div className="iloginField">
-                                <input type='password' id="iLoginPass" ></input>
+                                <input type='password' id="iLoginPass" onKeyDown={this.loginKeySubmit}></input>
                                 </div>
                             </div>                            
                         </div>      

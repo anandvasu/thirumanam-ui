@@ -24,11 +24,12 @@ class Menu extends Component {
         if (sessionStorage.getItem("userSession") !== null) {  
             this.props.history.push(
                 {
-                    pathname:'/loggedInHome' ,
+                    pathname:'/updatePersonal' ,
                     state:{
-                        profileId:"CM999685",
+                        profileId:"CM203748",
                         email:"anandakumarv@gmail.com",
                         religion:1,
+                        fromPage : 'R'
                     }                                   
                 }
             );    
