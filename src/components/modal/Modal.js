@@ -12,7 +12,7 @@ const modal = ( props ) => (
                 transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
                 opacity: props.show ? '1' : '0'
             }}>
-        <div className="closeImage">
+        <div className="closeImage" style={{display:props.displayClose}}>
             <img src={closeImage} onClick={props.modalClosed} width="25px" height="25px"></img>
         </div>
             {props.children}            

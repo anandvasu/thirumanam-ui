@@ -433,7 +433,10 @@ class Results extends Component {
                         closeProfile = {this.profileCloseHandler}
                     />
                  </Modal>       
-                 <Modal show={this.state.registerDisplay} modalClosed={this.profileClosed} className="RegisterModal">   
+                 <Modal show={this.state.registerDisplay}
+                        modalClosed={this.profileClosed} 
+                        displayClose = "none"
+                        className="RegisterModal">   
                         <RegisterWithLogin 
                             loginClick = {this.loginClickHandler}
                         /> 
