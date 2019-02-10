@@ -13,7 +13,7 @@ import {toast} from 'react-toastify';
 import CountryMultiSelect from '../../components/utils/CountryMultiSelect';
 import IndiaStateMultiSelect from '../../components/utils/IndiaStateMultiSelect';
 import CasteMultiSelect from '../../components/utils/CasteMultiSelect';
-import {getValueArrFromReactSelect, convertReactSelectValues, populateChecBoxValuesArray} from '../../components/utils/Util';
+import {getValueArrFromReactSelect, convertReactSelectValues} from '../../components/utils/Util';
 import DropDownConstant from '../../components/utils/DropDownConstant';
 
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import Age from '../utils/Age';
 import Height from '../utils/Height';
-import Education from '../utils/Education';
 import MaritalStatus from '../utils/MaritalStatus';
 import Occupation from '../utils/Occupation';
 import BodyType from '../utils/BodyType';
 import FoodHabit from '../utils/FoodHabit';
 import './Filter.css';
+import EducationMultiSelect from '../utils/EducationMultiSelect';
 
 function filter (props) {
 
@@ -48,9 +48,6 @@ function filter (props) {
                     </div>             
                 </div>
                 <div className="header3Parent">
-                    <Education />
-                </div>
-                <div className="header3Parent">
                     <div className="header3"><label>Marital Status</label></div>
                     <div className="filterContent">   
                         <MaritalStatus 
@@ -60,18 +57,6 @@ function filter (props) {
                     </div>
                 </div>
                 <div className="header3Parent">
-                    <Occupation 
-                        occupation = {props.occupation}
-                        occupationChange = {props.occupationChange}
-                    />
-                </div>   
-                <div className="header3Parent">
-                    <BodyType
-                        bodyTypes = {props.bodyTypes}
-                        bodyTypesChange = {props.bodyTypesChange}    
-                    />
-                </div>   
-                <div>
                     <div className="header3"><label>Food Habit</label></div>
                     <div className="filterContent">   
                         <FoodHabit 
@@ -79,7 +64,28 @@ function filter (props) {
                             foodHabitChange = {props.foodHabitChange}
                         />
                     </div>        
-                </div>     
+                </div> 
+                <div className="header3Parent">
+                    <div className="header3"><label>Body Type</label></div>
+                    <div className="filterContent">  
+                        <BodyType
+                            bodyTypes = {props.bodyTypes}
+                            bodyTypesChange = {props.bodyTypesChange}    
+                        />
+                    </div>
+                </div>                  
+                <div className="header3Parent">
+                    <EducationMultiSelect 
+                         education = {props.education}
+                         educationChange = {props.educationChange}
+                    />
+                </div>                
+                <div className="header3Parent">
+                    <Occupation 
+                        occupation = {props.occupation}
+                        occupationChange = {props.occupationChange}
+                    />
+                </div>                    
                 <div style={{width:'100%',height:'50px'}}>
                     <div className="clearAllFilter">
                         <a href="#" onClick={props.clearFilters}>[Clear Filters]</a>

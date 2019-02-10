@@ -12,6 +12,13 @@
     margin: 5px;
   }
 
+.filterContentMSelect {     
+    width: 95%;
+    vertical-align: middle;  
+    text-align: left;     
+    margin: 5px;
+  }
+
 .filterLeft {
     width:50%;
     display:inline-block;
@@ -51,4 +58,25 @@
     font-size: 16px;
     border: 2px solid #8E44AD;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+div.education-more{
+    padding:10px;
+    color: #fff;
+    background-color: #DA362A;
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px;
+    width:190px;
+    margin:30px;
+}
+
+div.education-more {
+content: ' ';
+	height: 0;
+	position: absolute;
+	width: 0;
+    left:10px;
+	border: 10px solid transparent;
+	border-right-color: #DA362A;
 }

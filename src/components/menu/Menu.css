@@ -1,6 +1,8 @@
 .topmenucontainer{
     width:100%;
-    /*border: 1px solid #DDFFCC; */
+    position: fixed;
+    overflow: hidden;
+    top:0;
 }
 
 .menuContainer {

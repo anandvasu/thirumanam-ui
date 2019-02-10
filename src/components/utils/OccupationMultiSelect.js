@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Select from "react-select";
-import Animated from 'react-select/lib/animated';
-
+import DropDownConstant from './DropDownConstant'
 class OccupationMultiSelect extends Component {
 
     constructor(props) {
@@ -10,15 +9,7 @@ class OccupationMultiSelect extends Component {
         this.handleMultiChange = this.handleMultiChange.bind(this);
 
         this.state = {
-            multiValue: [],
-            filterOptions: [
-              { value: "P", label: "Private" },
-              { value: "G", label: "Goverment" },
-              { value: "B", label: "Business" },
-              { value: "D", label: "Defence" },
-              { value: "S", label: "Self Employed" },
-              { value: "N", label: "Not Working" }
-            ]
+            multiValue: []            
           };
     }
 
@@ -35,7 +26,7 @@ class OccupationMultiSelect extends Component {
                     name="filters"
                     placeholder="Filters"
                     value={this.state.multiValue}
-                    options={this.state.filterOptions}
+                    options={DropDownConstant.employmentValues}
                     onChange={this.handleMultiChange}
                     isMulti = {true}
                     />

@@ -12,7 +12,7 @@ import ApiConstant from '../../components/utils/ApiConstant';
 import Constant from '../utils/Constant';
 import DropDownConstant from '../utils/DropDownConstant';
 import TopBar from '../menu/TopBar';
-import {populateChecBoxValuesArray} from '../../components/utils/Util';
+import {getValueArrFromReactSelect} from '../../components/utils/Util';
 
 class Results extends Component {
 
@@ -30,6 +30,7 @@ class Results extends Component {
         this.foodHabitChange = this.foodHabitChange.bind(this);
         this.bodyTypesChange = this.bodyTypesChange.bind(this);
         this.occupationChange = this.occupationChange.bind(this);        
+        this.educationChange = this.educationChange.bind(this);         
 
         this.state = {
             ageFrom:Constant.ageFrom,
@@ -50,7 +51,8 @@ class Results extends Component {
             religions:[],
             foodHabits:[],
             bodyTypes:[],
-            occupation:[]
+            occupation:[],
+            education:[]
         };
     }
 
@@ -78,6 +80,7 @@ class Results extends Component {
                 this.state.foodHabits,
                 this.state.bodyTypes,
                 this.state.occupation,
+                this.state.education,
                 1
             );     
         } else {
@@ -103,6 +106,7 @@ class Results extends Component {
                 this.state.foodHabits,
                 this.state.bodyTypes,
                 this.state.occupation,
+                this.state.education,
                 1
             );     
         }        
@@ -120,6 +124,7 @@ class Results extends Component {
             this.state.foodHabits,
             this.state.bodyTypes,
             this.state.occupation,
+            this.state.education,
             1
         ); 
     }
@@ -162,6 +167,7 @@ class Results extends Component {
         aFoodHabits,
         abodyTypes,
         aOccupation,
+        aEducation,
         pageNumber) {
         console.log("in searchProfile");    
         console.log(aMstatus);
@@ -178,6 +184,7 @@ class Results extends Component {
             foodHabits:aFoodHabits,
             bodyTypes:abodyTypes,
             employments:aOccupation,
+            education: getValueArrFromReactSelect(aEducation),
             pageNumber:pageNumber 
              })
          .then(function (res) {
@@ -338,6 +345,7 @@ class Results extends Component {
             this.state.foodHabits,
             this.state.bodyTypes,
             this.state.occupation,
+            this.state.education,
             pageNumber
         );
     }
@@ -379,6 +387,12 @@ class Results extends Component {
             mStatus:value
         });   
     }     
+
+    educationChange(inputEducation) {
+        this.setState({
+            education:inputEducation
+        }); 
+    }
 
     bodyTypesChange(inputBodyTypes) {
         this.setState({
@@ -447,6 +461,8 @@ class Results extends Component {
                                     bodyTypesChange = {this.bodyTypesChange}
                                     occupation = {this.state.occupation}
                                     occupationChange = {this.occupationChange}
+                                    education = {this.state.education}
+                                    educationChange = {this.educationChange}
                                 />
                             </div>
 

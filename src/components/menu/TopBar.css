@@ -2,6 +2,9 @@
     height:120px;
     background-color: #229954;
     width:100%;
+    position: fixed;
+    overflow: hidden;
+    top:0;
 }
 
 .globalBar {

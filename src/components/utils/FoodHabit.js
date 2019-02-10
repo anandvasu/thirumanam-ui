@@ -33,23 +33,22 @@ class FoodHabit extends Component {
             if(foodHabits === null || foodHabits === undefined) {
                 foodHabits = "";
             }
-            console.log("foodHabits Value:" + foodHabits);
 
             return (
-                <div>
-                        <div>                     
-                            <div className="filterLeft">
-                                <input type="checkbox" id="veg" value="V"  checked={foodHabits.includes("V")} value="V" onChange={this.handleInputChange} />Vegetarian
-                            </div>
-                            <div className="filterRight">
-                                <input type="checkbox" id="nonVeg" value="N"  checked={foodHabits.includes("N")} value="N" onChange={this.handleInputChange}/>Non-Vegetarian
-                            </div>
-                        </div> 
-                        <div> 
-                            <div className="filterLeft">
-                                <input type="checkbox" id="egg" value="E"  checked={foodHabits.includes("E")} value="E" onChange={this.handleInputChange}/>Eggetarian
-                            </div>                          
-                        </div> 
+                <div>                   
+                    <div>                     
+                        <div className="filterLeft">
+                            <input type="checkbox" id="veg" value="V"  checked={foodHabits.includes("V")} value="V" onChange={this.handleInputChange} />Vegetarian
+                        </div>
+                        <div className="filterRight">
+                            <input type="checkbox" id="nonVeg" value="N"  checked={foodHabits.includes("N")} value="N" onChange={this.handleInputChange}/>Non-Vegetarian
+                        </div>
+                    </div> 
+                    <div> 
+                        <div className="filterLeft">
+                            <input type="checkbox" id="egg" value="E"  checked={foodHabits.includes("E")} value="E" onChange={this.handleInputChange}/>Eggetarian
+                        </div>                          
+                    </div>                    
                 </div>
             );
     }
