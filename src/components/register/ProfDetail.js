@@ -36,7 +36,7 @@ function profDetail (props) {
                             <option value="B">Business</option> 
                             <option value="D">Defence</option> 
                             <option value="S">Self Employed</option>    
-                            <option value="S">Not Working</option>                            
+                            <option value="N">Not Working</option>                            
                         </select>
                     </div>                        
                 </div>

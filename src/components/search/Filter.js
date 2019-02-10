@@ -1,104 +1,95 @@
-import React, {Component} from 'react';
-import './Filter.css';
+import React from 'react';
+import Age from '../utils/Age';
 import Height from '../utils/Height';
-import MaritalStatus from '../utils/MaritalStatus';
 import Education from '../utils/Education';
+import MaritalStatus from '../utils/MaritalStatus';
 import Occupation from '../utils/Occupation';
 import BodyType from '../utils/BodyType';
 import FoodHabit from '../utils/FoodHabit';
-import Age from '../utils/Age';
+import './Filter.css';
 
-class Filter extends Component {
+function filter (props) {
 
-    constructor() {
-        super();
-
-        this.genderChange = this.genderChange.bind(this);
-        this.ageFromChange = this.ageFromChange.bind(this);
-        this.ageToChange = this.ageToChange.bind(this);
-        this.maritalStatusChange = this.maritalStatusChange.bind(this);
-        this.clearFilters = this.clearFilters.bind(this);
-    }
-
-    clearFilters() {
-        alert("test");
-    }
-
-    ageFromChange(event) {       
-        this.props.ageFromChange(event.target.value);       
-    }
-
-    ageToChange(event) {
-        this.props.ageToChange(event.target.value);
-    }
-
-    genderChange(event) {
-        this.setState({gender:event.target.value});
-    }
-
-    maritalStatusChange(mStatusValue) {
-        this.props.maritalStatusChange(mStatusValue);
-    }
-
-    searchClicked() {
-        this.setState({searchClicked:true});
-    }    
-
-    render () {
-
-        return (
-            <div className="filterParent">
-                <div className="header2">
-                    <div className="inlineLeft50Per"><label>Filter Profiles</label></div>
-                    <div className="clearAllFilter">
-                       <a href="#" onClick={this.clearFilters}>[Clear Filters]</a>&nbsp;&nbsp;
+    return (
+        <div className="filterParent">
+            <div className="header2">
+                <div className="inlineLeft50Per"><label>Filter Profiles</label></div>                    
+            </div>
+            <div style={{width:'100%',height:'50px'}}>
+                <div className="clearAllFilter">
+                    <a href="#" onClick={props.clearFilters}>[Clear Filters]</a>
+                </div>
+                <div className="inlineBlock" style={{width:'50%',paddingTop:'10px'}}>
+                    <button className="filterButton" onClick={props.applyFilter}>Apply Filter</button>
+                </div>
+            </div>
+                <div className="header3Parent">
+                <div className="header3"><label>Age</label></div>
+                    <div className="filterContent">
+                        <Age 
+                            ageFrom = {props.ageFrom}
+                            ageTo = {props.ageTo}
+                            ageFromChange={props.ageFromChange}
+                            ageToChange={props.ageToChange}
+                        />                                   
+                    </div>                             
+                </div>
+                <div className="header3Parent">
+                    <div className="header3">
+                        <label>Height</label>
+                    </div>
+                    <div className="filterContent"> 
+                        <Height 
+                             minHeight = {props.minHeight}
+                             maxHeight = {props.maxHeight}
+                             minHeightChange={props.minHeightChange}
+                             maxHeightChange={props.maxHeightChange}
+                        />
+                    </div>             
+                </div>
+                <div className="header3Parent">
+                    <Education />
+                </div>
+                <div className="header3Parent">
+                    <div className="header3"><label>Marital Status</label></div>
+                    <div className="filterContent">   
+                        <MaritalStatus 
+                            mStatus = {props.mStatus}
+                            maritalStatusChange = {props.maritalStatusChange}
+                        />
                     </div>
                 </div>
-                 <div className="header3Parent">
-                                <div className="header3"><label>Age</label></div>
-                                <div className="filterContent">
-                                    <Age 
-                                        ageFrom = {this.props.ageFrom}
-                                        ageTo = {this.props.ageTo}
-                                        ageFromChange={this.ageFromChange}
-                                        ageToChange={this.ageToChange}
-                                    />
-                                </div>                             
-                            </div>
-                            <div className="header3Parent">
-                                    <div className="header3">
-                                        <label>Height</label>
-                                    </div>
-                                    <div className="filterContent"> 
-                                        <Height />
-                                    </div>                                
-                            </div>
-                            <div className="header3Parent">
-                                <Education />
-                            </div>
-                            <div className="header3Parent">
-                                <div className="header3"><label>Marital Status</label></div>
-                                <div className="filterContent">   
-                                    <MaritalStatus 
-                                        maritalStatusChange = {this.maritalStatusChange}
-                                    />
-                                </div>
-                            </div>
-                            <div className="header3Parent">
-                                <Occupation />
-                            </div>   
-                            <div className="header3Parent">
-                                <BodyType />
-                            </div>   
-                            <div>
-                                <div className="header3"><label>Food Habit</label></div>
-                                <div className="filterContent">   
-                                    <FoodHabit />
-                                </div>        
-                            </div>               
-            </div>
-        );
-    }
+                <div className="header3Parent">
+                    <Occupation 
+                        occupation = {props.occupation}
+                        occupationChange = {props.occupationChange}
+                    />
+                </div>   
+                <div className="header3Parent">
+                    <BodyType
+                        bodyTypes = {props.bodyTypes}
+                        bodyTypesChange = {props.bodyTypesChange}    
+                    />
+                </div>   
+                <div>
+                    <div className="header3"><label>Food Habit</label></div>
+                    <div className="filterContent">   
+                        <FoodHabit 
+                            foodHabits = {props.foodHabits}
+                            foodHabitChange = {props.foodHabitChange}
+                        />
+                    </div>        
+                </div>     
+                <div style={{width:'100%',height:'50px'}}>
+                    <div className="clearAllFilter">
+                        <a href="#" onClick={props.clearFilters}>[Clear Filters]</a>
+                    </div>
+                    <div className="inlineBlock" style={{width:'50%',paddingTop:'10px'}}>
+                    <button className="filterButton" onClick={props.applyFilter}>Apply Filter</button>
+                    </div>
+                </div>          
+        </div>
+    );
 }
 
-export default Filter;
+export default filter;

@@ -12,6 +12,7 @@ import ApiConstant from '../../components/utils/ApiConstant';
 import Constant from '../utils/Constant';
 import DropDownConstant from '../utils/DropDownConstant';
 import TopBar from '../menu/TopBar';
+import {populateChecBoxValuesArray} from '../../components/utils/Util';
 
 class Results extends Component {
 
@@ -25,7 +26,11 @@ class Results extends Component {
         this.ageFromChange = this.ageFromChange.bind(this);
         this.maritalStatusChange = this.maritalStatusChange.bind(this);
         this.loginClickHandler = this.loginClickHandler.bind(this);
-               
+        this.applyFilter = this.applyFilter.bind(this);
+        this.foodHabitChange = this.foodHabitChange.bind(this);
+        this.bodyTypesChange = this.bodyTypesChange.bind(this);
+        this.occupationChange = this.occupationChange.bind(this);        
+
         this.state = {
             ageFrom:Constant.ageFrom,
             ageTo:Constant.ageTo,
@@ -41,34 +46,86 @@ class Results extends Component {
             profileClicked:false,
             registerDisplay:false,
             gender:((sessionStorage.getItem("gender")===Constant.genderM) ? Constant.genderF : Constant.genderM),
-            maritalStatus:[],
-            religions:[]
+            mStatus:[],
+            religions:[],
+            foodHabits:[],
+            bodyTypes:[],
+            occupation:[]
         };
     }
 
     componentDidMount() {
 
-        console.log("age from comp:" + this.props.location.state.ageFrom)
-        this.setState({
-            ageFrom:this.props.location.state.ageFrom, 
-            ageTo:this.props.location.state.ageTo, 
-            minHeight:this.props.location.state.minHeight, 
-            maxHeight:this.props.location.state.maxHeight, 
-            gender:this.props.location.state.gender,
-            mStatus:this.props.location.state.mStatus,
-            religions:this.props.location.state.mStatus
-        });
-           
+        if(this.props.location.state.fromPage === "MyMatch") {
+            this.setState({
+                ageFrom:this.props.location.state.preference.ageFrom, 
+                ageTo:this.props.location.state.preference.ageTo, 
+                minHeight:this.props.location.state.preference.minHeight, 
+                maxHeight:this.props.location.state.preference.maxHeight, 
+                gender:this.props.location.state.preference.gender,
+                mStatus:this.props.location.state.preference.mStatus,
+                religions:this.props.location.state.preference.religions
+            });
+               
+            this.searchProfile(
+                this.props.location.state.preference.ageFrom, 
+                this.props.location.state.preference.ageTo, 
+                this.props.location.state.preference.minHeight,
+                this.props.location.state.preference.maxHeight,
+                this.props.location.state.preference.gender,
+                this.props.location.state.preference.mStatus,
+                this.props.location.state.preference.religions,
+                this.state.foodHabits,
+                this.state.bodyTypes,
+                this.state.occupation,
+                1
+            );     
+        } else {
+
+            console.log("age from comp:" + this.props.location.state.ageFrom)
+            this.setState({
+                ageFrom:this.props.location.state.ageFrom, 
+                ageTo:this.props.location.state.ageTo, 
+                minHeight:this.props.location.state.minHeight, 
+                maxHeight:this.props.location.state.maxHeight, 
+                gender:this.props.location.state.gender,
+                mStatus:this.props.location.state.mStatus,
+            });
+               
+            this.searchProfile(
+                this.props.location.state.ageFrom, 
+                this.props.location.state.ageTo, 
+                this.state.minHeight,
+                this.state.maxHeight,
+                this.props.location.state.gender,
+                this.props.location.state.mStatus,
+                this.state.religions,
+                this.state.foodHabits,
+                this.state.bodyTypes,
+                this.state.occupation,
+                1
+            );     
+        }        
+    }
+
+    applyFilter() {
         this.searchProfile(
-            this.props.location.state.ageFrom, 
-            this.props.location.state.ageTo, 
-            this.props.location.state.minHeight,
-            this.props.location.state.maxHeight,
-            this.props.location.state.gender,
-            this.props.location.state.mStatus,
-            this.props.location.state.religions,
+            this.state.ageFrom, 
+            this.state.ageTo, 
+            this.state.minHeight,
+            this.state.maxHeight,
+            this.state.gender,
+            this.state.mStatus,
+            this.state.religions,
+            this.state.foodHabits,
+            this.state.bodyTypes,
+            this.state.occupation,
             1
-        );      
+        ); 
+    }
+
+    clearFilters() {
+
     }
 
     profileClick(profileId) {
@@ -102,6 +159,9 @@ class Results extends Component {
         aGender, 
         aMstatus, 
         aReligions,
+        aFoodHabits,
+        abodyTypes,
+        aOccupation,
         pageNumber) {
         console.log("in searchProfile");    
         console.log(aMstatus);
@@ -115,6 +175,9 @@ class Results extends Component {
             maritalStatus:aMstatus,
             totalDocs:this.state.totalDocs,
             religions:aReligions,
+            foodHabits:aFoodHabits,
+            bodyTypes:abodyTypes,
+            employments:aOccupation,
             pageNumber:pageNumber 
              })
          .then(function (res) {
@@ -130,7 +193,7 @@ class Results extends Component {
              if (data.length > 0) {
                 this.displayResults(pageNumber);
              } else {
-                 const content = <div> Sorry. No Profiles Found. </div>
+                const content = <div> Sorry. No Profiles Found. </div>
                 this.setState({pictures:content});
                 this.setState({pages:""});
              }
@@ -198,7 +261,7 @@ class Results extends Component {
         let pictures = picData.map((data) => {
 
             return (
-                <div key="123">
+                <div key={data.id}>
                     <ProfileSummary 
                         id={data.id}
                         age={data.age}
@@ -208,6 +271,8 @@ class Results extends Component {
                         thumbImage = {data.image}
                         profileClick = {this.profileClick}
                         gender = {data.gender}
+                        education = {data.education}
+                        city = {data.city}
                         bDate = {this.formatDate(data.bDay, data.bMonth, data.bYear)}
                     />
                     <span>&nbsp;&nbsp;</span>
@@ -268,8 +333,11 @@ class Results extends Component {
             this.state.minHeight,
             this.state.maxHeight,
             this.state.gender,
-            this.state.maritalStatus,
+            this.state.mStatus,
             this.state.religions,
+            this.state.foodHabits,
+            this.state.bodyTypes,
+            this.state.occupation,
             pageNumber
         );
     }
@@ -282,53 +350,53 @@ class Results extends Component {
 
     }
 
-    ageToChange (value){
+    minHeightChange(event) {
         this.setState({
-            ageTo:value
-        });      
-       
-        this.searchProfile(
-            this.state.ageFrom,
-            value, 
-            this.state.minHeight,
-            this.state.maxHeight,
-            this.state.gender, 
-            this.state.maritalStatus,
-            this.state.religions,
-            1 );
+            minHeight:event.target.value
+        });  
     }
 
-    ageFromChange(value) {
+    maxHeightChange(event) {
         this.setState({
-            ageFrom:value
-        });      
-       
-        this.searchProfile(
-            value,
-            this.state.ageTo, 
-            this.state.minHeight,
-            this.state.maxHeight,
-            this.state.gender, 
-            this.state.maritalStatus,
-            this.state.religions,
-            1 );
+            maxHeight:event.target.value
+        });  
+    }
+
+    ageToChange (event){
+        this.setState({
+            ageTo:event.target.value
+        });            
+    }
+
+    ageFromChange(event) {
+        this.setState({
+            ageFrom:event.target.value
+        });         
     }
 
     maritalStatusChange (value) {
         this.setState({
-            maritalStatus:value
-        });      
-       
-        this.searchProfile(
-            this.state.ageFrom,
-            this.state.ageTo, 
-            this.state.minHeight,
-            this.state.maxHeight,
-            this.state.gender, 
-            this.state.religions,
-            value,
-            1);
+            mStatus:value
+        });   
     }     
+
+    bodyTypesChange(inputBodyTypes) {
+        this.setState({
+            bodyTypes:inputBodyTypes
+        });
+    }
+
+    foodHabitChange(inputFoodHabits) {
+        this.setState({
+            foodHabits:inputFoodHabits
+        });
+    }
+
+    occupationChange(inputOccupation) {
+        this.setState({
+            occupation:inputOccupation
+        });
+    }
 
     profileCloseHandler() {
         this.setState({
@@ -365,7 +433,20 @@ class Results extends Component {
                                     ageTo = {this.state.ageTo}
                                     ageToChange = {this.ageToChange}
                                     ageFromChange = {this.ageFromChange}
+                                    minHeight = {this.state.minHeight}
+                                    maxHeight = {this.state.maxHeight}
+                                    mStatus = {this.state.mStatus}
+                                    minHeightChange = {this.minHeightChange}
+                                    maxHeightChange = {this.maxHeighthange}
                                     maritalStatusChange = {this.maritalStatusChange}
+                                    applyFilter = {this.applyFilter}
+                                    clearFilters = {this.clearFilters}
+                                    foodHabits = {this.state.foodHabits}
+                                    foodHabitChange = {this.foodHabitChange}
+                                    bodyTypes = {this.state.bodyTypes}
+                                    bodyTypesChange = {this.bodyTypesChange}
+                                    occupation = {this.state.occupation}
+                                    occupationChange = {this.occupationChange}
                                 />
                             </div>
 

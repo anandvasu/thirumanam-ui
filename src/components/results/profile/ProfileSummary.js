@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import './ProfileSummary.css';
 import defaultFImage from '../../../assets/images/defalt_female.png';
 import defaultMImage from '../../../assets/images/default_male.jpg';
+import {getDropDownLabel} from '../../utils/Util';
+import DropDownConstant from '../../utils/DropDownConstant';
 
 class ProfileSummary extends Component {
 
@@ -43,7 +45,7 @@ class ProfileSummary extends Component {
                     <div className="psBottom">
                         <div className="profileId">
                             <label> {this.props.age} years</label> 
-                            <label> | {this.props.education}</label> 
+                            <label> | {getDropDownLabel(this.props.education, DropDownConstant.educationValues)}</label> 
                             <label> | {this.props.city}</label>
                         </div>
                         <div className="viewProfileDiv">

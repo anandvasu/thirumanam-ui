@@ -9,12 +9,23 @@ class MaritalStatus extends Component {
 
     handleInputChange(event) {
 
-        let maritalStatus = "";
+        let maritalStatus = [];
 
-        maritalStatus = (document.getElementById("fmsNM").checked) ? document.getElementById("fmsNM").value :  maritalStatus;
-        maritalStatus = (document.getElementById("fmsWD").checked) ? maritalStatus + "," + document.getElementById("fmsWD").value :  maritalStatus;
-        maritalStatus = (document.getElementById("fmsDD").checked) ? maritalStatus + "," + document.getElementById("fmsDD").value :  maritalStatus;
-        maritalStatus = (document.getElementById("fmsAD").checked) ? maritalStatus + "," + document.getElementById("fmsAD").value :  maritalStatus;
+        if(document.getElementById("fmsNM").checked) {
+            maritalStatus.push(document.getElementById("fmsNM").value)
+        }
+
+        if(document.getElementById("fmsWD").checked) {
+            maritalStatus.push(document.getElementById("fmsWD").value)
+        }
+
+        if(document.getElementById("fmsDD").checked) {
+            maritalStatus.push(document.getElementById("fmsDD").value)
+        }
+
+        if(document.getElementById("fmsAD").checked) {
+            maritalStatus.push(document.getElementById("fmsAD").value)
+        }
 
         this.props.maritalStatusChange(maritalStatus);
     }

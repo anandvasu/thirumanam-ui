@@ -9,13 +9,21 @@ class FoodHabit extends Component {
 
     handleInputChange(event) {
 
-        let foodHabit = "";
+        let foodHabits = [];
 
-        foodHabit = (document.getElementById("veg").checked) ? document.getElementById("veg").value :  foodHabit;
-        foodHabit = (document.getElementById("nonVeg").checked) ? foodHabit + "," + document.getElementById("nonVeg").value :  foodHabit;
-        foodHabit = (document.getElementById("egg").checked) ? foodHabit + "," + document.getElementById("egg").value :  foodHabit;
+        if(document.getElementById("veg").checked) {
+            foodHabits.push(document.getElementById("veg").value);
+        }
 
-        this.props.foodHabitChange(foodHabit);
+        if(document.getElementById("nonVeg").checked) {
+            foodHabits.push(document.getElementById("nonVeg").value);
+        }
+
+        if(document.getElementById("egg").checked) {
+            foodHabits.push(document.getElementById("egg").value);
+        }
+
+        this.props.foodHabitChange(foodHabits);
     }
 
 

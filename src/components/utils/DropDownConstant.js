@@ -57,6 +57,21 @@ export default {
         { value: "DD", label: "Divorced" },
         { value: "AD", label: "Awaiting Divorce" }
      ],
+     educationValues :[
+      { value: "BE", label: "Bachelor of Engineering" },
+      { value: "BT", label: "Bachelor of Technology" },
+      { value: "DP", label: "Diplamo" },
+      { value: "ME", label: "Masters Engineering" },
+      { value: "HS", label: "Higher Secondary" }      
+      ],
+      employmentValues :[
+         { value: "G", label: "Government" },
+         { value: "P", label: "Private" },
+         { value: "B", label: "Business" },
+         { value: "D", label: "Defence" },
+         { value: "S", label: "Self Employed" },
+         { value: "N", label: "Not Working" }      
+      ],      
      dhoshamValues :[
       { value: "-", label: "--Nil--" },
       { value: "C", label: "Chevvai dosham" },
@@ -64,7 +79,7 @@ export default {
       { value: "R", label: "Rahu dosham" },
       { value: "K", label: "Kethu dosham" },
       { value: "A", label: "Kalathra dosham" },
-   ],
+      ],
      countries :[
          { value: "IND", label: "India" },
          { value: "USA", label: "United States of America" },
@@ -106,6 +121,41 @@ export default {
          { value: "UK", label: "Uttarakhand" },
          { value: "WB", label: "West Bengal" }
      ],
+     tamilnaduDistrict :[
+         { value: "AR", label: "Ariyalur" },
+         { value: "CH", label: "Chennai" },
+         { value: "CO", label: "Coimbatore"},  
+         { value: "CU", label: "Cuddalore" },
+         { value: "DH", label: "Dharmapuri" },
+         { value: "DI", label: "Dindigul" },
+         { value: "ER", label: "Erode" },
+         { value: "KM", label: "Kanchipuram" },
+         { value: "KK", label: "Kanyakumari" },
+         { value: "KR", label: "Karur" },
+         { value: "KG", label: "Krishnagiri" },
+         { value: "MA", label: "Madurai" },
+         { value: "NA", label: "Nagapattinam" },
+         { value: "NL", label: "Namakkal" },
+         { value: "NI", label: "Nilgiris" },
+         { value: "PE", label: "Perambalur" },
+         { value: "PU", label: "Pudukkottai" },
+         { value: "RA", label: "Ramanathapuram" },
+         { value: "SM", label: "Salem" },
+         { value: "SI", label: "Sivagangai" },
+         { value: "TJ", label: "Thanjavur" },
+         { value: "TH", label: "Theni" },
+         { value: "TK", label: "Thoothukudi" },
+         { value: "TI", label: "Tiruchirappalli" },
+         { value: "TN", label: "Tirunelveli" },
+         { value: "TP", label: "Tiruppur" },
+         { value: "TV", label: "Tiruvallur" },
+         { value: "TM", label: "Tiruvannamalai" },
+         { value: "TR", label: "Tiruvarur" },
+         { value: "VR", label: "Vellore" },
+         { value: "VP", label: "Viluppuram" },
+         { value: "VN", label: "Virudunagar" }
+      ],
+
      customSelectStyles : {     
         control: () => ({
           maxHeight:30,

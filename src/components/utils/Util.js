@@ -1,5 +1,23 @@
 import React from 'react';
 
+export function populateChecBoxValuesArray (inputValue) {
+    var ouputArray = [];
+    if(inputValue.indexOf(",") > 0) {
+        const values = inputValue.split(",");
+        for(let i = 0; i < values.length; i++) {
+            const value = values[i];
+            if(value !== "") {
+                ouputArray.push(value);
+            }
+        }
+    } else {
+        if(inputValue !== "") {
+            ouputArray.push(inputValue);
+        }
+    }
+    return ouputArray;
+}
+
 export function populateArray (valueObject) {
     var arrayObj = [];   
     if(valueObject !== null) {
@@ -9,8 +27,6 @@ export function populateArray (valueObject) {
 }
 
 export function getValueFromReactSelect(objectArray) {
-    console.log("getValueFromReactSelect");
-    console.log(objectArray);
     let value = "";
     if (objectArray.length > 0) {
         value = objectArray[0].value
@@ -19,8 +35,6 @@ export function getValueFromReactSelect(objectArray) {
 }
 
 export function getValueArrFromReactSelect(objectArray) {
-    console.log("getValueFromReactSelect");
-    console.log(objectArray);
     let values = [];
     if (objectArray !== null) {
         for(var i=0; i < objectArray.length; i++) {
@@ -31,17 +45,13 @@ export function getValueArrFromReactSelect(objectArray) {
 }
 
 export function convertReactSelectValue(value, listValues) {
-    console.log("value :" + value);
     let defaultValue = [];
-    console.log("Lenght:" + listValues.length);
     let arrObject = null;
 
     for(var i=0; i < listValues.length; i++) {
         arrObject = listValues[i];
-        console.log(arrObject);
         if(arrObject.value === value) {
             defaultValue = arrObject;
-            console.log("defaultValue :" + defaultValue);
             return defaultValue;
         }
     }
@@ -49,9 +59,7 @@ export function convertReactSelectValue(value, listValues) {
 }
 
 export function convertReactSelectValues(values, listValues) {
-    console.log("value :" + values);
     let defaultValues = [];
-    console.log("Lenght:" + listValues.length);
     let arrObject = null;
 
     for(var i=0; i < listValues.length; i++) {
@@ -61,4 +69,18 @@ export function convertReactSelectValues(values, listValues) {
         }
     }
     return defaultValues;
+}
+
+
+export function getDropDownLabel(value, listValues) {
+    let outLabel = value;
+    let arrObject = null;
+
+    for(var i=0; i < listValues.length; i++) {
+        arrObject = listValues[i];
+        if(arrObject.value === value) {
+            return arrObject.label;
+        }
+    }
+    return outLabel;
 }

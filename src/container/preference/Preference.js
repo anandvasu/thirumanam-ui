@@ -13,7 +13,7 @@ import {toast} from 'react-toastify';
 import CountryMultiSelect from '../../components/utils/CountryMultiSelect';
 import IndiaStateMultiSelect from '../../components/utils/IndiaStateMultiSelect';
 import CasteMultiSelect from '../../components/utils/CasteMultiSelect';
-import {getValueArrFromReactSelect, convertReactSelectValues} from '../../components/utils/Util';
+import {getValueArrFromReactSelect, convertReactSelectValues, populateChecBoxValuesArray} from '../../components/utils/Util';
 import DropDownConstant from '../../components/utils/DropDownConstant';
 
 
@@ -93,25 +93,9 @@ class Preference extends Component {
         });
     }
 
-    maritalStatusChange(maritalStatus) {
-        console.log("maritalStatus:" + maritalStatus);
-        var mStatus = [];
-        if(maritalStatus.indexOf(",") > 0) {
-            const values = maritalStatus.split(",");
-            for(let i = 0; i < values.length; i++) {
-                const value = values[i];
-                if(value !== "") {
-                    mStatus.push(value);
-                }
-            }
-        } else {
-            if(maritalStatus !== "") {
-                mStatus.push(maritalStatus);
-            }
-        }
-         
+    maritalStatusChange(maritalStatus) {                
         this.setState({
-            mStatus:mStatus
+            mStatus:maritalStatus
         });        
     }
 
@@ -146,25 +130,9 @@ class Preference extends Component {
         });
     }
 
-    foodHabitChange(inputFoodHabits) {
-        console.log("foodHabits:" + inputFoodHabits);
-        var foodHabits = [];
-        if(inputFoodHabits.indexOf(",") > 0) {
-            const values = inputFoodHabits.split(",");
-            for(let i = 0; i < values.length; i++) {
-                const value = values[i];
-                if(value !== "") {
-                    foodHabits.push(value);
-                }
-            }
-        } else {
-            if(inputFoodHabits !== "") {
-                foodHabits.push(inputFoodHabits);
-            }
-        }
-         
+    foodHabitChange(inputFoodHabits) {               
         this.setState({
-            foodHabits:foodHabits
+            foodHabits:inputFoodHabits
         });
     }
 

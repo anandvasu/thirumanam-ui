@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 
 import './Profile.css';
+import {getDropDownLabel} from '../../utils/Util';
+import DropDownConstant from '../../utils/DropDownConstant';
 
 class Profile extends Component {
 
@@ -172,7 +174,7 @@ class Profile extends Component {
                                 </div>
 
                                 <div className="profileField">
-                                    <label> {this.props.profile.country} </label>
+                                    <label> {getDropDownLabel(this.props.profile.country,DropDownConstant.countries)} </label>
                                 </div>  
                                 <div className="profileLabel">
                                     <label> State </label>
@@ -181,7 +183,7 @@ class Profile extends Component {
                                     <label> : </label>
                                 </div>
                                 <div className="profileField">
-                                    <label> {this.props.profile.pstate} </label>
+                                    <label> {getDropDownLabel(this.props.profile.pstate,DropDownConstant.indiaStates)} </label>
                                 </div> 
 
                                 <div className="profileLabel">
@@ -191,7 +193,7 @@ class Profile extends Component {
                                     <label> : </label>
                                 </div>
                                 <div className="profileField">
-                                    <label> {this.props.profile.district} </label>
+                                    <label> {getDropDownLabel(this.props.profile.district, DropDownConstant.tamilnaduDistrict)} </label>
                                 </div>
 
                                 <div className="profileLabel">
@@ -219,7 +221,7 @@ class Profile extends Component {
                                     <label> : </label>
                                 </div>
                                 <div className="profileField">
-                                    <label> {this.props.profile.education} </label>
+                                    <label> {getDropDownLabel(this.props.profile.education, DropDownConstant.educationValues)} </label>
                                 </div> 
                             </div>
 
@@ -231,7 +233,7 @@ class Profile extends Component {
                                     <label> : </label>
                                 </div>
                                 <div className="profileField">
-                                    <label> {this.props.profile.employment} </label>
+                                    <label> {getDropDownLabel(this.props.profile.employment, DropDownConstant.employmentValues)} </label>
                                 </div> 
                             </div>
 

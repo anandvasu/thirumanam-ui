@@ -6,6 +6,9 @@ import '../profile/MyMatchProfileSummary.css';
 import MyMatchProfileSummary from '../../components/profile/MyMatchProfileSummary';
 import Modal from '../modal/Modal';
 import Profile from './profile/Profile';
+import {
+    withRouter
+  } from 'react-router-dom';
 
 class MyMatches extends Component {
 
@@ -14,7 +17,8 @@ class MyMatches extends Component {
 
         this.profileClick = this.profileClick.bind(this);
         this.profileClosed = this.profileClosed.bind(this);     
-        this.profileCloseHandler = this.profileCloseHandler.bind(this);          
+        this.profileCloseHandler = this.profileCloseHandler.bind(this);         
+        this.viewAllMyMatches = this.viewAllMyMatches.bind(this);  
 
         this.state = {
             profiles:[],
@@ -22,6 +26,33 @@ class MyMatches extends Component {
             profileClicked:false,
             profile:''
         }
+    }
+
+    viewAllMyMatches() {
+        axios.get(ApiConstant.PREFERENCE_API+sessionStorage.getItem("profileId"), {                
+        })
+        .then((res) => {
+            console.log(res);
+            console.log(res.data);            
+            this.props.history.push({
+                pathname: '/results',
+                state: {
+                    preference : res.data,
+                    fromPage : "MyMatch"                                   
+                }
+              })
+            
+        }) .catch((error) => {
+            console.log(error);
+            toast.error("Server Error Occurred. Please try again", 
+                {
+                    position:toast.POSITION.TOP_CENTER,
+                    hideProgressBar:true,
+                    autoClose:3000,
+                    testId:20
+                });
+        
+        });
     }
         
     profileClick(profileId) {
@@ -125,4 +156,4 @@ class MyMatches extends Component {
 
 }
 
-export default MyMatches;
+export default withRouter(MyMatches);
