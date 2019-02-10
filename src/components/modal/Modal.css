@@ -3,8 +3,7 @@
     overflow: auto;
     z-index: 500;
     width: 1000px;
-    height: 600px;
-    background-color:#8E44AD;
+    background-color:#CCCCCC;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
     padding: 16px;
@@ -25,6 +24,13 @@
 @media (min-width: 1000px) {
     .Modal {
         width: 70%;
+        left: calc(35% - 350px);
+    }
+}
+
+@media (max-height: 800px) {
+    .Modal {
+        height: 600px;
         left: calc(35% - 250px);
     }
 }

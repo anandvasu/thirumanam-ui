@@ -16,8 +16,11 @@ class Profile extends Component {
     }
 
     render () {
+
+        const screenHeight = window.innerHeight - 120;
+
         return (
-            <div className="profileParentContainer"> 
+            <div className="profileParentContainer" style={{heigh:screenHeight}}> 
             
                  <div className="profileTopBar">
                         <div className="profileHeading">Profile Detail</div>                        
@@ -249,10 +252,7 @@ class Profile extends Component {
                                 </div> 
                             </div>
                        </div>
-                </div>
-                <div>
-                    <button onClick={this.props.closeProfile}>Close</button>
-                </div>
+                </div>               
                 <div className="hs10" />
             </div>
         );
