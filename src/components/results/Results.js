@@ -354,10 +354,6 @@ class Results extends Component {
         
     }
 
-    profileClosed(event) {
-
-    }
-
     minHeightChange(event) {
         this.setState({
             minHeight:event.target.value
@@ -427,14 +423,13 @@ class Results extends Component {
             <div>
                  <TopBar />
                  <div className="hs30" />
-                 <Modal show={this.state.profileClicked} modalClosed={this.profileClosed} className="Modal">
+                 <Modal show={this.state.profileClicked} modalClosed={this.profileCloseHandler} className="Modal">
                     <Profile
                         profile={this.state.profile}
                         closeProfile = {this.profileCloseHandler}
                     />
                  </Modal>       
                  <Modal show={this.state.registerDisplay}
-                        modalClosed={this.profileClosed} 
                         displayClose = "none"
                         className="RegisterModal">   
                         <RegisterWithLogin 

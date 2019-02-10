@@ -2,7 +2,7 @@ import React from 'react';
 import Select from "react-select";
 import DropDownConstant from './DropDownConstant';
 
-function countryMultiSelect() {       
+function countryMultiSelect(props) {       
     return(
         <div>
             <Select
