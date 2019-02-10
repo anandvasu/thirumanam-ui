@@ -199,8 +199,10 @@ class Results extends Component {
              });             
              if (data.length > 0) {
                 this.displayResults(pageNumber);
+                document.getElementById("searchResultCount").style.display = "block";
              } else {
                 const content = <div> Sorry. No Profiles Found. </div>
+                document.getElementById("searchResultCount").style.display = "none";
                 this.setState({pictures:content});
                 this.setState({pages:""});
              }
@@ -469,7 +471,7 @@ class Results extends Component {
                             <div key="resultContent" className="resultsection">
                                 
                                 <div key="pageNagivationtop" className="pageNavContainer">
-                                    <div className="searchResultsCount">
+                                    <div className="searchResultsCount" id="searchResultCount">
                                         Search Results ({this.state.totalDocs}) 
                                     </div>
                                     <div  className="pageNavigation">
