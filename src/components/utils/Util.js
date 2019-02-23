@@ -1,5 +1,40 @@
 import React from 'react';
 
+export function formatMonth(aMonth) {
+    switch(aMonth) {
+        case 1:
+            return "Jan" ;
+        case 2:
+            return "Feb" ;
+        case 3:
+            return "Mar" ;
+        case 4:
+            return "Apr" ;
+        case 5:
+            return "May" ;
+        case 6:
+            return "Jun" ;
+        case 7:
+            return "July" ;
+        case 8:
+            return "Aug" ;
+        case 9:
+            return "Sep" ;
+        case 11:
+            return "Oct" ;
+        case 12:
+            return "Nov" ;
+        case 13:
+            return "Dec" ;
+        default:
+            return null;
+    }
+}
+
+export function formatDate(aDay, aMonth, aYear) {
+    return aDay.toString().padStart(2, '0') + "-" + formatMonth(aMonth) + "-" + aYear;
+}
+
 export function populateChecBoxValuesArray (inputValue) {
     var ouputArray = [];
     if(inputValue.indexOf(",") > 0) {

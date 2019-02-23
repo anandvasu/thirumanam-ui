@@ -6,6 +6,7 @@ import '../profile/MyMatchProfileSummary.css';
 import MyMatchProfileSummary from '../../components/profile/MyMatchProfileSummary';
 import Modal from '../modal/Modal';
 import Profile from './profile/Profile';
+import {formatDate} from '../../components/utils/Util';
 import {
     withRouter
   } from 'react-router-dom';
@@ -44,7 +45,7 @@ class MyMatches extends Component {
             
         }) .catch((error) => {
             console.log(error);
-            toast.error("Server Error Occurred. Please try again", 
+            toast.error("Server Error Occurred. Please try again!", 
                 {
                     position:toast.POSITION.TOP_CENTER,
                     hideProgressBar:true,
@@ -59,7 +60,7 @@ class MyMatches extends Component {
 
         if (sessionStorage.getItem("userSession") != null) {
 
-            axios.get(ApiConstant.USER_API+profileId)
+            axios.get(ApiConstant.USER_API+profileId+ "?userId="+sessionStorage.getItem("profileId"))
                 .then(res => {
                     console.log(res);
                     this.setState(
@@ -118,7 +119,9 @@ class MyMatches extends Component {
                         thumbImage = {data.image}
                         profileClick = {this.profileClick}
                         gender = {data.gender}
-                        bDate = "12/12/1990"
+                        bDate = {formatDate(data.bDay, data.bMonth, data.bYear)}
+                        education = {data.education}
+                        city = {data.city}
                     />
                    { 
                        ((i < 3) && <hr style={{width:'90%'}} /> )                 

@@ -114,6 +114,17 @@ class Profile extends Component {
                                     </div>
                                     <div>
                                         <div className="profileLabel">
+                                            <label>Religion </label>
+                                        </div>
+                                        <div className="profileCenter">
+                                            <label> : </label>
+                                        </div>
+                                        <div className="profileField">
+                                            <b><label>{getDropDownLabel(this.props.profile.religion, DropDownConstant.regilionValues)}</label></b>
+                                        </div>      
+                                    </div> 
+                                    <div>
+                                        <div className="profileLabel">
                                             <label>Caste </label>
                                         </div>
                                         <div className="profileCenter">
@@ -142,7 +153,7 @@ class Profile extends Component {
                                             <label> : </label>
                                         </div>
                                         <div className="profileField">
-                                            <b> <label> </label>  </b>
+                                            <b> <label>{getDropDownLabel(this.props.profile.gothram, DropDownConstant.gothramValues)} </label>  </b>
                                         </div>      
                                     </div>   
                                     <div>
@@ -253,6 +264,15 @@ class Profile extends Component {
                             </div>
                        </div>
                 </div>               
+                <div>
+                    About:
+                    <div>
+                        <p>
+                        <label> {this.props.profile.income} </label>
+                        </p>
+                    </div>
+                </div>
+
                 <div className="hs10" />
             </div>
         );

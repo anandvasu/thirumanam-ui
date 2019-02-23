@@ -44,7 +44,7 @@ class ProfileSelfSummary extends Component {
     }
 
     componentDidMount() {
-        axios.get(ApiConstant.USER_API+sessionStorage.getItem("profileId"),
+        axios.get(ApiConstant.USER_API_SELF+sessionStorage.getItem("profileId"),
             {                    
             }) .then((res) => {
                console.log(res);
@@ -53,7 +53,8 @@ class ProfileSelfSummary extends Component {
                     image:res.data.image
                });
             }).catch((err) => {
-                toast.error("Server Error Occurred. Please try again later.", 
+                console.log(err);
+                toast.error("Server Error Occurred. Please try again later!!!", 
                     {
                         position:toast.POSITION.TOP_CENTER,
                         hideProgressBar:true,
@@ -64,7 +65,7 @@ class ProfileSelfSummary extends Component {
     }
 
     editProfile() {
-        axios.get(ApiConstant.USER_API+sessionStorage.getItem("profileId"),
+        axios.get(ApiConstant.USER_API_SELF+sessionStorage.getItem("profileId"),
             {                    
             }) .then((res) => {
                console.log(res);
@@ -130,7 +131,7 @@ class ProfileSelfSummary extends Component {
             
         }) .catch((error) => {
             console.log(error);
-            toast.error("Server Error Occurred. Please try again", 
+            toast.error("Server Error Occurred. Please try again!!", 
                 {
                     position:toast.POSITION.TOP_CENTER,
                     hideProgressBar:true,
@@ -162,10 +163,10 @@ class ProfileSelfSummary extends Component {
                     {image}
                 </div>
                 <div style={{paddingBottom:'5px'}}>
-                   <a href="#" onClick={this.editProfile} style={{color:'blue'}}> Edit Profile </a>
+                   
                 </div>
                 <div style={{paddingBottom:'5px'}}>
-                   <a href="#" onClick={this.uploadPhoto} style={{color:'blue'}}>Upload Photo</a>
+                   
                 </div>
                 <div style={{paddingBottom:'5px'}}>
                    <a href="#" onClick={this.uploadHoroscope} style={{color:'blue'}}>Upload Horoscope</a>
@@ -173,7 +174,14 @@ class ProfileSelfSummary extends Component {
                 <div>
                    <a href="#" onClick={this.goToPreference} style={{color:'blue'}}>Edit Preferences</a>
                 </div>   
-                <div className="hs10" />
+                <div style={{width:'100%'}}>
+                    <div className="profileSelfBtmLink">
+                        <a href="#" onClick={this.editProfile} style={{color:'blue'}}>Edit Profile </a>
+                    </div>
+                    <div className="profileSelfBtmLink">
+                        <a href="#" onClick={this.uploadPhoto} style={{color:'blue'}}>Upload Photo</a>
+                    </div>
+                </div>
             </div>
         );
     }

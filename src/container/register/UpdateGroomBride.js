@@ -54,9 +54,7 @@ class UpdateGroomBride extends Component {
         if(errorMessage === null) {
             axios.put(ApiConstant.USER_PROF_API, 
                     {
-                        education: this.state.education,
-                        employment: this.state.employment,
-                        income: this.state.income,
+                        about: this.state.about,
                         id:this.state.profileId
                     },
                     {                                            

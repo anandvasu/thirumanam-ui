@@ -12,7 +12,7 @@ import ApiConstant from '../../components/utils/ApiConstant';
 import Constant from '../utils/Constant';
 import DropDownConstant from '../utils/DropDownConstant';
 import TopBar from '../menu/TopBar';
-import {getValueArrFromReactSelect} from '../../components/utils/Util';
+import {getValueArrFromReactSelect,formatDate} from '../../components/utils/Util';
 
 class Results extends Component {
 
@@ -137,7 +137,7 @@ class Results extends Component {
 
         if (sessionStorage.getItem("userSession") != null) {
 
-            axios.get(ApiConstant.USER_API+profileId)
+            axios.get(ApiConstant.USER_API+profileId+"?userId="+sessionStorage.getItem("profileId"))
                 .then(res => {
                     console.log(res);
                     this.setState(
@@ -209,41 +209,6 @@ class Results extends Component {
          });
     }
 
-    formatMonth(aMonth) {
-        switch(aMonth) {
-            case 1:
-                return "Jan" ;
-            case 2:
-                return "Feb" ;
-            case 3:
-                return "Mar" ;
-            case 4:
-                return "Apr" ;
-            case 5:
-                return "May" ;
-            case 6:
-                return "Jun" ;
-            case 7:
-                return "July" ;
-            case 8:
-                return "Aug" ;
-            case 9:
-                return "Sep" ;
-            case 11:
-                return "Oct" ;
-            case 12:
-                return "Nov" ;
-            case 13:
-                return "Dec" ;
-            default:
-                return null;
-        }
-    }
-
-    formatDate(aDay, aMonth, aYear) {
-        return aDay.toString().padStart(2, '0') + "-" + this.formatMonth(aMonth) + "-" + aYear;
-    }
-
     displayResults(pageNumber) {
         console.log(this.state.data);
         this.setState({pageNo:pageNumber});
@@ -282,7 +247,7 @@ class Results extends Component {
                         gender = {data.gender}
                         education = {data.education}
                         city = {data.city}
-                        bDate = {this.formatDate(data.bDay, data.bMonth, data.bYear)}
+                        bDate = {formatDate(data.bDay, data.bMonth, data.bYear)}
                     />
                     <span>&nbsp;&nbsp;</span>
                 </div>

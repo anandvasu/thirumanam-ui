@@ -5,7 +5,7 @@ import ApiConstant from '../../components/utils/ApiConstant';
 import FeaturedProfile from './FeaturedProfile';
 import Modal from '../../components/modal/Modal';
 
-let pics1Temp = [{"image":"Loading", "profileId":"1234"},{"image":"Loading", "profileId":"1234"},{"image":"Loading", "profileId":"1234"},{"image":"Loading", "profileId":"1234"}]
+const pics1Temp = [{"image":"Loading", "profileId":"1234"},{"image":"Loading", "profileId":"1234"},{"image":"Loading", "profileId":"1234"},{"image":"Loading", "profileId":"1234"}]
 
 class ImageGalleryAnimation extends React.Component {
     constructor(props) {
@@ -44,7 +44,9 @@ class ImageGalleryAnimation extends React.Component {
     }
 
     componentWillUnmount() {
-        this._isMounted = false;
+        if (this.timeout) {
+            clearTimeout(this.timeout)
+        }
     }  
 
     imageClick(imageNo, indexValue) {        
@@ -166,7 +168,7 @@ class ImageGalleryAnimation extends React.Component {
               }, 2000); // next slide delay
         });             
     }
-
+   
     closeProfileHandler() {
         this.setState({
             featureProfileClick:false

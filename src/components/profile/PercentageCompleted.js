@@ -10,17 +10,27 @@ class PercentageCompleted extends Component {
 
     render () {
         return(
-
-            <div style={{backgroundColor:'#FFFFFF', height:'40px',border: '1px solid #ccc'}}>               
-
-                <div className="inlineBlock"> <b>Profile Completed&nbsp;&nbsp;  </b>
-                </div>  
-                <div className="inlineBlock" style={{paddingTop:'15px'}}>
-                    <ProgressBar percentage={this.props.profileCompPercent} /> 
-                </div>  
-                <div className="inlineBlock"> 
-                    <b>&nbsp;&nbsp;  {this.props.profileCompPercent}%.</b> 
+            <div style={{backgroundColor:'#FFFFFF', border: '1px solid #ccc'}}>
+                <div> 
+                    <div className="inlineBlock"> <b>Profile Completed&nbsp;&nbsp;  </b>
+                    </div>  
+                    <div className="inlineBlock" style={{paddingTop:'15px'}}>
+                        <ProgressBar percentage={this.props.profileCompPercent} /> 
+                    </div>  
+                    <div className="inlineBlock"> 
+                        <b>&nbsp;&nbsp;  {this.props.profileCompPercent}%.</b> 
+                    </div>
                 </div>
+                <div className="hs20" />
+                <div style={{width:'100%'}}>
+                    <div className="inlineBlock" style={{width:'50%'}}> 
+                        <button style={{width:'200px'}}> Update Profile</button>
+                    </div>
+                    <div className="inlineBlock" style={{width:'50%'}}> 
+                        <button style={{width:'200px'}}> Add/Edit Photo</button>
+                    </div>                    
+                </div>
+                <div className="hs10" />
             </div>
         ) ;
     }

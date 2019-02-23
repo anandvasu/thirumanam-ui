@@ -7,6 +7,7 @@ import PercentageCompleted from '../../components/profile/PercentageCompleted';
 import MyMatches from '../../components/results/MyMatches';
 import adImage from '../../assets/images/ad.jpg';
 import DashboardSearch from '../../components/search/DashboardSearch';
+import VistedProfiles from '../../components/results/VistedProfiles';
 
 class LoggedInHome extends Component {
        
@@ -19,6 +20,8 @@ class LoggedInHome extends Component {
                         <div className='hs10' />
                         <div className="topLeftSection">
                                 <ProfileSelfSummary />
+                                <div className='hs20' />
+                                
                         </div>
                         <div className='vs15' />
                         <div className="topMiddleSection">
@@ -27,6 +30,9 @@ class LoggedInHome extends Component {
                                 />
                                 <div className='hs10' />
                                 <MyMatches />
+                                <div className='hs10' />
+                                <VistedProfiles />
+                                <div className='hs50' />
                         </div>
                         <div className='vs15' />
                         <div className="topRightSection">                               
