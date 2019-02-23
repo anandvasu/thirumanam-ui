@@ -8,6 +8,7 @@ import MyMatches from '../../components/results/MyMatches';
 import adImage from '../../assets/images/ad.jpg';
 import DashboardSearch from '../../components/search/DashboardSearch';
 import VistedProfiles from '../../components/results/VistedProfiles';
+import Explore from './Explore';
 
 class LoggedInHome extends Component {
        
@@ -21,7 +22,7 @@ class LoggedInHome extends Component {
                         <div className="topLeftSection">
                                 <ProfileSelfSummary />
                                 <div className='hs20' />
-                                
+                                <Explore />
                         </div>
                         <div className='vs15' />
                         <div className="topMiddleSection">

@@ -79,7 +79,7 @@ function myMatchProfileSummary(props) {
                                 <img src={blockImage} alt="Not Available" style={{width:'25px',height:'25px'}} />
                             </div>
                             <div className="inlineBlock" style={{height:'30px',width:'50px',float: 'left',paddingTop:'3px'}}>
-                                <label><b>Block</b></label>                            
+                            <label><b> <a href="#" onClick={() => props.blockProfile(props.id)}><b>Block</b></a></b></label>                            
                             </div>
                         </div>
                         <div className="inlineBlock" style={{width:'150px', height:'25px'}}>

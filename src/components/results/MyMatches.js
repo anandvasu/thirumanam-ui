@@ -4,13 +4,12 @@ import {toast} from 'react-toastify';
 import ApiConstant from '../utils/ApiConstant';
 import '../profile/MyMatchProfileSummary.css';
 import MyMatchProfileSummary from '../../components/profile/MyMatchProfileSummary';
-import Modal from '../modal/Modal';
-import Profile from './profile/Profile';
 import {formatDate} from '../../components/utils/Util';
+import {blockProfile} from '../../components/utils/RestServiceUtil';
 import {
     withRouter
   } from 'react-router-dom';
-
+  
 class MyMatches extends Component {
 
     constructor(props) {
@@ -20,6 +19,7 @@ class MyMatches extends Component {
         this.profileClosed = this.profileClosed.bind(this);     
         this.profileCloseHandler = this.profileCloseHandler.bind(this);         
         this.viewAllMyMatches = this.viewAllMyMatches.bind(this);  
+        this.blockProfile = this.blockProfile.bind(this);  
 
         this.state = {
             profiles:[],
@@ -73,6 +73,29 @@ class MyMatches extends Component {
         } 
     }
 
+    blockProfile(profileId) {
+        axios.put(ApiConstant.BLOCKED_PROFILE+sessionStorage.getItem("profileId")+"?blockedProfileId="+profileId, {                
+        })
+        .then((res) => {
+            toast.success("Profile -"+profileId+" is blocked successfully.", 
+            {
+                position:toast.POSITION.TOP_CENTER,
+                hideProgressBar:true,
+                autoClose:3000,
+                testId:20
+            });                
+        }) .catch((error) => {
+            console.log(error);     
+            toast.error("Server Error Occurred. Please try again!", 
+            {
+                position:toast.POSITION.TOP_CENTER,
+                hideProgressBar:true,
+                autoClose:3000,
+                testId:20
+            });
+        });
+    }
+
     profileCloseHandler() {
         this.setState({
             profileClicked:false
@@ -118,6 +141,7 @@ class MyMatches extends Component {
                         email = {data.email}
                         thumbImage = {data.image}
                         profileClick = {this.profileClick}
+                        blockProfile = {this.blockProfile}
                         gender = {data.gender}
                         bDate = {formatDate(data.bDay, data.bMonth, data.bYear)}
                         education = {data.education}
@@ -140,7 +164,7 @@ class MyMatches extends Component {
         
         return(
             <div className="myMatchContainer">               
-               <div className="header2" style={{paddingTop:'5px'}}> 
+               <div className="header2"> 
                     <div className="vs5px"/>
                     <b>My Matches ({this.state.totalMatches})</b>&nbsp;&nbsp;<a href="#" onClick={this.viewAllMyMatches} className="hyperlinkHeader">View All</a>
                     </div>
