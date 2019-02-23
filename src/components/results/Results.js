@@ -140,12 +140,12 @@ class Results extends Component {
             axios.get(ApiConstant.USER_API+profileId+"?userId="+sessionStorage.getItem("profileId"))
                 .then(res => {
                     console.log(res);
-                    this.setState(
-                        {
-                            profile:res.data,
-                            profileClicked:true
+                    this.props.history.push({
+                        pathname: '/viewProfile',
+                        state: {
+                            profile:res.data
                         }
-                    );
+                    });
             });
         } else {
             this.setState(
@@ -389,13 +389,7 @@ class Results extends Component {
         return (
             <div>
                  <TopBar />
-                 <div className="hs30" />
-                 <Modal show={this.state.profileClicked} modalClosed={this.profileCloseHandler} className="Modal">
-                    <Profile
-                        profile={this.state.profile}
-                        closeProfile = {this.profileCloseHandler}
-                    />
-                 </Modal>       
+                 <div className="hs30" />                       
                  <Modal show={this.state.registerDisplay}
                         displayClose = "none"
                         className="RegisterModal">   

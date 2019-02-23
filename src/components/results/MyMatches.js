@@ -62,13 +62,13 @@ class MyMatches extends Component {
 
             axios.get(ApiConstant.USER_API+profileId+ "?userId="+sessionStorage.getItem("profileId"))
                 .then(res => {
-                    console.log(res);
-                    this.setState(
-                        {
-                            profile:res.data,
-                            profileClicked:true
+                    console.log(res);                    
+                    this.props.history.push({
+                        pathname: '/viewProfile',
+                        state: {
+                            profile:res.data
                         }
-                    );
+                    });
             });
         } 
     }
@@ -139,13 +139,7 @@ class MyMatches extends Component {
     render() {     
         
         return(
-            <div className="myMatchContainer">
-                <Modal show={this.state.profileClicked} modalClosed={this.profileClosed} className="Modal">
-                    <Profile
-                        profile={this.state.profile}
-                        closeProfile = {this.profileCloseHandler}
-                    />
-                </Modal> 
+            <div className="myMatchContainer">               
                <div className="header2" style={{paddingTop:'5px'}}> 
                     <div className="vs5px"/>
                     <b>My Matches ({this.state.totalMatches})</b>&nbsp;&nbsp;<a href="#" onClick={this.viewAllMyMatches} className="hyperlinkHeader">View All</a>

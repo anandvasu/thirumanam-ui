@@ -13,6 +13,7 @@ import Account from './container/account/Account';
 import Payment from './components/payment/Payment';
 import Aux from './hoc/Aux';
 import LoggedInHome from './container/home/LoggedInHome';
+import ViewProfile from './container/profile/ViewProfile';
 import Preference from './container/preference/Preference';
 import ProfileSelf from './container/profile/ProfileSelf';
 import UploadProfilePhoto from './container/profile/UploadProfilePhoto';
@@ -51,7 +52,7 @@ class App extends Component {
             <Route path="/uploadProfilePhoto" component={UploadProfilePhoto} /> 
             <Route path="/uploadHoroscope" component={UploadHoroscope} /> 
             <Route path="/updateGroomBride" component={UpdateGroomBride} /> 
-            
+            <Route path="/viewProfile" component={ViewProfile} />             
         </Aux>
       </Router>
     );

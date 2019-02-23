@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import Footer from '../../components/footer/Footer';
 import TopBar from '../../components/menu/TopBar';
-import ProfileSelfSummary from '../../components/results/profile/ProfileSelfSummary'
+import ProfileSelfSummary from '../../components/results/profile/ProfileSelfSummary';
 import './LoggedInHome.css';
 import PercentageCompleted from '../../components/profile/PercentageCompleted';
 import MyMatches from '../../components/results/MyMatches';

@@ -21,7 +21,7 @@ class Profile extends Component {
 
         return (
             <div className="profileParentContainer" style={{heigh:screenHeight}}> 
-            
+                 <div className='hs10' />
                  <div className="profileTopBar">
                         <div className="profileHeading">Profile Detail</div>                        
                 </div>

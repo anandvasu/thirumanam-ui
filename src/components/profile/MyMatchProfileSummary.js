@@ -34,7 +34,6 @@ function myMatchProfileSummary(props) {
             </div>
             <div className="vs30" />
             <div className="profileSummary">       
-
                 <div className="psBottom">
                     <div className="profileId">
                         <label className="profileName"> 
