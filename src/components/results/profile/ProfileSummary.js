@@ -71,7 +71,7 @@ class ProfileSummary extends Component {
                                     <label><b>Send Interest</b></label>                            
                                 </div>
                             </div>                   
-                            <div className="inlineBlock" style={{width:'150px', height:'25px'}}>
+                            <div className="inlineBlock" style={{width:'130px', height:'25px'}}>
                                 <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
                                     <img src={addImage} alt="Not Available"  style={{width:'25px',height:'25px'}}/>
                                 </div>
@@ -79,7 +79,7 @@ class ProfileSummary extends Component {
                                     <label><b>Shortlisted</b></label>                            
                                 </div>
                             </div>
-                            <div className="inlineBlock" style={{width:'150px', height:'25px'}}>
+                            <div className="inlineBlock" style={{width:'90px', height:'25px'}}>
                                 <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
                                     <img src={blockImage} alt="Not Available" style={{width:'25px',height:'25px'}} />
                                 </div>
@@ -87,7 +87,7 @@ class ProfileSummary extends Component {
                                     <label><b>Block</b></label>                            
                                 </div>
                             </div>
-                            <div className="inlineBlock" style={{width:'150px', height:'25px'}}>
+                            <div className="inlineBlock" style={{width:'80px', height:'25px'}}>
                                 <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
                                     <img src={viewImage} alt="Not Available" style={{width:'25px',height:'25px'}} />
                                 </div>
