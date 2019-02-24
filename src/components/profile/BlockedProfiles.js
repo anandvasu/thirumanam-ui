@@ -110,7 +110,7 @@ class BlockedProfiles extends Component {
     }
 
     loadBlockedProfiles() {
-        axios.get(ApiConstant.BLOCKED_PROFILE_LIST+ sessionStorage.getItem("profileId"),
+        axios.get(ApiConstant.BLOCKED_PROFILE_LIST+ sessionStorage.getItem("profileId")+"?pageNo=1",
             {                    
             }) .then((res) => {
                // Update User Detail to session
@@ -137,7 +137,7 @@ class BlockedProfiles extends Component {
         let profiles = profileData.map((data) => {
             { i = i + 1}
             return (
-                <div key={"myMatchSummaryParent"+ i}>                
+                <div key={"blockedProfileParent"+ i}>                
                     <BlockedProfileSummary 
                         id={data.id}
                         age={data.age}
@@ -175,8 +175,8 @@ class BlockedProfiles extends Component {
                     </div>
                <div className="hs10" />
                {this.state.profiles}
-               <div className="hs10" />
-            </div>
+               <div className="hs20" />
+            </div>            
         ) ;
     }
 

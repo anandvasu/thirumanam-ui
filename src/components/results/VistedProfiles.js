@@ -87,7 +87,7 @@ class VisitedProfiles extends Component {
 
     componentDidMount() {
         //axios.get(ApiConstant.VISITED_PROFILE_LIST+ sessionStorage.getItem("profileId"),CM984209
-        axios.get(ApiConstant.VISITED_PROFILE_LIST+ "CM984209",
+        axios.get(ApiConstant.VISITED_PROFILE_LIST+ "CM984209?pageNo=1",
             {                    
             }) .then((res) => {
                // Update User Detail to session
