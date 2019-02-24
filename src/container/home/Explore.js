@@ -1,20 +1,28 @@
 import React,{Component} from 'react';
+import {
+    withRouter
+  } from 'react-router-dom';
+
 
 class Explore extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
-        this.viewBlcokedProfiles = this.viewBlcokedProfiles.bind();
-        this.viewShortListedProfiles = this.viewShortListedProfiles.bind();
+        this.viewBlcokedProfiles = this.viewBlcokedProfiles.bind(this);
+        this.viewShortListedProfiles = this.viewShortListedProfiles.bind(this);
     }
 
     viewBlcokedProfiles() {
-
+        this.props.history.push({
+            pathname:"/blockedProfilesHome"
+        });
     }
 
     viewShortListedProfiles() {
-        
+        this.props.history.push({
+            pathname:"/shortlistedProfilesHome"
+        });
     }
 
     render() {
@@ -34,4 +42,4 @@ class Explore extends Component {
     }
 }
 
-export default Explore;
+export default withRouter(Explore);

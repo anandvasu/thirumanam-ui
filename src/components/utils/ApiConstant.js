@@ -20,7 +20,8 @@ export default {
     SHORT_LISTED_PROFILE_LIST:"/thirumanam/shortlisted/list/",
     SHORT_LISTED_PROFILE:"/thirumanam/shortlisted/",
     BLOCKED_PROFILE_LIST:"/thirumanam/blocked/list/",
-    BLOCKED_PROFILE:"/thirumanam/blocked/"    
+    BLOCKED_PROFILE:"/thirumanam/blocked/",
+    UN_BLOCK_PROFILE:"/thirumanam/blocked/unblock/"    
   */      
  
    EXTERNAL_USER_API:"http://localhost:8085/thirumanam/user/external/",
@@ -43,5 +44,6 @@ export default {
    SHORT_LISTED_PROFILE_LIST:"http://localhost:8085/thirumanam/shortlisted/list/",
    SHORT_LISTED_PROFILE:"http://localhost:8085/thirumanam/shortlisted/",
    BLOCKED_PROFILE_LIST:"http://localhost:8085/thirumanam/blocked/list/",
-   BLOCKED_PROFILE:"http://localhost:8085/thirumanam/blocked/"   
+   BLOCKED_PROFILE:"http://localhost:8085/thirumanam/blocked/",   
+   UN_BLOCK_PROFILE:"http://localhost:8085/thirumanam/blocked/unblock/"   
  };

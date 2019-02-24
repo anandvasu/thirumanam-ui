@@ -3,14 +3,13 @@ import axios from 'axios';
 import {toast} from 'react-toastify';
 import ApiConstant from '../utils/ApiConstant';
 import '../profile/MyMatchProfileSummary.css';
-import MyMatchProfileSummary from '../../components/profile/MyMatchProfileSummary';
+import BlockedProfileSummary from '../../components/profile/BlockedProfileSummary';
 import {formatDate} from '../../components/utils/Util';
-import {blockProfile} from '../../components/utils/RestServiceUtil';
 import {
     withRouter
   } from 'react-router-dom';
   
-class MyMatches extends Component {
+class BlockedProfiles extends Component {
 
     constructor(props) {
         super(props);
@@ -19,8 +18,8 @@ class MyMatches extends Component {
         this.profileClosed = this.profileClosed.bind(this);     
         this.profileCloseHandler = this.profileCloseHandler.bind(this);         
         this.viewAllMyMatches = this.viewAllMyMatches.bind(this);  
-        this.blockProfile = this.blockProfile.bind(this);  
-        this.loadMyMatches = this.loadMyMatches.bind(this);
+        this.ubBlockProfile = this.ubBlockProfile.bind(this);  
+        this.loadBlockedProfiles = this.loadBlockedProfiles.bind(this);  
 
         this.state = {
             profiles:[],
@@ -74,11 +73,11 @@ class MyMatches extends Component {
         } 
     }
 
-    blockProfile(profileId) {
-        axios.put(ApiConstant.BLOCKED_PROFILE+sessionStorage.getItem("profileId")+"?blockedProfileId="+profileId, {                
+    ubBlockProfile(profileId) {
+        axios.put(ApiConstant.UN_BLOCK_PROFILE+sessionStorage.getItem("profileId")+"?unBlockProfileId="+profileId, {                
         })
         .then((res) => {
-            this.loadMyMatches();
+            this.loadBlockedProfiles();
             toast.success("Profile -"+profileId+" is blocked successfully.", 
             {
                 position:toast.POSITION.TOP_CENTER,
@@ -110,25 +109,25 @@ class MyMatches extends Component {
         });
     }
 
-    loadMyMatches() {
-        axios.get(ApiConstant.USER_API+ sessionStorage.getItem("profileId")+"/preference/matches",
-        {                    
-        }) .then((res) => {
-           // Update User Detail to session
-           console.log(res);
-           const totalMatches = res.headers["x-total-docs"]; 
-           this.setState({
-            totalMatches:totalMatches
-           })
-           this.displayResults(res.data);
-         
-        }).catch((err) => {
-            console.log(err);
-        });  
+    loadBlockedProfiles() {
+        axios.get(ApiConstant.BLOCKED_PROFILE_LIST+ sessionStorage.getItem("profileId"),
+            {                    
+            }) .then((res) => {
+               // Update User Detail to session
+               console.log(res);
+               const totalMatches = res.headers["x-total-docs"]; 
+               this.setState({
+                totalMatches:totalMatches
+               })
+               this.displayResults(res.data);
+             
+            }).catch((err) => {
+                console.log(err);
+            });  
     }
 
     componentDidMount() {
-       this.loadMyMatches();
+        this.loadBlockedProfiles();
     }
 
     displayResults(profileData) {    
@@ -139,7 +138,7 @@ class MyMatches extends Component {
             { i = i + 1}
             return (
                 <div key={"myMatchSummaryParent"+ i}>                
-                    <MyMatchProfileSummary 
+                    <BlockedProfileSummary 
                         id={data.id}
                         age={data.age}
                         firstName = {data.firstName}
@@ -147,7 +146,7 @@ class MyMatches extends Component {
                         email = {data.email}
                         thumbImage = {data.image}
                         profileClick = {this.profileClick}
-                        blockProfile = {this.blockProfile}
+                        ubBlockProfile = {this.ubBlockProfile}
                         gender = {data.gender}
                         bDate = {formatDate(data.bDay, data.bMonth, data.bYear)}
                         education = {data.education}
@@ -172,7 +171,7 @@ class MyMatches extends Component {
             <div className="myMatchContainer">               
                <div className="header2"> 
                     <div className="vs5px"/>
-                    <b>My Matches ({this.state.totalMatches})</b>&nbsp;&nbsp;<a href="#" onClick={this.viewAllMyMatches} className="hyperlinkHeader">View All</a>
+                    <b>Blocked Profiles ({this.state.totalMatches})</b>&nbsp;&nbsp;<a href="#" onClick={this.viewAllMyMatches} className="hyperlinkHeader">View All</a>
                     </div>
                <div className="hs10" />
                {this.state.profiles}
@@ -183,4 +182,4 @@ class MyMatches extends Component {
 
 }
 
-export default withRouter(MyMatches);
+export default withRouter(BlockedProfiles);

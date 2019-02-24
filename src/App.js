@@ -23,6 +23,7 @@ import UpdateReligion from './container/register/UpdateReligion';
 import UpdateLocation from './container/register/UpdateLocation';
 import UpdateGroomBride from './container/register/UpdateGroomBride';
 import UploadHoroscope from './container/register/UploadHoroscope';
+import BlockedProfilesHome from './container/home/BlockedProfilesHome';
 
 class App extends Component {
 
@@ -52,7 +53,8 @@ class App extends Component {
             <Route path="/uploadProfilePhoto" component={UploadProfilePhoto} /> 
             <Route path="/uploadHoroscope" component={UploadHoroscope} /> 
             <Route path="/updateGroomBride" component={UpdateGroomBride} /> 
-            <Route path="/viewProfile" component={ViewProfile} />             
+            <Route path="/viewProfile" component={ViewProfile} />    
+            <Route path="/blockedProfilesHome" component={BlockedProfilesHome} />          
         </Aux>
       </Router>
     );
