@@ -24,6 +24,7 @@ import UpdateLocation from './container/register/UpdateLocation';
 import UpdateGroomBride from './container/register/UpdateGroomBride';
 import UploadHoroscope from './container/register/UploadHoroscope';
 import BlockedProfilesHome from './container/home/BlockedProfilesHome';
+import ShortListedProfilesHome from './container/home/ShortListedProfilesHome';
 
 class App extends Component {
 
@@ -55,6 +56,7 @@ class App extends Component {
             <Route path="/updateGroomBride" component={UpdateGroomBride} /> 
             <Route path="/viewProfile" component={ViewProfile} />    
             <Route path="/blockedProfilesHome" component={BlockedProfilesHome} />          
+            <Route path="/shortlistedProfilesHome" component={ShortListedProfilesHome} />    
         </Aux>
       </Router>
     );

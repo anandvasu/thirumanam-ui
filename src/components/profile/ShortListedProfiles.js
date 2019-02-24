@@ -5,21 +5,20 @@ import prevImage from '../../assets/images/prev.png';
 import nextImage from '../../assets/images/next.png';
 import ApiConstant from '../utils/ApiConstant';
 import '../profile/MyMatchProfileSummary.css';
-import BlockedProfile from './BlockedProfile';
+import ShortListedProfile from './ShortListedProfile';
 import {formatDate} from '../../components/utils/Util';
 import {
     withRouter
   } from 'react-router-dom';
   
-class BlockedProfiles extends Component {
+class ShortListedProfiles extends Component {
 
     constructor(props) {
         super(props);
 
         this.profileClick = this.profileClick.bind(this);     
-        this.viewAllMyMatches = this.viewAllMyMatches.bind(this);  
         this.unBlockProfile = this.unBlockProfile.bind(this);  
-        this.loadBlockedProfiles = this.loadBlockedProfiles.bind(this);  
+        this.loadShortListedProfiles = this.loadShortListedProfiles.bind(this);  
         this.nextClick = this.nextClick.bind(this);  
         this.prevClick = this.prevClick.bind(this);  
 
@@ -37,7 +36,7 @@ class BlockedProfiles extends Component {
             this.setState({
                 pageNo:pageNo + 1
             });
-            this.loadBlockedProfiles(pageNo+1);
+            this.loadShortListedProfiles(pageNo+1);
         }
     }
 
@@ -47,37 +46,10 @@ class BlockedProfiles extends Component {
             this.setState({
                 pageNo:pageNo-1
             });
-            this.loadBlockedProfiles(pageNo-1);
+            this.loadShortListedProfiles(pageNo-1);
         }
     }
 
-    viewAllMyMatches() {
-        axios.get(ApiConstant.PREFERENCE_API+sessionStorage.getItem("profileId"), {                
-        })
-        .then((res) => {
-            console.log(res);
-            console.log(res.data);            
-            this.props.history.push({
-                pathname: '/results',
-                state: {
-                    preference : res.data,
-                    fromPage : "MyMatch"                                   
-                }
-              })
-            
-        }) .catch((error) => {
-            console.log(error);
-            toast.error("Server Error Occurred. Please try again!", 
-                {
-                    position:toast.POSITION.TOP_CENTER,
-                    hideProgressBar:true,
-                    autoClose:3000,
-                    testId:20
-                });
-        
-        });
-    }
-        
     profileClick(profileId) {
 
         if (sessionStorage.getItem("userSession") != null) {
@@ -96,7 +68,7 @@ class BlockedProfiles extends Component {
     }
 
     unBlockProfile(profileId) {
-        axios.put(ApiConstant.UN_BLOCK_PROFILE+sessionStorage.getItem("profileId")+"?unBlockProfileId="+profileId, {                
+        axios.put(ApiConstant.SHORT_LISTED_PROFILE+sessionStorage.getItem("profileId")+"?unBlockProfileId="+profileId, {                
         })
         .then((res) => {
             this.loadBlockedProfiles(this.state.pageNo);
@@ -119,8 +91,8 @@ class BlockedProfiles extends Component {
         });
     }    
 
-    loadBlockedProfiles(pageNumber) {
-        axios.get(ApiConstant.BLOCKED_PROFILE_LIST+ sessionStorage.getItem("profileId")+"?pageNo="+pageNumber,
+    loadShortListedProfiles(pageNumber) {
+        axios.get(ApiConstant.SHORT_LISTED_PROFILE_LIST+ sessionStorage.getItem("profileId")+"?pageNo="+pageNumber,
             {                    
             }) .then((res) => {
                // Update User Detail to session
@@ -137,7 +109,7 @@ class BlockedProfiles extends Component {
     }
 
     componentDidMount() {
-        this.loadBlockedProfiles(1);
+        this.loadShortListedProfiles(1);
     }
 
     displayResults(profileData) {    
@@ -146,7 +118,7 @@ class BlockedProfiles extends Component {
         let profiles = profileData.map((data, i) => {
             return (
                 <div key={"blockedProfileParent"+ i}>                
-                    <BlockedProfile 
+                    <ShortListedProfile 
                         id={data.id}
                         age={data.age}
                         firstName = {data.firstName}
@@ -179,7 +151,7 @@ class BlockedProfiles extends Component {
             <div className="myMatchContainer">               
                <div className="header2"> 
                     <div className="vs5px inlineBlock"/>
-                    <div className="inlineBlock"><b>Blocked Profiles ({this.state.totalMatches})</b>&nbsp;&nbsp;</div>
+                    <div className="inlineBlock"><b>Shortlisted Profiles ({this.state.totalMatches})</b>&nbsp;&nbsp;</div>
                     <div className="inlineBlock" style={{float:'right'}}>
                         <img className="prevNextImage" src={prevImage} onClick={this.prevClick}/> 
                         <img className="prevNextImage" src={prevImage} src={nextImage} onClick={this.nextClick}/> 
@@ -194,4 +166,4 @@ class BlockedProfiles extends Component {
 
 }
 
-export default withRouter(BlockedProfiles);
+export default withRouter(ShortListedProfiles);

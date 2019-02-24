@@ -3,10 +3,10 @@ import Footer from '../../components/footer/Footer';
 import TopBar from '../../components/menu/TopBar';
 import ProfileSelfSummary from '../../components/results/profile/ProfileSelfSummary';
 import './LoggedInHome.css';
-import MyMatches from '../../components/results/MyMatches';
 import adImage from '../../assets/images/ad.jpg';
 import DashboardSearch from '../../components/search/DashboardSearch';
 import Explore from './Explore';
+import ShortListedProfiles from '../../components/profile/ShortListedProfiles';
 
 class ShortListedProfilesHome extends Component {
        
@@ -25,7 +25,7 @@ class ShortListedProfilesHome extends Component {
                         <div className='vs15' />
                         <div className="topMiddleSection">                                
                                 <div className='hs10' />
-                                <MyMatches />
+                                <ShortListedProfiles />
                                 <div className='hs10' />
                         </div>
                         <div className='vs15' />

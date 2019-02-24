@@ -6,7 +6,7 @@ import unBlockImage from '../../assets/images/unblock.png';
 import viewImage from '../../assets/images/view.png';
 import './MyMatchProfileSummary.css';
 
-function blockedProfileSummary(props) {  
+function shortListedProfile(props) {  
     let image;
     const preFix = (props.gender === "F") ? "Ms." : "Mr.";
 
@@ -61,7 +61,7 @@ function blockedProfileSummary(props) {
                                 <img src={unBlockImage} alt="Not Available" style={{width:'25px',height:'25px'}} />
                             </div>
                             <div className="inlineBlock" style={{height:'30px',width:'50px',float: 'left',paddingTop:'3px'}}>
-                            <label><b> <a href="#" onClick={() => props.ubBlockProfile(props.id)}><b>Unblock</b></a></b></label>                            
+                            <label><b> <a href="#" onClick={() => props.unBlockProfile(props.id)}><b>Unblock</b></a></b></label>                            
                             </div>
                         </div>
                         <div className="inlineBlock" style={{width:'150px', height:'25px'}}>
@@ -79,4 +79,4 @@ function blockedProfileSummary(props) {
     );
 }
 
-export default blockedProfileSummary;
+export default shortListedProfile;

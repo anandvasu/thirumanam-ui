@@ -371,3 +371,12 @@ hr {
 .menuItem {
   color:#6E2C00;
 }
+
+.prevNextImage {
+  width:28px;
+  height:28px;
+}
+
+.prevNextImage:hover {
+  cursor: pointer;
+}

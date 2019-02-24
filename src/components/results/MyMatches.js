@@ -20,7 +20,11 @@ class MyMatches extends Component {
         this.profileCloseHandler = this.profileCloseHandler.bind(this);         
         this.viewAllMyMatches = this.viewAllMyMatches.bind(this);  
         this.blockProfile = this.blockProfile.bind(this);  
+        this.sendInterest = this.sendInterest.bind(this);
+        this.shortlistProfile = this.shortlistProfile.bind(this);
         this.loadMyMatches = this.loadMyMatches.bind(this);
+
+        
 
         this.state = {
             profiles:[],
@@ -98,6 +102,54 @@ class MyMatches extends Component {
         });
     }
 
+    sendInterest(profileId) {
+        axios.put(ApiConstant.BLOCKED_PROFILE+sessionStorage.getItem("profileId")+"?blockedProfileId="+profileId, {                
+        })
+        .then((res) => {
+            this.loadMyMatches();
+            toast.success("Profile -"+profileId+" is blocked successfully.", 
+            {
+                position:toast.POSITION.TOP_CENTER,
+                hideProgressBar:true,
+                autoClose:3000,
+                testId:20
+            });                
+        }) .catch((error) => {
+            console.log(error);     
+            toast.error("Server Error Occurred. Please try again!", 
+            {
+                position:toast.POSITION.TOP_CENTER,
+                hideProgressBar:true,
+                autoClose:3000,
+                testId:20
+            });
+        });
+    }
+
+    shortlistProfile(profileId) {
+        axios.put(ApiConstant.SHORT_LISTED_PROFILE+sessionStorage.getItem("profileId")+"?shortListedProfileId="+profileId, {                
+        })
+        .then((res) => {
+            this.loadMyMatches();
+            toast.success("Profile -"+profileId+" is shortlisted successfully.", 
+            {
+                position:toast.POSITION.TOP_CENTER,
+                hideProgressBar:true,
+                autoClose:3000,
+                testId:20
+            });                
+        }) .catch((error) => {
+            console.log(error);     
+            toast.error("Server Error Occurred. Please try again!", 
+            {
+                position:toast.POSITION.TOP_CENTER,
+                hideProgressBar:true,
+                autoClose:3000,
+                testId:20
+            });
+        });
+    }
+
     profileCloseHandler() {
         this.setState({
             profileClicked:false
@@ -147,7 +199,9 @@ class MyMatches extends Component {
                         email = {data.email}
                         thumbImage = {data.image}
                         profileClick = {this.profileClick}
+                        sendInterest = {this.sendInterest}
                         blockProfile = {this.blockProfile}
+                        shortlistProfile = {this.shortlistProfile}
                         gender = {data.gender}
                         bDate = {formatDate(data.bDay, data.bMonth, data.bYear)}
                         education = {data.education}
