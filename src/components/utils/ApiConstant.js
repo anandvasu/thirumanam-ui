@@ -1,6 +1,6 @@
 export default {
    
-  /*EXTERNAL_USER_API:"/thirumanam/user/external/",
+    /*EXTERNAL_USER_API:"/thirumanam/user/external/",
     USER_REGISTER_API:"/thirumanam/user/register/",
     USER_PROFILE_API:"/thirumanam/user/profile/",
     USER_PERSONAL_PROFILE_API:"/thirumanam/user/profile/personal",
@@ -12,7 +12,7 @@ export default {
     USER_PROFILE_HOROSCOPE_API:"/thirumanam/user/horoscope/",
     QUICK_SEARCH_API:"/thirumanam/user/list/",
     USER_API:"/thirumanam/user/",
-    USER_API_SELF:"/thirumanam/user/self/"
+    USER_API_SELF:"/thirumanam/user/self/",
     CONTACT_API:"/thirumanam/contact/list",
     PROFILE_LIST_API:"/thirumanam/featuredprofiles/list",
     PREFERENCE_API:"/thirumanam/preference/",
@@ -21,8 +21,8 @@ export default {
     SHORT_LISTED_PROFILE:"/thirumanam/shortlisted/",
     BLOCKED_PROFILE_LIST:"/thirumanam/blocked/list/",
     BLOCKED_PROFILE:"/thirumanam/blocked/",
-    UN_BLOCK_PROFILE:"/thirumanam/blocked/unblock/"    
-  */      
+    UN_BLOCK_PROFILE:"/thirumanam/blocked/unblock/"   */ 
+  
  
    EXTERNAL_USER_API:"http://localhost:8085/thirumanam/user/external/",
    USER_REGISTER_API:"http://localhost:8085/thirumanam/user/register/",
@@ -45,5 +45,5 @@ export default {
    SHORT_LISTED_PROFILE:"http://localhost:8085/thirumanam/shortlisted/",
    BLOCKED_PROFILE_LIST:"http://localhost:8085/thirumanam/blocked/list/",
    BLOCKED_PROFILE:"http://localhost:8085/thirumanam/blocked/",   
-   UN_BLOCK_PROFILE:"http://localhost:8085/thirumanam/blocked/unblock/"   
- };
+   UN_BLOCK_PROFILE:"http://localhost:8085/thirumanam/blocked/unblock/"
+ }; 

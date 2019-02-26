@@ -3,7 +3,6 @@ import axios from 'axios';
 import {toast} from 'react-toastify';
 import ApiConstant from '../utils/ApiConstant';
 import '../profile/MyMatchProfileSummary.css';
-import MyMatchProfileSummary from '../../components/profile/MyMatchProfileSummary';
 import Modal from '../modal/Modal';
 import Profile from './profile/Profile';
 import {
@@ -11,7 +10,7 @@ import {
   } from 'react-router-dom';
 import VisitedProfileSummary from './profile/VisitedProfileSummary';
 
-class VisitedProfiles extends Component {
+class VisitedProfilesMini extends Component {
 
     constructor(props) {
         super(props);
@@ -30,29 +29,8 @@ class VisitedProfiles extends Component {
     }
 
     viewAllMyMatches() {
-        axios.get(ApiConstant.PREFERENCE_API+sessionStorage.getItem("profileId"), {                
-        })
-        .then((res) => {
-            console.log(res);
-            console.log(res.data);            
-            this.props.history.push({
-                pathname: '/results',
-                state: {
-                    preference : res.data,
-                    fromPage : "MyMatch"                                   
-                }
-              })
-            
-        }) .catch((error) => {
-            console.log(error);
-            toast.error("Server Error Occurred. Please try again", 
-                {
-                    position:toast.POSITION.TOP_CENTER,
-                    hideProgressBar:true,
-                    autoClose:3000,
-                    testId:20
-                });
-        
+        this.props.history.push({
+            pathname:"/visitedProfilesHome"
         });
     }
         
@@ -86,8 +64,8 @@ class VisitedProfiles extends Component {
     }
 
     componentDidMount() {
-        //axios.get(ApiConstant.VISITED_PROFILE_LIST+ sessionStorage.getItem("profileId"),CM984209
-        axios.get(ApiConstant.VISITED_PROFILE_LIST+ "CM984209?pageNo=1",
+        axios.get(ApiConstant.VISITED_PROFILE_LIST+ sessionStorage.getItem("profileId")+"?pageNo=0",
+       // axios.get(ApiConstant.VISITED_PROFILE_LIST+ "CM984209?pageNo=1",
             {                    
             }) .then((res) => {
                // Update User Detail to session
@@ -158,4 +136,4 @@ class VisitedProfiles extends Component {
 
 }
 
-export default withRouter(VisitedProfiles);
+export default withRouter(VisitedProfilesMini);
