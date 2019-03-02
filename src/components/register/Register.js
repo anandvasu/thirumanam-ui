@@ -126,13 +126,13 @@ class Register extends Component {
         }
 
         if (errorMessage === "") {
-            axios.post(ApiConstant.USER_REGISTER_API,
+            axios.post(ApiConstant.IDENTITY_USER_REGISTER_API,
                 { 
                     username:this.state.email,
                     password:this.state.password,
                     firstName:this.state.first,
                     lastName:this.state.last,
-                    dob:this.state.bmonth+"/"+this.state.bday+"/"+this.state.byear,
+                    dob:this.state.bday+"/"+this.state.bmonth+"/"+this.state.byear,
                     email:this.state.email,
                     gender: this.state.gender,
                     religion:this.state.religionValue,

@@ -27,7 +27,10 @@ export default {
     */ 
   
  
-   USER_REGISTER_API:"http://localhost:8085/matrimony/identity/register/",
+   IDENTITY_USER_REGISTER_API:"http://localhost:8085/matrimony/identity/register/",
+   IDENTITY_USER_LOGIN:"http://localhost:8085/matrimony/identity/login/",
+   IDENTITY_RESEND_ACCESS_CODE:"http://localhost:8085/matrimony/identity/accesscode/resend/",
+   IDENTITY_VERIFY_ACCESS_CODE:"http://localhost:8085/matrimony/identity/accesscode/verify",
    USER_PROFILE_API:"http://localhost:8085/matrimony/user/profile/",
    USER_PERSONAL_PROFILE_API:"http://localhost:8085/matrimony/user/profile/personal",
    USER_LOCATION_API:"http://localhost:8085/matrimony/user/profile/location",
@@ -47,6 +50,6 @@ export default {
    SHORT_LISTED_PROFILE:"http://localhost:8085/matrimony/shortlisted/",
    BLOCKED_PROFILE_LIST:"http://localhost:8085/matrimony/blocked/list/",
    BLOCKED_PROFILE:"http://localhost:8085/matrimony/blocked/",   
-   UN_BLOCK_PROFILE:"http://localhost:8085/matrimony/blocked/unblock/",
-   USER_LOGIN:"http://localhost:8085/matrimony/identity/login/"
+   UN_BLOCK_PROFILE:"http://localhost:8085/matrimony/blocked/unblock/"
+   
  }; 

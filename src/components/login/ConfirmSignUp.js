@@ -1,9 +1,11 @@
 import React,{Component} from 'react';
 import './ConfirmSignUp.css';
 import confirmSignUp from '../../assets/images/confirmSignUp.jpg';
-import {Auth} from 'aws-amplify';
+import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
+import Constant from '../utils/Constant';
 import {toast} from 'react-toastify';
+import ApiConstant from '../utils/ApiConstant';
 
 class ConfirmSignUp extends Component {
 
@@ -30,9 +32,11 @@ class ConfirmSignUp extends Component {
 
     resendSingnUpCode(event) {
         
-        Auth.resendSignUp(this.state.username
-        ).then((user) => {
-            console.log(user);
+        axios.post(ApiConstant.IDENTITY_RESEND_ACCESS_CODE, {
+            username:this.state.username
+        })
+        .then((response) => {
+            console.log(response);
 
             toast.success("Confirmation code is sent to your mobile. Please check.", 
                 {
@@ -76,13 +80,26 @@ class ConfirmSignUp extends Component {
                 }); 
         } else {
 
-            Auth.confirmSignUp(this.state.username,this.state.code
-            ).then((user) => {
-                console.log(user)
-                this.setState({
-                    success:true
-                })
-                this.props.history.push('/ILogin'); 
+            axios.post(ApiConstant.IDENTITY_VERIFY_ACCESS_CODE, {
+                username:this.state.username,
+                accessCode:codeValue
+            })
+            .then((response) => {
+                console.log(response)
+                if(response.data.code === Constant.SUCCESS_MESSAGE_CODE_200) {
+                    this.setState({
+                        success:true
+                    })
+                    this.props.history.push('/ILogin'); 
+                } else  if(response.data.code === Constant.ERR_MESSAGE_CODE_400) {
+                    toast.error(response.data.message, 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            testId:20
+                        });
+                }
             }).catch((err) => {
                 console.log(err);
                 var errMessage = "";

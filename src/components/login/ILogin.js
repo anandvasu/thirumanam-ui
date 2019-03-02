@@ -52,22 +52,26 @@ class ILogin extends Component {
                 username:username,
                 password:password
             })
-            axios.post(ApiConstant.USER_LOGIN, {
+            axios.post(ApiConstant.IDENTITY_USER_LOGIN, {
                 username:username,
                 password:password
             })
             .then((response) => {
                 console.log(response)      
-                sessionStorage.setItem(Constant.USER_FIRST_NAME, response.data.firstName);  
-                sessionStorage.setItem(Constant.USER_LAST_NAME, response.data.lastName); 
-                sessionStorage.setItem(Constant.USER_GENDER, response.data.gender);
-                sessionStorage.setItem(Constant.USER_ID_TOKEN, response.data.idToken);
-                sessionStorage.setItem(Constant.USER_REFERESH_TOKEN, response.data.refreshToken);
-                sessionStorage.setItem(Constant.USER_PROFILE_ID, response.data.profileId);
-                sessionStorage.setItem(Constant.PROFILE_PERCENT_COMP, response.data.profilePerCompleted);
-                
-                this.props.history.push('/signedIn');         
-                         
+                if (response.data.authSuccess === true) {
+                    sessionStorage.setItem(Constant.USER_FIRST_NAME, response.data.firstName);  
+                    sessionStorage.setItem(Constant.USER_LAST_NAME, response.data.lastName); 
+                    sessionStorage.setItem(Constant.USER_GENDER, response.data.gender);
+                    sessionStorage.setItem(Constant.USER_ID_TOKEN, response.data.idToken);
+                    sessionStorage.setItem(Constant.USER_REFERESH_TOKEN, response.data.refreshToken);
+                    sessionStorage.setItem(Constant.USER_PROFILE_ID, response.data.profileId);
+                    sessionStorage.setItem(Constant.PROFILE_PERCENT_COMP, response.data.profilePerCompleted);                    
+                    this.props.history.push('/signedIn');   
+                } else if (response.data.userConfirmed === Constant.NO) {
+                    this.setState({
+                        confirmUser:true
+                    })
+                }        
             }).catch((err) => {
                 console.log(err);
                 var errMessage = "";
