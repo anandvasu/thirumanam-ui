@@ -135,7 +135,7 @@ class Results extends Component {
 
     profileClick(profileId) {
 
-        if (sessionStorage.getItem(USER_PROFILE_ID) != null) {
+        if (sessionStorage.getItem(Constant.USER_PROFILE_ID) != null) {
 
             axios.get(ApiConstant.USER_API+profileId+"?userId="+sessionStorage.getItem(Constant.USER_PROFILE_ID))
                 .then(res => {

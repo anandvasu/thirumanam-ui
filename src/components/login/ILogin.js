@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import './ConfirmSignUp.css';
 import Constant from '../utils/Constant';
 import welcomeImage from '../../assets/images/wedding.png';
-import {Auth} from 'aws-amplify';
 import 'react-toastify/dist/ReactToastify.css';
 import {toast} from 'react-toastify';
 import axios from 'axios';
@@ -18,12 +17,17 @@ class ILogin extends Component {
 
         this.loginClick = this.loginClick.bind(this);
         this.loginKeySubmit = this.loginKeySubmit.bind(this);       
+        this.forgotPassword = this.forgotPassword.bind(this);  
 
         this.state = {
             username:"",
             password:"",
             success:false
         }
+    }
+
+    forgotPassword(event) {        
+        this.props.history.push('/forgotPassword');
     }
 
     loginKeySubmit(event) {
@@ -120,7 +124,7 @@ class ILogin extends Component {
                         <div>
                             <div className='fieldParent'>
                                 <div className="iloginLabel">
-                                Email or Phone:
+                                Email
                                 </div>
                                 <div className="iloginField">
                                     <input type='text'  id="iLoginUser" onKeyDown={this.loginKeySubmit}></input>
@@ -130,7 +134,7 @@ class ILogin extends Component {
                         <div>
                             <div className='fieldParent'>
                                 <div className="iloginLabel">
-                                    Password:
+                                    Password
                                 </div>
                                 <div className="iloginField">
                                 <input type='password' id="iLoginPass" onKeyDown={this.loginKeySubmit}></input>

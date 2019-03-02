@@ -26,7 +26,9 @@ export default {
     
     */ 
   
- 
+   
+   IDENTITY_FORGOT_PASSWORD:"http://localhost:8085/matrimony/identity/password/forgot/",
+   IDENTITY_RESET_PASSWORD:"http://localhost:8085/matrimony/identity/password/reset/",
    IDENTITY_USER_REGISTER_API:"http://localhost:8085/matrimony/identity/register/",
    IDENTITY_USER_LOGIN:"http://localhost:8085/matrimony/identity/login/",
    IDENTITY_RESEND_ACCESS_CODE:"http://localhost:8085/matrimony/identity/accesscode/resend/",

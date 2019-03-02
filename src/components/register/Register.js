@@ -3,7 +3,6 @@ import './Register.css';
 import axios from 'axios';
 import {Redirect} from "react-router-dom";
 import {toast} from 'react-toastify';
-import {Auth} from 'aws-amplify';
 import 'react-toastify/dist/ReactToastify.css';
 import Constant from '../utils/Constant';
 import ApiConstant from '../utils/ApiConstant';

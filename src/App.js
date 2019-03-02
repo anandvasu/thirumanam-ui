@@ -26,6 +26,9 @@ import UploadHoroscope from './container/register/UploadHoroscope';
 import BlockedProfilesHome from './container/home/BlockedProfilesHome';
 import ShortListedProfilesHome from './container/home/ShortListedProfilesHome';
 import VisitedProfilesHome from './container/home/VisitedProfilesHome';
+import ForgotPassword from './components/login/ForgotPassword';
+import ResetPassword from './components/login/ResetPassword';
+import ResetPasswordResponse from './components/login/ResetPasswordResponse';
 
 class App extends Component {
 
@@ -57,8 +60,11 @@ class App extends Component {
             <Route path="/updateGroomBride" component={UpdateGroomBride} /> 
             <Route path="/viewProfile" component={ViewProfile} />    
             <Route path="/blockedProfilesHome" component={BlockedProfilesHome} />          
-            <Route path="/shortlistedProfilesHome" component={ShortListedProfilesHome} />    
+            <Route path="/shortlistedProfilesHome" component={ShortListedProfilesHome} />     
             <Route path="/visitedProfilesHome" component={VisitedProfilesHome} /> 
+            <Route path="/forgotPassword" component={ForgotPassword} /> 
+            <Route path="/resetPassword" component={ResetPassword} />  
+            <Route path="/resetPasswordResponse" component={ResetPasswordResponse} />           
         </Aux>
       </Router>
     );

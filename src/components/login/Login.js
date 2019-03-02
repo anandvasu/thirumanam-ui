@@ -162,8 +162,8 @@ class Login extends Component {
         this.props.history.push('/home');
     }
 
-    forgotPassword(event) {
-
+    forgotPassword(event) {        
+        this.props.history.push('/forgotPassword');
     }
 
     render() {

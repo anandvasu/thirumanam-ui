@@ -7,13 +7,14 @@
 .signUpLeft {
     vertical-align: middle;
     display: inline-block;
-    width:50%;
+    width:60%;
 }
 
 .signUpRight {
     vertical-align: middle;
     display: inline-block;
-    width:50%;
+    text-align: left;
+    width:400px;
 }
 
 .codeDiv {

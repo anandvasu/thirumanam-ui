@@ -1,10 +1,11 @@
 .fieldParent {
     display: inline-block;
-    width:400px;
+    width:100%;
 }
 
 .iloginLabel {
     display: inline-block;
+    text-align: left;
     width:150px;
 }
 
