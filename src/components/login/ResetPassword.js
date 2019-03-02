@@ -60,8 +60,16 @@ class ResetPassword extends Component {
             })
             .then((response) => {
                 console.log(response);      
-                if(response.data.success === true) {
+                if(response.data.success === true && response.data.codeMatched === true) {
                     this.props.history.push("/resetPasswordResponse");
+                } else if (response.data.codeMatched === false) {
+                    toast.error("Invalid Access Code.", 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            toastId:Constant.toastIdErr
+                        });
                 }
             }).catch((err) => {
                 console.log(err);
@@ -141,7 +149,7 @@ class ResetPassword extends Component {
                         </div>    
 
                         <div className="paddingTop10"> 
-                            <button style={{width:'200px'}} onClick={this.resetPassword}>Reset Password</button> </div>
+                            <button style={{width:'100%'}} onClick={this.resetPassword}>Reset Password</button> </div>
                         </div>
                 </div>
             </div>

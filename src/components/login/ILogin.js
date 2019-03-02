@@ -142,15 +142,20 @@ class ILogin extends Component {
                             </div>                            
                         </div>      
                         <div>
-                            <div className='fieldParent'>
-                                <div className="iloginLabel">                                  
-                                </div>
-                                <div className="iloginField">
-                                    <button onClick={this.loginClick}>Login</button>
-                                </div>
+                            <div className='fieldParent'>                               
+                                <button style={{width:'350px'}} onClick={this.loginClick}>Login</button>                               
                             </div>                            
                         </div>   
                         </div>  
+                        <div style={{paddingTop:'5px'}}>                       
+                            <div className='rememberMe'>
+                                <input type="checkbox" /> <label>Remeber me</label>
+                            </div>
+                            <div className="vs50" />
+                            <div className='rememberMe'>
+                                <a href="#" onClick={this.forgotPassword}>Forgot password?</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='hs20'></div>

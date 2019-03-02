@@ -113,8 +113,11 @@ class ForgotPassword extends Component {
                             </div>
                         </div>
                         <div className='fieldParent'>
-                            <div style={{display:'inline-block',textAlign:'left',width:'50%'}}>Goto <a href="#" >Login</a></div>
-                            <div style={{display:'inline-block',textAlign:'right',width:'50%'}}> Goto <a href="#" >Home </a></div>
+                            <div style={{display:'inline-block',textAlign:'left',width:'50%'}}>
+                                Goto <a href="#" onClick = {() => this.props.history.push("/ilogin")} >Login</a></div>
+                            <div style={{display:'inline-block',textAlign:'right',width:'50%'}}> 
+                                Goto <a href="#" onClick = {() => this.props.history.push("/home")}>Home </a>
+                            </div>
                         </div>
                 </div>
             </div>

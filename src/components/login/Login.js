@@ -163,7 +163,7 @@ class Login extends Component {
     }
 
     forgotPassword(event) {        
-        this.props.history.push('/forgotPassword');
+        this.props.history.push('/resetPassword');
     }
 
     render() {
@@ -202,8 +202,7 @@ class Login extends Component {
                             <button onClick={this.loginClick}>Login</button>
                         </div>
                     </div>
-                    <div>
-                       
+                    <div style={{paddingTop:'5px'}}>                       
                         <div className='rememberMe'>
                            <input type="checkbox" /> <label>Remeber me</label>
                         </div>
