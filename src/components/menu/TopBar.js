@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import logo from '../../assets/images/logo.png';
 import './Menu.css';
+import Constant from "../utils/Constant";
 import {
     withRouter
   } from 'react-router-dom';
@@ -17,7 +18,7 @@ class TopBar extends Component {
     }
 
     goToHome() {
-        if (sessionStorage.getItem("userSession") !== null) {  
+        if (sessionStorage.getItem(Constant.USER_PROFILE_ID) !== null) {  
             this.props.history.push(
                 {
                     pathname:'/loggedInHome' ,
@@ -71,8 +72,8 @@ class TopBar extends Component {
                         <a href="/"><b>Register</b></a>
                         <a href="#" onClick={this.goToPayment}><b>Payment</b></a>
                         <a href="#" onClick={this.contactClick}> <b>Contact Us</b></a>
-                        { (sessionStorage.getItem("userSession") === null) && <button onClick={this.loginClick}>Login</button> }
-                        { (sessionStorage.getItem("userSession") !== null) && <button onClick={this.logoutClick}>Logout</button> }
+                        { (sessionStorage.getItem(Constant.USER_PROFILE_ID) === null) && <button onClick={this.loginClick}>Login</button> }
+                        { (sessionStorage.getItem(Constant.USER_PROFILE_ID) !== null) && <button onClick={this.logoutClick}>Logout</button> }
                     </div>
                 </div>
             </div>

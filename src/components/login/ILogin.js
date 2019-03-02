@@ -52,22 +52,21 @@ class ILogin extends Component {
                 username:username,
                 password:password
             })
-            Auth.signIn(username,password)
-            .then((user) => {
-                console.log(user)      
-                sessionStorage.setItem("userSession", user.signInUserSession);   
-                axios.get(ApiConstant.EXTERNAL_USER_API+user.username,
-                {                    
-                }) .then((res) => {
-                   // Update User Detail to session
-                   const prefix = ((res.data.gender==="M") ? "Mr." : "Ms.");
-                   sessionStorage.setItem("thirumanamUser", res.data);   
-                   sessionStorage.setItem("profileId", res.data.id);  
-                   sessionStorage.setItem("name", prefix + " " +res.data.firstName + " " + res.data.lastName);  
-                   sessionStorage.setItem("percentageCompleted", res.data.profileCompPercent); 
-                   sessionStorage.setItem("gender", res.data.gender); 
-                   this.props.history.push('/signedIn'); 
-                })
+            axios.post(ApiConstant.USER_LOGIN, {
+                username:username,
+                password:password
+            })
+            .then((response) => {
+                console.log(response)      
+                sessionStorage.setItem(Constant.USER_FIRST_NAME, response.data.firstName);  
+                sessionStorage.setItem(Constant.USER_LAST_NAME, response.data.lastName); 
+                sessionStorage.setItem(Constant.USER_GENDER, response.data.gender);
+                sessionStorage.setItem(Constant.USER_ID_TOKEN, response.data.idToken);
+                sessionStorage.setItem(Constant.USER_REFERESH_TOKEN, response.data.refreshToken);
+                sessionStorage.setItem(Constant.USER_PROFILE_ID, response.data.profileId);
+                sessionStorage.setItem(Constant.PROFILE_PERCENT_COMP, response.data.profilePerCompleted);
+                
+                this.props.history.push('/signedIn');         
                          
             }).catch((err) => {
                 console.log(err);

@@ -1,4 +1,12 @@
 export default {
+   
+   USER_FIRST_NAME:"firstName",
+   USER_LAST_NAME:"lastName",
+   USER_GENDER:"gender",
+   USER_ID_TOKEN:"idToken",
+   USER_REFERESH_TOKEN:"refreshToken",
+   USER_PROFILE_ID:"profileId",
+   PROFILE_PERCENT_COMP:"percentageCompeleted",
    toastIdErr:400,
    toastIdSuccess:100,
    genderM:"M",

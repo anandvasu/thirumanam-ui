@@ -5,7 +5,7 @@ import ApiConstant from '../utils/ApiConstant';
 import '../profile/MyMatchProfileSummary.css';
 import MyMatchProfileSummary from '../../components/profile/MyMatchProfileSummary';
 import {formatDate} from '../../components/utils/Util';
-import {blockProfile} from '../../components/utils/RestServiceUtil';
+import Constant from '../utils/Constant';
 import {
     withRouter
   } from 'react-router-dom';
@@ -34,8 +34,8 @@ class MyMatches extends Component {
         }
     }
 
-    viewAllMyMatches() {
-        axios.get(ApiConstant.PREFERENCE_API+sessionStorage.getItem("profileId"), {                
+    viewAllMyMatches() {       
+        axios.get(ApiConstant.PREFERENCE_API+sessionStorage.getItem(Constant.USER_PROFILE_ID), {                
         })
         .then((res) => {
             console.log(res);
@@ -65,7 +65,7 @@ class MyMatches extends Component {
 
         if (sessionStorage.getItem("userSession") != null) {
 
-            axios.get(ApiConstant.USER_API+profileId+ "?userId="+sessionStorage.getItem("profileId"))
+            axios.get(ApiConstant.USER_API+profileId+ "?userId="+sessionStorage.getItem(Constant.USER_PROFILE_ID))
                 .then(res => {
                     console.log(res);                    
                     this.props.history.push({
@@ -79,7 +79,7 @@ class MyMatches extends Component {
     }
 
     blockProfile(profileId) {
-        axios.put(ApiConstant.BLOCKED_PROFILE+sessionStorage.getItem("profileId")+"?blockedProfileId="+profileId, {                
+        axios.put(ApiConstant.BLOCKED_PROFILE+sessionStorage.getItem(Constant.USER_PROFILE_ID)+"?blockedProfileId="+profileId, {                
         })
         .then((res) => {
             this.loadMyMatches();
@@ -103,7 +103,7 @@ class MyMatches extends Component {
     }
 
     sendInterest(profileId) {
-        axios.put(ApiConstant.BLOCKED_PROFILE+sessionStorage.getItem("profileId")+"?blockedProfileId="+profileId, {                
+        axios.put(ApiConstant.BLOCKED_PROFILE+sessionStorage.getItem(Constant.USER_PROFILE_ID)+"?blockedProfileId="+profileId, {                
         })
         .then((res) => {
             this.loadMyMatches();
@@ -127,7 +127,7 @@ class MyMatches extends Component {
     }
 
     shortlistProfile(profileId) {
-        axios.put(ApiConstant.SHORT_LISTED_PROFILE+sessionStorage.getItem("profileId")+"?shortListedProfileId="+profileId, {                
+        axios.put(ApiConstant.SHORT_LISTED_PROFILE+sessionStorage.getItem(Constant.USER_PROFILE_ID)+"?shortListedProfileId="+profileId, {                
         })
         .then((res) => {
             this.loadMyMatches();
@@ -163,7 +163,7 @@ class MyMatches extends Component {
     }
 
     loadMyMatches() {
-        axios.get(ApiConstant.USER_API+ sessionStorage.getItem("profileId")+"/preference/matches",
+        axios.get(ApiConstant.USER_API+ sessionStorage.getItem(Constant.USER_PROFILE_ID)+"/preference/matches",
         {                    
         }) .then((res) => {
            // Update User Detail to session

@@ -126,25 +126,10 @@ class Register extends Component {
         }
 
         if (errorMessage === "") {
-            Auth.signUp(
-                {
+            axios.post(ApiConstant.USER_REGISTER_API,
+                { 
                     username:this.state.email,
                     password:this.state.password,
-                    attributes: {
-                        email:this.state.email,
-                        phone_number:this.state.countryCode + this.state.mobile,
-                        family_name:this.state.last,
-                        given_name:this.state.first
-                    },
-                    
-                }
-            )    
-            .then((res) => {
-                console.log(res);             
-                externalIdValue = res.userSub;   
-                console.log(externalIdValue);
-                axios.post(ApiConstant.USER_REGISTER_API,
-                { 
                     firstName:this.state.first,
                     lastName:this.state.last,
                     dob:this.state.bmonth+"/"+this.state.bday+"/"+this.state.byear,
@@ -171,22 +156,7 @@ class Register extends Component {
                                 toastId:Constant.toastIdErr
                             });
                     }                
-                });                
-            })
-            .catch((error) => {
-                console.log("before error");
-                console.log(error);
-                if (! toast.isActive(this.toastId)) {
-                    toast.error(error.message, 
-                        {
-                            position:toast.POSITION.TOP_CENTER,
-                            hideProgressBar:true,
-                            autoClose:3000,
-                            toastId:Constant.toastIdErr
-                        });
-                }
-            
-            });
+                });               
         } else {
             if (! toast.isActive(this.toastId)) {
                 toast.error(errorMessage, 

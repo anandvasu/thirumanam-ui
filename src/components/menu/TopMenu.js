@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './TopMenu.css';
 import Login from '../login/Login';
 import Menu from '../menu/Menu';
+import Constant from "../utils/Constant";
 import TopBar from './TopBar';
 
 class TopMenu extends Component {
@@ -15,7 +16,7 @@ class TopMenu extends Component {
 
     componentDidMount () {
         let content = [];
-        if (sessionStorage.getItem("userSession") !== null) {           
+        if (sessionStorage.getItem(Constant.USER_PROFILE_ID) !== null) {           
             content.push(<Menu key="menuTopmenu"/>);
         } else if (this.props.resultsPage === true) {
             content.push(<TopBar key="menuResultsmenu" />)

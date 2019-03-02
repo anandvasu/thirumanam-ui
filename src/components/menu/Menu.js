@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import logo from '../../assets/images/logo.png';
 import './Menu.css';
 import {Redirect} from "react-router-dom";
+import Constant from "../utils/Constant";
 import {
     withRouter
   } from 'react-router-dom';
@@ -21,7 +22,7 @@ class Menu extends Component {
     goToHome() {
         //this.props.history.push('/loggedInHome');
 
-        if (sessionStorage.getItem("userSession") !== null) {  
+        if (sessionStorage.getItem(Constant.USER_PROFILE_ID) !== null) {  
             this.props.history.push(
                 {
                     pathname:'/loggedInHome' ,

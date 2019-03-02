@@ -46,7 +46,7 @@ class Results extends Component {
             profile:'',
             profileClicked:false,
             registerDisplay:false,
-            gender:((sessionStorage.getItem("gender")===Constant.genderM) ? Constant.genderF : Constant.genderM),
+            gender:((sessionStorage.getItem(Constant.USER_GENDER)===Constant.genderM) ? Constant.genderF : Constant.genderM),
             mStatus:[],
             religions:[],
             foodHabits:[],
@@ -135,9 +135,9 @@ class Results extends Component {
 
     profileClick(profileId) {
 
-        if (sessionStorage.getItem("userSession") != null) {
+        if (sessionStorage.getItem(USER_PROFILE_ID) != null) {
 
-            axios.get(ApiConstant.USER_API+profileId+"?userId="+sessionStorage.getItem("profileId"))
+            axios.get(ApiConstant.USER_API+profileId+"?userId="+sessionStorage.getItem(Constant.USER_PROFILE_ID))
                 .then(res => {
                     console.log(res);
                     this.props.history.push({

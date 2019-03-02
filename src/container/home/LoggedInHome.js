@@ -9,6 +9,7 @@ import adImage from '../../assets/images/ad.jpg';
 import DashboardSearch from '../../components/search/DashboardSearch';
 import VistedProfilesMini from '../../components/results/VistedProfilesMini';
 import Explore from './Explore';
+import Constant from '../../components/utils/Constant';
 
 class LoggedInHome extends Component {
        
@@ -27,7 +28,7 @@ class LoggedInHome extends Component {
                         <div className='vs15' />
                         <div className="topMiddleSection">
                                 <PercentageCompleted 
-                                        profileCompPercent= {sessionStorage.getItem("percentageCompleted")}
+                                        profileCompPercent= {sessionStorage.getItem(Constant.PROFILE_PERCENT_COMP)}
                                 />
                                 <div className='hs10' />
                                 <MyMatches />
