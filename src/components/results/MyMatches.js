@@ -63,7 +63,7 @@ class MyMatches extends Component {
         
     profileClick(profileId) {
 
-        if (sessionStorage.getItem("userSession") != null) {
+        if (sessionStorage.getItem(Constant.USER_ID_TOKEN) != null) {
 
             axios.get(ApiConstant.USER_API+profileId+ "?userId="+sessionStorage.getItem(Constant.USER_PROFILE_ID))
                 .then(res => {
@@ -162,9 +162,16 @@ class MyMatches extends Component {
         });
     }
 
-    loadMyMatches() {
+    loadMyMatches() {       
+
+        var headers = {
+            'Content-Type': 'application/json',
+            'Authorization': sessionStorage.getItem(Constant.USER_ID_TOKEN)
+        }
+
         axios.get(ApiConstant.USER_API+ sessionStorage.getItem(Constant.USER_PROFILE_ID)+"/preference/matches",
-        {                    
+        {               
+            headers:headers
         }) .then((res) => {
            // Update User Detail to session
            console.log(res);

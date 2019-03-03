@@ -119,3 +119,11 @@ export function getDropDownLabel(value, listValues) {
     }
     return outLabel;
 }
+
+export function getHeaders() {
+    var headers = {
+        'Content-Type': 'application/json',
+        'Authorization': sessionStorage.getItem(Constant.USER_ID_TOKEN)
+    }    
+    return headers;
+}

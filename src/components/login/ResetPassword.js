@@ -21,8 +21,8 @@ class ResetPassword extends Component {
       
     componentDidMount() {
        this.setState({
-          //username:this.props.location.state.username            
-          username:"nndharbar@gmail.com"
+          username:this.props.location.state.username            
+         // username:"nndharbar@gmail.com"
         });
     }
 

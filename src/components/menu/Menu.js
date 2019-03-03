@@ -60,6 +60,7 @@ class Menu extends Component {
                     <div className="menufield">
                         <a href="#" onClick={this.goToHome}>Home</a>
                         <a href="#" onClick={this.goToHome}>Payment</a>
+                        <a href="#" onClick={this.goToHome}>Account</a>
                         <a href="#" onClick={this.goToHome}>Contact Us</a>
                         <a href="#" onClick={this.logout}>Logout</a>
                     </div>
