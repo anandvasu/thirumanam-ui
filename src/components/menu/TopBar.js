@@ -5,6 +5,24 @@ import Constant from "../utils/Constant";
 import {
     withRouter
   } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { compose } from 'redux';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+    root: {
+      display: 'flex',
+    },
+    paper: {
+      marginRight: theme.spacing.unit * 2,
+    },        
+  });
 
 class TopBar extends Component {
 
@@ -15,7 +33,25 @@ class TopBar extends Component {
         this.goToPayment = this.goToPayment.bind(this);
         this.contactClick = this.contactClick.bind(this);
         this.logoutClick = this.logoutClick.bind(this);
+        this.handleClose = this.handleClose.bind(this); 
+        this.handleToggle = this.handleToggle.bind(this);
+        this.changePassword = this.changePassword.bind(this);
+        this.updateContactDetail = this.updateContactDetail.bind(this);
+
+        this.state = {
+            open: false,
+        };
     }
+    
+    handleToggle() {
+        this.setState({
+                open: !this.state.open 
+            });
+      };
+    
+    handleClose(event) {       
+        this.setState({ open: false });
+    };
 
     goToHome() {
         if (sessionStorage.getItem(Constant.USER_PROFILE_ID) !== null) {  
@@ -39,6 +75,14 @@ class TopBar extends Component {
         this.props.history.push('/logout');
     }
   
+    changePassword() {
+        this.props.history.push('/changePassword');        
+    }
+
+    updateContactDetail() {
+        this.props.history.push('/updateContactDetail');
+    }
+
     loginClick(event) {
         event.preventDefault();
         this.props.history.push('/ilogin');
@@ -54,6 +98,10 @@ class TopBar extends Component {
     }
 
     render() {
+
+        const  classes  = this.props;
+        const  open  = this.state.open;
+
         return(
             <div className="topBarContainer">
                 <div className="logo">
@@ -68,12 +116,48 @@ class TopBar extends Component {
                 <div className="menuContainer">
                     <div className="hs20" />
                     <div className="globalMenu">
-                        <a href="#" onClick={this.goToHome}><b>Home</b></a>
-                        <a href="/"><b>Register</b></a>
-                        <a href="#" onClick={this.goToPayment}><b>Payment</b></a>
-                        <a href="#" onClick={this.contactClick}> <b>Contact Us</b></a>
-                        { (sessionStorage.getItem(Constant.USER_PROFILE_ID) === null) && <button onClick={this.loginClick}>Login</button> }
-                        { (sessionStorage.getItem(Constant.USER_PROFILE_ID) !== null) && <button onClick={this.logoutClick}>Logout</button> }
+                        <div className="inlineBlock">
+                            <a href="#" onClick={this.goToHome}><b>Home</b></a>
+                        </div>
+                        <div className="inlineBlock">
+                            <a href="/"><b>Register</b></a>
+                        </div>                       
+                        <div className="inlineBlock">
+                            <a href="#" onClick={this.goToPayment}><b>Payment</b></a>
+                        </div>
+                        <div className="inlineBlock">
+                            <a href="#" onClick={this.contactClick}> <b>Contact Us</b></a>
+                        </div>
+                        <div className="inlineBlock">
+                            { (sessionStorage.getItem(Constant.USER_PROFILE_ID) === null) && <button onClick={this.loginClick}>Login</button> }
+                        </div>
+                        {   (sessionStorage.getItem(Constant.USER_PROFILE_ID) !== null) &&
+                            <div className="inlineBlock">
+                                <div className={classes.root}>    
+                                    <a href="#" onClick={this.handleToggle}><b>Account</b></a>                       
+                                    
+                                    <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
+                                        {({ TransitionProps, placement }) => (
+                                        <Grow
+                                            {...TransitionProps}
+                                            id="menu-list-grow"
+                                            style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                                        >
+                                            <Paper>
+                                            <ClickAwayListener onClickAway={this.handleClose}>
+                                                <MenuList>
+                                                    <MenuItem className="mui-menu-item" onClick={this.changePassword}>Change Password</MenuItem>
+                                                    <MenuItem onClick={this.updateContactDetail}>Update Contact Detail</MenuItem>
+                                                    <MenuItem onClick={this.logoutClick}>Logout</MenuItem>
+                                                </MenuList>
+                                            </ClickAwayListener>
+                                            </Paper>
+                                        </Grow>
+                                        )}
+                                    </Popper>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -81,4 +165,13 @@ class TopBar extends Component {
     }
 }
 
-export default withRouter(TopBar);
+TopBar.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+  
+const topBarComp = compose(
+    withRouter,
+    withStyles(styles)
+);
+
+export default topBarComp(TopBar);

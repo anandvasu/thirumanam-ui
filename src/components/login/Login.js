@@ -30,57 +30,7 @@ class Login extends Component {
             password:"Password",
             confirmUser:false
         }
-    }
-
-    componentDidMount() {
-        if(localStorage.getItem(Constant.USER_REFERESH_TOKEN) != null &&
-            localStorage.getItem(Constant.USER_REFERESH_TOKEN) != "undefined") {
-            axios.post(ApiConstant.IDENTITY_REFRESH_TOKEN_LOGIN, {
-                refreshToken:localStorage.getItem(Constant.USER_REFERESH_TOKEN)
-            })
-            .then((response) => {
-                console.log(response)      
-                if (response.data.authSuccess === true) {
-                    sessionStorage.setItem(Constant.USER_FIRST_NAME, response.data.firstName);  
-                    sessionStorage.setItem(Constant.USER_LAST_NAME, response.data.lastName); 
-                    sessionStorage.setItem(Constant.USER_GENDER, response.data.gender);
-                    sessionStorage.setItem(Constant.USER_ID_TOKEN, response.data.idToken);
-                    sessionStorage.setItem(Constant.USER_REFERESH_TOKEN, response.data.refreshToken);
-                    sessionStorage.setItem(Constant.USER_PROFILE_ID, response.data.profileId);
-                    sessionStorage.setItem(Constant.PROFILE_PERCENT_COMP, response.data.profilePerCompleted);  
-                    
-                    this.props.history.push('/signedIn');   
-                } else if (response.data.userConfirmed === Constant.NO){
-                    this.setState({
-                        confirmUser:true
-                    })
-                }                             
-            }).catch((err) => {
-                console.log(err);
-                var errMessage = "";
-                if (err.code === "UserNotFoundException" || err.code === "NotAuthorizedException") {
-                    errMessage = "Invalid Email or Password."
-                } else if (err.code === "UserNotConfirmedException" || err.code === "UserNotConfirmedException") {                
-                    this.setState({
-                        confirmUser:true
-                    })
-                } else {
-                    errMessage = "Server Error Occurred. Please try again later."
-                }
-    
-                if (errMessage !== "") {
-                    toast.error(errMessage, 
-                    {
-                        position:toast.POSITION.TOP_CENTER,
-                        hideProgressBar:true,
-                        autoClose:3000,
-                        toastId:Constant.toastIdErr
-                    });
-                }
-            });        
-        }
-    }
-    
+    }    
     emailFocus(event) {
         if(event.target.value === "Email") {
             event.target.value = "";
@@ -166,7 +116,9 @@ class Login extends Component {
                     sessionStorage.setItem(Constant.USER_ID_TOKEN, response.data.idToken);
                     sessionStorage.setItem(Constant.USER_REFERESH_TOKEN, response.data.refreshToken);
                     sessionStorage.setItem(Constant.USER_PROFILE_ID, response.data.profileId);
-                    sessionStorage.setItem(Constant.PROFILE_PERCENT_COMP, response.data.profilePerCompleted);       
+                    sessionStorage.setItem(Constant.PROFILE_PERCENT_COMP, response.data.profilePerCompleted);  
+                    sessionStorage.setItem(Constant.USER_NAME, username);  
+                    sessionStorage.setItem(Constant.USER_ACCESS_TOKEN, response.data.accessToken);        
                     if(document.getElementById("rememberMe").checked) {
                         localStorage.setItem(Constant.USER_REFERESH_TOKEN, response.data.refreshToken);
                     }  

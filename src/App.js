@@ -31,6 +31,7 @@ import ResetPassword from './components/login/ResetPassword';
 import ResetPasswordResponse from './components/login/ResetPasswordResponse';
 import Logout from './components/logout/Logout';
 import ParentHome from './container/home/ParentHome';
+import ChangePassword from './components/login/ChangePassword';
 
 class App extends Component {
   
@@ -67,7 +68,9 @@ class App extends Component {
             <Route path="/forgotPassword" component={ForgotPassword} /> 
             <Route path="/resetPassword" component={ResetPassword} />  
             <Route path="/resetPasswordResponse" component={ResetPasswordResponse} />   
-            <Route path="/logout" component={Logout} />                      
+            <Route path="/logout" component={Logout} />  
+            <Route path="/changePassword" component={ChangePassword} />        
+                          
         </Aux>
       </Router>
     );

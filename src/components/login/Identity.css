@@ -1,0 +1,16 @@
+.identityContainer {
+    width:500px;
+    display: inline-block;
+}
+
+.identityLabel {
+    width:150px;
+    display: inline-block;
+    text-align: left;
+}
+
+.identityField {
+    text-align: left;
+    width:250px;
+    display: inline-block;
+}

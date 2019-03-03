@@ -114,6 +114,7 @@ class ResetPassword extends Component {
                 </div>
                 <div className="signUpRight">
                     <div> <h2>Update Password </h2> </div>
+                    <div> Access Code is delivered to your {this.props.location.state.deliveryMedium} - {this.props.location.state.destination}. </div>
                    
                     <div className="codeParent">                      
 
