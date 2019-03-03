@@ -80,7 +80,7 @@ class TopBar extends Component {
     }
 
     updateContactDetail() {
-        this.props.history.push('/updateContactDetail');
+        this.props.history.push('/updateAcountDetail');
     }
 
     loginClick(event) {
@@ -144,13 +144,19 @@ class TopBar extends Component {
                                             style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
                                         >
                                             <Paper>
-                                            <ClickAwayListener onClickAway={this.handleClose}>
-                                                <MenuList>
-                                                    <MenuItem className="mui-menu-item" onClick={this.changePassword}>Change Password</MenuItem>
-                                                    <MenuItem onClick={this.updateContactDetail}>Update Contact Detail</MenuItem>
-                                                    <MenuItem onClick={this.logoutClick}>Logout</MenuItem>
-                                                </MenuList>
-                                            </ClickAwayListener>
+                                                <ClickAwayListener onClickAway={this.handleClose}>
+                                                    <MenuList style={{backgroundColor:"#F8F9F9"}}>
+                                                        <MenuItem style={{backgroundColor: '#DDA0DD', color: '#6E2C00',fontWeight:'bold'}} onClick={this.changePassword}>
+                                                            Change Password
+                                                        </MenuItem>
+                                                        <MenuItem style={{backgroundColor: '#DDA0DD', color: '#6E2C00',fontWeight:'bold'}} onClick={this.updateContactDetail}>
+                                                            Update Contact Detail
+                                                        </MenuItem>
+                                                        <MenuItem style={{backgroundColor: '#DDA0DD', color: '#6E2C00',fontWeight:'bold'}} onClick={this.logoutClick}>
+                                                            Logout
+                                                        </MenuItem>
+                                                    </MenuList>
+                                                </ClickAwayListener>
                                             </Paper>
                                         </Grow>
                                         )}

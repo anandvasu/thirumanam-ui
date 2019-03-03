@@ -109,7 +109,7 @@ class Login extends Component {
             })
             .then((response) => {
                 console.log(response)      
-                if (response.data.authSuccess === true) {
+                if (response.data.success === true) {
                     sessionStorage.setItem(Constant.USER_FIRST_NAME, response.data.firstName);  
                     sessionStorage.setItem(Constant.USER_LAST_NAME, response.data.lastName); 
                     sessionStorage.setItem(Constant.USER_GENDER, response.data.gender);
@@ -127,7 +127,15 @@ class Login extends Component {
                     this.setState({
                         confirmUser:true
                     })
-                }                             
+                } else if (response.data.errorMessage !== null) {  
+                    toast.error(response.data.errorMessage, 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            toastId:Constant.toastIdErr
+                        });
+                }                                
             }).catch((err) => {
                 console.log(err);
                 var errMessage = "";
@@ -167,7 +175,7 @@ class Login extends Component {
     }
 
     forgotPassword(event) {        
-        this.props.history.push('/resetPassword');
+        this.props.history.push('/forgotPassword');
     }
 
     render() {
