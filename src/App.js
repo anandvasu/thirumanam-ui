@@ -6,6 +6,9 @@ import Contact from './components/contact/Contact';
 import Results from './components/results/Results';
 import RegisterDetail from './container/register/RegisterDetail';
 import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {toast} from 'react-toastify';
+import axios from 'axios';
 import Register from './components/register/Register'
 import ConfirmSignUp from './components/login/ConfirmSignUp'
 import ILogin from './components/login/ILogin'
@@ -29,9 +32,12 @@ import VisitedProfilesHome from './container/home/VisitedProfilesHome';
 import ForgotPassword from './components/login/ForgotPassword';
 import ResetPassword from './components/login/ResetPassword';
 import ResetPasswordResponse from './components/login/ResetPasswordResponse';
+import Logout from './components/logout/Logout';
+import Constant from './components/utils/Constant';
+import ApiConstant from './components/utils/ApiConstant';
 
 class App extends Component {
-
+  
   render() {
     return (
       <Router>
@@ -64,7 +70,10 @@ class App extends Component {
             <Route path="/visitedProfilesHome" component={VisitedProfilesHome} /> 
             <Route path="/forgotPassword" component={ForgotPassword} /> 
             <Route path="/resetPassword" component={ResetPassword} />  
-            <Route path="/resetPasswordResponse" component={ResetPasswordResponse} />           
+            <Route path="/resetPasswordResponse" component={ResetPasswordResponse} />   
+            <Route path="/logout" component={Logout} />  
+
+                    
         </Aux>
       </Router>
     );

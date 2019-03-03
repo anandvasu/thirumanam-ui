@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import './ConfirmSignUp.css';
 import Constant from '../utils/Constant';
+import ApiConstant from '../utils/ApiConstant';
 import welcomeImage from '../../assets/images/wedding.png';
 import 'react-toastify/dist/ReactToastify.css';
 import {toast} from 'react-toastify';
@@ -8,7 +9,7 @@ import axios from 'axios';
 import './ILogin.css';
 import TopBar from '../menu/TopBar';
 import Footer from '../footer/Footer';
-import ApiConstant from '../utils/ApiConstant';
+
 
 class ILogin extends Component {
 

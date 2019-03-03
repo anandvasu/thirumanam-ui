@@ -14,14 +14,9 @@ class Menu extends Component {
         this.goToHome = this.goToHome.bind(this);
         this.logout = this.logout.bind(this);
 
-        this.state = {
-            logout : false
-        }
     }
 
     goToHome() {
-        //this.props.history.push('/loggedInHome');
-
         if (sessionStorage.getItem(Constant.USER_PROFILE_ID) !== null) {  
             this.props.history.push(
                 {
@@ -50,21 +45,11 @@ class Menu extends Component {
 
     logout() {
        sessionStorage.clear();
-       this.setState({
-            logout:true
-       });
+       this.props.history.push('/logout');
     }
 
     render() {
-
-        if (this.state.logout === true) {
-            return <Redirect to= {{
-                        pathname:'/home' ,
-                        state:{
-                            logout:this.state.logout
-                        }                                   
-                    }}/>
-        }
+        
         return(
             <div>
                 <div className="logo">

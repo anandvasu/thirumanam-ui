@@ -36,7 +36,7 @@ class TopBar extends Component {
 
     logoutClick(event) {
         sessionStorage.clear();
-        this.props.history.push('/home');
+        this.props.history.push('/logout');
     }
   
     loginClick(event) {
