@@ -20,24 +20,21 @@ class UpdateAccountDetail extends Component {
 
         let errorMessage = null;
 
-        const currentPassword = document.getElementById("currentPassword").value;
-        const password = document.getElementById("password").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
+        const email = document.getElementById("email").value;
+        const phoneNumber = document.getElementById("phoneNumber").value;
 
-        if(String.prototype.trim.call(currentPassword) === "") {
-            errorMessage = "Please enter Current Password.";
-        } else if (String.prototype.trim.call(password) === "") {
-            errorMessage = "Please enter New Password.";   
-        } else if (String.prototype.trim.call(confirmPassword) === "") {
-            errorMessage = "Please enter Confirm Password.";   
+        if(String.prototype.trim.call(email) === "") {
+            errorMessage = "Please enter Email.";
+        } else if (String.prototype.trim.call(phoneNumber) === "") {
+            errorMessage = "Please enter Phone Number.";   
         } 
         
         
         if (errorMessage === null) {   
-            axios.post(ApiConstant.IDENTITY_CHANGE_PASSWORD, {
+            axios.put(ApiConstant.IDENTITY_ACCOUNT_UPDATE, {
                 accessToken:sessionStorage.getItem(Constant.USER_ACCESS_TOKEN) ,
-                currentPassword:currentPassword,
-                newPassword:password
+                email:email,
+                phoneNumber:phoneNumber
             })
             .then((response) => {
                 console.log(response)      
@@ -84,28 +81,20 @@ class UpdateAccountDetail extends Component {
                 <div className="identityContainer">
                     <div>
                         <div className="identityLabel">
-                            Current Password
+                            Email
                         </div>
                         <div className="identityField">
-                            <input type="password" id="currentPassword" ></input>
+                            <input type="text" id="email" ></input>
                         </div>
                     </div>
                     <div style={{paddingTop:'10px'}}>
                         <div  className="identityLabel">
-                            New Password
+                            Phone Number
                         </div>
                         <div className="identityField">
-                            <input type="password" id="password" ></input>
+                            <input type="text" id="phoneNumber" ></input>
                         </div>
-                    </div>
-                    <div style={{paddingTop:'10px'}}>
-                        <div className="identityLabel">
-                            Confirm Password
-                        </div>
-                        <div className="identityField">
-                            <input type="password" id="confirmPassword" ></input>
-                        </div>
-                    </div>
+                    </div>                   
                     <div style={{paddingTop:'10px'}}>
                         <button onClick={this.updateAccountDetail}>Submit</button>
                     </div>

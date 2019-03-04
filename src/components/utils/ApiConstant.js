@@ -26,7 +26,7 @@ export default {
     
     */ 
   
-   
+   IDENTITY_ACCOUNT_UPDATE:"http://localhost:8085/matrimony/identity/account/",
    IDENTITY_FORGOT_PASSWORD:"http://localhost:8085/matrimony/identity/password/forgot/",
    IDENTITY_RESET_PASSWORD:"http://localhost:8085/matrimony/identity/password/reset/",
    IDENTITY_CHANGE_PASSWORD:"http://localhost:8085/matrimony/identity/password/change/",
