@@ -14,6 +14,8 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { withStyles } from '@material-ui/core/styles';
+import account_f_img from '../../assets/images/account_female.png';
+import account_m_img from '../../assets/images/account_male.png';
 
 const styles = theme => ({
     root: {
@@ -102,6 +104,14 @@ class TopBar extends Component {
         const  classes  = this.props;
         const  open  = this.state.open;
 
+        let image;
+        if(sessionStorage.getItem(Constant.USER_GENDER) === "F") {
+            image = <img src={account_f_img} alt="Not Available" style={{width:'30px',height:'30px'}} onClick={this.goToHome} /> 
+        } else {
+            image = <img src={account_m_img} alt="Not Available" style={{width:'30px',height:'30px'}} onClick={this.goToHome} />
+        }
+     
+
         return(
             <div className="topBarContainer">
                 <div className="logo">
@@ -132,10 +142,9 @@ class TopBar extends Component {
                             { (sessionStorage.getItem(Constant.USER_PROFILE_ID) === null) && <button onClick={this.loginClick}>Login</button> }
                         </div>
                         {   (sessionStorage.getItem(Constant.USER_PROFILE_ID) !== null) &&
-                            <div className="inlineBlock">
+                            <div className="inlineBlock" style={{float: 'right',paddingBottom:'50px'}}>
                                 <div className={classes.root}>    
-                                    <a href="#" onClick={this.handleToggle}><b>Account</b></a>                       
-                                    
+                                    <a href="#" onClick={this.handleToggle}><b> {image}</b></a>  
                                     <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
                                         {({ TransitionProps, placement }) => (
                                         <Grow

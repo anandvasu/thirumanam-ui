@@ -110,23 +110,25 @@ class Login extends Component {
             .then((response) => {
                 console.log(response)      
                 if (response.data.success === true) {
-                    sessionStorage.setItem(Constant.USER_FIRST_NAME, response.data.firstName);  
-                    sessionStorage.setItem(Constant.USER_LAST_NAME, response.data.lastName); 
-                    sessionStorage.setItem(Constant.USER_GENDER, response.data.gender);
-                    sessionStorage.setItem(Constant.USER_ID_TOKEN, response.data.idToken);
-                    sessionStorage.setItem(Constant.USER_REFERESH_TOKEN, response.data.refreshToken);
-                    sessionStorage.setItem(Constant.USER_PROFILE_ID, response.data.profileId);
-                    sessionStorage.setItem(Constant.PROFILE_PERCENT_COMP, response.data.profilePerCompleted);  
-                    sessionStorage.setItem(Constant.USER_NAME, username);  
-                    sessionStorage.setItem(Constant.USER_ACCESS_TOKEN, response.data.accessToken);        
-                    if(document.getElementById("rememberMe").checked) {
-                        localStorage.setItem(Constant.USER_REFERESH_TOKEN, response.data.refreshToken);
-                    }  
-                    this.props.history.push('/signedIn');   
-                } else if (response.data.userConfirmed === Constant.NO){
-                    this.setState({
-                        confirmUser:true
-                    })
+                    if (response.data.userConfirmed === false){
+                        this.setState({
+                            confirmUser:true
+                        })
+                    } else {
+                        sessionStorage.setItem(Constant.USER_FIRST_NAME, response.data.firstName);  
+                        sessionStorage.setItem(Constant.USER_LAST_NAME, response.data.lastName); 
+                        sessionStorage.setItem(Constant.USER_GENDER, response.data.gender);
+                        sessionStorage.setItem(Constant.USER_ID_TOKEN, response.data.idToken);
+                        sessionStorage.setItem(Constant.USER_REFERESH_TOKEN, response.data.refreshToken);
+                        sessionStorage.setItem(Constant.USER_PROFILE_ID, response.data.profileId);
+                        sessionStorage.setItem(Constant.PROFILE_PERCENT_COMP, response.data.profilePerCompleted);  
+                        sessionStorage.setItem(Constant.USER_NAME, username);  
+                        sessionStorage.setItem(Constant.USER_ACCESS_TOKEN, response.data.accessToken);        
+                        if(document.getElementById("rememberMe").checked) {
+                            localStorage.setItem(Constant.USER_REFERESH_TOKEN, response.data.refreshToken);
+                        }  
+                        this.props.history.push('/signedIn');   
+                    }
                 } else if (response.data.errorMessage !== null) {  
                     toast.error(response.data.errorMessage, 
                         {

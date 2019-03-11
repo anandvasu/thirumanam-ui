@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Home from './container/home/Home';
@@ -35,6 +36,32 @@ import ChangePassword from './components/login/ChangePassword';
 import UpdateAccountDetail from './components/login/UpdateAccountDetail';
 
 class App extends Component {
+
+  componentDidMount() {
+
+    axios.interceptors.request.use(function(config) {
+      if(sessionStorage.getItem("idToken") != null) {
+        config.headers.Authorization = `Bearer ${sessionStorage.getItem("idToken")}`;
+      }
+    
+      return config;
+    }, function(err) {
+      return Promise.reject(err);
+    });
+
+    axios.interceptors.response.use(
+
+      (response)=> {
+      
+      console.log("axios response intercepter called");
+      
+      return response;},
+      
+      (error) => {return
+      Promise.reject(responseValidate(error))}
+      
+      );
+  }
   
   render() {
     return (
