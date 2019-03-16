@@ -115,6 +115,7 @@ class Login extends Component {
                             confirmUser:true
                         })
                     } else {
+                        console.log(response);
                         sessionStorage.setItem(Constant.USER_FIRST_NAME, response.data.firstName);  
                         sessionStorage.setItem(Constant.USER_LAST_NAME, response.data.lastName); 
                         sessionStorage.setItem(Constant.USER_GENDER, response.data.gender);

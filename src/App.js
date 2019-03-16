@@ -42,7 +42,7 @@ class App extends Component {
  
   componentDidMount() {
 
-    const refreshAuthLogic = failedRequest => axios.post(
+    const refreshAuthLogic = failedRequest  => axios.post(
         ApiConstant.IDENTITY_REFRESH_TOKEN, {
             refreshToken:sessionStorage.getItem(Constant.USER_REFERESH_TOKEN)
         }).then(tokenRefreshResponse => {
