@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import './App.css';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Home from './container/home/Home';
@@ -41,49 +42,28 @@ class App extends Component {
  
   componentDidMount() {
 
+    const refreshAuthLogic = failedRequest => axios.post(
+        ApiConstant.IDENTITY_REFRESH_TOKEN, {
+            refreshToken:sessionStorage.getItem(Constant.USER_REFERESH_TOKEN)
+        }).then(tokenRefreshResponse => {
+          sessionStorage.setItem('idToken', tokenRefreshResponse.data.idToken);
+          failedRequest.response.config.headers['Authorization'] = 'Bearer ' + tokenRefreshResponse.data.idToken;
+        return Promise.resolve();
+    });
+
     axios.interceptors.request.use(function(config) {
       if(sessionStorage.getItem("idToken") != null) {
         config.headers.Authorization = `Bearer ${sessionStorage.getItem("idToken")}`;
-      }
-    
+      }    
       return config;
     }, function(err) {
       return Promise.reject(err);
     });
-
  
-    axios.interceptors.response.use(
-
-      (response)=> {
-      
-      console.log("axios response intercepter called");
-      
-      return response;},
-      
-      (error) => {
-          const originalRequest = error.config;
-          console.log("error axios response intercepter called");
-          console.log(originalRequest)          
-          if(error.response.status === 401 && error.response.data.code === "9000") {           
-            axios.post(ApiConstant.IDENTITY_REFRESH_TOKEN, {
-              refreshToken: sessionStorage.getItem(Constant.USER_REFERESH_TOKEN)             
-            })
-            .then(response => {
-              console.log("Access Token Log");
-              console.log(response);
-              if (response.data.success === true) {
-                sessionStorage.setItem(Constant.USER_ID_TOKEN, response.data.idToken); 
-                originalRequest.headers.Authorization = `Bearer ${sessionStorage.getItem("idToken")}`;
-                return axios(originalRequest);
-              } else {
-                return Promise.reject(new Error('Unexpected Error'))
-              }
-            });
-          }       
-          return Promise.reject(responseValidate(error))
-        }      
-      );
+    createAuthRefreshInterceptor(axios, refreshAuthLogic);
   }
+
+  
   
   render() {
     return (

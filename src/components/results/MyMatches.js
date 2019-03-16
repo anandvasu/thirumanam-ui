@@ -24,8 +24,6 @@ class MyMatches extends Component {
         this.shortlistProfile = this.shortlistProfile.bind(this);
         this.loadMyMatches = this.loadMyMatches.bind(this);
 
-        
-
         this.state = {
             profiles:[],
             totalMatches:0,

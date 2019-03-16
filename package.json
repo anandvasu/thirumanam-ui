@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "axios": "^0.18.0",
+    "axios-auth-refresh": "^1.0.6",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.0",
