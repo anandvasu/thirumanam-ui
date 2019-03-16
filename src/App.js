@@ -34,9 +34,11 @@ import Logout from './components/logout/Logout';
 import ParentHome from './container/home/ParentHome';
 import ChangePassword from './components/login/ChangePassword';
 import UpdateAccountDetail from './components/login/UpdateAccountDetail';
+import Constant from './components/utils/Constant';
+import ApiConstant from './components/utils/ApiConstant';
 
 class App extends Component {
-
+ 
   componentDidMount() {
 
     axios.interceptors.request.use(function(config) {
@@ -49,6 +51,7 @@ class App extends Component {
       return Promise.reject(err);
     });
 
+ 
     axios.interceptors.response.use(
 
       (response)=> {
@@ -57,9 +60,28 @@ class App extends Component {
       
       return response;},
       
-      (error) => {return
-      Promise.reject(responseValidate(error))}
-      
+      (error) => {
+          const originalRequest = error.config;
+          console.log("error axios response intercepter called");
+          console.log(originalRequest)          
+          if(error.response.status === 401 && error.response.data.code === "9000") {           
+            axios.post(ApiConstant.IDENTITY_REFRESH_TOKEN, {
+              refreshToken: sessionStorage.getItem(Constant.USER_REFERESH_TOKEN)             
+            })
+            .then(response => {
+              console.log("Access Token Log");
+              console.log(response);
+              if (response.data.success === true) {
+                sessionStorage.setItem(Constant.USER_ID_TOKEN, response.data.idToken); 
+                originalRequest.headers.Authorization = `Bearer ${sessionStorage.getItem("idToken")}`;
+                return axios(originalRequest);
+              } else {
+                return Promise.reject(new Error('Unexpected Error'))
+              }
+            });
+          }       
+          return Promise.reject(responseValidate(error))
+        }      
       );
   }
   
