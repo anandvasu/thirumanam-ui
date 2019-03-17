@@ -50,7 +50,7 @@ class ProfileSelfSummary extends Component {
                console.log(res);
                console.log(res.data.id);              
                this.setState({
-                    image:res.data.image
+                    image:res.data.thumbImage
                });
             }).catch((err) => {
                 console.log(err);

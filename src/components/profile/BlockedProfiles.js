@@ -152,7 +152,7 @@ class BlockedProfiles extends Component {
                         firstName = {data.firstName}
                         lastName = {data.lastName}                        
                         email = {data.email}
-                        thumbImage = {data.image}
+                        thumbImage = {data.thumbImage}
                         profileClick = {this.profileClick}
                         unBlockProfile = {this.unBlockProfile}
                         gender = {data.gender}

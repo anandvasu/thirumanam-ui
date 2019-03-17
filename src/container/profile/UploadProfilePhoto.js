@@ -81,8 +81,8 @@ class UploadProfilePhoto extends Component {
     uploadProfilePhoto() {
         if(this.state.image !== null) {
             const formData = new FormData();
-            formData.append("imageFile", this.state.image, sessionStorage.getItem("profileId"));
-            axios.post(ApiConstant.USER_PROFILE_IMAGE_API+'?profileId='+sessionStorage.getItem("profileId"), formData,
+            formData.append("imageFile", this.state.image, this.state.profileId);
+            axios.post(ApiConstant.USER_PROFILE_IMAGE_API+'?profileId='+this.state.profileId, formData,
                     {                                            
                     })
             .then((res) => {

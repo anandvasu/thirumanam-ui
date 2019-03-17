@@ -242,7 +242,7 @@ class Results extends Component {
                         firstName = {data.firstName}
                         lastName = {data.lastName}                        
                         email = {data.email}
-                        thumbImage = {data.image}
+                        thumbImage = {data.thumbImage}
                         profileClick = {this.profileClick}
                         gender = {data.gender}
                         education = {data.education}

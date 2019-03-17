@@ -202,7 +202,7 @@ class MyMatches extends Component {
                         firstName = {data.firstName}
                         lastName = {data.lastName}                        
                         email = {data.email}
-                        thumbImage = {data.image}
+                        thumbImage = {data.thumbImage}
                         profileClick = {this.profileClick}
                         sendInterest = {this.sendInterest}
                         blockProfile = {this.blockProfile}

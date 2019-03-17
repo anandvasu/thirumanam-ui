@@ -139,8 +139,9 @@ class Register extends Component {
                     registerBy: this.state.registerBy,
                     externalId: externalIdValue
                 }) .then((res) => {
+                    console.log(res);
                     this.setState({
-                        profileId:res.data.code,
+                        profileId:res.headers["profileid"],
                         registersuccess:true
                     });
                   
