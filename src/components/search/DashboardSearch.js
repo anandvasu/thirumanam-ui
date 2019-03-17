@@ -10,6 +10,7 @@ import MaritalStatusSelect from '../utils/MaritalStatusSelect';
 import Constant from '../utils/Constant';
 import ApiConstant from '../utils/ApiConstant';
 import {populateArray} from '../utils/Util';
+import SearchImage from '../../assets/images/view.png';
 import axios from 'axios';
 import {
     withRouter
@@ -140,7 +141,8 @@ class DashboardSearch extends Component {
                             <label>Profile ID:&nbsp;</label>
                         </div>
                         <div className="dashRightField">
-                           <input type="text" id="profileId"/> <button onClick={this.viewProfile}>Search</button>
+                           <input type="text" id="profileId" style={{width:'120px'}}/>
+                           <img src={SearchImage} onClick={this.viewProfile} />
                         </div>  
                     </div>  
 
