@@ -3,6 +3,7 @@ import logo from '../../assets/images/logo.png';
 import './Login.css';
 import axios from 'axios';
 import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {Redirect} from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import ApiConstant from '../utils/ApiConstant';

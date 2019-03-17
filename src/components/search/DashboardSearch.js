@@ -2,12 +2,18 @@ import React, {Component} from 'react';
 import './QuickSearch.css';
 import {Redirect} from "react-router-dom";
 import './DashboardSearch.css';
+import {toast} from 'react-toastify';
 import Height from '../../components/utils/Height';
 import Age from '../../components/utils/Age';
 import ReligionSelect from '../utils/ReligionSelect';
 import MaritalStatusSelect from '../utils/MaritalStatusSelect';
 import Constant from '../utils/Constant';
+import ApiConstant from '../utils/ApiConstant';
 import {populateArray} from '../utils/Util';
+import axios from 'axios';
+import {
+    withRouter
+  } from 'react-router-dom';
 
 class DashboardSearch extends Component {
 
@@ -21,7 +27,8 @@ class DashboardSearch extends Component {
         this.minHeightChange = this.minHeightChange.bind(this);
         this.maxHeightChange = this.maxHeightChange.bind(this);
         this.religionChangeHandler = this.religionChangeHandler.bind(this);
-        
+        this.viewProfile = this.viewProfile.bind(this);
+
         this.state = {
             searchClicked: false,
             gender:((sessionStorage.getItem("gender")===Constant.genderM) ? Constant.genderF : Constant.genderM),
@@ -74,6 +81,37 @@ class DashboardSearch extends Component {
         console.log(this.state.searchClicked);
     }
 
+    viewProfile(event) {
+
+        event.preventDefault();
+
+        const profileId = document.getElementById("profileId").value;
+
+        if (String.prototype.trim.call(profileId) !== "") {
+
+            axios.get(ApiConstant.USER_API+profileId+"?userId="+sessionStorage.getItem(Constant.USER_PROFILE_ID))
+                .then((response) => {
+                    console.log(response);
+                        this.props.history.push({
+                            pathname: '/viewProfile',
+                            state: {
+                                profile:response.data
+                            }
+                }).catch((err) => {
+                        
+                });
+            });
+        } else {
+            toast.error("Please enter Profile ID", 
+                {
+                    position:toast.POSITION.TOP_CENTER,
+                    hideProgressBar:true,
+                    autoClose:3000,
+                    toastId:Constant.toastIdErr
+                });
+        } 
+    }
+
     render () {
         if (this.state.searchClicked === true) {
             return <Redirect to= {{
@@ -96,6 +134,22 @@ class DashboardSearch extends Component {
                         <div className="vs5px"/>
                         <b>Search Partner Profile</b>
                     </div>       
+
+                    <div style={{width:'100%',paddingTop:'3px'}}> 
+                        <div className="dashLeftLabel">
+                            <label>Profile ID:&nbsp;</label>
+                        </div>
+                        <div className="dashRightField">
+                           <input type="text" id="profileId"/> <button onClick={this.viewProfile}>Search</button>
+                        </div>  
+                    </div>  
+
+                    <div style={{width:'100%',paddingTop:'3px'}}> 
+                        <div style={{width:'100%'}}>
+                            <label>OR</label>
+                        </div>
+                    </div>  
+
                     <div style={{width:'100%',paddingTop:'3px'}}> 
                         <div className="dashLeftLabel">
                             <label>Age:&nbsp;</label>
@@ -155,4 +209,4 @@ class DashboardSearch extends Component {
     }
 }
 
-export default DashboardSearch;
+export default withRouter(DashboardSearch);
