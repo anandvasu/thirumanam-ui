@@ -141,8 +141,12 @@ class DashboardSearch extends Component {
                             <label>Profile ID:&nbsp;</label>
                         </div>
                         <div className="dashRightField">
-                           <input type="text" id="profileId" style={{width:'140px'}}/>
-                           <img src={SearchImage} onClick={this.viewProfile} />
+                            <div className="inlineBlock" style={{float:'left',paddingTop:'5px'}}>
+                                <input type="text" id="profileId" style={{width:'140px'}}/>
+                           </div>
+                           <div className="inlineBlock" style={{float:'left',paddingLeft:'5px',paddingTop:'10px'}}>
+                                <img className="searchImage" src={SearchImage} onClick={this.viewProfile} />
+                           </div>
                         </div>  
                     </div>  
 
