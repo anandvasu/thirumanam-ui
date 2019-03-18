@@ -141,7 +141,7 @@ class DashboardSearch extends Component {
                             <label>Profile ID:&nbsp;</label>
                         </div>
                         <div className="dashRightField">
-                           <input type="text" id="profileId" style={{width:'120px'}}/>
+                           <input type="text" id="profileId" style={{width:'140px'}}/>
                            <img src={SearchImage} onClick={this.viewProfile} />
                         </div>  
                     </div>  

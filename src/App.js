@@ -42,6 +42,8 @@ class App extends Component {
  
   componentDidMount() {
 
+    const refreshCodeArr = [403];
+
     const refreshAuthLogic = failedRequest  => axios.post(
         ApiConstant.IDENTITY_REFRESH_TOKEN, {
             refreshToken:sessionStorage.getItem(Constant.USER_REFERESH_TOKEN)
@@ -60,7 +62,9 @@ class App extends Component {
       return Promise.reject(err);
     });
  
-    createAuthRefreshInterceptor(axios, refreshAuthLogic);
+    createAuthRefreshInterceptor(axios, refreshAuthLogic, {
+      statusCodes: [403 ] // default: [ 401 ]
+    });
   }
 
   
