@@ -33,21 +33,21 @@ function visitedProfile(props) {
             <div className="vs30" />
             <div className="profileSummary">       
                 <div className="psBottom">
-                    <div className="profileId">
-                        <label className="profileName"> 
-                            <b>{preFix} {props.firstName}, {props.lastName} </b>
-                        </label>
-                    </div>
-                    <div className="viewProfileDiv">
-                        <label>{props.bDate}</label>
-                    </div> 
+                        <div>
+                            <label className="profileName"> 
+                                <b>{preFix} {props.firstName}, {props.lastName} </b>
+                            </label>
+                        </div>
+                        <div>
+                            <label> {props.age} years</label> 
+                            <label> | {props.education}</label> 
+                            <label> | {props.city}</label>
+                        </div>                                      
                 </div>
 
                 <div className="psBottom">
                     <div className="profileId">
-                        <label> {props.age} years</label> 
-                        <label> | {props.education}</label> 
-                        <label> | {props.city}</label>
+                        
                     </div>
                     <div className="viewProfileDiv">
                         

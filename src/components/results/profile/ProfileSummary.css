@@ -7,6 +7,16 @@
     padding-top: 10px;
 }
 
+.otherText {
+    font-size:14px;
+}
+
+.mIdText {
+    font-size:14px;
+    font-weight: bold;
+    color:#4A235A;
+}
+
 .profileName {
     color: #34495E;
     font-size: 14px;

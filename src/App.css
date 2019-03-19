@@ -380,3 +380,7 @@ hr {
 .prevNextImage:hover {
   cursor: pointer;
 }
+
+.mediumHyperlink {
+  font-size: 14px;    
+}

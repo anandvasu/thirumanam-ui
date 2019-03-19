@@ -30,33 +30,23 @@ function visitedProfileSummary (props) {
         <div className="profileSummary">       
 
             <div className="psBottom">
-                <div className="profileId">
+                <div style={{width:'100%',textAlign:'left'}}>
                     <label className="profileName"> 
-                        <b>{preFix} {props.firstName}, {props.lastName} </b>
+                        {preFix} {props.firstName}, {props.lastName}
                     </label>
                 </div>
-                <div className="viewProfileDiv">
-                    <label>{props.bDate}</label>
-                </div> 
-            </div>
-
+                <div style={{width:'100%',textAlign:'left'}}>
+                    <label className="otherText"> {props.age} years</label> 
+                    <label className="otherText"> | {props.education}</label> 
+                    <label className="otherText"> | {props.city}</label>
+                </div>  
+            </div>           
             <div className="psBottom">
                 <div className="profileId">
-                    <label> {props.age} years</label> 
-                    <label> | {props.education}</label> 
-                    <label> | {props.city}</label>
+                    <label className="mIdText"><b>ID: {props.id}</b></label>
                 </div>
                 <div className="viewProfileDiv">
-                    
-                </div>                         
-            </div>
-            <div className="hs40"/>
-            <div className="psBottom">
-                <div className="profileId">
-                    <label><b>ID: {props.id}</b></label>
-                </div>
-                <div className="viewProfileDiv">
-                    <a href="#" onClick={() => props.profileClick(props.id)}><b>View this profile</b></a>
+                    <a href="#" onClick={() => props.profileClick(props.id)} className="mediumHyperlink"><b>View this profile</b></a>
                 </div> 
             </div>
                                 
