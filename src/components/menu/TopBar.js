@@ -45,7 +45,8 @@ class TopBar extends Component {
         };
     }
     
-    handleToggle() {
+    handleToggle(event) {
+        event.preventDefault();
         this.setState({
                 open: !this.state.open 
             });
