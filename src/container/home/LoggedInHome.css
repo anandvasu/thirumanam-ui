@@ -1,17 +1,17 @@
 .topLeftSection {
-    width:15%;
+    width:300px;
     display: inline-block;
     vertical-align: top;
 }
 
 .topMiddleSection {
-    width:60%;
+    width:500px;
     display: inline-block;
     vertical-align: top;
 }
 
 .topRightSection {
-    width:20%;
+    width:300px;
     vertical-align: top;
     display: inline-block;
 }

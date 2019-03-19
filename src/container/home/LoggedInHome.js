@@ -10,6 +10,7 @@ import DashboardSearch from '../../components/search/DashboardSearch';
 import VistedProfilesMini from '../../components/results/VistedProfilesMini';
 import Explore from './Explore';
 import Constant from '../../components/utils/Constant';
+import Message from './Message';
 
 class LoggedInHome extends Component {
        
@@ -18,12 +19,17 @@ class LoggedInHome extends Component {
                 <div>
                         <TopBar />
                         <div className='hs10' />
-                        <div style={{textAlign:'left',paddingLeft:'5%'}}><b>Hello! {sessionStorage.getItem("name")}</b></div>
+                        <div style={{textAlign:'left',width:'1100px',display:'inline-block'}}>
+                                <b>Hello! {sessionStorage.getItem(Constant.USER_FIRST_NAME)},{sessionStorage.getItem(Constant.USER_LAST_NAME)} 
+                                        ({sessionStorage.getItem(Constant.USER_PROFILE_ID)})</b>
+                        </div>
                         <div className='hs10' />
                         <div className="topLeftSection">
                                 <ProfileSelfSummary />
                                 <div className='hs20' />
                                 <Explore />
+                                <div className='hs20' />
+                                <Message />
                         </div>
                         <div className='vs15' />
                         <div className="topMiddleSection">
@@ -38,12 +44,12 @@ class LoggedInHome extends Component {
                         </div>
                         <div className='vs15' />
                         <div className="topRightSection">                               
-                               <div style={{paddingBottom:'20px'}}>
-                                       <DashboardSearch />
-                               </div>
-                               <div>
+                        <div style={{paddingBottom:'20px'}}>
+                                <DashboardSearch />
+                        </div>
+                        <div>
                                         <img src={adImage} alt="Not Available" style={{height:'300px'}}/>
-                               </div>
+                        </div>
 
                         </div>
                         <Footer />                       

@@ -36,8 +36,8 @@ function myMatchProfileSummary(props) {
             <div className="profileSummary">       
                 <div className="psBottom">
                     <div className="profileId">
-                        <label className="profileName"> 
-                            <b>{preFix} {props.firstName}, {props.lastName} </b>
+                        <label className="profileName" style={{fontSize:'10px'}}> 
+                            <b>{preFix} {props.firstName}, {props.lastName} </b> 
                         </label>
                     </div>
                     <div className="viewProfileDiv">
