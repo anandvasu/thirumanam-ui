@@ -157,6 +157,9 @@ class TopBar extends Component {
                                                 <ClickAwayListener onClickAway={this.handleClose}>
                                                     <MenuList style={{backgroundColor:"#F8F9F9"}}>
                                                         <MenuItem style={{backgroundColor: '#DDA0DD', color: '#6E2C00',fontWeight:'bold'}} onClick={this.changePassword}>
+                                                            Setting
+                                                        </MenuItem>
+                                                        <MenuItem style={{backgroundColor: '#DDA0DD', color: '#6E2C00',fontWeight:'bold'}} onClick={this.changePassword}>
                                                             Change Password
                                                         </MenuItem>
                                                         <MenuItem style={{backgroundColor: '#DDA0DD', color: '#6E2C00',fontWeight:'bold'}} onClick={this.updateContactDetail}>

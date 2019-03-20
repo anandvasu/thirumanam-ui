@@ -37,6 +37,7 @@ import ChangePassword from './components/login/ChangePassword';
 import UpdateAccountDetail from './components/login/UpdateAccountDetail';
 import Constant from './components/utils/Constant';
 import ApiConstant from './components/utils/ApiConstant';
+import MessageHome from './container/home/MessageHome';
 
 class App extends Component {
  
@@ -104,8 +105,8 @@ class App extends Component {
             <Route path="/resetPasswordResponse" component={ResetPasswordResponse} />   
             <Route path="/logout" component={Logout} />  
             <Route path="/changePassword" component={ChangePassword} />        
-            <Route path="/updateAcountDetail" component={UpdateAccountDetail} />      
-                          
+            <Route path="/updateAcountDetail" component={UpdateAccountDetail} />  
+            <Route path="/messageHome" component={MessageHome} />  
         </Aux>
       </Router>
     );

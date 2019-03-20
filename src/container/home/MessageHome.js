@@ -12,7 +12,15 @@ import Explore from './Explore';
 import Constant from '../../components/utils/Constant';
 import MessageSummary from '../../components/message/MessageSummary';
 
-class LoggedInHome extends Component {
+class MessageHome extends Component {
+
+        constructor(props) {
+            super(props);
+        }
+
+        componentDidMount() {
+            alert(this.props.location.state.itemName)
+        }
        
         render () {
                 return (
@@ -25,22 +33,16 @@ class LoggedInHome extends Component {
                         </div>
                         <div className='hs10' />
                         <div className="topLeftSection">
-                                <ProfileSelfSummary />
-                                <div className='hs20' />
-                                <Explore />
-                                <div className='hs20' />
-                                <MessageSummary />
+                            <div>
+                                Inbox
+                            </div>
+                            <div>
+                                Sentitems
+                            </div>
                         </div>
                         <div className='vs15' />
                         <div className="topMiddleSection">
-                                <PercentageCompleted 
-                                        profileCompPercent= {sessionStorage.getItem(Constant.PROFILE_PERCENT_COMP)}
-                                />
-                                <div className='hs10' />
-                                <MyMatches />
-                                <div className='hs10' />
-                                <VistedProfilesMini />
-                                <div className='hs50' />
+                               Message Section
                         </div>
                         <div className='vs15' />
                         <div className="topRightSection">                               
@@ -48,7 +50,7 @@ class LoggedInHome extends Component {
                                 <DashboardSearch />
                         </div>
                         <div>
-                                        <img src={adImage} alt="Not Available" style={{height:'300px'}}/>
+                              <img src={adImage} alt="Not Available" style={{height:'300px'}}/>
                         </div>
 
                         </div>
@@ -58,4 +60,4 @@ class LoggedInHome extends Component {
         };
 }
 
-export default LoggedInHome;
+export default MessageHome;

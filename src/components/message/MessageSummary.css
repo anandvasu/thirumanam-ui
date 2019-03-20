@@ -1,0 +1,11 @@
+.inboxLabel {
+    display: inline-block;
+    width: 80%;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.inboxCount {
+    display: inline-block;
+    width: 10%;
+}
