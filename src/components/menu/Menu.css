@@ -8,7 +8,7 @@
 .menuContainer {
     display:inline-block;
     text-align: left;
-    width:50%;
+    width:40%;
     vertical-align: top;
     text-align: right;
 }
@@ -38,7 +38,7 @@
     display:inline-block;
     text-align: left;
     vertical-align: middle;
-    width:450px;
+    width:40%;
 }
 
 .logo img:hover {
