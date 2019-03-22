@@ -1,25 +1,69 @@
 import React,{Component} from 'react';
 import Footer from '../../components/footer/Footer';
 import TopBar from '../../components/menu/TopBar';
-import ProfileSelfSummary from '../../components/results/profile/ProfileSelfSummary';
 import './LoggedInHome.css';
-import PercentageCompleted from '../../components/profile/PercentageCompleted';
-import MyMatches from '../../components/results/MyMatches';
-import adImage from '../../assets/images/ad.jpg';
-import DashboardSearch from '../../components/search/DashboardSearch';
-import VistedProfilesMini from '../../components/results/VistedProfilesMini';
-import Explore from './Explore';
 import Constant from '../../components/utils/Constant';
-import MessageSummary from '../../components/message/MessageSummary';
+import Inbox from '../../components/message/Inbox';
+import Sentitems from '../../components/message/Sentitem';
+import MessageMenu from '../../components/message/MessageMenu';
 
 class MessageHome extends Component {
 
         constructor(props) {
             super(props);
+
+            this.displayInbox = this.displayInbox.bind(this);
+            this.displaySentitems = this.displaySentitems.bind(this);
+            this.displayMessageContent = this.displayMessageContent.bind(this);
+
+            this.state = {
+                messageContent:null
+            }
+        }
+
+        displayInbox(itemName) {           
+            return(<div>
+                    <Inbox />
+                    </div>);      
+        }
+
+        displaySentitems(itemName) {
+          
+            return(<div>
+                        <Sentitems />
+                    </div>);
+            
+        }
+
+        displayMessageContent(itemName) {
+
+            if(itemName === "I") {
+                const content = this.displayInbox(itemName);
+                this.setState({
+                    messageContent:content
+                });
+            } else {
+                const content = this.displaySentitems(itemName);
+                this.setState({
+                    messageContent:content
+                });
+            }
+
         }
 
         componentDidMount() {
-            alert(this.props.location.state.itemName)
+            const itemName = this.props.location.state.itemName;
+            if(itemName === "D" || itemName === "P") {
+                const content = this.displayInbox(itemName);
+                this.setState({
+                    messageContent:content
+                });
+            } else {
+                const content = this.displaySentitems(itemName);
+                this.setState({
+                    messageContent:content
+                });
+            }
         }
        
         render () {
@@ -33,27 +77,15 @@ class MessageHome extends Component {
                         </div>
                         <div className='hs10' />
                         <div className="topLeftSection">
-                            <div>
-                                Inbox
-                            </div>
-                            <div>
-                                Sentitems
-                            </div>
+                           <MessageMenu
+                                displayMessageContent = {this.displayMessageContent}
+                            />
                         </div>
                         <div className='vs15' />
-                        <div className="topMiddleSection">
-                               Message Section
+                        <div style={{width:"800px",display:"inline-block"}}>
+                              {this.state.messageContent}
                         </div>
-                        <div className='vs15' />
-                        <div className="topRightSection">                               
-                        <div style={{paddingBottom:'20px'}}>
-                                <DashboardSearch />
-                        </div>
-                        <div>
-                              <img src={adImage} alt="Not Available" style={{height:'300px'}}/>
-                        </div>
-
-                        </div>
+                        <div className='vs15' />                      
                         <Footer />                       
                 </div>                        
                 );
