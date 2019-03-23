@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import MessageProfiles from './MessageProfiles';
 
 function TabContainer(props) {
     return (
@@ -52,7 +53,7 @@ class Sentitems extends Component {
             <div>      
                 <div>
                 </div>          
-                <div>
+                <div style={{backgroundColor:'white'}}>
                 <Paper square className={classes.root}>
                     <Tabs value={this.state.selectedTab} 
                         onChange={this.handleChange} 
@@ -66,12 +67,28 @@ class Sentitems extends Component {
                 </Paper>
                 {this.state.selectedTab === '1' && 
                     <TabContainer>
-                       All
+                        <div>
+                            This folder contains all the requests that you sent.
+                            <hr />
+                        </div>
+                        <div>
+                            <MessageProfiles 
+                                status="S"
+                            />
+                        </div>
                     </TabContainer>
                 }
                 {this.state.selectedTab === '2' && 
                     <TabContainer>
-                        Awaiting Reply
+                        <div>
+                            This folder contains all the requests that you are waiting for reply.
+                            <hr />
+                        </div>
+                        <div>
+                            <MessageProfiles 
+                                status="R"
+                            />
+                        </div>
                     </TabContainer>
                 }                              
                 </div>               

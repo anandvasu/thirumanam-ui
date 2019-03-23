@@ -127,10 +127,7 @@ class MessageProfiles extends Component {
                         bDate = {formatDate(data.bDay, data.bMonth, data.bYear)}
                         education = {data.education}
                         city = {data.city}
-                    />
-                   { 
-                       ((i < 10) && <hr style={{width:'90%'}} /> )                 
-                    }                   
+                    />                                  
                 </div>
             );
 

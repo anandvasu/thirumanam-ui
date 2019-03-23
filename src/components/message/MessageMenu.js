@@ -39,7 +39,7 @@ function messageMenu(props) {
           <ListItemIcon className={classes.icon}>
             <SendIcon />
           </ListItemIcon>
-          <ListItemText classes={{ primary: classes.primary }} inset primary="Sent mail" onClick={() => props.displayMessageContent("S")}/>
+          <ListItemText classes={{ primary: classes.primary }} inset primary="Sent" onClick={() => props.displayMessageContent("S")}/>
         </MenuItem>
     </Paper>
   );
