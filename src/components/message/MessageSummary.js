@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import "react-tabs/style/react-tabs.css";
 import './MessageSummary.css';
 import axios from 'axios';
 import ApiConstant from '../utils/ApiConstant';
@@ -93,7 +92,7 @@ class MessageSummary extends Component {
                         variant="fullWidth" 
                     >
 
-                            <Tab value="1" label="Inbox" style={{borderRight:'2px'}} />
+                            <Tab value="1" label="Inbox"/>
                             <Tab value="2" label="Sentitems" />
                     </Tabs>
                 </Paper>

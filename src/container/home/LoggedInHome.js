@@ -48,7 +48,7 @@ class LoggedInHome extends Component {
                                 <DashboardSearch />
                         </div>
                         <div>
-                                        <img src={adImage} alt="Not Available" style={{height:'300px'}}/>
+                                <img src={adImage} alt="Not Available" style={{height:'300px'}}/>
                         </div>
 
                         </div>
