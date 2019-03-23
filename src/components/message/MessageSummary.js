@@ -52,11 +52,11 @@ class MessageSummary extends Component {
         this.setState({ selectedTab:value });
       };
 
-    goToMessageHome(itemName) {
+    goToMessageHome(status) {
         this.props.history.push({
             pathname:"/messageHome",
             state:{
-                itemName : itemName              
+                status : status              
             }  
         });
     }
@@ -91,7 +91,6 @@ class MessageSummary extends Component {
                         textColor="primary"
                         variant="fullWidth" 
                     >
-
                             <Tab value="1" label="Inbox"/>
                             <Tab value="2" label="Sentitems" />
                     </Tabs>
@@ -99,11 +98,11 @@ class MessageSummary extends Component {
                 {this.state.selectedTab === '1' && 
                     <TabContainer>
                         <div style={{width:'100%'}}>
-                                <div className="inboxLabel"><label> <a href="#" onClick={() => this.goToMessageHome("D")}>Accepted</a> </label></div>
+                                <div className="inboxLabel"><label> <a href="#" onClick={() => this.goToMessageHome(Constant.MESSAGE_STATUS_ACCEPTED)}>Accepted</a> </label></div>
                                 <div className="inboxCount"><label> {this.state.acceptedCount} </label></div>
                         </div>
                         <div style={{width:'100%',paddingTop:'10px',paddingBottom:'5px'}}>
-                            <div className="inboxLabel"><label> <a href="#" onClick={() => this.goToMessageHome("P")}>Pending</a> </label> </div>
+                            <div className="inboxLabel"><label> <a href="#" onClick={() => this.goToMessageHome(Constant.MESSAGE_STATUS_PENDING)}>Pending</a> </label> </div>
                             <div className="inboxCount"><label> {this.state.pendingCount} </label></div>
                         </div>
                     </TabContainer>
@@ -111,11 +110,11 @@ class MessageSummary extends Component {
                 {this.state.selectedTab === '2' && 
                 <TabContainer>
                      <div style={{width:'100%'}}>
-                        <div className="inboxLabel"><label><a href="#" onClick={() => this.goToMessageHome("A")}>All</a></label></div>
+                        <div className="inboxLabel"><label><a href="#" onClick={() => this.goToMessageHome(Constant.MESSAGE_STATUS_ALL)}>All</a></label></div>
                         <div className="inboxCount"><label> {this.state.sentItemsCount} </label></div>
                     </div>
                     <div style={{width:'100%',paddingTop:'10px',paddingBottom:'5px'}}>
-                        <div className="inboxLabel"><label><a href="#" onClick={() => this.goToMessageHome("R")}>Awaiting Reply</a></label> </div>
+                        <div className="inboxLabel"><label><a href="#" onClick={() => this.goToMessageHome(Constant.MESSAGE_STATUS_AWAITING_REPLY)}>Awaiting Reply</a></label> </div>
                         <div className="inboxCount"><label> {this.state.awitingReplyCount} </label></div>
                     </div>
                 </TabContainer>

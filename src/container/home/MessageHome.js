@@ -21,29 +21,34 @@ class MessageHome extends Component {
             }
         }
 
-        displayInbox(itemName) {           
-            return(<div>
-                    <Inbox />
-                    </div>);      
+        displayInbox(status) {           
+            return(
+            <div>
+                <Inbox 
+                    status = {status}
+                />
+            </div>);      
         }
 
-        displaySentitems(itemName) {
+        displaySentitems(status) {
           
             return(<div>
-                        <Sentitems />
-                    </div>);
+                <Sentitems 
+                        status = {status}
+                />
+            </div>);
             
         }
 
-        displayMessageContent(itemName) {
+        displayMessageContent(status) {
 
-            if(itemName === "I") {
-                const content = this.displayInbox(itemName);
+            if(status === "I") {
+                const content = this.displayInbox(status);
                 this.setState({
                     messageContent:content
                 });
             } else {
-                const content = this.displaySentitems(itemName);
+                const content = this.displaySentitems(status);
                 this.setState({
                     messageContent:content
                 });
@@ -52,14 +57,15 @@ class MessageHome extends Component {
         }
 
         componentDidMount() {
-            const itemName = this.props.location.state.itemName;
-            if(itemName === "D" || itemName === "P") {
-                const content = this.displayInbox(itemName);
+            const status = this.props.location.state.status;
+            if(status === Constant.MESSAGE_STATUS_ACCEPTED 
+                || status === Constant.MESSAGE_STATUS_PENDING) {
+                const content = this.displayInbox(status);
                 this.setState({
                     messageContent:content
                 });
             } else {
-                const content = this.displaySentitems(itemName);
+                const content = this.displaySentitems(status);
                 this.setState({
                     messageContent:content
                 });

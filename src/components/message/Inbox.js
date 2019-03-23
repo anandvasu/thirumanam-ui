@@ -8,6 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import MessageProfiles from './MessageProfiles';
+import Constant from '../utils/Constant';
 
 function TabContainer(props) {
     return (
@@ -38,6 +39,17 @@ class Inbox extends Component {
 
         this.state = {
             selectedTab:"1"
+        }
+    }
+
+    componentDidMount() {
+        const status = this.props.status;
+        if(status === Constant.MESSAGE_STATUS_PENDING) {
+            this.setState({ selectedTab:"1" });
+        } else if (status === Constant.MESSAGE_STATUS_ACCEPTED) {
+            this.setState({ selectedTab:"2" });
+        } else {
+            this.setState({ selectedTab:"3" });
         }
     }
 
