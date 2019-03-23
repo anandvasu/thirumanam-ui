@@ -154,16 +154,16 @@ class TopBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                   <MenuItem style={{backgroundColor: '#DDA0DD', color: '#6E2C00',fontWeight:'bold'}} onClick={this.changePassword}>
+                   <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={this.changePassword}>
                         Setting
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: '#6E2C00',fontWeight:'bold'}} onClick={this.changePassword}>
+                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={this.changePassword}>
                         Change Password
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: '#6E2C00',fontWeight:'bold'}} onClick={this.updateContactDetail}>
+                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={this.updateContactDetail}>
                         Update Contact Detail
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: '#6E2C00',fontWeight:'bold'}} onClick={this.logoutClick}>
+                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={this.logoutClick}>
                         Logout
                     </MenuItem>
                 </Menu>

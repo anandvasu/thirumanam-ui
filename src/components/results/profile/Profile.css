@@ -1,6 +1,7 @@
 .profileParentContainer {
     background-color:#EBDEF0;
-    overflow: auto;
+    width:1100px;
+    text-align: center;
 }
 
 .pContainer {   

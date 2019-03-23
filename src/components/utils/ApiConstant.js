@@ -55,6 +55,7 @@ export default {
    SHORT_LISTED_PROFILE:"http://localhost:8085/matrimony/shortlisted/",
    BLOCKED_PROFILE_LIST:"http://localhost:8085/matrimony/blocked/list/",
    BLOCKED_PROFILE:"http://localhost:8085/matrimony/blocked/",   
-   UN_BLOCK_PROFILE:"http://localhost:8085/matrimony/blocked/unblock/"
+   UN_BLOCK_PROFILE:"http://localhost:8085/matrimony/blocked/unblock/",
+   MESSAGE_API:"http://localhost:8085/matrimony/message/"
    
  }; 

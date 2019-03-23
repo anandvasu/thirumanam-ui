@@ -5,12 +5,18 @@ import {
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
 import './MessageSummary.css';
+import axios from 'axios';
+import ApiConstant from '../utils/ApiConstant';
+import Constant from '../utils/Constant';
 
 class MessageSummary extends Component {
 
     constructor(props) {
         super(props);
-
+        this.state = {
+            inboxCount:0,
+            sentCount:0
+        }
         this.goToMessageHome = this.goToMessageHome.bind(this);
     }
 
@@ -20,6 +26,17 @@ class MessageSummary extends Component {
             state:{
                 itemName : itemName              
             }  
+        });
+    }
+
+    componentDidMount() {
+        axios.get(ApiConstant.MESSAGE_API+sessionStorage.getItem(Constant.USER_PROFILE_ID)+"/summary")
+        .then(res => {
+            console.log(res);
+            this.setState({
+                inboxCount:res.data.inboxCount,
+                sentCount:res.data.sentItemsCount,
+            })
         });
     }
 
@@ -44,7 +61,7 @@ class MessageSummary extends Component {
                             </div>
                             <div style={{width:'100%',paddingTop:'5px',paddingBottom:'5px'}}>
                                 <div className="inboxLabel"><label> <a href="#" onClick={() => this.goToMessageHome("P")}>Pending</a> </label> </div>
-                                <div className="inboxCount"><label> 0 </label></div>
+                                <div className="inboxCount"><label> {this.state.inboxCount}</label></div>
                             </div>
                         </TabPanel>
                         <TabPanel>
@@ -54,7 +71,7 @@ class MessageSummary extends Component {
                             </div>
                             <div style={{width:'100%',paddingTop:'5px',paddingBottom:'5px'}}>
                                 <div className="inboxLabel"><label><a href="#" onClick={() => this.goToMessageHome("R")}>Awaiting Reply</a></label> </div>
-                                <div className="inboxCount"><label> 0 </label></div>
+                                <div className="inboxCount"><label> {this.state.sentCount} </label></div>
                             </div>
                         </TabPanel>
                     </Tabs>

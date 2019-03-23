@@ -3,14 +3,11 @@ import ProfileSummary from './profile/ProfileSummary';
 import axios from 'axios';
 import Filter from '../search/Filter';
 import Modal from '../modal/Modal';
-import Profile from '../../components/results/profile/Profile';
 import Footer from '../../components/footer/Footer';
 import './Results.css';
 import RegisterWithLogin from '../register/RegisterWithLogin';
-import Aux from '../../hoc/Aux';
 import ApiConstant from '../../components/utils/ApiConstant';
 import Constant from '../utils/Constant';
-import DropDownConstant from '../utils/DropDownConstant';
 import TopBar from '../menu/TopBar';
 import {getValueArrFromReactSelect,formatDate} from '../../components/utils/Util';
 

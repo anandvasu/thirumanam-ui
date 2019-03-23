@@ -3,24 +3,46 @@ import React, {Component} from 'react';
 import './Profile.css';
 import {getDropDownLabel} from '../../utils/Util';
 import DropDownConstant from '../../utils/DropDownConstant';
+import heartImage from '../../../assets/images/heart.png';
+import axios from 'axios';
+import ApiConstant from '../../../components/utils/ApiConstant';
+import Constant from '../../../components/utils/Constant';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Profile extends Component {
 
     constructor () {
         super();
-        this.closeButtonHandler = this.closeButtonHandler.bind(this);
+        this.sendInterest = this.sendInterest.bind(this);
     }
 
-    closeButtonHandler() {
-        this.props.closeProfile();
+    sendInterest(event) {     
+        event.preventDefault();   
+        axios.post(ApiConstant.MESSAGE_API+sessionStorage.getItem(Constant.USER_PROFILE_ID),
+        { 
+            partnerMatrimonyId: this.props.profile.id
+        }) .then((res) => {
+            console.log(res);
+                       
+        }) .catch((error) => {
+            console.log(error);
+            if (! toast.isActive(this.toastId)) {
+                toast.error(error.response.data.message, 
+                    {
+                        position:toast.POSITION.TOP_CENTER,
+                        hideProgressBar:true,
+                        autoClose:3000,
+                        toastId:Constant.toastIdErr
+                    });
+            }                
+        });       
     }
 
     render () {
 
-        const screenHeight = window.innerHeight - 120;
-
         return (
-            <div className="profileParentContainer" style={{heigh:screenHeight}}> 
+            <div className="profileParentContainer"> 
                  <div className='hs10' />
                  <div className="profileTopBar">
                         <div className="profileHeading">Profile Detail</div>                        
@@ -107,6 +129,17 @@ class Profile extends Component {
                         </div>
 
                         <div className="hs20" />  
+
+                        <div className="profilRight100Per"> 
+                            <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
+                                <img src={heartImage} alt="Not Available" style={{width:'25px',height:'25px'}} />
+                            </div>
+                            <div className="inlineBlock" style={{height:'30px',width:'50px',float: 'left',paddingTop:'3px'}}>
+                                <label><b> <a href="#" onClick={this.sendInterest}><b>Send Interest</b></a></b></label>                            
+                            </div>
+                        </div>
+
+                        <div className="hs20" /> 
 
                         <div className="profilRight100Per">                         
                                     <div className="header2">
