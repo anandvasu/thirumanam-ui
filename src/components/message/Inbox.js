@@ -68,17 +68,41 @@ class Inbox extends Component {
                     </Paper>
                     {this.state.selectedTab === '1' && 
                         <TabContainer>
-                            <MessageProfiles />
+                            <div>
+                                This folder contains all the requests that you haven't responded.
+                                <hr />
+                            </div>
+                            <div>
+                                <MessageProfiles 
+                                    status="P"
+                                />
+                            </div>
                         </TabContainer>
                     }
                     {this.state.selectedTab === '2' && 
                         <TabContainer>
-                            Accepted
+                            <div>
+                                This folder contains all the requests that you accepted.
+                                <hr />
+                            </div>
+                            <div>
+                                <MessageProfiles 
+                                    status="A"
+                                />
+                            </div>
                         </TabContainer>
                     }     
                     {this.state.selectedTab === '3' && 
                         <TabContainer>
-                            Declined
+                             <div>
+                                This folder contains all the requests that you denied.
+                                <hr />
+                            </div>
+                            <div>
+                                <MessageProfiles 
+                                     status="D"
+                                />
+                            </div>
                         </TabContainer>
                     }          
                 </div>               

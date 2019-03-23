@@ -6,9 +6,6 @@ import nextImage from '../../assets/images/next.png';
 import ApiConstant from '../utils/ApiConstant';
 import MessageProfileSummary from './MessageProfileSummary';
 import {formatDate} from '../utils/Util';
-import {
-    withRouter
-  } from 'react-router-dom';
   
 class MessageProfiles extends Component {
 
@@ -23,7 +20,7 @@ class MessageProfiles extends Component {
 
         this.state = {
             profiles:[],
-            totalMatches:0,
+            totalProfiles:0,
             pageNo:1
 
         }
@@ -31,7 +28,7 @@ class MessageProfiles extends Component {
 
     nextClick() {
         const pageNo = this.state.pageNo;
-        if((pageNo * 10) < this.state.totalMatches) {
+        if((pageNo * 10) < this.state.totalProfiles) {
             this.setState({
                 pageNo:pageNo + 1
             });
@@ -98,7 +95,7 @@ class MessageProfiles extends Component {
                console.log(res);
                const totalProfiles = res.headers["x-total-docs"]; 
                this.setState({
-                    totalProfiles:totalProfiles
+                    totalProfiles:parseInt(totalProfiles)
                })
                this.displayResults(res.data);
              
@@ -108,7 +105,7 @@ class MessageProfiles extends Component {
     }
 
     componentDidMount() {
-        this.loadMessageProfiles(1, "P");
+        this.loadMessageProfiles(1, this.props.status);
     }
 
     displayResults(profileData) {    
@@ -147,18 +144,26 @@ class MessageProfiles extends Component {
     render() {     
         
         return(
-            <div className="myMatchContainer">    
+            <div style={{width:'100%'}}>    
+            { (this.state.totalProfiles > 10) &&
                <div style={{float:'right'}}>
                         <img className="prevNextImage" src={prevImage} onClick={this.prevClick}/> 
                         <img className="prevNextImage" src={prevImage} src={nextImage} onClick={this.nextClick}/> 
                 </div>
-               <div className="hs10" />
+            }
+               <div className="hs20" />
                {this.state.profiles}
                <div className="hs20" />
+               {                   
+                   (this.state.totalProfiles === 0 ) && 
+                   <div>
+                        <label><b>Currently there is no communication in this folder.</b></label>
+                   </div>
+               }
             </div>            
         ) ;
     }
 
 }
 
-export default withRouter(MessageProfiles);
+export default MessageProfiles;

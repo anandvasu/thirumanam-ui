@@ -3,10 +3,10 @@ import defaultFImage from '../../assets/images/defalt_female.png';
 import defaultMImage from '../../assets/images/default_male.jpg';
 import heartImage from '../../assets/images/heart.png';
 import addImage from '../../assets/images/add.png';
-import blockImage from '../../assets/images/block.png';
 import viewImage from '../../assets/images/view.png';
 import {getDropDownLabel} from '../utils/Util';
 import DropDownConstant from '../utils/DropDownConstant';
+import './MessageProfileSummary.css';
 
 function messageProfileSummary(props) {  
 
@@ -24,7 +24,7 @@ function messageProfileSummary(props) {
         }
 
         return(
-            <div className="profileContainer">
+            <div className="messageProfileContainer">
             <div className="profileSummarImage">
                 <div>
                     {image}
