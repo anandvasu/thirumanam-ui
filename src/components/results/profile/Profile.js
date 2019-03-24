@@ -9,6 +9,8 @@ import ApiConstant from '../../../components/utils/ApiConstant';
 import Constant from '../../../components/utils/Constant';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import DashboardSearch from '../../search/DashboardSearch';
+import ProfileIdSearch from '../../search/ProfileIdSearch';
 
 class Profile extends Component {
 
@@ -42,8 +44,9 @@ class Profile extends Component {
     render () {
 
         return (
-            <div className="profileParentContainer">   
+            <div className="profileParentContainer">                   
                 <div className="hs20" />
+                <div className="profileParentLeft">
                 <div className="sectionContainer"> 
                     <div className="profileRowContainer">
                         <div className="hs10" />
@@ -387,6 +390,13 @@ class Profile extends Component {
                         </div>
                     </div>
                 </div>
+                </div>
+                <div className="vs30">
+
+                </div>
+                <div className="profileParentRight">
+                     <ProfileIdSearch/>                    
+                </div>             
 
                 <div className="hs10" />
             </div>

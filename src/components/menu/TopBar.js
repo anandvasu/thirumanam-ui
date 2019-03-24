@@ -109,7 +109,7 @@ class TopBar extends React.Component {
     const open = Boolean(anchorEl);
 
     return (
-      <div className={classes.root}>     
+      <div>     
         <AppBar position="static" color="secondary">
            
           <Toolbar>         

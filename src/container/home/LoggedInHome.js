@@ -13,6 +13,7 @@ import Constant from '../../components/utils/Constant';
 import MessageSummary from '../../components/message/MessageSummary';
 import axios from 'axios';
 import ApiConstant from '../../components/utils/ApiConstant';
+import ProfileIdSearch from '../../components/search/ProfileIdSearch';
 
 
 class LoggedInHome extends Component {
@@ -69,10 +70,13 @@ class LoggedInHome extends Component {
                                 <div className='hs50' />
                         </div>
                         <div className='vs15' />
-                        <div className="topRightSection">                               
-                        <div style={{paddingBottom:'20px'}}>
-                                <DashboardSearch />
-                        </div>
+                        <div className="topRightSection">     
+                                <div style={{paddingBottom:'20px'}}>
+                                        <ProfileIdSearch />
+                                </div>                          
+                                <div style={{paddingBottom:'20px'}}>
+                                        <DashboardSearch />
+                                </div>
                         <div>
                                 <img src={adImage} alt="Not Available" style={{height:'300px'}}/>
                         </div>

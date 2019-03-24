@@ -231,10 +231,14 @@ class MyMatches extends Component {
             <div className="myMatchContainer">               
                <div className="header2"> 
                     <div className="vs5px"/>
-                    <b>My Matches ({this.state.totalMatches})</b>&nbsp;&nbsp;<a href="#" onClick={this.viewAllMyMatches} className="hyperlinkHeader">View All</a>
+                    <b>My Matches ({this.state.totalMatches})</b>&nbsp;&nbsp;
+                        {(this.state.totalMatches > 3) && 
+                            <a href="#" onClick={this.viewAllMyMatches} className="hyperlinkHeader">View All
+                            </a>
+                        }
                     </div>
                <div className="hs10" />
-               {this.state.profiles}
+                    {this.state.profiles}
                <div className="hs10" />
             </div>
         ) ;

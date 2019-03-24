@@ -4,6 +4,18 @@
     display:inline-block;
 }
 
+.profileParentLeft{
+    display: inline-block;
+    width:65%
+
+}
+
+.profileParentRight{
+    display: inline-block;
+    vertical-align: top;
+    width:30%
+}
+
 .profileHeading {
     font-size: 20px;
     font-weight: bold;

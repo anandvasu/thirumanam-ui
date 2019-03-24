@@ -134,28 +134,7 @@ class DashboardSearch extends Component {
                     <div className="header2" style={{paddingTop:'5px'}}>
                         <div className="vs5px"/>
                         <b>Search Partner Profile</b>
-                    </div>       
-
-                    <div style={{width:'100%',paddingTop:'3px'}}> 
-                        <div className="dashLeftLabel">
-                            <label>Profile ID:&nbsp;</label>
-                        </div>
-                        <div className="dashRightField">
-                            <div className="inlineBlock" style={{float:'left',paddingTop:'5px'}}>
-                                <input type="text" id="profileId" style={{width:'140px'}}/>
-                           </div>
-                           <div className="inlineBlock" style={{float:'left',paddingLeft:'5px',paddingTop:'10px'}}>
-                                <img className="searchImage" src={SearchImage} onClick={this.viewProfile} />
-                           </div>
-                        </div>  
                     </div>  
-
-                    <div style={{width:'100%',paddingTop:'3px'}}> 
-                        <div style={{width:'100%'}}>
-                            <label>OR</label>
-                        </div>
-                    </div>  
-
                     <div style={{width:'100%',paddingTop:'3px'}}> 
                         <div className="dashLeftLabel">
                             <label>Age:&nbsp;</label>
