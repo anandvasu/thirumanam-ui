@@ -11,8 +11,32 @@ import VistedProfilesMini from '../../components/results/VistedProfilesMini';
 import Explore from './Explore';
 import Constant from '../../components/utils/Constant';
 import MessageSummary from '../../components/message/MessageSummary';
+import axios from 'axios';
+import ApiConstant from '../../components/utils/ApiConstant';
+
 
 class LoggedInHome extends Component {
+
+        constructor(props) {
+                super(props);
+        
+                this.profileClick = this.profileClick.bind(this);
+        }
+
+
+        profileClick(profileId) {
+
+                axios.get(ApiConstant.USER_API+profileId+"?userId="+sessionStorage.getItem(Constant.USER_PROFILE_ID))
+                        .then(res => {
+                                console.log(res);
+                                this.props.history.push({
+                                pathname: '/viewProfile',
+                                state: {
+                                        profile:res.data
+                                }
+                                });
+                        });
+        }
        
         render () {
                 return (
@@ -39,7 +63,9 @@ class LoggedInHome extends Component {
                                 <div className='hs10' />
                                 <MyMatches />
                                 <div className='hs10' />
-                                <VistedProfilesMini />
+                                <VistedProfilesMini
+                                        profileClick = {this.profileClick}
+                                />
                                 <div className='hs50' />
                         </div>
                         <div className='vs15' />

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {toast} from 'react-toastify';
 import ApiConstant from '../utils/ApiConstant';
+import Constant from '../utils/Constant';
 import '../profile/MyMatchProfileSummary.css';
 import Modal from '../modal/Modal';
 import Profile from './profile/Profile';
@@ -14,10 +15,7 @@ class VisitedProfilesMini extends Component {
 
     constructor(props) {
         super(props);
-
-        this.profileClick = this.profileClick.bind(this);
-        this.profileClosed = this.profileClosed.bind(this);     
-        this.profileCloseHandler = this.profileCloseHandler.bind(this);         
+        
         this.viewAllMyMatches = this.viewAllMyMatches.bind(this);  
 
         this.state = {
@@ -31,35 +29,6 @@ class VisitedProfilesMini extends Component {
     viewAllMyMatches() {
         this.props.history.push({
             pathname:"/visitedProfilesHome"
-        });
-    }
-        
-    profileClick(profileId) {
-
-        if (sessionStorage.getItem("userSession") != null) {
-
-            axios.get(ApiConstant.USER_API+profileId+"?userId="+sessionStorage.getItem("profileId"))
-                .then(res => {
-                    console.log(res);
-                    this.setState(
-                        {
-                            profile:res.data,
-                            profileClicked:true
-                        }
-                    );
-            });
-        } 
-    }
-
-    profileCloseHandler() {
-        this.setState({
-            profileClicked:false
-        });
-    }
-
-    profileClosed() {
-        this.setState({
-            profileClicked:false
         });
     }
 
@@ -96,7 +65,7 @@ class VisitedProfilesMini extends Component {
                         lastName = {data.lastName}                        
                         email = {data.email}
                         thumbImage = {data.image}
-                        profileClick = {this.profileClick}
+                        profileClick = {this.props.profileClick}
                         gender = {data.gender}
                         bDate = "12/12/1990"
                     />
@@ -116,13 +85,7 @@ class VisitedProfilesMini extends Component {
     render() {     
         
         return(
-            <div className="myMatchContainer">
-                <Modal show={this.state.profileClicked} modalClosed={this.profileClosed} className="Modal">
-                    <Profile
-                        profile={this.state.profile}
-                        closeProfile = {this.profileCloseHandler}
-                    />
-                </Modal> 
+            <div className="myMatchContainer">               
                <div className="header2" style={{paddingTop:'5px'}}> 
                     <div className="vs5px"/>
         <b>People Viewed Your Profile ({this.state.totalMatches})</b>&nbsp;&nbsp; {this.state.totalMatches > 3 && <a href="#" onClick={this.viewAllMyMatches} className="hyperlinkHeader">View All</a> }

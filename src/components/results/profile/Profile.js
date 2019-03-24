@@ -42,14 +42,8 @@ class Profile extends Component {
     render () {
 
         return (
-            <div className="profileParentContainer"> 
-                 <div className='hs10' />
-                 <div className="profileTopBar">
-                        <div className="profileHeading">Profile Detail</div>                        
-                </div>
-
+            <div className="profileParentContainer">                 
                 <div className="hs20" />
-
                 <div className="pContainer">       
                     <div className="profileLeftConNoborder">             
                         <div className="profileImage">

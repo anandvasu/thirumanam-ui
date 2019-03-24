@@ -46,7 +46,7 @@ function visitedProfileSummary (props) {
                     <label className="mIdText"><b>ID: {props.id}</b></label>
                 </div>
                 <div className="viewProfileDiv">
-                    <a href="#" onClick={() => props.profileClick(props.id)} className="mediumHyperlink"><b>View this profile</b></a>
+                    <a href="#" onClick={() => props.profileClick(props.id)} className="mediumHyperlink"><b>View</b></a>
                 </div> 
             </div>
                                 

@@ -64,7 +64,7 @@ function messageProfileSummary(props) {
                                 <img src={heartImage} alt="Not Available"  style={{width:'25px',height:'25px'}}/>
                             </div>                       
                             <div className="inlineBlock" style={{height:'30px',width:'110px',float: 'left',paddingTop:'3px'}}>
-                                <label><b>Accept</b></label>                            
+                                <label><b> <a href="#" onClick={() => props.acceptRequest(props.id)}><b>Accept</b></a></b></label>                          
                             </div>
                         </div> }                  
                        { (sessionStorage.getItem("profileId") != null) && <div className="inlineBlock" style={{width:'130px', height:'25px'}}>
@@ -72,7 +72,7 @@ function messageProfileSummary(props) {
                                 <img src={addImage} alt="Not Available"  style={{width:'25px',height:'25px'}}/>
                             </div>
                             <div className="inlineBlock" style={{height:'30px',width:'90px',float: 'left',paddingTop:'3px'}}>
-                                <label><b>Deny</b></label>                            
+                                <label><b> <a href="#" onClick={() => props.declineRequest(props.id)}><b>Decline</b></a></b></label>                       
                             </div>
                         </div> }                       
                         <div className="inlineBlock" style={{width:'80px', height:'25px'}}>

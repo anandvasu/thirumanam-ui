@@ -4,8 +4,12 @@ import {toast} from 'react-toastify';
 import prevImage from '../../assets/images/prev.png';
 import nextImage from '../../assets/images/next.png';
 import ApiConstant from '../utils/ApiConstant';
+import Constant from '../utils/Constant';
 import MessageProfileSummary from './MessageProfileSummary';
 import {formatDate} from '../utils/Util';
+import {
+    withRouter
+  } from 'react-router-dom';
   
 class MessageProfiles extends Component {
 
@@ -24,6 +28,23 @@ class MessageProfiles extends Component {
             pageNo:1
 
         }
+    }
+
+    profileClick(profileId) {
+
+        if (sessionStorage.getItem(Constant.USER_PROFILE_ID) != null) {
+
+            axios.get(ApiConstant.USER_API+profileId+"?userId="+sessionStorage.getItem(Constant.USER_PROFILE_ID))
+                .then(res => {
+                    console.log(res);
+                    this.props.history.push({
+                        pathname: '/viewProfile',
+                        state: {
+                            profile:res.data
+                        }
+                    });
+            });
+        } 
     }
 
     nextClick() {
@@ -46,23 +67,6 @@ class MessageProfiles extends Component {
         }
     }
         
-    profileClick(profileId) {
-
-        if (sessionStorage.getItem("userSession") != null) {
-
-            axios.get(ApiConstant.USER_API+profileId+ "?userId="+sessionStorage.getItem("profileId"))
-                .then(res => {
-                    console.log(res);                    
-                    this.props.history.push({
-                        pathname: '/viewProfile',
-                        state: {
-                            profile:res.data
-                        }
-                    });
-            });
-        } 
-    }
-
     unBlockProfile(profileId) {
         axios.put(ApiConstant.UN_BLOCK_PROFILE+sessionStorage.getItem("profileId")+"?unBlockProfileId="+profileId, {                
         })
@@ -163,4 +167,4 @@ class MessageProfiles extends Component {
 
 }
 
-export default MessageProfiles;
+export default withRouter(MessageProfiles);
