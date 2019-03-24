@@ -13,19 +13,7 @@ class ViewProfile extends Component {
             return (
             <div>
                 <TopBar />     
-                <div className='hs20' /> 
-                <div style={{width:'1110px',display:'inline-block',paddingBottom:'10px'}}>
-                    <div className="profileHeading">
-                        <label> 
-                            {this.props.location.state.profile.firstName}, {this.props.location.state.profile.lastName}
-                        </label>
-                    </div>
-                    <div style={{textAlign:'left'}}>
-                        <label>
-                            {this.props.location.state.profile.id} 
-                        </label>
-                    </div>
-                </div>   
+                <div className='hs20' />                  
                 <Profile 
                     profile={this.props.location.state.profile}
                 />

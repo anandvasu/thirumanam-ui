@@ -42,261 +42,349 @@ class Profile extends Component {
     render () {
 
         return (
-            <div className="profileParentContainer">                 
+            <div className="profileParentContainer">   
                 <div className="hs20" />
-                <div className="pContainer">       
-                    <div className="profileLeftConNoborder">             
-                        <div className="profileImage">
-                            <img src={"data:image/jpeg;base64,"+this.props.profile.image} alt="Not Available" width="400px" height="500px"></img>&nbsp;&nbsp;&nbsp;
-                        </div> 
-                    </div>
-                    <div className="vs20" />
-                    <div className="profilRightConNoborder">
-                        <div className="profilRight100Per">
-                            <div className="header2">
-                                <label>Personal Information</label>
+                <div className="sectionContainer"> 
+                    <div className="profileRowContainer">
+                        <div className="hs10" />
+                        <div style={{width:'100%'}}>
+                            <div className= "profileHeading" style={{textAlign:'left'}}>
+                                <label> 
+                                    {this.props.profile.firstName}, {this.props.profile.lastName}
+                                </label>
                             </div>
-                            <div>
-                                <div className="profileLabel">
-                                    <label> First Name </label>
-                                </div>
-                                <div className="profileCenter">
-                                    <label>:</label>
-                                </div>
-                                <div className="profileField">
-                                    <label> {this.props.profile.firstName} </label>
-                                </div>     
-                            </div>     
-                            <div>
-                                <div className="profileLabel">
-                                    <label> Last Name </label>
-                                </div>
-                                <div className="profileCenter">
-                                    <label> : </label>
-                                </div>
-                                <div className="profileField">
-                                    <label> {this.props.profile.lastName} </label>
-                                </div>     
-                            </div>     
-                            <div>
-                                <div className="profileLabel">
-                                    <label>Age </label>
-                                </div>
-                                <div className="profileCenter">
-                                    <label> : </label>
-                                </div>
-                                <div className="profileField">
-                                    <label> {this.props.profile.age} </label>
-                                </div>     
-                            </div>                                          
-                        </div>    
-
-                        <div className="hs20" />  
-
-                        <div className="profilRight100Per">                         
-                                    <div className="header2">
-                                        <label>Contact Information</label>
+                            <div className= "profileHeading" style={{textAlign:'right'}}>
+                                <label> 
+                                    ID:{this.props.profile.id}
+                                </label>
+                            </div>
+                        </div>
+                        <div className="hs20" />
+                        <div>
+                            <div className="profileLeftConNoborder">             
+                                <div className="profileImage">
+                                    <img src={"data:image/jpeg;base64,"+this.props.profile.image} alt="Not Available" width="300px" height="400px"></img>&nbsp;&nbsp;&nbsp;
+                                </div> 
+                            </div>
+                            <div className="vs20" />
+                            <div className="profilRightConNoborder">
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>First Name </label>
                                     </div>
-                                    <div>
-                                        <div className="profileLabel">
-                                            <label>Email </label>
-                                        </div>
-                                        <div className="profileCenter">
-                                            <label> : </label>
-                                        </div>
-                                        <div className="profileField">
-                                            <b><label> {this.props.profile.email} </label></b>
-                                        </div>      
-                                    </div>    
-                                    <div>
-                                        <div className="profileLabel">
-                                            <label>Phone Number </label>
-                                        </div>
-                                        <div className="profileCenter">
-                                            <label> : </label>
-                                        </div>
-                                        <div className="profileField">
-                                            <b> <label> {this.props.profile.phone} </label>  </b>
-                                        </div>      
-                                    </div>    
-
-                        </div>
-
-                        <div className="hs20" />  
-
-                        <div className="profilRight100Per"> 
-                            <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
-                                <img src={heartImage} alt="Not Available" style={{width:'25px',height:'25px'}} />
-                            </div>
-                            <div className="inlineBlock" style={{height:'30px',width:'50px',float: 'left',paddingTop:'3px'}}>
-                                <label><b> <a href="#" onClick={this.sendInterest}><b>Send Interest</b></a></b></label>                            
-                            </div>
-                        </div>
-
-                        <div className="hs20" /> 
-
-                        <div className="profilRight100Per">                         
-                                    <div className="header2">
-                                        <label>Religion Information</label>
+                                    <div className="profileCenter">
+                                        <label> : </label>
                                     </div>
-                                    <div>
-                                        <div className="profileLabel">
-                                            <label>Religion </label>
-                                        </div>
-                                        <div className="profileCenter">
-                                            <label> : </label>
-                                        </div>
-                                        <div className="profileField">
-                                            <b><label>{getDropDownLabel(this.props.profile.religion, DropDownConstant.regilionValues)}</label></b>
-                                        </div>      
-                                    </div> 
-                                    <div>
-                                        <div className="profileLabel">
-                                            <label>Caste </label>
-                                        </div>
-                                        <div className="profileCenter">
-                                            <label> : </label>
-                                        </div>
-                                        <div className="profileField">
-                                            <b><label> </label></b>
-                                        </div>      
-                                    </div>    
-                                    <div>
-                                        <div className="profileLabel">
-                                            <label>Sub Caste </label>
-                                        </div>
-                                        <div className="profileCenter">
-                                            <label> : </label>
-                                        </div>
-                                        <div className="profileField">
-                                            <b> <label>  </label>  </b>
-                                        </div>      
-                                    </div>   
-                                    <div>
-                                        <div className="profileLabel">
-                                            <label>Gothra (m) </label>
-                                        </div>
-                                        <div className="profileCenter">
-                                            <label> : </label>
-                                        </div>
-                                        <div className="profileField">
-                                            <b> <label>{getDropDownLabel(this.props.profile.gothram, DropDownConstant.gothramValues)} </label>  </b>
-                                        </div>      
-                                    </div>   
-                                    <div>
-                                        <div className="profileLabel">
-                                            <label>Dhosham </label>
-                                        </div>
-                                        <div className="profileCenter">
-                                            <label> : </label>
-                                        </div>
-                                        <div className="profileField">
-                                            <b> <label> </label>  </b>
-                                        </div>      
-                                    </div>   
-                        </div>
-
-                    </div>    
-                          
-                </div>
-
-                <div className="pContainer">
-                       <div className="profileLeftContainer">
-                            <div className="header2">
-                                <label>Location Information</label>
-                            </div>
-                            <div>
-                           
-                                <div className="profileLabel">
-                                    <label> Country </label>
+                                    <div className="profileField">
+                                        <label> {this.props.profile.firstName} </label>
+                                    </div>     
+                                </div> 
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Last Name </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {this.props.profile.lastName} </label>
+                                    </div>     
                                 </div>
-                                <div className="profileCenter">
-                                    <label> : </label>
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Birth Date </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {this.props.profile.lastName} </label>
+                                    </div>     
                                 </div>
-
-                                <div className="profileField">
-                                    <label> {getDropDownLabel(this.props.profile.country,DropDownConstant.countries)} </label>
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                            <label>Age </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {this.props.profile.age} </label>
+                                    </div>     
                                 </div>  
-                                <div className="profileLabel">
-                                    <label> State </label>
-                                </div>
-                                <div className="profileCenter">
-                                    <label> : </label>
-                                </div>
-                                <div className="profileField">
-                                    <label> {getDropDownLabel(this.props.profile.pstate,DropDownConstant.indiaStates)} </label>
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Height </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {this.props.profile.height} </label>
+                                    </div>     
+                                </div>  
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Weight </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {this.props.profile.weight} </label>
+                                    </div>     
                                 </div> 
-
-                                <div className="profileLabel">
-                                    <label> District </label>
-                                </div>
-                                <div className="profileCenter">
-                                    <label> : </label>
-                                </div>
-                                <div className="profileField">
-                                    <label> {getDropDownLabel(this.props.profile.district, DropDownConstant.tamilnaduDistrict)} </label>
-                                </div>
-
-                                <div className="profileLabel">
-                                    <label> City </label>
-                                </div>
-                                <div className="profileCenter">
-                                    <label> : </label>
-                                </div>
-                                <div className="profileField">
-                                    <label> {this.props.profile.city} </label>
+                                <div>
+                                    <div className="profilRight100Per"> 
+                                        <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
+                                            <img src={heartImage} alt="Not Available" style={{width:'25px',height:'25px'}} />
+                                        </div>
+                                        <div className="inlineBlock" style={{height:'30px',width:'100px',float: 'left',paddingTop:'3px'}}>
+                                            <label><b> <a href="#" onClick={this.sendInterest}><b>Send Interest</b></a></b></label>                            
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                       </div>
-                       <div className="vs20" />
-                           
-                       <div className="profilRightContainer">                            
-                            <div className="header2">
-                                <label>Professional Information</label>
+                        </div>
+                    </div>   
+                </div>
+                <div className="vs30" />
+                <div className="sectionContainer">
+                    <div className="profileRowContainer">
+                        <div className="profileSectionHeading">
+                            <label>Contact Information</label>
+                            <hr />
+                        </div>
+                        <div>      
+                            <div className="profileLeftConNoborder"> 
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Phone Number </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <b> <label> {this.props.profile.phone} </label>  </b>
+                                    </div>   
+                                </div>   
                             </div>
-                            <div>
-                                <div className="profileLabel">
-                                    <label> Education </label>
+                            <div className="profilRightConNoborder"> 
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Email </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <b> <label> {this.props.profile.email} </label>  </b>
+                                    </div>      
                                 </div>
-                                <div className="profileCenter">
-                                    <label> : </label>
-                                </div>
-                                <div className="profileField">
-                                    <label> {getDropDownLabel(this.props.profile.education, DropDownConstant.educationValues)} </label>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div className="vs30" />
+                <div className="sectionContainer">  
+                    <div className="profileRowContainer">
+                        <div className="profileSectionHeading">
+                            <label>Religion Information</label>
+                            <hr />
+                        </div>
+                        <div>      
+                            <div className="profileLeftConNoborder"> 
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Religion </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <b><label>{getDropDownLabel(this.props.profile.religion, DropDownConstant.regilionValues)}</label></b>
+                                    </div>      
                                 </div> 
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Caste </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <b><label> </label></b>
+                                    </div>      
+                                </div>    
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Sub Caste </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <b> <label>  </label>  </b>
+                                    </div>      
+                                </div>   
                             </div>
+                            <div className="profilRightConNoborder"> 
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Gothra (m) </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <b> <label>{getDropDownLabel(this.props.profile.gothram, DropDownConstant.gothramValues)} </label>  </b>
+                                    </div>      
+                                </div>   
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Dhosham </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <b> <label> </label>  </b>
+                                    </div>      
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="profileRowContainer">
+                        <div className="profileSectionHeading">
+                            <label>Location Information</label>
+                            <hr />
+                        </div>
+                        <div>      
+                            <div className="profileLeftConNoborder">   
+                                <div className="profileFieldContainer">             
+                                    <div className="profileLabel">
+                                        <label> Country </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    
+                                    <div className="profileField">
+                                        <label> {getDropDownLabel(this.props.profile.country,DropDownConstant.countries)} </label>
+                                    </div>  
+                                </div>
+                                <div className="profileFieldContainer">  
+                                    <div className="profileLabel">
+                                        <label> State </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {getDropDownLabel(this.props.profile.pstate,DropDownConstant.indiaStates)} </label>
+                                    </div> 
+                                </div>
+                            </div> 
+                            <div className="profilRightConNoborder"> 
+                                <div className="profileFieldContainer">  
+                                    <div className="profileLabel">
+                                        <label> District </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {getDropDownLabel(this.props.profile.district, DropDownConstant.tamilnaduDistrict)} </label>
+                                    </div>
+                                </div>
 
-                             <div>
-                                <div className="profileLabel">
-                                    <label> Employment </label>
+                                <div className="profileFieldContainer">  
+                                    <div className="profileLabel">
+                                        <label> City </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {this.props.profile.city} </label>
+                                    </div>
                                 </div>
-                                <div className="profileCenter">
-                                    <label> : </label>
-                                </div>
-                                <div className="profileField">
-                                    <label> {getDropDownLabel(this.props.profile.employment, DropDownConstant.employmentValues)} </label>
-                                </div> 
                             </div>
+                        </div>                       
+                    </div>     
 
-                            <div>
-                                <div className="profileLabel">
-                                    <label> Income </label>
+                    <div className="profileRowContainer">
+                        <div className="profileSectionHeading">
+                            <label>Professional Information</label>
+                            <hr />
+                        </div>
+                        <div>      
+                            <div className="profileLeftConNoborder"> 
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label> Education </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {getDropDownLabel(this.props.profile.education, DropDownConstant.educationValues)} </label>
+                                    </div> 
                                 </div>
-                                <div className="profileCenter">
-                                    <label> : </label>
+
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label> Employment </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {getDropDownLabel(this.props.profile.employment, DropDownConstant.employmentValues)} </label>
+                                    </div> 
                                 </div>
-                                <div className="profileField">
-                                    <label> {this.props.profile.income} </label>
-                                </div> 
                             </div>
-                       </div>
-                </div>               
-                <div>
-                    About:
+                            <div className="profilRightConNoborder"> 
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label> Income </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {this.props.profile.income} </label>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div className="profileRowContainer">
+                        <div className="profileSectionHeading">
+                            <label>Family Information</label>
+                            <hr />
+                        </div>
+                        <div>      
+                            <div className="profileLeftConNoborder"> 
+
+                            </div>
+                            <div className="profilRightConNoborder"> 
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div className="vs20" />                
                     <div>
-                        <p>
-                        <label> {this.props.profile.income} </label>
-                        </p>
+                        About:
+                        <div>
+                            <p>
+                            <label> {this.props.profile.income} </label>
+                            </p>
+                        </div>
                     </div>
                 </div>
 
