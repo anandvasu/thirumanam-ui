@@ -83,7 +83,7 @@ class Sentitems extends Component {
                         </div>
                         <div>
                             <MessageProfiles 
-                                status="S"
+                                status={Constant.MESSAGE_STATUS_ALL}
                             />
                         </div>
                     </TabContainer>
@@ -96,7 +96,7 @@ class Sentitems extends Component {
                         </div>
                         <div>
                             <MessageProfiles 
-                                status="R"
+                                status={Constant.MESSAGE_STATUS_AWAITING_REPLY}
                             />
                         </div>
                     </TabContainer>

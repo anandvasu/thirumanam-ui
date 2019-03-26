@@ -83,7 +83,11 @@ class MessageProfiles extends Component {
     }        
     
     loadMessageProfiles(pageNumber, status) {
-        axios.get(ApiConstant.MESSAGE_API+ sessionStorage.getItem("profileId")+"/inbox?pageNo="+pageNumber+"&status="+status,
+        let url ="/inbox";
+        if((status === Constant.MESSAGE_STATUS_ALL) || (status === Constant.MESSAGE_STATUS_AWAITING_REPLY)) {
+            url="/sentItems";
+        }
+        axios.get(ApiConstant.MESSAGE_API+ sessionStorage.getItem(Constant.USER_PROFILE_ID)+url+"?pageNo="+pageNumber+"&status="+status,
             {                    
             }) .then((res) => {
                // Update User Detail to session
