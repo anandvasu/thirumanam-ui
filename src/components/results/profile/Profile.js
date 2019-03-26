@@ -9,7 +9,7 @@ import ApiConstant from '../../../components/utils/ApiConstant';
 import Constant from '../../../components/utils/Constant';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import DashboardSearch from '../../search/DashboardSearch';
+import addImage from '../../../assets/images/add.png';
 import ProfileIdSearch from '../../search/ProfileIdSearch';
 
 class Profile extends Component {
@@ -17,6 +17,7 @@ class Profile extends Component {
     constructor () {
         super();
         this.sendInterest = this.sendInterest.bind(this);
+        this.shortlist = this.shortlist.bind(this);        
     }
 
     sendInterest(event) {     
@@ -39,6 +40,31 @@ class Profile extends Component {
                     });
             }                
         });       
+    }
+
+    shortlist(event) {     
+        event.preventDefault();   
+        axios.put(ApiConstant.SHORT_LISTED_PROFILE+sessionStorage.getItem(Constant.USER_PROFILE_ID)+"?shortListedProfileId="+this.props.profile.id, {                
+        })
+        .then((res) => {
+            this.loadMyMatches();
+            toast.success("Profile -"+profileId+" is shortlisted successfully.", 
+            {
+                position:toast.POSITION.TOP_CENTER,
+                hideProgressBar:true,
+                autoClose:3000,
+                testId:20
+            });                
+        }) .catch((error) => {
+            console.log(error);     
+            toast.error("Server Error Occurred. Please try again!", 
+            {
+                position:toast.POSITION.TOP_CENTER,
+                hideProgressBar:true,
+                autoClose:3000,
+                testId:20
+            });
+        });    
     }
 
     render () {
@@ -137,7 +163,9 @@ class Profile extends Component {
                                         <label> {this.props.profile.weight} </label>
                                     </div>     
                                 </div> 
+                                <div className="vs30" />
                                 <div>
+                                { (this.props.profile.interestSent === false) &&    
                                     <div className="profilRight100Per"> 
                                         <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
                                             <img src={heartImage} alt="Not Available" style={{width:'25px',height:'25px'}} />
@@ -145,6 +173,25 @@ class Profile extends Component {
                                         <div className="inlineBlock" style={{height:'30px',width:'100px',float: 'left',paddingTop:'3px'}}>
                                             <label><b> <a href="#" onClick={this.sendInterest}><b>Send Interest</b></a></b></label>                            
                                         </div>
+                                    </div>
+                                }
+                                { (this.props.profile.interestSent === true) &&    
+                                    <div className="profilRight100Per"> 
+                                        <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
+                                            <img src={heartImage} alt="Not Available" style={{width:'25px',height:'25px'}} />
+                                        </div>
+                                        <div className="inlineBlock" style={{height:'30px',width:'100px',float: 'left',paddingTop:'3px'}}>
+                                            <label><b> Interest Sent Already</b></label>                            
+                                        </div>
+                                    </div>
+                                }
+                                </div>
+                                <div>
+                                    <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
+                                        <img src={addImage} alt="Not Available"  style={{width:'25px',height:'25px'}}/>
+                                    </div>
+                                    <div className="inlineBlock" style={{height:'30px',width:'90px',float: 'left',paddingTop:'3px'}}>
+                                        <label><b> <a href="#" onClick={this.shortlist}><b>Shortlisted</b></a></b></label>   
                                     </div>
                                 </div>
                             </div>

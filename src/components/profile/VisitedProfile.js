@@ -55,15 +55,25 @@ function visitedProfile(props) {
                 </div>
                 <div className="hs40"/>
                 <div className="psBottom">
-                    <div style={{width:'100%'}}>                       
-                        <div className="inlineBlock" style={{width:'150px', height:'25px'}}>
+                    <div style={{width:'100%'}}>    
+                    { (props.blocked === false) &&                    
+                        <div className="inlineBlock" style={{width:'150px', height:'25px'}}>   
+                                            
                             <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
                                 <img src={unBlockImage} alt="Not Available" style={{width:'25px',height:'25px'}} />
                             </div>
                             <div className="inlineBlock" style={{height:'30px',width:'50px',float: 'left',paddingTop:'3px'}}>
                             <label><b> <a href="#" onClick={() => props.unBlockProfile(props.id)}><b>Unblock</b></a></b></label>                            
-                            </div>
+                            </div>       
                         </div>
+                    }  
+                    { (props.blocked === true) &&                    
+                        <div className="inlineBlock" style={{width:'150px', height:'25px'}}>                            
+                            <div className="inlineBlock" style={{height:'30px',width:'50px',float: 'left',paddingTop:'3px'}}>
+                            <label><b> Blocked</b></label>                            
+                            </div>       
+                        </div>
+                    }  
                         <div className="inlineBlock" style={{width:'150px', height:'25px'}}>
                             <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
                                 <img src={viewImage} alt="Not Available" style={{width:'25px',height:'25px'}} />
