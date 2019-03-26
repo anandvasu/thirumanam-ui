@@ -7,6 +7,7 @@ import viewImage from '../../assets/images/view.png';
 import {getDropDownLabel} from '../utils/Util';
 import DropDownConstant from '../utils/DropDownConstant';
 import './MessageProfileSummary.css';
+import Constant from '../utils/Constant';
 
 function messageProfileSummary(props) {  
 
@@ -59,20 +60,20 @@ function messageProfileSummary(props) {
                 <div className="hs40"/>
                 <div className="psBottom">                       
                     <div style={{width:'100%'}}>
-                       { (sessionStorage.getItem("profileId") != null) && <div className="inlineBlock" style={{width:'150px', height:'25px'}} >                   
+                       { (props.status === Constant.MESSAGE_STATUS_PENDING) && <div className="inlineBlock" style={{width:'150px', height:'25px'}} >                   
                             <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
                                 <img src={heartImage} alt="Not Available"  style={{width:'25px',height:'25px'}}/>
                             </div>                       
                             <div className="inlineBlock" style={{height:'30px',width:'110px',float: 'left',paddingTop:'3px'}}>
-                                <label><b> <a href="#" onClick={() => props.acceptRequest(props.id)}><b>Accept</b></a></b></label>                          
+                                <label><b> <a href="#" onClick={() => props.updateMessageStatus(props.id, Constant.MESSAGE_STATUS_ACCEPTED)}><b>Accept</b></a></b></label>                          
                             </div>
                         </div> }                  
-                       { (sessionStorage.getItem("profileId") != null) && <div className="inlineBlock" style={{width:'130px', height:'25px'}}>
+                       { (props.status === Constant.MESSAGE_STATUS_PENDING) && <div className="inlineBlock" style={{width:'130px', height:'25px'}}>
                             <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
                                 <img src={addImage} alt="Not Available"  style={{width:'25px',height:'25px'}}/>
                             </div>
                             <div className="inlineBlock" style={{height:'30px',width:'90px',float: 'left',paddingTop:'3px'}}>
-                                <label><b> <a href="#" onClick={() => props.declineRequest(props.id)}><b>Decline</b></a></b></label>                       
+                                <label><b> <a href="#" onClick={() => props.updateMessageStatus(props.id,Constant.MESSAGE_STATUS_DECLINED)}><b>Decline</b></a></b></label>                       
                             </div>
                         </div> }                       
                         <div className="inlineBlock" style={{width:'80px', height:'25px'}}>

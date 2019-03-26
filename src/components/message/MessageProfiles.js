@@ -17,17 +17,32 @@ class MessageProfiles extends Component {
         super(props);
 
         this.profileClick = this.profileClick.bind(this);     
-        this.unBlockProfile = this.unBlockProfile.bind(this);  
-        this.loadMessageProfiles = this.loadMessageProfiles.bind(this);  
+        this.updateMessageStatus = this.updateMessageStatus.bind(this);  
+        this.loadMessageProfiles = this.loadMessageProfiles.bind(this);          
         this.nextClick = this.nextClick.bind(this);  
         this.prevClick = this.prevClick.bind(this);  
 
         this.state = {
             profiles:[],
             totalProfiles:0,
+            status:"",
             pageNo:1
 
         }
+    }
+
+    updateMessageStatus(profileId, status) {
+        axios.put(ApiConstant.MESSAGE_API+ sessionStorage.getItem(Constant.USER_PROFILE_ID),
+        {                    
+            partnerMatrimonyId:profileId,
+            status:status
+        }) .then((res) => {
+           console.log(res);  
+           this.loadMessageProfiles(this.state.pageNo, this.props.status);
+         
+        }).catch((err) => {
+            console.log(err);
+        }); 
     }
 
     profileClick(profileId) {
@@ -53,7 +68,7 @@ class MessageProfiles extends Component {
             this.setState({
                 pageNo:pageNo + 1
             });
-            this.loadMessageProfiles(pageNo+1);
+            this.loadMessageProfiles(pageNo+1, this.props.status);
         }
     }
 
@@ -63,34 +78,10 @@ class MessageProfiles extends Component {
             this.setState({
                 pageNo:pageNo-1
             });
-            this.loadMessageProfiles(pageNo-1);
+            this.loadMessageProfiles(pageNo-1,this.props.status);
         }
-    }
-        
-    unBlockProfile(profileId) {
-        axios.put(ApiConstant.UN_BLOCK_PROFILE+sessionStorage.getItem("profileId")+"?unBlockProfileId="+profileId, {                
-        })
-        .then((res) => {
-            this.loadMessageProfiles(this.state.pageNo);
-            toast.success("Profile -"+profileId+" is blocked successfully.", 
-            {
-                position:toast.POSITION.TOP_CENTER,
-                hideProgressBar:true,
-                autoClose:3000,
-                testId:20
-            });                
-        }) .catch((error) => {
-            console.log(error);     
-            toast.error("Server Error Occurred. Please try again!", 
-            {
-                position:toast.POSITION.TOP_CENTER,
-                hideProgressBar:true,
-                autoClose:3000,
-                testId:20
-            });
-        });
-    }    
-
+    }        
+    
     loadMessageProfiles(pageNumber, status) {
         axios.get(ApiConstant.MESSAGE_API+ sessionStorage.getItem("profileId")+"/inbox?pageNo="+pageNumber+"&status="+status,
             {                    
@@ -108,7 +99,7 @@ class MessageProfiles extends Component {
             });  
     }
 
-    componentDidMount() {
+    componentDidMount() {       
         this.loadMessageProfiles(1, this.props.status);
     }
 
@@ -126,16 +117,15 @@ class MessageProfiles extends Component {
                         email = {data.email}
                         thumbImage = {data.image}
                         profileClick = {this.profileClick}
-                        unBlockProfile = {this.unBlockProfile}
+                        updateMessageStatus = {this.updateMessageStatus}
                         gender = {data.gender}
                         bDate = {formatDate(data.bDay, data.bMonth, data.bYear)}
                         education = {data.education}
+                        status={this.props.status}
                         city = {data.city}
                     />                                  
                 </div>
             );
-
-            
             
         });
 
