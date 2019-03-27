@@ -45,6 +45,26 @@
     transition: all 0.3s ease-out;
 }
 
+.DisplayMessageModal {
+    position: fixed;
+    z-index: 500;
+    width: 300px;
+    left: 45%;
+    top: 10%;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+}
+
+.displayMessageContainer {   
+    background-color: white;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px grey;
+    padding: 5px;    
+    box-sizing: border-box;
+}
+
 .FeatureProfileModal {
     position: fixed;
     z-index: 500;

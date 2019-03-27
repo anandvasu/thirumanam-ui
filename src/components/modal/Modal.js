@@ -17,13 +17,7 @@ function modal(props) {
                     opacity: props.show ? '1' : '0',
                     height: screenHeight
                 }}>
-            <div className="closeImage" style={{display:props.displayClose}}>
-                <img src={closeImage} onClick={props.modalClosed} width="25px" height="25px"></img>
-            </div>
                 {props.children}  
-            <div style={{display:props.displayClose, paddingTop:'10px'}}>
-                <button onClick={props.modalClosed}>Close</button>
-            </div>          
             </div>
         </Aux>
     );

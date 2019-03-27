@@ -44,7 +44,7 @@ class ProfileSelfSummary extends Component {
     }
 
     componentDidMount() {
-        axios.get(ApiConstant.USER_API_SELF+sessionStorage.getItem("profileId"),
+        axios.get(ApiConstant.USER_API_SELF+sessionStorage.getItem(Constant.USER_PROFILE_ID),
             {                    
             }) .then((res) => {
                console.log(res);
@@ -52,6 +52,9 @@ class ProfileSelfSummary extends Component {
                this.setState({
                     image:res.data.thumbImage
                });
+               if(res.data.thumbImage === null) {
+                    sessionStorage.setItem(Constant.IMAGE_EXISTS, Constant.NO);
+               }
             }).catch((err) => {
                 console.log(err);
                 toast.error("Server Error Occurred. Please try again later!!!", 

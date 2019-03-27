@@ -11,6 +11,8 @@ import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import addImage from '../../../assets/images/add.png';
 import ProfileIdSearch from '../../search/ProfileIdSearch';
+import DisplayMessage from '../../utils/DisplayMessage';
+import Modal from '../../modal/Modal';
 
 class Profile extends Component {
 
@@ -18,6 +20,16 @@ class Profile extends Component {
         super();
         this.sendInterest = this.sendInterest.bind(this);
         this.shortlist = this.shortlist.bind(this);        
+        this.closeMessageHandler = this.closeMessageHandler.bind(this);         
+        this.state = {
+            modelDisplay:false
+        }
+    }
+
+    closeMessageHandler() {
+        this.setState({
+            modelDisplay:false
+        });
     }
 
     sendInterest(event) {     
@@ -27,6 +39,9 @@ class Profile extends Component {
             partnerMatrimonyId: this.props.profile.id
         }) .then((res) => {
             console.log(res);
+            this.setState({
+                modelDisplay:true
+            })
                        
         }) .catch((error) => {
             console.log(error);
@@ -71,6 +86,17 @@ class Profile extends Component {
 
         return (
             <div className="profileParentContainer">                   
+                <Modal show={this.state.modelDisplay}
+                        displayClose = "block"
+                        className="DisplayMessageModal"
+                        modalClosed={this.closeMessageHandler}>  
+                        <div className="displayMessageContainer">                           
+                            <DisplayMessage 
+                                message = "Interest has been sent."
+                                closeModel = {this.closeMessageHandler}
+                            /> 
+                         </div> 
+                 </Modal>
                 <div className="hs20" />
                 <div className="profileParentLeft">
                 <div className="sectionContainer"> 

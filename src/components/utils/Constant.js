@@ -13,6 +13,7 @@ export default {
    USER_ACCESS_TOKEN:"accessToken",
    USER_PROFILE_ID:"profileId",
    USER_NAME:"username",
+   IMAGE_EXISTS:"imageExists",
    PROFILE_PERCENT_COMP:"percentageCompeleted",
    YES:"YES",
    NO:"NO",
