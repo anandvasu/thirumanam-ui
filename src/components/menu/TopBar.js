@@ -69,7 +69,12 @@ class TopBar extends React.Component {
     }
 
     changePassword() {
-        this.props.history.push('/changePassword');        
+        this.props.history.push({
+          pathname:'/accountHome' ,
+          state:{
+             value:1
+          }                                   
+      });        
     }
 
     updateContactDetail() {

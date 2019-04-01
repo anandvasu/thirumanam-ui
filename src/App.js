@@ -11,7 +11,7 @@ import {ToastContainer} from 'react-toastify';
 import Register from './components/register/Register'
 import ConfirmSignUp from './components/login/ConfirmSignUp'
 import ILogin from './components/login/ILogin'
-import Account from './container/account/Account';
+import Account from './container/account/AccountHome';
 import Payment from './components/payment/Payment';
 import Aux from './hoc/Aux';
 import LoggedInHome from './container/home/LoggedInHome';
@@ -38,6 +38,7 @@ import UpdateAccountDetail from './components/login/UpdateAccountDetail';
 import Constant from './components/utils/Constant';
 import ApiConstant from './components/utils/ApiConstant';
 import MessageHome from './container/home/MessageHome';
+import AccountHome from './container/account/AccountHome';
 
 class App extends Component {
  
@@ -107,6 +108,7 @@ class App extends Component {
             <Route path="/changePassword" component={ChangePassword} />        
             <Route path="/updateAcountDetail" component={UpdateAccountDetail} />  
             <Route path="/messageHome" component={MessageHome} />  
+            <Route path="/accountHome" component={AccountHome} />  
         </Aux>
       </Router>
     );

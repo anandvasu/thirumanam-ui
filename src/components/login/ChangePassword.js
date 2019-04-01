@@ -78,11 +78,13 @@ class ChangePassword extends Component {
     render() {
         return(
         <div>
-            <TopBar />
             <div className="hs100" />
             <div>
                 <div className="identityContainer">
-                    <div>
+                    <div className="header2">
+                        <div><label>Change Password</label></div>                    
+                    </div>
+                    <div className="identityFieldParent" style={{paddingTop:'50px'}}>
                         <div className="identityLabel">
                             Current Password
                         </div>
@@ -90,7 +92,7 @@ class ChangePassword extends Component {
                             <input type="password" id="currentPassword" ></input>
                         </div>
                     </div>
-                    <div style={{paddingTop:'10px'}}>
+                    <div className="identityFieldParent">
                         <div  className="identityLabel">
                             New Password
                         </div>
@@ -98,7 +100,7 @@ class ChangePassword extends Component {
                             <input type="password" id="password" ></input>
                         </div>
                     </div>
-                    <div style={{paddingTop:'10px'}}>
+                    <div className="identityFieldParent">
                         <div className="identityLabel">
                             Confirm Password
                         </div>
@@ -106,12 +108,11 @@ class ChangePassword extends Component {
                             <input type="password" id="confirmPassword" ></input>
                         </div>
                     </div>
-                    <div style={{paddingTop:'10px'}}>
+                    <div className="identityFieldParent" style={{paddingBottom:'50px'}}>
                         <button onClick={this.changePassword}>Submit</button>
                     </div>
                 </div>
             </div>
-            <Footer /> 
         </div>
         );
     }

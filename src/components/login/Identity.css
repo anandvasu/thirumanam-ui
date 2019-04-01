@@ -1,6 +1,10 @@
 .identityContainer {
-    width:500px;
+    width:600px;
     display: inline-block;
+    border-style: solid;  
+    border-color: darkgrey;  
+    border-width: 1px;  
+    background-color: #FFFFFF;
 }
 
 .identityLabel {
@@ -13,4 +17,8 @@
     text-align: left;
     width:250px;
     display: inline-block;
+}
+
+.identityFieldParent {
+    padding-bottom: 15px;
 }

@@ -20,7 +20,9 @@ class Profile extends Component {
         super();
         this.sendInterest = this.sendInterest.bind(this);
         this.shortlist = this.shortlist.bind(this);        
-        this.closeMessageHandler = this.closeMessageHandler.bind(this);         
+        this.closeMessageHandler = this.closeMessageHandler.bind(this);   
+        this.uploadProfilePhoto = this.uploadProfilePhoto.bind(this);
+        
         this.state = {
             modelDisplay:false
         }
@@ -29,6 +31,16 @@ class Profile extends Component {
     closeMessageHandler() {
         this.setState({
             modelDisplay:false
+        });
+    }
+
+    uploadProfilePhoto(event) {
+        event.preventDefault();
+        this.props.history.push({
+            pathname: '/uploadProfilePhoto',
+            state:{
+                fromPage : 'E',
+            }
         });
     }
 
@@ -94,6 +106,7 @@ class Profile extends Component {
                             <DisplayMessage 
                                 message = "Interest has been sent."
                                 closeModel = {this.closeMessageHandler}
+                                uploadProfilePhoto = {this.uploadProfilePhoto}
                             /> 
                          </div> 
                  </Modal>

@@ -82,13 +82,13 @@ class MessageHome extends Component {
                                         ({sessionStorage.getItem(Constant.USER_PROFILE_ID)})</b>
                         </div>
                         <div className='hs10' />
-                        <div className="topLeftSection">
+                        <div className="homeLeftSection">
                            <MessageMenu
                                 displayMessageContent = {this.displayMessageContent}
                             />
                         </div>
                         <div className='vs15' />
-                        <div style={{width:"800px",display:"inline-block"}}>
+                        <div className="homeRightSection">
                               {this.state.messageContent}
                         </div>
                         <div className='vs15' />                      

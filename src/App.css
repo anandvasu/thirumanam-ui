@@ -19,6 +19,18 @@ body {
   font-size: 16px;
 }
 
+.homeLeftSection {
+  width:300px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.homeRightSection {
+  width:800px;
+  display: inline-block;
+  vertical-align: top;
+} 
+
 .app  {  
   text-align: center;
   width:100%;
