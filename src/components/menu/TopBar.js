@@ -37,8 +37,7 @@ class TopBar extends React.Component {
     this.contactClick = this.contactClick.bind(this);
     this.logoutClick = this.logoutClick.bind(this);
     this.handleClose = this.handleClose.bind(this); 
-    this.changePassword = this.changePassword.bind(this);
-    this.updateContactDetail = this.updateContactDetail.bind(this);
+    this.goToAccountHome = this.goToAccountHome.bind(this);
 
     this.state = {
       auth: true,
@@ -68,18 +67,14 @@ class TopBar extends React.Component {
         this.props.history.push('/logout');
     }
 
-    changePassword() {
-        this.props.history.push({
+    goToAccountHome(value) {
+      this.props.history.push({
           pathname:'/accountHome' ,
           state:{
-             value:1
+             value:value
           }                                   
       });        
-    }
-
-    updateContactDetail() {
-        this.props.history.push('/updateAcountDetail');
-    }
+    }   
 
     loginClick(event) {
         event.preventDefault();
@@ -159,14 +154,17 @@ class TopBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                   <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={this.changePassword}>
+                   <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(1)} >
                         Setting
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={this.changePassword}>
+                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(1)}>
                         Change Password
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={this.updateContactDetail}>
-                        Update Contact Detail
+                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(2)}>
+                        Update Email
+                    </MenuItem>
+                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(3)}>
+                        Update Mobile Number
                     </MenuItem>
                     <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={this.logoutClick}>
                         Logout

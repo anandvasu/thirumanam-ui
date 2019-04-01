@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import Footer from '../../components/footer/Footer'
 import TopBar from '../../components/menu/TopBar';
 import AccountSettings from '../../components/login/AccountSettings';
+import UpdateEmail from '../../components/login/UpdateEmail';
 import ChangePassword from '../../components/login/ChangePassword';
 import '../../App.css';
+import UpdateMobileNumber from '../../components/login/UpdateMobileNumber';
 
 class AccountHome extends Component {
 
@@ -27,10 +29,12 @@ class AccountHome extends Component {
 
         let content;
 
-        if(value == 1) {
+        if(value === 1) {
             content = this.displayChangePassword();
-        } else if(value == 2) {
-
+        } else if(value === 2) {
+            content = this.displayEmail();
+        } else if(value === 3) {
+            content = this.displayMobileNumber();
         }
         this.setState({
             content:content
@@ -41,6 +45,18 @@ class AccountHome extends Component {
         return(
            <ChangePassword />
            );      
+    }
+
+    displayEmail() {        
+        return(
+            <UpdateEmail />
+            ); 
+    }
+
+    displayMobileNumber() {
+        return(
+            <UpdateMobileNumber />
+            );
     }
 
     render () {
