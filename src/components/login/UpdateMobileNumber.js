@@ -75,7 +75,7 @@ class UpdateMobileNumber extends Component {
     render() {
         return(
         <div>
-            <div>
+            <div className="hs100" />
                 <div className="identityContainer">
                     <div className="header2">
                         <div><label>Update Mobile Number</label></div>                    
@@ -88,11 +88,10 @@ class UpdateMobileNumber extends Component {
                             <input type="text" id="phoneNumber" ></input>
                         </div>
                     </div>                   
-                    <div style={{paddingTop:'10px'}}>
+                    <div className="identityFieldParent" style={{paddingBottom:'50px'}}>
                         <button onClick={this.updateAccountDetail}>Submit</button>
                     </div>
                 </div>
-            </div>
         </div>
         );
     }

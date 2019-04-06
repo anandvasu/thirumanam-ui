@@ -73,7 +73,12 @@ class TopBar extends React.Component {
           state:{
              value:value
           }                                   
-      });        
+      });    
+      try {
+        this.props.loadAcountContent(value);    
+      } catch(error) {
+
+      }
     }   
 
     loginClick(event) {

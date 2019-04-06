@@ -1,30 +1,13 @@
 import React, {Component} from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import './Identity.css';
-import {
-    withRouter
-  } from 'react-router-dom';
-import { compose } from 'redux';
-import Button from '@material-ui/core/Button';
-import PropTypes from 'prop-types';
-
-const styles = themeButton => ({
-    button: {
-      margin: themeButton.spacing.unit,
-    },
-    input: {
-      display: 'none',
-    },
-  });
 
 class AccountSettings extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
    
     render() {
-        const { classes } = this.props;
         return(
         <div>
             <div className="hs100" />
@@ -33,34 +16,24 @@ class AccountSettings extends Component {
                     <div><label>Account Settings</label></div>                    
                 </div>
                 <div style={{paddingBottom:'15px',paddingTop:'15px'}}> 
-                    <a href="#" onClick={this.changePassword}> Change Password </a>
+                    <a href="#" onClick={() => this.props.loadAcountContent(1)}>Change Password</a>
                 </div>
                 <div style={{paddingBottom:'15px'}}>
-                    <a href="#" onClick={this.changePassword}>Update E-Mail </a>
+                    <a href="#" onClick={() => this.props.loadAcountContent(2)}>Update E-Mail</a>
                 </div>
                 <div style={{paddingBottom:'15px'}}>
-                    <a href="#" onClick={this.changePassword}>Manage Notifications </a>                    
+                    <a href="#" onClick={() => this.props.loadAcountContent(3)}>Manage Notifications</a>                    
                 </div>
                 <div style={{paddingBottom:'15px'}}>
-                    <a href="#" onClick={this.changePassword}>Inactivate Profile </a>                        
+                    <a href="#" onClick={() => this.props.loadAcountContent(4)}>Inactivate Profile</a>                        
                 </div>
                 <div style={{paddingBottom:'15px'}}>
-                    <a href="#" onClick={this.changePassword}> Delete Profile</a>  
+                    <a href="#" onClick={() => this.props.loadAcountContent(5)}>Delete Profile</a>  
                 </div>
             </div>
         </div>
         );
     }
 }
-
-
-AccountSettings.propTypes = {
-    classes: PropTypes.object.isRequired,
-  };
-  
-  const accountSettingsComp = compose(
-      withRouter,
-      withStyles(styles)
-  );
-  
-  export default accountSettingsComp(AccountSettings);
+ 
+export default AccountSettings;

@@ -62,10 +62,13 @@ class AccountHome extends Component {
     render () {
         return (
             <div>
-                <TopBar />
+                <TopBar 
+                    loadAcountContent={this.loadAcountContent}
+                />
                 <div className="hs10" />
                 <div className="homeLeftSection">
-                    <AccountSettings />
+                    <AccountSettings 
+                        loadAcountContent={this.loadAcountContent} />
                 </div>
                 <div className="homeRightSection">
                     {this.state.content}

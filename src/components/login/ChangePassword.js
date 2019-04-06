@@ -42,7 +42,13 @@ class ChangePassword extends Component {
             .then((response) => {
                 console.log(response)      
                 if (response.data.success === true) {                   
-                    this.props.history.push('/signedIn');   
+                    toast.success("Password Changed Successfully", 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            toastId:Constant.toastIdErr
+                        });  
                 } else {
                     toast.error(response.data.errorMessage, 
                         {
