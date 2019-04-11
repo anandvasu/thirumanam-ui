@@ -34,6 +34,7 @@ export default {
     
    IDENTITY_REFRESH_TOKEN:"http://localhost:8085/matrimony/identity/login/refreshtoken/",
    IDENTITY_EMAIL_UPDATE:"http://localhost:8085/matrimony/identity/email/",
+   IDENTITY_BASE_URI:"http://localhost:8085/matrimony/identity/",
    IDENTITY_PHONE_UPDATE:"http://localhost:8085/matrimony/identity/phonenumber/",
    IDENTITY_FORGOT_PASSWORD:"http://localhost:8085/matrimony/identity/password/forgot/",
    IDENTITY_RESET_PASSWORD:"http://localhost:8085/matrimony/identity/password/reset/",

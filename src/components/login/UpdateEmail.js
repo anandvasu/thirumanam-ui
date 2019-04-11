@@ -14,6 +14,30 @@ class UpdateEmail extends Component {
     constructor() {
         super();
         this.updateEmail = this.updateEmail.bind(this);
+        this.editEmail = this.editEmail.bind(this);
+        this.state = {
+            email:""
+        }
+    }
+    
+    componentDidMount() {
+        document.getElementById("email").readOnly = true;
+        document.getElementById("submitButton").style.display = "none";
+        axios.get(ApiConstant.IDENTITY_BASE_URI+sessionStorage.getItem(Constant.USER_PROFILE_ID)+"/email", {            
+        })
+        .then((response) => {                                 
+            this.setState({
+                email:response.data.email
+            })
+        }).catch((err) => {
+            console.log(err)
+        });        
+    }
+
+    editEmail() {
+        document.getElementById("submitButton").style.display = "block";
+        document.getElementById("editLink").style.display = "none";        
+        document.getElementById("email").readOnly = false;
     }
 
     updateEmail() {
@@ -90,12 +114,13 @@ class UpdateEmail extends Component {
                     <div className="identityFieldParent" style={{paddingTop:'50px'}}>
                         <div className="identityLabel">
                             Email
-                        </div>
+                        </div>                        
                         <div className="identityField">
-                            <input type="text" id="email" ></input>
+                            <input type="text" id="email" defaultValue={this.state.email} style={{width:'200px'}}/>
+                            <a href="#" onClick={this.editEmail} id="editLink" style={{paddingLeft:'10px'}}> Edit </a>
                         </div>
                     </div>                                      
-                    <div className="identityFieldParent" style={{paddingBottom:'50px'}}>
+                    <div className="identityFieldParent" style={{paddingBottom:'50px'}} id="submitButton">
                         <button onClick={this.updateEmail}>Submit</button>
                     </div>
                 </div>

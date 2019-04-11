@@ -8,7 +8,7 @@ import Constant from '../utils/Constant';
 import ApiConstant from '../utils/ApiConstant';
 import ReligionSelect from '../utils/ReligionSelect';
 import {populateArray} from '../utils/Util';
-import {validateEmail} from '../utils/Util';
+import {validateEmail,preventNumbers} from '../utils/Util';
 import PhoneCountryCode from '../utils/PhoneCountryCode';
 
 class Register extends Component {
@@ -334,7 +334,8 @@ class Register extends Component {
                                 onChangeCountryCode = {this.onChangeCountryCode}
                             />
                             <div style={{width:'3px',display:'inline-block'}} />                       
-                            <input type='text'  onChange={this.onChangeMobile} style={{width:'120px'}} maxLength='10'></input>                           
+                            <input type='text'  onChange={this.onChangeMobile} 
+                                style={{width:'120px'}} maxLength='10' onKeyPress={preventNumbers}></input>                           
                         </div>
                     </div>
                     <div>

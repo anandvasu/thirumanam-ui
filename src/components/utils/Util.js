@@ -1,5 +1,15 @@
 import React from 'react';
 
+export function preventNumbers(event) {
+    //getting key code of pressed key
+    var keycode = (event.which) ? event.which : event.keyCode;
+    //comparing pressed keycodes
+    if ((keycode < 48 || keycode > 57)) {
+        event.preventDefault();
+        return false;
+    }
+}
+
 
 export function validateEmail(email) {
     var regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

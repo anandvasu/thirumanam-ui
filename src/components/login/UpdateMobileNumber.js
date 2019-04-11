@@ -8,13 +8,24 @@ import 'react-toastify/dist/ReactToastify.css';
 import ApiConstant from '../utils/ApiConstant';
 import Constant from '../utils/Constant';
 import PhoneCountryCode from '../utils/PhoneCountryCode';
+import {preventNumbers} from '../utils/Util';
 
 class UpdateMobileNumber extends Component {
 
     constructor() {
         super();
         this.updateAccountDetail = this.updateAccountDetail.bind(this);
+        this.onChangeCountryCode = this.onChangeCountryCode.bind(this);
+        this.state = {
+            countryCode:"+91"
+        }
+        
     }
+
+    onChangeCountryCode(event){
+        this.setState({countryCode:event.target.value});
+    }
+
 
     updateAccountDetail() {
         event.preventDefault();
@@ -92,7 +103,8 @@ class UpdateMobileNumber extends Component {
                                 onChangeCountryCode = {this.onChangeCountryCode}
                             />
                             <div style={{width:'3px',display:'inline-block'}} />  
-                            <input type="text" id="phoneNumber" style={{width:'140px'}} maxLength='10'></input>
+                            <input type="text" id="phoneNumber" style={{width:'140px'}} maxLength='10' 
+                                    onKeyPress={preventNumbers}></input>
                         </div>
                     </div>                   
                     <div className="identityFieldParent" style={{paddingBottom:'50px'}}>
