@@ -136,14 +136,15 @@ class TopBar extends React.Component {
                 <Button color="primary" className={classes.button} onClick={this.contactClick}>
                     <b>Contact</b>
                 </Button>
-           
+                { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 
+                <div style={{display:'inline-block'}}>
                 <IconButton
                   aria-owns={open ? 'menu-appbar' : undefined}
                   aria-haspopup="true"
                   onClick={this.handleMenu}
                   color="inherit"
                 >
-                <AccountBox />
+                  <AccountBox />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -172,6 +173,8 @@ class TopBar extends React.Component {
                         Logout
                     </MenuItem>
                 </Menu>
+                </div>
+                }
               </div>
           </Toolbar>
         </AppBar>
