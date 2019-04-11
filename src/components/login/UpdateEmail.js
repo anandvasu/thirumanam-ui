@@ -22,6 +22,7 @@ class UpdateEmail extends Component {
     
     componentDidMount() {
         document.getElementById("email").readOnly = true;
+        document.getElementById("email").style.borderWidth = "0px";
         document.getElementById("submitButton").style.display = "none";
         axios.get(ApiConstant.IDENTITY_BASE_URI+sessionStorage.getItem(Constant.USER_PROFILE_ID)+"/email", {            
         })
@@ -38,6 +39,7 @@ class UpdateEmail extends Component {
         document.getElementById("submitButton").style.display = "block";
         document.getElementById("editLink").style.display = "none";        
         document.getElementById("email").readOnly = false;
+        document.getElementById("email").style.borderWidth = "1px";
     }
 
     updateEmail() {
