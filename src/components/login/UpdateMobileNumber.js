@@ -7,6 +7,7 @@ import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ApiConstant from '../utils/ApiConstant';
 import Constant from '../utils/Constant';
+import PhoneCountryCode from '../utils/PhoneCountryCode';
 
 class UpdateMobileNumber extends Component {
 
@@ -20,26 +21,28 @@ class UpdateMobileNumber extends Component {
 
         let errorMessage = null;
 
-        const email = document.getElementById("email").value;
         const phoneNumber = document.getElementById("phoneNumber").value;
 
-        if(String.prototype.trim.call(email) === "") {
-            errorMessage = "Please enter Email.";
-        } else if (String.prototype.trim.call(phoneNumber) === "") {
+        if (String.prototype.trim.call(phoneNumber) === "") {
             errorMessage = "Please enter Phone Number.";   
         } 
         
         
         if (errorMessage === null) {   
-            axios.put(ApiConstant.IDENTITY_ACCOUNT_UPDATE, {
-                accessToken:sessionStorage.getItem(Constant.USER_ACCESS_TOKEN) ,
-                email:email,
-                phoneNumber:phoneNumber
+            axios.put(ApiConstant.IDENTITY_PHONE_UPDATE, {
+                phoneNumber:phoneNumber,
+                profileId:sessionStorage.getItem(Constant.USER_PROFILE_ID)
             })
             .then((response) => {
                 console.log(response)      
                 if (response.data.success === true) {                   
-                    this.props.history.push('/signedIn');   
+                    toast.success("Email updated successfully", 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            toastId:Constant.toastIdErr
+                        });
                 } else {
                     toast.error(response.data.errorMessage, 
                         {
@@ -85,7 +88,11 @@ class UpdateMobileNumber extends Component {
                             Phone Number
                         </div>
                         <div className="identityField">
-                            <input type="text" id="phoneNumber" ></input>
+                            <PhoneCountryCode
+                                onChangeCountryCode = {this.onChangeCountryCode}
+                            />
+                            <div style={{width:'3px',display:'inline-block'}} />  
+                            <input type="text" id="phoneNumber" style={{width:'140px'}} maxLength='10'></input>
                         </div>
                     </div>                   
                     <div className="identityFieldParent" style={{paddingBottom:'50px'}}>

@@ -7,6 +7,7 @@ import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ApiConstant from '../utils/ApiConstant';
 import Constant from '../utils/Constant';
+import {validateEmail} from '../utils/Util';
 
 class UpdateEmail extends Component {
 
@@ -20,22 +21,32 @@ class UpdateEmail extends Component {
 
         let errorMessage = null;
 
-        const email = document.getElementById("email").value;
+        const email = String.prototype.trim.call(document.getElementById("email").value);
 
-        if(String.prototype.trim.call(email) === "") {
+        if(email === "") {
             errorMessage = "Please enter Email.";
+        } else {
+            const result = validateEmail(email);
+            if(result === false) {
+                errorMessage = "Please enter valid Email.";
+            }
         }        
         
         if (errorMessage === null) {   
-            axios.put(ApiConstant.IDENTITY_ACCOUNT_UPDATE, {
-                accessToken:sessionStorage.getItem(Constant.USER_ACCESS_TOKEN) ,
-                email:email,
-                phoneNumber:phoneNumber
+            axios.put(ApiConstant.IDENTITY_EMAIL_UPDATE, {
+                profileId:sessionStorage.getItem(Constant.USER_PROFILE_ID),
+                email:email
             })
             .then((response) => {
                 console.log(response)      
                 if (response.data.success === true) {                   
-                    this.props.history.push('/signedIn');   
+                    toast.success("Email updated successfully", 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            toastId:Constant.toastIdErr
+                        });   
                 } else {
                     toast.error(response.data.errorMessage, 
                         {
