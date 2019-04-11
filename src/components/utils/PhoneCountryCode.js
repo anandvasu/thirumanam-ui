@@ -3,7 +3,7 @@ import React from 'react';
 function phoneCountryCode(props) {     
         
         return(
-               <select onChange={props.onChangeCountryCode} style={{width:'97px'}} defaultValue="+91">
+               <select onChange={props.onChangeCountryCode} id="phCountryCode" style={{width:'97px'}} value={props.defaultCountryCode}>
                     <option value='+93'>Afghanistan(+93)</option>
                     <option value='+355'>Albania(+355)</option>
                     <option value='+213'>Algeria(+213)</option>
@@ -217,7 +217,7 @@ function phoneCountryCode(props) {
                     <option value='+256'>Uganda(+256)</option>
                     <option value='+380'>Ukraine(+380)</option>
                     <option value='+971'>United Arab Emirates(+971)</option>
-                    <option value='+1'>United States of America(+1)</option>
+                    <option value='+1U'>United States of America(+1)</option>
                     <option value='+598'>Uruguay(+598)</option>
                     <option value='+998'>Uzbekistan(+998)</option>
                     <option value='+678'>Vanuatu(+678)</option>

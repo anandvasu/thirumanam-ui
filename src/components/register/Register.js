@@ -124,7 +124,7 @@ class Register extends Component {
         } else if (document.getElementById("tcondition").checked === false) {
             errorMessage = "Please read TandC.";
         } else {
-            const result = validateEmail(email);
+            const result = validateEmail(this.state.email);
             if(result === false) {
                 errorMessage = "Please enter valid Email.";
             }
@@ -141,7 +141,8 @@ class Register extends Component {
                     email:this.state.email,
                     gender: this.state.gender,
                     religion:this.state.religionValue,
-                    mobile: this.state.countryCode + this.state.mobile,
+                    phCountryCode: this.state.countryCode,
+                    phonenumber:this.state.mobile,
                     registerBy: this.state.registerBy,
                     externalId: externalIdValue
                 }) .then((res) => {

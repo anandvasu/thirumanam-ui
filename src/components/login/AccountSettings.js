@@ -16,19 +16,22 @@ class AccountSettings extends Component {
                     <div><label>Account Settings</label></div>                    
                 </div>
                 <div style={{paddingBottom:'15px',paddingTop:'15px'}}> 
-                    <a href="#" onClick={() => this.props.loadAcountContent(1)}>Change Password</a>
+                    <a href="#" onClick={() => this.props.loadAcountContent(5)}>Change Password</a>
                 </div>
                 <div style={{paddingBottom:'15px'}}>
-                    <a href="#" onClick={() => this.props.loadAcountContent(2)}>Update E-Mail</a>
+                    <a href="#" onClick={() => this.props.loadAcountContent(10)}>Update E-Mail</a>
                 </div>
                 <div style={{paddingBottom:'15px'}}>
-                    <a href="#" onClick={() => this.props.loadAcountContent(3)}>Manage Notifications</a>                    
+                    <a href="#" onClick={() => this.props.loadAcountContent(15)}>Update Phone number</a>
                 </div>
                 <div style={{paddingBottom:'15px'}}>
-                    <a href="#" onClick={() => this.props.loadAcountContent(4)}>Inactivate Profile</a>                        
+                    <a href="#" onClick={() => this.props.loadAcountContent(20)}>Manage Notifications</a>                    
                 </div>
                 <div style={{paddingBottom:'15px'}}>
-                    <a href="#" onClick={() => this.props.loadAcountContent(5)}>Delete Profile</a>  
+                    <a href="#" onClick={() => this.props.loadAcountContent(25)}>Inactivate Profile</a>                        
+                </div>
+                <div style={{paddingBottom:'15px'}}>
+                    <a href="#" onClick={() => this.props.loadAcountContent(30)}>Delete Profile</a>  
                 </div>
             </div>
         </div>

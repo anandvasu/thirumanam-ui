@@ -29,11 +29,11 @@ class AccountHome extends Component {
 
         let content;
 
-        if(value === 1) {
+        if(value === 5) {
             content = this.displayChangePassword();
-        } else if(value === 2) {
+        } else if(value === 10) {
             content = this.displayEmail();
-        } else if(value === 3) {
+        } else if(value === 15) {
             content = this.displayMobileNumber();
         }
         this.setState({
