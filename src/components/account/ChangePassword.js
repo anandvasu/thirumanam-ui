@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import TopBar from '../menu/TopBar';
-import Footer from '../footer/Footer';
 import './Identity.css';
 import axios from 'axios';
 import {toast} from 'react-toastify';

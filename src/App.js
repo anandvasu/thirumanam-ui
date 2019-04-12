@@ -33,11 +33,13 @@ import ResetPassword from './components/login/ResetPassword';
 import ResetPasswordResponse from './components/login/ResetPasswordResponse';
 import Logout from './components/logout/Logout';
 import ParentHome from './container/home/ParentHome';
-import ChangePassword from './components/login/ChangePassword';
+import ChangePassword from './components/account/ChangePassword'; 
 import Constant from './components/utils/Constant';
 import ApiConstant from './components/utils/ApiConstant';
 import MessageHome from './container/home/MessageHome';
 import AccountHome from './container/account/AccountHome';
+import InactivateProfile from './components/account/InactivateProfile';
+import DeleteProfile from './components/account/DeleteProfile';
 
 class App extends Component {
  
@@ -107,6 +109,8 @@ class App extends Component {
             <Route path="/changePassword" component={ChangePassword} />        
             <Route path="/messageHome" component={MessageHome} />  
             <Route path="/accountHome" component={AccountHome} />  
+            <Route path="/inactivateProfile" component={InactivateProfile} />
+            <Route path="/deleteProfile" component={DeleteProfile} />
         </Aux>
       </Router>
     );

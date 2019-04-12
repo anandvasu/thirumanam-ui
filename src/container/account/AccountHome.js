@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import Footer from '../../components/footer/Footer'
 import TopBar from '../../components/menu/TopBar';
-import AccountSettings from '../../components/login/AccountSettings';
-import UpdateEmail from '../../components/login/UpdateEmail';
-import ChangePassword from '../../components/login/ChangePassword';
+import AccountSettings from '../../components/account/AccountSettings';
+import UpdateEmail from '../../components/account/UpdateEmail';
+import ChangePassword from '../../components/account/ChangePassword';
 import '../../App.css';
-import UpdateMobileNumber from '../../components/login/UpdateMobileNumber';
+import UpdateMobileNumber from '../../components/account/UpdateMobileNumber';
+import InactivateProfile from '../../components/account/InactivateProfile';
+import DeleteProfile from '../../components/account/DeleteProfile';
 
 class AccountHome extends Component {
 
@@ -35,6 +37,10 @@ class AccountHome extends Component {
             content = this.displayEmail();
         } else if(value === 15) {
             content = this.displayMobileNumber();
+        } else if(value === 25) {
+            content = this.displayInactivateProfile();
+        } else if(value === 30) {
+            content = this.displayDeleteProfile();
         }
         this.setState({
             content:content
@@ -56,6 +62,18 @@ class AccountHome extends Component {
     displayMobileNumber() {
         return(
             <UpdateMobileNumber />
+            );
+    }
+
+    displayInactivateProfile() {
+        return(
+            <InactivateProfile />
+            );
+    }
+
+    displayDeleteProfile() {
+        return(
+            <DeleteProfile />
             );
     }
 
