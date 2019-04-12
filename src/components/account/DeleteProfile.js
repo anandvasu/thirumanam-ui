@@ -19,20 +19,15 @@ class DeleteProfile extends Component {
         let errorMessage = null;
        
         if (errorMessage === null) {   
-            axios.put(ApiConstant.IDENTITY_EMAIL_UPDATE, {
-                profileId:sessionStorage.getItem(Constant.USER_PROFILE_ID),
-                email:email
+            axios.put(ApiConstant.IDENTITY_BASE_URI+sessionStorage.getItem(Constant.USER_PROFILE_ID)+"/delete", {
+                accessToken:sessionStorage.getItem(Constant.USER_ACCESS_TOKEN),
+                source:"C",
+                reason:"R"
             })
             .then((response) => {
                 console.log(response)      
                 if (response.data.success === true) {                   
-                    toast.success("Email updated successfully", 
-                        {
-                            position:toast.POSITION.TOP_CENTER,
-                            hideProgressBar:true,
-                            autoClose:3000,
-                            toastId:Constant.toastIdErr
-                        });   
+                      
                 } else {
                     toast.error(response.data.errorMessage, 
                         {
@@ -73,12 +68,24 @@ class DeleteProfile extends Component {
                     <div className="header2">
                         <div><label>Delete Profile</label></div>                    
                     </div>
-                    <div className="identityFieldParent" style={{paddingTop:'50px'}}>
-                        <label>Note: Profile cannot be restored after deletion.</label>
-                        <label>Please choose a reason:</label>
+                    <div className="identityFieldParent" style={{paddingTop:'20px'}}>
+                        <div style={{width:'100%'}}>
+                            <div className="deleteTextDiv">
+                                <label>Note: Profile cannot be restored after deletion.</label>
+                            </div>
+                            <div className="deleteTextDiv">
+                                <label>Please choose a reason:</label>
+                                <select style={{paddingLeft:'10px'}}>
+                                    <option value="">--Select--</option>
+                                    <option value="F">Match Found</option>
+                                    <option value="M">Married</option>
+                                    <option value="O">Other</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>                                      
                     <div className="identityFieldParent" style={{paddingBottom:'50px'}} id="submitButton">
-                        <button onClick={this.updateEmail}>Submit</button>
+                        <button onClick={this.deleteProfile}>Submit</button>
                     </div>
                 </div>
         </div>
