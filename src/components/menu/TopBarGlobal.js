@@ -4,16 +4,13 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Constant from "../utils/Constant";
-import IconButton from '@material-ui/core/IconButton';
-import AccountBox from '@material-ui/icons/AccountBox';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 import {
     withRouter
   } from 'react-router-dom';
 import { compose } from 'redux';
 import logo from '../../assets/images/logo.png';
+import './Menu.css';
 
 const styles = themeButton => ({
     button: {
@@ -24,7 +21,7 @@ const styles = themeButton => ({
     },
   });
 
-class TopBar extends React.Component {
+class TopBarGlobal extends React.Component {
 
   constructor (props) {
     super(props);
@@ -115,14 +112,13 @@ class TopBar extends React.Component {
 
     return (
       <div>     
-        <AppBar position="static" color="secondary">
-           
+        <AppBar position="static" color="secondary">           
           <Toolbar>         
           <div className="logo">                                      
                    
           </div> 
           <div className="menuContainer">
-            <Button color="primary" className={classes.button} onClick={this.goToHome}>
+                <Button color="primary" className={classes.button} onClick={this.goToHome}>
                     <b>Home</b>
                 </Button>      
                 <Button color="primary" className={classes.button}>
@@ -130,71 +126,31 @@ class TopBar extends React.Component {
                 </Button>
                 <Button color="primary" className={classes.button}>
                     <b>Search</b>
-                </Button>
-                { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 
-                <Button color="primary" className={classes.button}>
-                    <b>Messages</b>
-                </Button>
-                }
+                </Button>               
                 <Button color="primary" className={classes.button} onClick={this.goToPayment}>
                     <b>Payment</b>
                 </Button>
                 <Button color="primary" className={classes.button} onClick={this.contactClick}>
                     <b>Contact</b>
-                </Button>
-                { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 
-                <div style={{display:'inline-block'}}>
-                <IconButton
-                  aria-owns={open ? 'menu-appbar' : undefined}
-                  aria-haspopup="true"
-                  onClick={this.handleMenu}
-                  color="inherit">                  
-                    <AccountBox />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={open}
-                  onClose={this.handleClose}
-                >                   
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(5)}>
-                        Change Password
-                    </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(10)}>
-                        Update Email
-                    </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(15)}>
-                        Update Mobile Number
-                    </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={this.logoutClick}>
-                        Logout
-                    </MenuItem>
-                </Menu>
-                </div>
-                }
-              </div>
+                </Button>   
+                <Button color="primary" className={classes.button} onClick={this.loginClick}>
+                    <b>Login</b>
+                </Button>              
+            </div>
           </Toolbar>
         </AppBar>
       </div>
     );
   }
-}
-
-TopBar.propTypes = {
+} 
+ 
+TopBarGlobal.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-const topBarComp = compose(
+const menuComp = compose(
     withRouter,
     withStyles(styles)
 );
 
-export default topBarComp(TopBar);
+export default menuComp(TopBarGlobal);

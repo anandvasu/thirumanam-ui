@@ -8,7 +8,7 @@ import {toast} from 'react-toastify';
 import axios from 'axios';
 import './ILogin.css';
 import {Redirect} from "react-router-dom";
-import TopBar from '../menu/TopBar';
+import TopMenu from '../menu/TopMenu';
 import Footer from '../footer/Footer';
 
 
@@ -138,7 +138,9 @@ class ILogin extends Component {
 
         return (
             <div className="ilogincontainer">
-               <TopBar />              
+               <TopMenu 
+                    homePage="false"
+                />               
                <div className='hs100'></div>             
                 <div className="iLoginLeft">
                     <img src={welcomeImage} alt="Not Available"></img>

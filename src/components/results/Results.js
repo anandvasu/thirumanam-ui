@@ -8,7 +8,7 @@ import './Results.css';
 import RegisterWithLogin from '../register/RegisterWithLogin';
 import ApiConstant from '../../components/utils/ApiConstant';
 import Constant from '../utils/Constant';
-import TopBar from '../menu/TopBar';
+import TopMenu from '../menu/TopMenu';
 import {getValueArrFromReactSelect,formatDate} from '../../components/utils/Util';
 
 class Results extends Component {
@@ -385,7 +385,9 @@ class Results extends Component {
     render () {
         return (
             <div>
-                 <TopBar />
+                <TopMenu 
+                    homePage="false"
+                /> 
                  <div className="hs30" />                       
                  <Modal show={this.state.registerDisplay}
                         displayClose = "none"
