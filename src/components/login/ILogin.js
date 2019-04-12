@@ -78,7 +78,8 @@ class ILogin extends Component {
                         sessionStorage.setItem(Constant.USER_PROFILE_ID, response.data.profileId);
                         sessionStorage.setItem(Constant.PROFILE_PERCENT_COMP, response.data.profilePerCompleted);    
                         sessionStorage.setItem(Constant.USER_NAME, username);  
-                        sessionStorage.setItem(Constant.USER_ACCESS_TOKEN, response.data.accessToken);                
+                        sessionStorage.setItem(Constant.USER_ACCESS_TOKEN, response.data.accessToken);       
+                        sessionStorage.setItem(Constant.USER_STATUS, response.data.status);             
                         this.props.history.push('/signedIn');   
                     }
                 } else if (response.data.errorMessage !== null) {  

@@ -126,6 +126,7 @@ class Login extends Component {
                         sessionStorage.setItem(Constant.PROFILE_PERCENT_COMP, response.data.profilePerCompleted);  
                         sessionStorage.setItem(Constant.USER_NAME, username);  
                         sessionStorage.setItem(Constant.USER_ACCESS_TOKEN, response.data.accessToken);        
+                        sessionStorage.setItem(Constant.USER_STATUS, response.data.status);    
                         if(document.getElementById("rememberMe").checked) {
                             localStorage.setItem(Constant.USER_REFERESH_TOKEN, response.data.refreshToken);
                         }  

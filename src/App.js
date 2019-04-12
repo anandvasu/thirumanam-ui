@@ -40,6 +40,7 @@ import MessageHome from './container/home/MessageHome';
 import AccountHome from './container/account/AccountHome';
 import InactivateProfile from './components/account/InactivateProfile';
 import DeleteProfile from './components/account/DeleteProfile';
+import ActivateProfile from './components/account/ActivateProfile';
 
 class App extends Component {
  
@@ -111,6 +112,7 @@ class App extends Component {
             <Route path="/accountHome" component={AccountHome} />  
             <Route path="/inactivateProfile" component={InactivateProfile} />
             <Route path="/deleteProfile" component={DeleteProfile} />
+            <Route path="/activateProfile" component={ActivateProfile} />
         </Aux>
       </Router>
     );

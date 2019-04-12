@@ -7,7 +7,9 @@ import ChangePassword from '../../components/account/ChangePassword';
 import '../../App.css';
 import UpdateMobileNumber from '../../components/account/UpdateMobileNumber';
 import InactivateProfile from '../../components/account/InactivateProfile';
+import ActivateProfile from '../../components/account/ActivateProfile';
 import DeleteProfile from '../../components/account/DeleteProfile';
+import Constant from '../../components/utils/Constant';
 
 class AccountHome extends Component {
 
@@ -15,16 +17,34 @@ class AccountHome extends Component {
         super(props);
 
         this.loadAcountContent = this.loadAcountContent.bind(this);
-        this.displayChangePassword = this.displayChangePassword.bind(this);        
+        this.displayChangePassword = this.displayChangePassword.bind(this);      
+        this.updateStatus = this.updateStatus.bind(this);       
 
         this.state = {
-            content:[]
+            content:[],
+            status:""
         }
+    }
+
+    updateStatus(inputStatus) {
+        this.setState({
+            status:inputStatus
+        })
+        if(inputStatus === Constant.USER_STATUS_ACTIVE) {
+            this.loadAcountContent(25);
+        }
+        if(inputStatus === Constant.USER_STATUS_INACTIVE) {
+            this.loadAcountContent(26);
+        }
+        sessionStorage.setItem(Constant.USER_STATUS, inputStatus); 
     }
 
     componentDidMount() {
         const pageValue = this.props.location.state.value;
-        this.loadAcountContent(pageValue);
+        this.loadAcountContent(pageValue);     
+        this.setState({
+            status:sessionStorage.getItem(Constant.USER_STATUS)
+        });
     }
 
     loadAcountContent(value) {
@@ -39,6 +59,8 @@ class AccountHome extends Component {
             content = this.displayMobileNumber();
         } else if(value === 25) {
             content = this.displayInactivateProfile();
+        } else if(value === 26) {
+            content = this.displayActivateProfile();
         } else if(value === 30) {
             content = this.displayDeleteProfile();
         }
@@ -67,7 +89,17 @@ class AccountHome extends Component {
 
     displayInactivateProfile() {
         return(
-            <InactivateProfile />
+            <InactivateProfile 
+                updateStatus={this.updateStatus}
+            />
+            );
+    }
+
+    displayActivateProfile() {
+        return(
+            <ActivateProfile 
+                updateStatus={this.updateStatus}
+            />
             );
     }
 
@@ -86,7 +118,8 @@ class AccountHome extends Component {
                 <div className="hs10" />
                 <div className="homeLeftSection">
                     <AccountSettings 
-                        loadAcountContent={this.loadAcountContent} />
+                        loadAcountContent={this.loadAcountContent} 
+                        status={this.state.status}/>
                 </div>
                 <div className="homeRightSection">
                     {this.state.content}
