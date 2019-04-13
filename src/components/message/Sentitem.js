@@ -104,7 +104,7 @@ class Sentitems extends Component {
                 </div>               
             </div>
         );
-    }
+    } 
 }
 
 Sentitems.propTypes = {
