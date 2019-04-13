@@ -2,9 +2,7 @@ import React from 'react';
 
 import defaultFImage from '../../assets/images/defalt_female.png';
 import defaultMImage from '../../assets/images/default_male.jpg';
-import heartImage from '../../assets/images/heart.png';
 import addImage from '../../assets/images/add.png';
-import blockImage from '../../assets/images/block.png';
 import viewImage from '../../assets/images/view.png';
 import './MyMatchProfileSummary.css';
 
@@ -13,7 +11,7 @@ function myMatchProfileSummary(props) {
     const preFix = (props.gender === "F") ? "Ms." : "Mr.";
 
     if (props.thumbImage !== null) {
-        image = <img src={"data:image/jpeg;base64,"+props.thumbImage} alt="Not Available" width="100px" height="100px"></img>;            
+        image = <img src={"data:image/jpeg;base64,"+props.thumbImage} alt="Not Available" width="80px" height="80px"></img>;            
     } else {
         if(props.gender === "F") {
             image = <img src={defaultFImage} alt="Not Available" style={{width:'80px'}} /> 
@@ -49,9 +47,9 @@ function myMatchProfileSummary(props) {
                         <label className="otherText"> | {props.education}</label> 
                         <label className="otherText"> | {props.city}</label>
                 </div>
-                <div className="hs20"/>
+                <div className="hs25"/>
                 <div className="psBottom">
-                    <div style={{width:'100%'}}>                                       
+                    <div style={{width:'80%'}}>                                       
                         <div className="inlineBlock" style={{width:'130px', height:'25px'}}>
                             <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
                                 <img src={addImage} alt="Not Available" onClick={() => props.shortlistProfile(props.id)} style={{width:'25px',height:'25px'}}/>

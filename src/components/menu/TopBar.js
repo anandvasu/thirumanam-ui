@@ -41,7 +41,8 @@ class TopBar extends React.Component {
     this.contactClick = this.contactClick.bind(this);
     this.logoutClick = this.logoutClick.bind(this);
     this.handleClose = this.handleClose.bind(this); 
-    this.goToAccountHome = this.goToAccountHome.bind(this);
+    this.goToAccountHome = this.goToAccountHome.bind(this); 
+    this.goToMessages = this.goToMessages.bind(this);
 
     this.state = {
       auth: true,
@@ -69,6 +70,15 @@ class TopBar extends React.Component {
     logoutClick(event) {
         sessionStorage.clear();
         this.props.history.push('/logout');
+    }
+
+    goToMessages() {
+      this.props.history.push({
+            pathname:'/messageHome',
+            state:{
+              status:Constant.MESSAGE_STATUS_PENDING
+           }  
+      });
     }
 
     goToAccountHome(value) {
@@ -122,17 +132,14 @@ class TopBar extends React.Component {
         <AppBar position="static" color="secondary">           
           <Toolbar>                 
           <div className="menuContainerFull">
-            <Button color="primary" className={classes.button} onClick={this.goToHome}>
+                <Button color="primary" className={classes.button} onClick={this.goToHome}>
                     <b>Home</b>
-                </Button>      
-                <Button color="primary" className={classes.button}>
-                    <b>Register</b>
-                </Button>
+                </Button>                     
                 <Button color="primary" className={classes.button}>
                     <b>Search</b>
                 </Button>
                 { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 
-                <Button color="primary" className={classes.button}>
+                <Button color="primary" className={classes.button} onClick={this.goToMessages}>
                     <b>Messages</b>
                 </Button>
                 }
