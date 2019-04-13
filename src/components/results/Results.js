@@ -388,16 +388,16 @@ class Results extends Component {
                 <TopMenu 
                     homePage="false"
                 /> 
-                 <div className="hs30" />                       
-                 <Modal show={this.state.registerDisplay}
+                <div className="hs30" />                       
+
+                <Modal show={this.state.registerDisplay}
                         displayClose = "none"
                         className="RegisterModal">   
                         <RegisterWithLogin 
                             loginClick = {this.loginClickHandler}
                         /> 
-                 </Modal>    
-               
-
+                 </Modal>
+                                     
                 <div className="resultsContainer">                                       
                             <div className="filtersection">
                                 <Filter 

@@ -11,7 +11,7 @@ class AccountSettings extends Component {
     render() {
         return(
         <div>
-            <div className="hs100" />
+            <div className="hs30" />
             <div className="filterParent">
                 <div className="header2">
                     <div><label>Account Settings</label></div>                    

@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Constant from "../utils/Constant";
 import IconButton from '@material-ui/core/IconButton';
-import AccountBox from '@material-ui/icons/AccountBox';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
@@ -15,14 +15,18 @@ import {
 import { compose } from 'redux';
 import logo from '../../assets/images/logo.png';
 
-const styles = themeButton => ({
-    button: {
-      margin: themeButton.spacing.unit,
-    },
-    input: {
-      display: 'none',
-    },
-  });
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  grow: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+};
 
 class TopBar extends React.Component {
 
@@ -115,13 +119,9 @@ class TopBar extends React.Component {
 
     return (
       <div>     
-        <AppBar position="static" color="secondary">
-           
-          <Toolbar>         
-          <div className="logo">                                      
-                   
-          </div> 
-          <div className="menuContainer">
+        <AppBar position="static" color="secondary">           
+          <Toolbar>                 
+          <div className="menuContainerFull">
             <Button color="primary" className={classes.button} onClick={this.goToHome}>
                     <b>Home</b>
                 </Button>      
@@ -145,14 +145,14 @@ class TopBar extends React.Component {
                 { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 
                 <div style={{display:'inline-block'}}>
                 <IconButton
-                  aria-owns={open ? 'menu-appbar' : undefined}
+                  aria-owns={open ? 'material-appbar' : undefined} 
                   aria-haspopup="true"
                   onClick={this.handleMenu}
                   color="inherit">                  
-                    <AccountBox />
+                    <AccountCircle />
                 </IconButton>
                 <Menu
-                  id="menu-appbar"
+                  id="material-appbar"
                   anchorEl={anchorEl}
                   anchorOrigin={{
                     vertical: 'top',
@@ -198,3 +198,4 @@ const topBarComp = compose(
 );
 
 export default topBarComp(TopBar);
+

@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import Footer from '../footer/Footer';
-import TopBar from '../menu/TopBar';
+import TopMenu from '../menu/TopMenu';
 
 class Payment extends Component {
 
     render() {
         return(
             <div>
-                <TopBar />
+               <TopMenu />
                <div className='hs1'></div>
                <div className='hs100'></div>      
                     Payment Information goes here! .

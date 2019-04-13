@@ -13,6 +13,13 @@
     text-align: right;
 }
 
+.menuContainerFull {
+    display:inline-block;
+    text-align: center;
+    width:100%;
+    vertical-align: top;
+}
+
 .menufield{
     display: inline-block;
     padding-right : 5px;

@@ -18,7 +18,7 @@ const styles = themeButton => ({
     },
     input: {
       display: 'none',
-    },
+    }    
   });
 
 class TopBarGlobal extends React.Component {
@@ -107,17 +107,12 @@ class TopBarGlobal extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { auth, anchorEl } = this.state;
-    const open = Boolean(anchorEl);
 
     return (
       <div>     
         <AppBar position="static" color="secondary">           
-          <Toolbar>         
-          <div className="logo">                                      
-                   
-          </div> 
-          <div className="menuContainer">
+          <Toolbar>  
+            <div className="menuContainerFull">
                 <Button color="primary" className={classes.button} onClick={this.goToHome}>
                     <b>Home</b>
                 </Button>      

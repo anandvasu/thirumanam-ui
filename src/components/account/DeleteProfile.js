@@ -63,7 +63,7 @@ class DeleteProfile extends Component {
     render() {
         return(
         <div>
-                <div className="hs100" />
+                <div className="hs30" />
                 <div className="identityContainer">
                     <div className="header2">
                         <div><label>Delete Profile</label></div>                    
