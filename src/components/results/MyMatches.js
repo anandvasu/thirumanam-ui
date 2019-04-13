@@ -167,7 +167,7 @@ class MyMatches extends Component {
             'Authorization': sessionStorage.getItem(Constant.USER_ID_TOKEN)
         }
 
-        axios.get(ApiConstant.USER_API+ sessionStorage.getItem(Constant.USER_PROFILE_ID)+"/preference/matches",
+        axios.get(ApiConstant.USER_SEARCH_API+ sessionStorage.getItem(Constant.USER_PROFILE_ID)+"/preference/matches",
         {               
             headers:headers
         }) .then((res) => {

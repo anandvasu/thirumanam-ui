@@ -53,7 +53,7 @@ export default {
    USER_COMPLETE_PROFILE_API:"http://localhost:8085/matrimony/user/completeprofile/",
    USER_PROFILE_IMAGE_API:"http://localhost:8085/matrimony/user/image/",
    USER_PROFILE_HOROSCOPE_API:"http://localhost:8085/matrimony/user/horoscope/",
-   QUICK_SEARCH_API:"http://localhost:8085/matrimony/list/user/",
+   USER_SEARCH_API:"http://localhost:8085/matrimony/list/user/",
    USER_API:"http://localhost:8085/matrimony/user/",
    USER_API_SELF:"http://localhost:8085/matrimony/list/user/self/",
    CONTACT_API:"http://localhost:8085/matrimony/contact/list",

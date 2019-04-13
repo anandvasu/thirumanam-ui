@@ -169,7 +169,7 @@ class Results extends Component {
         console.log("in searchProfile");    
         console.log(aMstatus);
         var totalDocs = 0;
-        axios.post(ApiConstant.QUICK_SEARCH_API, { 
+        axios.post(ApiConstant.USER_SEARCH_API, { 
             ageGreater:ageGrater,
             ageLess:ageLess,
             minHeight:minHeight,
