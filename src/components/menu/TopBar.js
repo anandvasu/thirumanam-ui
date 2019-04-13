@@ -165,6 +165,9 @@ class TopBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >                   
+                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(20)}>
+                        Settings
+                    </MenuItem>
                     <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(5)}>
                         Change Password
                     </MenuItem>

@@ -41,6 +41,7 @@ import AccountHome from './container/account/AccountHome';
 import InactivateProfile from './components/account/InactivateProfile';
 import DeleteProfile from './components/account/DeleteProfile';
 import ActivateProfile from './components/account/ActivateProfile';
+import Notification from './components/account/Notification';
 
 class App extends Component {
  
@@ -112,7 +113,8 @@ class App extends Component {
             <Route path="/accountHome" component={AccountHome} />  
             <Route path="/inactivateProfile" component={InactivateProfile} />
             <Route path="/deleteProfile" component={DeleteProfile} />
-            <Route path="/activateProfile" component={ActivateProfile} />
+            <Route path="/activateProfile" component={ActivateProfile} /> 
+            <Route path="/notification" component={Notification} /> 
         </Aux>
       </Router>
     );
