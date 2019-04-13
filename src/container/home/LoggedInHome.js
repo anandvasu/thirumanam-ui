@@ -19,8 +19,7 @@ import ProfileIdSearch from '../../components/search/ProfileIdSearch';
 class LoggedInHome extends Component {
 
         constructor(props) {
-                super(props);
-        
+                super(props);        
                 this.profileClick = this.profileClick.bind(this);
         }
 

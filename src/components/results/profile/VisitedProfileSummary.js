@@ -3,8 +3,6 @@ import React from 'react';
 import './ProfileSummary.css';
 import defaultFImage from '../../../assets/images/defalt_female.png';
 import defaultMImage from '../../../assets/images/default_male.jpg';
-import {getDropDownLabel} from '../../utils/Util';
-import DropDownConstant from '../../utils/DropDownConstant';
 
 function visitedProfileSummary (props) {
 

@@ -29,65 +29,43 @@ function myMatchProfileSummary(props) {
                     {image}
                 </div> 
                 <div>
-                    <label><b>ID: {props.id}</b></label>
+                    <label className="profileIdLabel">ID: {props.id}</label>
                 </div>
             </div>
             <div className="vs30" />
             <div className="profileSummary">       
                 <div className="psBottom">
-                    <div className="profileId">
-                        <label className="profileName" style={{fontSize:'10px'}}> 
+                    <div className="ps75Percent">
+                        <label className="profileName"> 
                             <b>{preFix} {props.firstName}, {props.lastName} </b> 
                         </label>
                     </div>
                     <div className="viewProfileDiv">
-                        <label>{props.bDate}</label>
+                        <label className="dateText">{props.bDate}</label>
                     </div> 
                 </div>
-
-                <div className="psBottom">
-                    <div className="profileId">
-                        <label> {props.age} years</label> 
-                        <label> | {props.education}</label> 
-                        <label> | {props.city}</label>
-                    </div>
-                    <div className="viewProfileDiv">
-                        
-                    </div>                         
+                <div className="summaryFullWidth">
+                        <label className="otherText"> {props.age} years</label> 
+                        <label className="otherText"> | {props.education}</label> 
+                        <label className="otherText"> | {props.city}</label>
                 </div>
-                <div className="hs40"/>
+                <div className="hs20"/>
                 <div className="psBottom">
-                    <div style={{width:'100%'}}>
-                        <div className="inlineBlock" style={{width:'150px', height:'25px'}} >                   
-                            <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
-                                <img src={heartImage} alt="Not Available" onClick={() => props.sendInterest(props.id)} style={{width:'25px',height:'25px'}}/>
-                            </div>                       
-                            <div className="inlineBlock" style={{height:'30px',width:'110px',float: 'left',paddingTop:'3px'}}>  
-                                <label><b> <a href="#" onClick={() => props.sendInterest(props.id)}><b>Send Interest</b></a></b></label>                      
-                            </div>
-                        </div>                   
+                    <div style={{width:'100%'}}>                                       
                         <div className="inlineBlock" style={{width:'130px', height:'25px'}}>
                             <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
                                 <img src={addImage} alt="Not Available" onClick={() => props.shortlistProfile(props.id)} style={{width:'25px',height:'25px'}}/>
                             </div>
                             <div className="inlineBlock" style={{height:'30px',width:'90px',float: 'left',paddingTop:'3px'}}>
-                                <label><b> <a href="#" onClick={() => props.shortlistProfile(props.id)}><b>Shortlisted</b></a></b></label>                           
+                                <label className="hrefText"><b> <a href="#" onClick={() => props.shortlistProfile(props.id)}><b>Shortlist</b></a></b></label>                           
                             </div>
-                        </div>
-                        <div className="inlineBlock" style={{width:'90px', height:'25px'}}>
-                            <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
-                                <img src={blockImage} alt="Not Available" onClick={() => props.blockProfile(props.id)} style={{width:'25px',height:'25px'}} />
-                            </div>
-                            <div className="inlineBlock" style={{height:'30px',width:'50px',float: 'left',paddingTop:'3px'}}>
-                            <label><b> <a href="#" onClick={() => props.blockProfile(props.id)}><b>Block</b></a></b></label>                            
-                            </div>
-                        </div>
+                        </div>                       
                         <div className="inlineBlock" style={{width:'80px', height:'25px'}}>
                             <div className="inlineBlock" style={{width:'25px',height:'25px',float: 'left'}}>
                                 <img src={viewImage} alt="Not Available" onClick={() => props.profileClick(props.id)} style={{width:'25px',height:'25px'}} />
                             </div>
                             <div className="inlineBlock" style={{height:'30px',width:'50px',float: 'left',paddingTop:'3px'}}>
-                                <label><b> <a href="#" onClick={() => props.profileClick(props.id)}><b>View</b></a></b></label>                            
+                                <label className="hrefText"><b> <a href="#" onClick={() => props.profileClick(props.id)}><b>View</b></a></b></label>                            
                             </div>
                         </div> 
                     </div>

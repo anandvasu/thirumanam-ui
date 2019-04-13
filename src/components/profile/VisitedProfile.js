@@ -14,7 +14,7 @@ function visitedProfile(props) {
         image = <img src={"data:image/jpeg;base64,"+props.thumbImage} alt="Not Available" width="100px" height="100px"></img>;            
     } else {
         if(props.gender === "F") {
-            image = <img src={defaultFImage} alt="Not Available" style={{width:'80px'}} /> 
+            image = <img src={defaultFImage} alt="Not Available" style={{width:'80px'}} />  
         } else {
             image = <img src={defaultMImage} alt="Not Available" style={{width:'80px'}} />
         }
