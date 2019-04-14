@@ -3,6 +3,11 @@ import {Redirect} from "react-router-dom";
 import Constant from '../utils/Constant';
 import {populateArray} from '../utils/Util';
 import Age from '../utils/Age';
+import Height from '../utils/Height';
+import ShowProfileSelect from '../utils/ShowProfileSelect';
+import EducationMultiSelect from '../utils/EducationMultiSelect'; 
+import MaritalStatusSelect from '../utils/MaritalStatusSelect';
+import ReligionMultiSelect from '../utils/ReligionMultiSelect';
 
 class BasicSearch extends Component {
 
@@ -63,6 +68,7 @@ class BasicSearch extends Component {
         return (
             <form>
                 <div>
+                    { (sessionStorage.getItem(Constant.USER_PROFILE_ID) == null) && 
                     <div className="fieldRow">
                         <div className='rdlabel'>
                                 <label>Gender</label>
@@ -77,11 +83,12 @@ class BasicSearch extends Component {
                                 <input type="radio" value="F" checked={this.state.gender === 'F'} onChange={this.genderChange}/>                                    
                                     Female
                             </label>
-                        </div> 
+                        </div>                        
                     </div>  
+                     }
                     <div className="fieldRow">
                         <div className='rdlabel'>
-                            <label>Age:&nbsp;</label>
+                            <label>Age&nbsp;</label>
                         </div>    
                         <div className='rdfield'>
                             <Age 
@@ -92,19 +99,59 @@ class BasicSearch extends Component {
                             />  
                         </div>  
                     </div>
+                    <div style={{width:'100%',paddingBottom:'5px'}}> 
+                        <div className="rdlabel">
+                            <label>Height</label>
+                        </div>
+                        <div className="rdfield">
+                            <Height 
+                                minHeight = {this.state.minHeight}
+                                maxHeight = {this.state.maxHeight}
+                                minHeightChange = {this.minHeightChange}
+                                maxHeightChange = {this.maxHeightChange}
+                            />
+                        </div>  
+                    </div>  
                     <div className="fieldRow">            
                         <div className='rdlabel'>       
-                            <label>Marital Status:&nbsp;</label>
+                            <label>Religion</label>
                         </div>  
                         <div className='rdfield'>
-                            <select onChange={this.maritalStatusChange}>
-                                <option value="NM">Never Married</option>
-                                <option value="WD">Widowed</option>  
-                                <option value="DD">Divorced</option>
-                                <option value="AD">Awaiting Divorce</option>              
-                            </select>
+                            <ReligionMultiSelect
+                                handleReligionChange = {this.handleReligionChange}
+                                religions = {this.state.religions}
+                            />
                         </div> 
-                    </div>
+                    </div>  
+                    <div className="fieldRow">            
+                        <div className='rdlabel'>       
+                            <label>Marital Status&nbsp;</label>
+                        </div>  
+                        <div className='rdfield'>
+                            <MaritalStatusSelect 
+                                maritalStatusChange = {this.maritalStatusChange}
+                            />
+                        </div> 
+                    </div>                    
+                    <div style={{width:'100%',paddingBottom:'5px'}}> 
+                        <div className="rdlabel">
+                            <label>Education</label>
+                        </div>
+                        <div className="rdfield">
+                            <EducationMultiSelect 
+                                education = {this.state.education}
+                                educationChange = {this.educationChange}
+                            />
+                        </div>  
+                    </div> 
+                    <div style={{width:'100%',paddingBottom:'5px'}}> 
+                        <div className="rdlabel">
+                            <label>Profile</label>
+                        </div>
+                        <div className="rdfield">
+                           <ShowProfileSelect />
+                        </div>  
+                    </div> 
                     <div>                               
                         <button onClick={this.quickSearch}>Search</button>  
                     </div>

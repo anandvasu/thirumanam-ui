@@ -46,7 +46,7 @@ function filter (props) {
                              maxHeightChange={props.maxHeightChange}
                         />
                     </div>             
-                </div>
+                </div>                
                 <div className="header3Parent">
                     <div className="header3"><label>Marital Status</label></div>
                     <div className="filterContent">   
@@ -75,10 +75,13 @@ function filter (props) {
                     </div>
                 </div>                  
                 <div className="header3Parent">
+                    <div className="header3"><label>Education</label></div>
+                    <div className="filterContentMSelect">  
                     <EducationMultiSelect 
                          education = {props.education}
                          educationChange = {props.educationChange}
                     />
+                    </div>
                 </div>                
                 <div className="header3Parent">
                     <Occupation 
