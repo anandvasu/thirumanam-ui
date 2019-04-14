@@ -184,12 +184,11 @@ class Preference extends Component {
             <div>
                 <TopBar />
                <div className='hs50' />   
-               <div className="sectionParentDiv">
+               <div className="sectionParentDiv">                    
+                    <div className="header2allborder">
+                        <label>Basic Preferences</label>
+                    </div>
                     <div className="sectionDataDiv">
-                        <div className="prefHeader">
-                            <b>Basic Preferences</b>
-                        </div>
-                        <div className='hs20' />
                         <div className="prefDataRow">
                             <div className="prefLableDiv">
                                 Age
@@ -241,60 +240,62 @@ class Preference extends Component {
                     </div> 
                 </div>    
                 <div className="sectionParentDiv">
-                    <div className="prefHeader">
-                        <b>Religion Preferences</b>
+                    <div className="header2allborder">
+                        <label>Religion Preferences</label>
                     </div>
-                    <div className='hs20' />
-                    <div className="prefDataRow">
-                        <div className="prefLableDiv">
-                            Religion
+                    <div className="sectionDataDiv">
+                        <div className="prefDataRow">
+                            <div className="prefLableDiv">
+                                Religion
+                            </div>
+                            <div className="prefDataDiv">
+                                <ReligionMultiSelect
+                                    handleReligionChange = {this.handleReligionChange}
+                                    religions = {this.state.religions}
+                                />
+                            </div>
                         </div>
-                        <div className="prefDataDiv">
-                            <ReligionMultiSelect
-                                handleReligionChange = {this.handleReligionChange}
-                                religions = {this.state.religions}
-                            />
-                        </div>
-                    </div>
-                    <div className="prefDataRow">
-                        <div className="prefLableDiv">
-                            Caste
-                        </div>
-                        <div className="prefDataDiv">
-                            <CasteMultiSelect 
-                                 handleCasteChange = {this.handleCasteChange}
-                                 castes = {this.state.castes}
-                            />
-                        </div>
-                    </div>                      
+                        <div className="prefDataRow">
+                            <div className="prefLableDiv">
+                                Caste
+                            </div>
+                            <div className="prefDataDiv">
+                                <CasteMultiSelect 
+                                    handleCasteChange = {this.handleCasteChange}
+                                    castes = {this.state.castes}
+                                />
+                            </div>
+                        </div>  
+                    </div>                    
                 </div>  
                 <div className="sectionParentDiv">
-                    <div className="prefHeader">
-                        <b>Location Preferences</b>
+                    <div className="header2allborder">
+                        <label>Location Preferences</label>
                     </div>
-                    <div className='hs20' />
-                    <div className="prefDataRow">
-                        <div className="prefLableDiv">
-                            Country Living In
+                    <div className="sectionDataDiv">
+                        <div className="prefDataRow">
+                            <div className="prefLableDiv">
+                                Country Living In
+                            </div>
+                            <div className="prefDataDiv">
+                            <CountryMultiSelect 
+                                    handleCountryChange = {this.handleCountryChange}
+                                    countries = {this.state.countries}
+                            />
+                            </div>
                         </div>
-                        <div className="prefDataDiv">
-                           <CountryMultiSelect 
-                                 handleCountryChange = {this.handleCountryChange}
-                                 countries = {this.state.countries}
-                           />
-                        </div>
-                    </div>
-                    <div className="prefDataRow">
-                        <div className="prefLableDiv">
-                            State
-                        </div>
-                        <div className="prefDataDiv">
-                           <IndiaStateMultiSelect
-                                handleStateChange = {this.handleStateChange}
-                                states = {this.state.states}
-                           />
-                        </div>
-                    </div>                                        
+                        <div className="prefDataRow">
+                            <div className="prefLableDiv">
+                                State
+                            </div>
+                            <div className="prefDataDiv">
+                            <IndiaStateMultiSelect
+                                    handleStateChange = {this.handleStateChange}
+                                    states = {this.state.states}
+                            />
+                            </div>
+                        </div>  
+                    </div>                                       
                 </div>   
                 <div className="hs10" />
                 <div>
