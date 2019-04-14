@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 
 import './ProfileSummary.css';
-import defaultFImage from '../../../assets/images/defalt_female.png';
-import defaultMImage from '../../../assets/images/default_male.jpg';
-import {getDropDownLabel} from '../../utils/Util';
-import DropDownConstant from '../../utils/DropDownConstant';
-import heartImage from '../../../assets/images/heart.png';
-import addImage from '../../../assets/images/add.png';
-import blockImage from '../../../assets/images/block.png';
-import viewImage from '../../../assets/images/view.png';
+import defaultFImage from '../../assets/images/defalt_female.png';
+import defaultMImage from '../../assets/images/default_male.jpg';
+import {getDropDownLabel} from '../utils/Util';
+import DropDownConstant from '../utils/DropDownConstant';
+import heartImage from '../../assets/images/heart.png';
+import addImage from '../../assets/images/add.png';
+import blockImage from '../../assets/images/block.png';
+import viewImage from '../../assets/images/view.png';
 
 class ProfileSummary extends Component {
 
@@ -40,26 +40,21 @@ class ProfileSummary extends Component {
                 <div className="vs20" />
                 <div className="profileSummary">       
                     <div className="psBottom">
-                        <div className="profileId">
+                        <div className="ps75Percent">
                             <label className="profileName"> 
                                 <b>{preFix} {this.props.firstName}, {this.props.lastName} </b>
                             </label>
                         </div>
                         <div className="viewProfileDiv">
-                            <label>{this.props.bDate}</label>
+                            <label style={{paddingRight:'10px'}}>{this.props.bDate}</label>
                         </div> 
                     </div>
 
-                    <div className="psBottom">
-                        <div className="profileId">
-                            <label> {this.props.age} years</label> 
-                            <label> | {getDropDownLabel(this.props.education, DropDownConstant.educationValues)}</label> 
-                            <label> | {this.props.city}</label>
-                        </div>
-                        <div className="viewProfileDiv">
-                            
-                        </div>                         
-                    </div>
+                    <div className="summaryFullWidth">
+                        <label> {this.props.age} years</label> 
+                        <label> | {getDropDownLabel(this.props.education, DropDownConstant.educationValues)}</label> 
+                        <label> | {this.props.city}</label>
+                    </div>                                              
                     <div className="hs40"/>
                     <div className="psBottom">                       
                         <div style={{width:'100%'}}>

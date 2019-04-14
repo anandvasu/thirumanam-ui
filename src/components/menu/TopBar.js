@@ -43,6 +43,7 @@ class TopBar extends React.Component {
     this.handleClose = this.handleClose.bind(this); 
     this.goToAccountHome = this.goToAccountHome.bind(this); 
     this.goToMessages = this.goToMessages.bind(this);
+    this.goToSearch = this.goToSearch.bind(this);
 
     this.state = {
       auth: true,
@@ -67,18 +68,22 @@ class TopBar extends React.Component {
     }
 }
 
-    logoutClick(event) {
-        sessionStorage.clear();
-        this.props.history.push('/logout');
-    }
+  logoutClick(event) {
+      sessionStorage.clear();
+      this.props.history.push('/logout');
+  }
 
-    goToMessages() {
-      this.props.history.push({
-            pathname:'/messageHome',
-            state:{
-              status:Constant.MESSAGE_STATUS_PENDING
-           }  
-      });
+  goToMessages() {
+    this.props.history.push({
+          pathname:'/messageHome',
+          state:{
+            status:Constant.MESSAGE_STATUS_PENDING
+          }  
+    });
+  }
+
+    goToSearch() {
+      this.props.history.push('/searchHome');
     }
 
     goToAccountHome(value) {
@@ -135,7 +140,7 @@ class TopBar extends React.Component {
                 <Button color="primary" className={classes.button} onClick={this.goToHome}>
                     <b>Home</b>
                 </Button>                     
-                <Button color="primary" className={classes.button}>
+                <Button color="primary" className={classes.button} onClick={this.goToSearch}>
                     <b>Search</b>
                 </Button>
                 { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 

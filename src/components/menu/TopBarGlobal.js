@@ -35,6 +35,8 @@ class TopBarGlobal extends React.Component {
     this.logoutClick = this.logoutClick.bind(this);
     this.handleClose = this.handleClose.bind(this); 
     this.goToAccountHome = this.goToAccountHome.bind(this);
+    this.goToSearch = this.goToSearch.bind(this);
+    this.goToRegister = this.goToRegister.bind(this);
 
     this.state = {
       auth: true,
@@ -105,6 +107,14 @@ class TopBarGlobal extends React.Component {
     this.setState({ anchorEl: null });
   };
 
+  goToSearch() {
+    this.props.history.push('/searchHome');
+  }
+
+  goToRegister() {
+    this.props.history.push('/registerHome');
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -116,10 +126,10 @@ class TopBarGlobal extends React.Component {
                 <Button color="primary" className={classes.button} onClick={this.goToHome}>
                     <b>Home</b>
                 </Button>      
-                <Button color="primary" className={classes.button}>
+                <Button color="primary" className={classes.button} onClick={this.goToRegister}>
                     <b>Register</b>
                 </Button>
-                <Button color="primary" className={classes.button}>
+                <Button color="primary" className={classes.button} onClick={this.goToSearch}>
                     <b>Search</b>
                 </Button>               
                 <Button color="primary" className={classes.button} onClick={this.goToPayment}>

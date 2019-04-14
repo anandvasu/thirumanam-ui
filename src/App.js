@@ -42,6 +42,8 @@ import InactivateProfile from './components/account/InactivateProfile';
 import DeleteProfile from './components/account/DeleteProfile';
 import ActivateProfile from './components/account/ActivateProfile';
 import Notification from './components/account/Notification';
+import SearchHome from './container/home/SearchHome';
+import RegisterHome from './container/register/RegisterHome';
 
 class App extends Component {
  
@@ -115,6 +117,8 @@ class App extends Component {
             <Route path="/deleteProfile" component={DeleteProfile} />
             <Route path="/activateProfile" component={ActivateProfile} /> 
             <Route path="/notification" component={Notification} /> 
+            <Route path="/searchHome" component={SearchHome} /> 
+            <Route path="/registerHome" component={RegisterHome} />             
         </Aux>
       </Router>
     );

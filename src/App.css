@@ -19,6 +19,16 @@ body {
   font-size: 16px;
 }
 
+.fieldRow{
+  padding-bottom: 20px;
+}
+
+.homeFullSection {
+    width:1100px;
+    vertical-align: top;
+    display: inline-block;
+}
+
 .homeLeftSection {
   width:300px;
   display: inline-block;
