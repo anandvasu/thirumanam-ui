@@ -23,12 +23,13 @@ class MyMatches extends Component {
         this.sendInterest = this.sendInterest.bind(this);
         this.shortlistProfile = this.shortlistProfile.bind(this);
         this.loadMyMatches = this.loadMyMatches.bind(this);
+        this.goToPreferences = this.goToPreferences.bind(this);       
 
         this.state = {
-            profiles:[],
+            content:[],
             totalMatches:0,
             profileClicked:false,
-            profile:''
+            prefExists:true
         }
     }
 
@@ -160,6 +161,34 @@ class MyMatches extends Component {
         });
     }
 
+    goToPreferences() {
+        const profileId = sessionStorage.getItem("profileId");
+        console.log("profileId:"+profileId)
+        axios.get(ApiConstant.PREFERENCE_API+profileId, {                
+        })
+        .then((res) => {
+            console.log(res);
+            console.log(res.data);            
+            this.props.history.push({
+                pathname: '/preference',
+                state: {
+                    preference : res.data                                    
+                }
+              })
+            
+        }) .catch((error) => {
+            console.log(error);
+            toast.error("Server Error Occurred. Please try again!!", 
+                {
+                    position:toast.POSITION.TOP_CENTER,
+                    hideProgressBar:true,
+                    autoClose:3000,
+                    testId:20
+                });
+        
+        });
+    }
+
     loadMyMatches() {       
 
         var headers = {
@@ -174,10 +203,16 @@ class MyMatches extends Component {
            // Update User Detail to session
            console.log(res);
            const totalMatches = res.headers["x-total-docs"]; 
-           this.setState({
-            totalMatches:totalMatches
-           })
-           this.displayResults(res.data);
+           if(res.data.prefernceExists === true) {                
+                this.displayResults(res.data.userList, totalMatches);
+           } else {
+                this.setState({
+                    totalMatches:totalMatches,
+                    prefExists:res.data.prefernceExists
+                });
+           }
+            
+           
          
         }).catch((err) => {
             console.log(err);
@@ -188,7 +223,7 @@ class MyMatches extends Component {
        this.loadMyMatches();
     }
 
-    displayResults(profileData) {    
+    displayResults(profileData, totalMatches) {    
 
         let i = 0;
 
@@ -222,7 +257,10 @@ class MyMatches extends Component {
             
         });
 
-        this.setState({profiles:profiles});
+        this.setState({
+            totalMatches:totalMatches,
+            content:profiles
+        });
     }
 
     render() {     
@@ -238,7 +276,15 @@ class MyMatches extends Component {
                         }
                     </div>
                <div className="hs10" />
-                    {this.state.profiles}
+                    {this.state.prefExists && this.state.content}
+                    {(this.state.prefExists === false) && 
+                       <div style={{textAlign:'left',paddingLeft:'5px'}}>
+                            <label className="text14pxNormal">
+                                You don't have updated your partner preferences. Please update your partner preferences&nbsp;  
+                                <a href="#" onClick={this.goToPreferences}> here</a>.
+                            </label>
+                        </div>
+                    }
                <div className="hs10" />
             </div>
         ) ;
