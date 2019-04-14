@@ -7,6 +7,7 @@ import {
     withRouter
   } from 'react-router-dom';
 import MyMatchProfileSummary from '../profile/MyMatchProfileSummary';
+import myMatchProfileSummary from '../profile/MyMatchProfileSummary';
 
 class VisitedProfilesMini extends Component {
 
@@ -16,8 +17,8 @@ class VisitedProfilesMini extends Component {
         this.viewAllMyMatches = this.viewAllMyMatches.bind(this);  
 
         this.state = {
-            profiles:[],
-            totalMatches:0,
+            content:[],
+            totalProfiles:0,
             profileClicked:false,
             profile:''
         }
@@ -38,9 +39,11 @@ class VisitedProfilesMini extends Component {
                console.log(res);
                const totalMatches = res.headers["x-total-docs"]; 
                this.setState({
-                totalMatches:totalMatches
+                    totalProfiles:totalMatches
                })
-               this.displayResults(res.data);
+            
+            this.displayResults(res.data);
+               
              
             }).catch((err) => {
                 console.log(err);
@@ -76,7 +79,7 @@ class VisitedProfilesMini extends Component {
             
         });
 
-        this.setState({profiles:profiles});
+        this.setState({content:profiles});
     }
 
     render() {     
@@ -85,10 +88,17 @@ class VisitedProfilesMini extends Component {
             <div className="myMatchContainer">               
                <div className="header2" style={{paddingTop:'5px'}}> 
                     <div className="vs5px"/>
-        <b>People Viewed Your Profile ({this.state.totalMatches})</b>&nbsp;&nbsp; {this.state.totalMatches > 3 && <a href="#" onClick={this.viewAllMyMatches} className="hyperlinkHeader">View All</a> }
+        <b>People Viewed Your Profile ({this.state.totalProfiles})</b>&nbsp;&nbsp; {this.state.totalProfiles > 3 && <a href="#" onClick={this.viewAllMyMatches} className="hyperlinkHeader">View All</a> }
                     </div>
                <div className="hs10" />
-               {this.state.profiles}
+               {(this.state.totalProfiles !== "0" ) && this.state.content}
+               {(this.state.totalProfiles === "0" ) && 
+                    <div style={{textAlign:'left',paddingLeft:'5px'}}>
+                        <label className="text14pxNormal">
+                            Members viewed you profile will be listed in this section. Currenlty, No one visited profiles.
+                        </label>
+                    </div>
+               }
                <div className="hs10" />
             </div>
         ) ;
