@@ -359,6 +359,12 @@ hr {
   height: 40px;
 }
 
+.sectionParentDiv {
+  width : 950px;
+  padding-bottom: 15px;
+  margin: auto;
+}
+
 .sectionDataDiv {
   background-color: #FFFFFF;
   border-color: darkgrey;

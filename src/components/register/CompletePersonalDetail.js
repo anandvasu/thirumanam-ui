@@ -5,7 +5,7 @@ function completePersonalDetail (props) {
 
     console.log("mStatus:" + props.mStatus);
     return (
-        <div style={{backgroundColor:'#FFFFFF'}}>
+        <div className="sectionParentDiv">
             <div> 
                 <div className='header2allborder'>
                         <label>Personal Information</label>

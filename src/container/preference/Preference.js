@@ -184,62 +184,63 @@ class Preference extends Component {
             <div>
                 <TopBar />
                <div className='hs50' />   
-               <div className="prefSectionContainer">
-                    <div className="prefHeader">
-                        <b>Basic Preferences</b>
-                    </div>
-                    <div className='hs20' />
-                    <div className="prefDataRow">
-                        <div className="prefLableDiv">
-                            Age
+               <div className="sectionParentDiv">
+                    <div className="sectionDataDiv">
+                        <div className="prefHeader">
+                            <b>Basic Preferences</b>
                         </div>
-                        <div className="prefDataDiv">
-                            <Age
-                                ageFrom = {this.state.ageFrom}
-                                ageTo = {this.state.ageTo}
-                                ageFromChange={this.ageFromChange}
-                                ageToChange={this.ageToChange}
+                        <div className='hs20' />
+                        <div className="prefDataRow">
+                            <div className="prefLableDiv">
+                                Age
+                            </div>
+                            <div className="prefDataDiv">
+                                <Age
+                                    ageFrom = {this.state.ageFrom}
+                                    ageTo = {this.state.ageTo}
+                                    ageFromChange={this.ageFromChange}
+                                    ageToChange={this.ageToChange}
+                                />
+                            </div>
+                        </div>                    
+                        <div className="prefDataRow">
+                            <div className="prefLableDiv">
+                                Height
+                            </div>
+                            <div className="prefDataDiv">
+                            <Height 
+                                    minHeight = {this.state.minHeight}
+                                    maxHeight = {this.state.maxHeight}
+                                    minHeightChange={this.minHeightChange}
+                                    maxHeightChange={this.maxHeightChange}
                             />
-                        </div>
-                    </div>
-                    <div className="prefDataRow">
-                        <div className="prefLableDiv">
-                            Height
-                        </div>
-                        <div className="prefDataDiv">
-                        <Height 
-                                minHeight = {this.state.minHeight}
-                                maxHeight = {this.state.maxHeight}
-                                minHeightChange={this.minHeightChange}
-                                maxHeightChange={this.maxHeightChange}
-                        />
-                        </div>
-                    </div>   
-                    <div className="prefDataRow">
-                        <div className="prefLableDiv">
-                            Marital Status
-                        </div>
-                        <div className="prefDataDiv">
-                        <MaritalStatus 
-                            mStatus = {this.state.mStatus}
-                            maritalStatusChange={this.maritalStatusChange}
-                        />
-                        </div>
-                    </div>      
-                    <div className="prefDataRow">
-                        <div className="prefLableDiv">
-                            Food Habits
-                        </div>
-                        <div className="prefDataDiv">
-                        <FoodHabit 
-                            foodHabits = {this.state.foodHabits}
-                            foodHabitChange = {this.foodHabitChange}
-                        />
-                        </div>
-                    </div>  
+                            </div>
+                        </div>   
+                        <div className="prefDataRow">
+                            <div className="prefLableDiv">
+                                Marital Status
+                            </div>
+                            <div className="prefDataDiv">
+                            <MaritalStatus 
+                                mStatus = {this.state.mStatus}
+                                maritalStatusChange={this.maritalStatusChange}
+                            />
+                            </div>
+                        </div>      
+                        <div className="prefDataRow">
+                            <div className="prefLableDiv">
+                                Food Habits
+                            </div>
+                            <div className="prefDataDiv">
+                            <FoodHabit 
+                                foodHabits = {this.state.foodHabits}
+                                foodHabitChange = {this.foodHabitChange}
+                            />
+                            </div>
+                        </div> 
+                    </div> 
                 </div>    
-                <div className='hs30' />
-                <div className="prefSectionContainer">
+                <div className="sectionParentDiv">
                     <div className="prefHeader">
                         <b>Religion Preferences</b>
                     </div>
@@ -267,9 +268,7 @@ class Preference extends Component {
                         </div>
                     </div>                      
                 </div>  
-
-                <div className='hs30' />
-                <div className="prefSectionContainer">
+                <div className="sectionParentDiv">
                     <div className="prefHeader">
                         <b>Location Preferences</b>
                     </div>

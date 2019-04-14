@@ -5,7 +5,7 @@ import IndiaState from '../utils/IndiaState';
 function location(props) {     
         
     return(
-        <div className="rdlcontaniner" style={{backgroundColor:'#FFFFFF'}}>
+        <div className="sectionParentDiv">
             <div> 
                 <div className='header2allborder'>
                         <label>Current Location</label>

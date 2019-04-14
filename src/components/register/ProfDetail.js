@@ -2,7 +2,7 @@ import React from 'react';
 
 function profDetail (props) {
     return (
-        <div className="rdpcontaniner" style={{backgroundColor:'#FFFFFF'}}>
+        <div className="sectionParentDiv">
             <div> 
                 <div className='header2allborder'>
                         <label>Professional Information</label>
