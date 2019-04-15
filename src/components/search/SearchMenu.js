@@ -13,6 +13,8 @@ import { compose } from 'redux';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import BasicSearch from './BasicSearch';
+import AdvancedSearch from './AdvancedSearch';
+import ProfileIdSearch from './ProfileIdSearch';
 
 function TabContainer(props) {
     return (
@@ -99,16 +101,24 @@ class SearchMenu extends Component {
                 }
                 {this.state.selectedTab === '2' && 
                 <TabContainer>
-                     <div style={{width:'100%'}}>
-                        <div className="inboxLabel"><label><a href="#" onClick={() => this.goToMessageHome(Constant.MESSAGE_STATUS_ALL)}>All</a></label></div>
-                        <div className="inboxCount"><label> {this.state.sentItemsCount} </label></div>
-                    </div>
-                    <div style={{width:'100%',paddingTop:'10px',paddingBottom:'5px'}}>
-                        <div className="inboxLabel"><label><a href="#" onClick={() => this.goToMessageHome(Constant.MESSAGE_STATUS_AWAITING_REPLY)}>Awaiting Reply</a></label> </div>
-                        <div className="inboxCount"><label> {this.state.awitingReplyCount} </label></div>
+                    <AdvancedSearch />
+                </TabContainer>
+                }     
+                 {this.state.selectedTab === '3' && 
+                <TabContainer>
+                     <div style={{width:'100%',paddingBottom:'5px'}}> 
+                        <div className="rdlabel">
+                            <label>Profile ID</label>
+                        </div>
+                        <div className="rdfield">
+                           <input type="text" />
+                        </div>  
+                    </div> 
+                    <div>                               
+                        <button onClick={this.quickSearch}>Search</button>  
                     </div>
                 </TabContainer>
-                }                   
+                }               
                 </div>               
             </div>
         );
