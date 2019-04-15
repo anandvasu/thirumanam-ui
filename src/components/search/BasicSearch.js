@@ -13,11 +13,13 @@ class BasicSearch extends Component {
 
     constructor (props) {
         super(props);
-        this.quickSearch = this.quickSearch.bind(this);
+        this.basicSearch = this.basicSearch.bind(this);
         this.genderChange = this.genderChange.bind(this);
         this.ageFromChange = this.ageFromChange.bind(this);
         this.ageToChange = this.ageToChange.bind(this);
-        this.maritalStatusChange = this.maritalStatusChange.bind(this);
+        this.maritalStatusChange = this.maritalStatusChange.bind(this); 
+        this.educationChange = this.educationChange.bind(this);
+        this.handleReligionChange = this.handleReligionChange.bind(this);
         this.state = {
             searchClicked: false,
             gender:Constant.genderF,
@@ -25,7 +27,9 @@ class BasicSearch extends Component {
             ageTo:Constant.ageTo,
             minHeight:Constant.minHeight,
             maxHeight:Constant.maxHeight,
-            mStatus:"NM"
+            mStatus:"NM",
+            religions:[],
+            education:[],
         }
     }
 
@@ -44,9 +48,21 @@ class BasicSearch extends Component {
     maritalStatusChange(event) {
         this.setState({mStatus:event.target.value});
     }
+
+    educationChange(inputEducation) {
+        this.setState({
+            education:inputEducation
+        }); 
+    }
+
+    handleReligionChange(inputReligion) {
+        this.setState({
+            religions:inputReligion
+        });
+    }
     
 
-    quickSearch(event) {
+    basicSearch(event) {
         this.setState({searchClicked:true});
         console.log(this.state.searchClicked);
     }
@@ -54,16 +70,16 @@ class BasicSearch extends Component {
     render () {
         if (this.state.searchClicked === true) {
             return <Redirect to= {{
-                                    pathname:'/results',
-                                    state:{
-                                        gender:this.state.gender,
-                                        ageFrom:this.state.ageFrom,
-                                        ageTo:this.state.ageTo,
-                                        minHeight:this.state.minHeight,
-                                        maxHeight:this.state.maxHeight,
-                                        mStatus:populateArray(this.state.mStatus)
-                                    }
-                                 }}/>
+                pathname:'/results',
+                state:{
+                    gender:this.state.gender,
+                    ageFrom:this.state.ageFrom,
+                    ageTo:this.state.ageTo,
+                    minHeight:this.state.minHeight,
+                    maxHeight:this.state.maxHeight,
+                    mStatus:populateArray(this.state.mStatus)
+                }
+                }}/>
         }
         return (
             <form>
@@ -153,7 +169,7 @@ class BasicSearch extends Component {
                         </div>  
                     </div> 
                     <div>                               
-                        <button onClick={this.quickSearch}>Search</button>  
+                        <button onClick={this.basicSearch}>Search</button>  
                     </div>
                 </div>
             </form>
