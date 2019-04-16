@@ -52,6 +52,7 @@ class SearchMenu extends Component {
 
     handleChange(event, value) {
         this.setState({ selectedTab:value });
+        this.props.refreshFooter();
       };
 
     goToMessageHome(status) {
@@ -75,6 +76,7 @@ class SearchMenu extends Component {
             });
             
         });
+        this.props.refreshFooter();
     }
 
     render() {

@@ -7,7 +7,17 @@ import Register from '../../components/register/Register';
 class RegisterHome extends Component {
 
         constructor(props) {
-                super(props);        
+                super(props);      
+                this.refreshFooter = this.refreshFooter.bind(this);
+                this.state = {
+                        refreshFooter:false
+                }  
+        }
+
+        refreshFooter() {
+                this.setState({
+                        refreshFooter:true
+                })
         }
 
        
@@ -29,10 +39,13 @@ class RegisterHome extends Component {
                                         labelClassName="glabel"
                                         fieldClassName="gfield"
                                         rowClassName="gFieldRow"
+                                        refreshFooter={this.refreshFooter}
                                 />
                         </div>
                     </div>                    
-                    <Footer />                       
+                    <Footer 
+                        refreshFooter={this.state.refreshFooter}
+                    />                       
             </div>                        
             );
         };

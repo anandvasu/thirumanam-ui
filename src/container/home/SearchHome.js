@@ -8,6 +8,13 @@ class SearchContainer extends Component {
 
         constructor(props) {
                 super(props);        
+                this.refreshFooter = this.refreshFooter.bind(this);
+        }
+
+        refreshFooter() {
+                this.setState({
+                        refreshFooter:true
+                })
         }
 
        
@@ -19,9 +26,13 @@ class SearchContainer extends Component {
                         /> 
                          <div className='hs20' />
                         <div className="homeFullSection">
-                               <SearchMenu />
+                               <SearchMenu 
+                                         refreshFooter={this.refreshFooter}
+                               />
                         </div>                      
-                        <Footer />                       
+                        <Footer 
+                                refreshFooter={this.refreshFooter}
+                        />                       
                 </div>                        
                 );
         };

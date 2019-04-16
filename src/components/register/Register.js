@@ -49,6 +49,10 @@ class Register extends Component {
         }
     }
 
+    componentDidMount() {
+        this.props.refreshFooter();
+    }
+
     onChangeRegisteredBy(event) {
         this.setState({registerBy:event.target.value});
     }

@@ -3,10 +3,16 @@ import Register from './Register';
 
 class RegisterWithLogin extends Component {
 
+    refreshFooter() {
+
+    }
+
     render (){
         return(
                 <div className="rwlogincontainer">
-                    <Register />
+                    <Register 
+                         refreshFooter = {this.refreshFooter}
+                    />
                     <div className="hs10" />
                     <hr />
                     <div>

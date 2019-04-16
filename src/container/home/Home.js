@@ -10,6 +10,20 @@ import ImageGalleryAnimation from '../../components/featuredprofile/ImageGallery
 import Aboutus from '../../components/home/Aboutus';
 
 class Home extends Component {
+
+    constructor(props) {
+        super(props);
+        this.refreshFooter = this.refreshFooter.bind(this);
+        this.state = {
+            refreshFooter:false
+        }
+    }
+
+    refreshFooter() {
+        this.setState({
+            refreshFooter:true
+        })
+    }
  
     render () {
         return (
@@ -29,6 +43,7 @@ class Home extends Component {
                                 labelClassName="rlabel"
                                 fieldClassName="rfield"
                                 rowClassName="rrow"
+                                refreshFooter = {this.refreshFooter}
                              />
                          </div>
                     </div>                
@@ -61,6 +76,7 @@ class Home extends Component {
                 <div className="hs20" />
                 <Footer 
                     backgroundColor="#D6DBDF"
+                    refreshFooter = {this.state.refreshFooter}
                 />
             </Aux>          
         );
