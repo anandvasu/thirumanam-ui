@@ -2,6 +2,7 @@ import React from 'react';
 import CasteSelect from '../utils/CasteSelect';
 import DhoshamSelect from '../utils/DhoshamSelect';
 import GothramSelect from '../utils/GothramSelect';
+import HinduCasteSelect from '../utils/HinduCasteSelect';
 
 function religionDetail(props) {     
         
@@ -16,19 +17,19 @@ function religionDetail(props) {
 
             <div className="sectionDataDiv">    
                 <div className="hs10" />
-                <div id="hinduCaste">
+                <div id="hinduCaste" className="gFieldRow">
                     <div className='rdlabel'>
                         <label>Caste</label>
                     </div>            
                     <div className='rdfield'>
-                        <CasteSelect 
+                        <HinduCasteSelect 
                             casteObj = {props.casteObj}       
                             hinduCasteChange = {props.hinduCasteChange}                           
                         />
                     </div>                        
                 </div>
 
-                <div id="otherCaste">
+                <div id="otherCaste" className="gFieldRow">
                     <div className='rdlabel'>
                         <label>Caste</label>
                     </div>            
@@ -37,7 +38,7 @@ function religionDetail(props) {
                     </div>                        
                 </div>
 
-                <div>
+                <div className="gFieldRow">
                     <div className='rdlabel'>
                         <label>Sub Caste</label>
                     </div>            
@@ -46,7 +47,7 @@ function religionDetail(props) {
                     </div>                        
                 </div>
 
-                <div id="hinduGothram">
+                <div id="hinduGothram" className="gFieldRow">
                     <div className='rdlabel'>
                         <label>Gothra(m)</label>
                     </div>            
@@ -58,7 +59,7 @@ function religionDetail(props) {
                     </div>                        
                 </div>
 
-                <div id="otherGothram">
+                <div id="otherGothram" className="gFieldRow">
                     <div className='rdlabel'>
                         <label>Gothra(m)</label>
                     </div>            
@@ -66,7 +67,7 @@ function religionDetail(props) {
                         <input type="text" onBlur={props.OtherCasteChange} />                        
                     </div>                        
                 </div>
-                <div id="hinduDhosham">
+                <div id="hinduDhosham" className="gFieldRow">
                     <div className='rdlabel'>
                         <label>Dosham</label>
                     </div>            
@@ -78,7 +79,7 @@ function religionDetail(props) {
                     </div>                        
                 </div>
 
-                <div id="otherDhosham">
+                <div id="otherDhosham" className="gFieldRow">
                     <div className='rdlabel'>
                         <label>Dosham</label>
                     </div>            
