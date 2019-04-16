@@ -72,12 +72,15 @@ class BasicSearch extends Component {
             return <Redirect to= {{
                 pathname:'/results',
                 state:{
+                    fromPage:"B",
                     gender:this.state.gender,
                     ageFrom:this.state.ageFrom,
                     ageTo:this.state.ageTo,
                     minHeight:this.state.minHeight,
                     maxHeight:this.state.maxHeight,
-                    mStatus:populateArray(this.state.mStatus)
+                    mStatus:populateArray(this.state.mStatus),
+                    religions:this.state.religions,
+                    education:this.state.education
                 }
                 }}/>
         }
@@ -146,6 +149,7 @@ class BasicSearch extends Component {
                         <div className='rdfield'>
                             <MaritalStatusSelect 
                                 maritalStatusChange = {this.maritalStatusChange}
+                                mStatus = {this.state.mStatus}
                             />
                         </div> 
                     </div>                    

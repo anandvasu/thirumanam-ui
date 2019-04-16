@@ -85,13 +85,25 @@ export function getValueFromReactSelect(objectArray) {
     return value;
 }
 
-export function getValueArrFromReactSelect(objectArray) {
+export function getValueArrFromReactSelect(inputObjectArray) {
+    console.log("in getValueArrFromReactSelect");
+    console.log(inputObjectArray);
+    
     let values = [];
-    if (objectArray !== null) {
-        for(var i=0; i < objectArray.length; i++) {
-            values.push(objectArray[i].value);
-        }    
+    //let arrObject = null;
+    if (inputObjectArray !== null) {
+        //for(var i=0; i < inputObjectArray.length; i++) {
+           // arrObject = inputObjectArray[i];
+          //  console.log(arrObject);
+          //  values.push(arrObject.value);
+       // }  
+       console.log(inputObjectArray.length);
+        for (let arrObject of inputObjectArray) {
+            console.log(arrObject);
+            values.push(arrObject.value); 
+        }  
     }
+    console.log(values);
     return values;
 }
 

@@ -55,58 +55,52 @@ class Results extends Component {
 
     componentDidMount() {
 
-        if(this.props.location.state.fromPage === "MyMatch") {
-            this.setState({
-                ageFrom:this.props.location.state.preference.ageFrom, 
-                ageTo:this.props.location.state.preference.ageTo, 
-                minHeight:this.props.location.state.preference.minHeight, 
-                maxHeight:this.props.location.state.preference.maxHeight, 
-                gender:this.props.location.state.preference.gender,
-                mStatus:this.props.location.state.preference.mStatus,
-                religions:this.props.location.state.preference.religions
-            });
-               
-            this.searchProfile(
-                this.props.location.state.preference.ageFrom, 
-                this.props.location.state.preference.ageTo, 
-                this.props.location.state.preference.minHeight,
-                this.props.location.state.preference.maxHeight,
-                this.props.location.state.preference.gender,
-                this.props.location.state.preference.mStatus,
-                this.props.location.state.preference.religions,
-                this.state.foodHabits,
-                this.state.bodyTypes,
-                this.state.occupation,
-                this.state.education,
-                1
-            );     
-        } else {
+        const ageFrom = this.props.location.state.ageFrom;
+        const ageTo = this.props.location.state.ageTo;        
+        const minHeight = this.props.location.state.minHeight;
+        const maxHeight = this.props.location.state.maxHeight;
+        const gender = this.props.location.state.gender;
+        const mStatus = this.props.location.state.mStatus;
+        let religions = [];
+        let education = [];
+        let foodHabits = [];
+        let bodyTypes = [];
+        let occupation = [];
 
-            console.log("age from comp:" + this.props.location.state.ageFrom)
-            this.setState({
-                ageFrom:this.props.location.state.ageFrom, 
-                ageTo:this.props.location.state.ageTo, 
-                minHeight:this.props.location.state.minHeight, 
-                maxHeight:this.props.location.state.maxHeight, 
-                gender:this.props.location.state.gender,
-                mStatus:this.props.location.state.mStatus,
-            });
-               
-            this.searchProfile(
-                this.props.location.state.ageFrom, 
-                this.props.location.state.ageTo, 
-                this.state.minHeight,
-                this.state.maxHeight,
-                this.props.location.state.gender,
-                this.props.location.state.mStatus,
-                this.state.religions,
-                this.state.foodHabits,
-                this.state.bodyTypes,
-                this.state.occupation,
-                this.state.education,
-                1
-            );     
-        }        
+        if(this.props.location.state.fromPage === "MyMatch") {
+            religions = this.props.location.state.religions;                
+        } 
+
+        if(this.props.location.state.fromPage === "B") {            
+            religions = this.props.location.state.religions;   
+            education = this.props.location.state.education;                
+        }
+
+        this.setState({
+            ageFrom:ageFrom, 
+            ageTo:ageTo, 
+            minHeight:minHeight, 
+            maxHeight:maxHeight, 
+            gender:gender,
+            mStatus:mStatus,
+            religions:religions,
+            education:education
+        });
+        
+        this.searchProfile(
+            ageFrom, 
+            ageTo, 
+            minHeight,
+            maxHeight,
+            gender,
+            mStatus,
+            religions,
+            foodHabits,
+            bodyTypes,
+            occupation,
+            education,
+            1
+        );    
     }
 
     applyFilter() {
@@ -177,7 +171,7 @@ class Results extends Component {
             gender:aGender,
             maritalStatus:aMstatus,
             totalDocs:this.state.totalDocs,
-            religions:aReligions,
+            religions:getValueArrFromReactSelect(aReligions),
             foodHabits:aFoodHabits,
             bodyTypes:abodyTypes,
             employments:aOccupation,
