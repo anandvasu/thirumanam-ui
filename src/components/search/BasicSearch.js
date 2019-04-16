@@ -20,6 +20,8 @@ class BasicSearch extends Component {
         this.maritalStatusChange = this.maritalStatusChange.bind(this); 
         this.educationChange = this.educationChange.bind(this);
         this.handleReligionChange = this.handleReligionChange.bind(this);
+        this.showProfileChange = this.showProfileChange.bind(this);
+
         this.state = {
             searchClicked: false,
             gender:Constant.genderF,
@@ -30,6 +32,7 @@ class BasicSearch extends Component {
             mStatus:"NM",
             religions:[],
             education:[],
+            showProfile:"A"
         }
     }
 
@@ -67,6 +70,10 @@ class BasicSearch extends Component {
         console.log(this.state.searchClicked);
     }
 
+    showProfileChange(event) {
+        this.setState({showProfile:event.target.value});
+    }
+
     render () {
         if (this.state.searchClicked === true) {
             return <Redirect to= {{
@@ -80,12 +87,12 @@ class BasicSearch extends Component {
                     maxHeight:this.state.maxHeight,
                     mStatus:populateArray(this.state.mStatus),
                     religions:this.state.religions,
-                    education:this.state.education
+                    education:this.state.education,
+                    showProfile:this.state.showProfile
                 }
                 }}/>
         }
         return (
-            <form>
                 <div>
                     { (sessionStorage.getItem(Constant.USER_PROFILE_ID) == null) && 
                     <div className="fieldRow">
@@ -169,14 +176,15 @@ class BasicSearch extends Component {
                             <label>Profile</label>
                         </div>
                         <div className="rdfield">
-                           <ShowProfileSelect />
+                           <ShowProfileSelect 
+                                showProfileChange={this.showProfileChange}
+                            />
                         </div>  
                     </div> 
                     <div>                               
                         <button onClick={this.basicSearch}>Search</button>  
                     </div>
                 </div>
-            </form>
         );
     }
 }

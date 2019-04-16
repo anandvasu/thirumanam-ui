@@ -27,9 +27,11 @@ class Results extends Component {
         this.foodHabitChange = this.foodHabitChange.bind(this);
         this.bodyTypesChange = this.bodyTypesChange.bind(this);
         this.occupationChange = this.occupationChange.bind(this);        
-        this.educationChange = this.educationChange.bind(this);         
+        this.educationChange = this.educationChange.bind(this);   
+        this.showProfileChange = this.showProfileChange.bind(this);          
 
         this.state = {
+            showProfile:"A",
             ageFrom:Constant.ageFrom,
             ageTo:Constant.ageTo,
             minHeight:Constant.minHeight,
@@ -61,6 +63,7 @@ class Results extends Component {
         const maxHeight = this.props.location.state.maxHeight;
         const gender = this.props.location.state.gender;
         const mStatus = this.props.location.state.mStatus;
+        let showProfile = "A";
         let religions = [];
         let education = [];
         let foodHabits = [];
@@ -73,10 +76,12 @@ class Results extends Component {
 
         if(this.props.location.state.fromPage === "B") {            
             religions = this.props.location.state.religions;   
-            education = this.props.location.state.education;                
+            education = this.props.location.state.education;    
+            showProfile = this.props.location.state.showProfile;            
         }
 
         this.setState({
+            showProfile:showProfile,
             ageFrom:ageFrom, 
             ageTo:ageTo, 
             minHeight:minHeight, 
@@ -88,6 +93,7 @@ class Results extends Component {
         });
         
         this.searchProfile(
+            showProfile,
             ageFrom, 
             ageTo, 
             minHeight,
@@ -105,6 +111,7 @@ class Results extends Component {
 
     applyFilter() {
         this.searchProfile(
+            this.state.showProfile,
             this.state.ageFrom, 
             this.state.ageTo, 
             this.state.minHeight,
@@ -148,6 +155,7 @@ class Results extends Component {
     }
 
     searchProfile(
+        aShowProfile,
         ageGrater,
         ageLess, 
         minHeight,
@@ -164,6 +172,7 @@ class Results extends Component {
         console.log(aMstatus);
         var totalDocs = 0;
         axios.post(ApiConstant.USER_SEARCH_API, { 
+            showProfile:aShowProfile,
             ageGreater:ageGrater,
             ageLess:ageLess,
             minHeight:minHeight,
@@ -312,6 +321,10 @@ class Results extends Component {
         
     }
 
+    showProfileChange(event) {
+        this.setState({showProfile:event.target.value});
+    }
+
     minHeightChange(event) {
         this.setState({
             minHeight:event.target.value
@@ -392,6 +405,8 @@ class Results extends Component {
                 <div className="resultsContainer">                                       
                             <div className="filtersection">
                                 <Filter 
+                                    showProfile = {this.state.showProfile}
+                                    showProfileChange = {this.showProfileChange}
                                     ageFrom = {this.state.ageFrom}
                                     ageTo = {this.state.ageTo}
                                     ageToChange = {this.ageToChange}

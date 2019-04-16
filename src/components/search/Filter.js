@@ -5,6 +5,7 @@ import MaritalStatus from '../utils/MaritalStatus';
 import Occupation from '../utils/Occupation';
 import BodyType from '../utils/BodyType';
 import FoodHabit from '../utils/FoodHabit';
+import ShowProfileSelect from '../utils/ShowProfileSelect';
 import './Filter.css';
 import EducationMultiSelect from '../utils/EducationMultiSelect';
 
@@ -24,7 +25,16 @@ function filter (props) {
                 </div>
             </div>
                 <div className="header3Parent">
-                <div className="header3"><label>Age</label></div>
+                    <div className="header3"><label>Show Profile</label></div>
+                    <div className="filterContent">
+                            <ShowProfileSelect 
+                                showProfileChange={props.showProfileChange}
+                                showProfile={props.showProfile}
+                            />                                  
+                    </div>                             
+                </div>
+                <div className="header3Parent">
+                    <div className="header3"><label>Age</label></div>
                     <div className="filterContent">
                         <Age 
                             ageFrom = {props.ageFrom}
