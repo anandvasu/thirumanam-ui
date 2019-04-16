@@ -13,11 +13,15 @@ class AdvancedSearch extends Component {
 
     constructor (props) {
         super(props);
-        this.quickSearch = this.quickSearch.bind(this);
+        this.basicSearch = this.basicSearch.bind(this);
         this.genderChange = this.genderChange.bind(this);
         this.ageFromChange = this.ageFromChange.bind(this);
         this.ageToChange = this.ageToChange.bind(this);
-        this.maritalStatusChange = this.maritalStatusChange.bind(this);
+        this.maritalStatusChange = this.maritalStatusChange.bind(this); 
+        this.educationChange = this.educationChange.bind(this);
+        this.handleReligionChange = this.handleReligionChange.bind(this);
+        this.showProfileChange = this.showProfileChange.bind(this);
+
         this.state = {
             searchClicked: false,
             gender:Constant.genderF,
@@ -25,7 +29,10 @@ class AdvancedSearch extends Component {
             ageTo:Constant.ageTo,
             minHeight:Constant.minHeight,
             maxHeight:Constant.maxHeight,
-            mStatus:"NM"
+            mStatus:"NM",
+            religions:[],
+            education:[],
+            showProfile:"A"
         }
     }
 
@@ -44,36 +51,55 @@ class AdvancedSearch extends Component {
     maritalStatusChange(event) {
         this.setState({mStatus:event.target.value});
     }
+
+    educationChange(inputEducation) {
+        this.setState({
+            education:inputEducation
+        }); 
+    }
+
+    handleReligionChange(inputReligion) {
+        this.setState({
+            religions:inputReligion
+        });
+    }
     
 
-    quickSearch(event) {
+    basicSearch(event) {
         this.setState({searchClicked:true});
         console.log(this.state.searchClicked);
+    }
+
+    showProfileChange(event) {
+        this.setState({showProfile:event.target.value});
     }
 
     render () {
         if (this.state.searchClicked === true) {
             return <Redirect to= {{
-                                    pathname:'/results',
-                                    state:{
-                                        gender:this.state.gender,
-                                        ageFrom:this.state.ageFrom,
-                                        ageTo:this.state.ageTo,
-                                        minHeight:this.state.minHeight,
-                                        maxHeight:this.state.maxHeight,
-                                        mStatus:populateArray(this.state.mStatus)
-                                    }
-                                 }}/>
+                pathname:'/results',
+                state:{
+                    fromPage:"B",
+                    gender:this.state.gender,
+                    ageFrom:this.state.ageFrom,
+                    ageTo:this.state.ageTo,
+                    minHeight:this.state.minHeight,
+                    maxHeight:this.state.maxHeight,
+                    mStatus:populateArray(this.state.mStatus),
+                    religions:this.state.religions,
+                    education:this.state.education,
+                    showProfile:this.state.showProfile
+                }
+                }}/>
         }
         return (
-            <form>
                 <div>
                     { (sessionStorage.getItem(Constant.USER_PROFILE_ID) == null) && 
-                    <div className="fieldRow">
-                        <div className='rdlabel'>
+                    <div className="gFieldRow">
+                        <div className='glabel'>
                                 <label>Gender</label>
                         </div>                    
-                        <div className='rdfield'>
+                        <div className='gfield'>
                             <label>                              
                                 <input type="radio" value="M" checked={this.state.gender === 'M'} onChange={this.genderChange}/>                                    
                                     Male
@@ -86,11 +112,11 @@ class AdvancedSearch extends Component {
                         </div>                        
                     </div>  
                      }
-                    <div className="fieldRow">
-                        <div className='rdlabel'>
+                    <div className="gFieldRow">
+                        <div className='glabel'>
                             <label>Age&nbsp;</label>
                         </div>    
-                        <div className='rdfield'>
+                        <div className='gfield'>
                             <Age 
                                 ageFrom = {this.state.ageFrom}
                                 ageTo = {this.state.ageTo}
@@ -100,10 +126,10 @@ class AdvancedSearch extends Component {
                         </div>  
                     </div>
                     <div style={{width:'100%',paddingBottom:'5px'}}> 
-                        <div className="rdlabel">
+                        <div className="glabel">
                             <label>Height</label>
                         </div>
-                        <div className="rdfield">
+                        <div className="gfield">
                             <Height 
                                 minHeight = {this.state.minHeight}
                                 maxHeight = {this.state.maxHeight}
@@ -112,32 +138,33 @@ class AdvancedSearch extends Component {
                             />
                         </div>  
                     </div>  
-                    <div className="fieldRow">            
-                        <div className='rdlabel'>       
+                    <div className="gFieldRow">            
+                        <div className='glabel'>       
                             <label>Religion</label>
                         </div>  
-                        <div className='rdfield'>
+                        <div className='gfield'>
                             <ReligionMultiSelect
                                 handleReligionChange = {this.handleReligionChange}
                                 religions = {this.state.religions}
                             />
                         </div> 
                     </div>  
-                    <div className="fieldRow">            
-                        <div className='rdlabel'>       
+                    <div className="gFieldRow">            
+                        <div className='glabel'>       
                             <label>Marital Status&nbsp;</label>
                         </div>  
-                        <div className='rdfield'>
+                        <div className='gfield'>
                             <MaritalStatusSelect 
                                 maritalStatusChange = {this.maritalStatusChange}
+                                mStatus = {this.state.mStatus}
                             />
                         </div> 
                     </div>                    
                     <div style={{width:'100%',paddingBottom:'5px'}}> 
-                        <div className="rdlabel">
+                        <div className="glabel">
                             <label>Education</label>
                         </div>
-                        <div className="rdfield">
+                        <div className="gfield">
                             <EducationMultiSelect 
                                 education = {this.state.education}
                                 educationChange = {this.educationChange}
@@ -145,18 +172,19 @@ class AdvancedSearch extends Component {
                         </div>  
                     </div> 
                     <div style={{width:'100%',paddingBottom:'5px'}}> 
-                        <div className="rdlabel">
+                        <div className="glabel">
                             <label>Profile</label>
                         </div>
-                        <div className="rdfield">
-                           <ShowProfileSelect />
+                        <div className="gfield">
+                           <ShowProfileSelect 
+                                showProfileChange={this.showProfileChange}
+                            />
                         </div>  
                     </div> 
                     <div>                               
-                        <button onClick={this.quickSearch}>Search</button>  
+                        <button onClick={this.basicSearch}>Search</button>  
                     </div>
                 </div>
-            </form>
         );
     }
 }
