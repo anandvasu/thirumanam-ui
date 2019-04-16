@@ -192,9 +192,22 @@ class Register extends Component {
 
         return (
                 <div className='ricontainer'>
-                     <div className="rHeading">
-                        FREE Registration
-                    </div>
+
+                    {
+                        (this.props.fromHome === "true") &&
+                        <div className="rHeading">
+                            FREE Registration
+                        </div>
+                    }
+
+                    {
+                        (this.props.fromHome === "false") &&
+                        <div style={{paddingBottom:'15px'}}> 
+                            <div className='header2allborder'>
+                                <label>Registration</label>
+                            </div>                
+                        </div>
+                    }
                     
                     <div>
                         <div className='rlabel'>
@@ -371,14 +384,29 @@ class Register extends Component {
                         </div>
                     </div>                  
                     <div className="hs10" />
-                    <div>
-                         <div className='tandc'>
-                            <input type="checkbox" id="tcondition"/>I have read and agree to the <b><u>T&amp;C</u></b> and <b><u>Privacy Policy</u></b>
+                    {
+                        (this.props.fromHome === "true") &&
+                  
+                        <div>
+                            <div className='tandc'>
+                                <input type="checkbox" id="tcondition"/>I have read and agree to the <b><u>T&amp;C</u></b> and <b><u>Privacy Policy</u></b>
+                            </div>
+                            <div className='registerButton'>
+                                <button onClick={this.register} >Register</button>
+                            </div>
                         </div>
-                        <div className='registerButton'>
-                            <button onClick={this.register} >Register</button>
-                        </div>
-                    </div>
+                    }
+                     {
+                        (this.props.fromHome === "false") &&
+                        <div>
+                            <div style={{paddingBottom:'15px'}}>
+                                <input type="checkbox" id="tcondition"/>I have read and agree to the <b><u>T&amp;C</u></b> and <b><u>Privacy Policy</u></b>
+                            </div>
+                            <div style={{paddingBottom:'15px'}}>
+                                <button onClick={this.register} >Register</button>
+                            </div>
+                         </div>
+                    }
                 </div>                
         );
     }

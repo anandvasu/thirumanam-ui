@@ -24,7 +24,9 @@ class Home extends Component {
                     </div>                    
                     <div className="qregister">                    
                          <div className="rcontainer">
-                            <Register />
+                            <Register
+                                fromHome="true"
+                             />
                          </div>
                     </div>                
                 </div>
