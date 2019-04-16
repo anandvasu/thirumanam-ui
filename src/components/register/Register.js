@@ -199,22 +199,13 @@ class Register extends Component {
                             FREE Registration
                         </div>
                     }
-
-                    {
-                        (this.props.fromHome === "false") &&
-                        <div style={{paddingBottom:'15px'}}> 
-                            <div className='header2allborder'>
-                                <label>Registration</label>
-                            </div>                
-                        </div>
-                    }
-                    
-                    <div>
-                        <div className='rlabel'>
+                                       
+                    <div className={this.props.rowClassName}>
+                        <div className={this.props.labelClassName}>
                              <label>Registered By </label>
                         </div>
                         
-                        <div className='rfield'>
+                        <div className={this.props.fieldClassName}>
                             <select onChange={this.onChangeRegisteredBy} defaultValue="S">
                                 <option value="S">self</option>
                                 <option value="F">Father</option>
@@ -222,27 +213,27 @@ class Register extends Component {
                             </select>
                         </div>
                     </div>
-                    <div>
-                        <div className='rlabel'>
+                    <div className={this.props.rowClassName}>
+                        <div className={this.props.labelClassName}>
                             <label>First Name</label>
                         </div>
-                        <div className='rfield'>
+                        <div className={this.props.fieldClassName}>
                             <input type='text'  onChange={this.onChangeFirst}></input>
                         </div>
                     </div>
-                    <div>
-                        <div className='rlabel'>
+                    <div className={this.props.rowClassName}>
+                        <div className={this.props.labelClassName}>
                             <label> Last Name</label>
                         </div>
-                        <div className='rfield'>
+                        <div className={this.props.fieldClassName}>
                             <input type='text' onChange={this.onChangeLast}></input>
                         </div>
                     </div>
-                    <div>
-                        <div className='rlabel'>
+                    <div className={this.props.rowClassName}>
+                        <div className={this.props.labelClassName}>
                             <label>Data of birth</label>
                         </div>
-                        <div className='rfield'>
+                        <div className={this.props.fieldClassName}>
                             <select onChange={this.onChangeDay} defaultValue="DD">
                                 <option value="DD">DD</option>
                                 <option value="1">1</option>
@@ -328,22 +319,22 @@ class Register extends Component {
                             </select>
                         </div>
                     </div>
-                    <div>
-                        <div className='rlabel'>
+                    <div className={this.props.rowClassName}>
+                        <div className={this.props.labelClassName}>
                             <label>Religion</label>
                         </div>
-                        <div className='rfield'>
+                        <div className={this.props.fieldClassName}>
                             <ReligionSelect 
                                  religions = {this.state.religion}
                                  religionChangeHandler = {this.religionChangeHandler}                                
                             />
                         </div>
                     </div>                   
-                    <div>
-                        <div className='rlabel'>                           
+                    <div className={this.props.rowClassName}>
+                        <div className={this.props.labelClassName}>                           
                             <label>Mobile Number</label>
                         </div>
-                        <div className='rfield'>
+                        <div className={this.props.fieldClassName}>
                             <PhoneCountryCode
                                 onChangeCountryCode = {this.onChangeCountryCode}
                             />
@@ -352,11 +343,11 @@ class Register extends Component {
                                 style={{width:'120px'}} maxLength='10' onKeyPress={preventNumbers}></input>                           
                         </div>
                     </div>
-                    <div>
-                        <div className='rlabel'>
+                    <div className={this.props.rowClassName}>
+                        <div className={this.props.labelClassName}>
                             <label>Gender</label>
                         </div>
-                        <div className='rfield'>        
+                        <div className={this.props.fieldClassName}>        
                             <input type="radio" name='gender' value="M" onChange={this.genderChange}/>
                             <label>
                                 Male
@@ -367,19 +358,19 @@ class Register extends Component {
                             </label>
                         </div>
                     </div>
-                    <div>
-                        <div className='rlabel'>
+                    <div className={this.props.rowClassName}>
+                        <div className={this.props.labelClassName}>
                             <label>Email</label>
                         </div>
-                        <div className='rfield'>
+                        <div className={this.props.fieldClassName}>
                             <input type='text'  onChange={this.onChangeEmail}></input>
                         </div>
                     </div>
-                    <div>
-                        <div className='rlabel'>
+                    <div className={this.props.rowClassName}>
+                        <div className={this.props.labelClassName}>
                             <label>Password</label>
                         </div>
-                        <div className='rfield'>
+                        <div className={this.props.fieldClassName}>
                             <input type='password'  onChange={this.onChangePassword}></input>
                         </div>
                     </div>                  
@@ -399,7 +390,7 @@ class Register extends Component {
                      {
                         (this.props.fromHome === "false") &&
                         <div>
-                            <div style={{paddingBottom:'15px'}}>
+                            <div style={{paddingBottom:'15px'}} >
                                 <input type="checkbox" id="tcondition"/>I have read and agree to the <b><u>T&amp;C</u></b> and <b><u>Privacy Policy</u></b>
                             </div>
                             <div style={{paddingBottom:'15px'}}>

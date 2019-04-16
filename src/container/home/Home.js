@@ -26,6 +26,9 @@ class Home extends Component {
                          <div className="rcontainer">
                             <Register
                                 fromHome="true"
+                                labelClassName="rlabel"
+                                fieldClassName="rfield"
+                                rowClassName="rrow"
                              />
                          </div>
                     </div>                

@@ -19,10 +19,6 @@ body {
   font-size: 16px;
 }
 
-.fieldRow{
-  padding-bottom: 15px;
-}
-
 .homeFullSection {
     width:1100px;
     vertical-align: top;
@@ -419,4 +415,20 @@ hr {
 
 .text14pxNormal {
   font-size:14px;
+}
+
+.gFieldRow{
+  padding-bottom: 10px;
+}
+
+.glabel {
+  display: inline-block;
+  width: 150px;
+  text-align: left;
+}
+
+.gfield {
+  display: inline-block;
+  width: 320px;
+  text-align: left;
 }

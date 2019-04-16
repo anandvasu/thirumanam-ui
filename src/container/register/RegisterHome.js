@@ -16,10 +16,19 @@ class RegisterHome extends Component {
             <div>
                     <TopBarGlobal />                       
                     <div className='hs30' />                   
-                    <div className="homeFullSection">                       
+                    <div className="homeFullSection">       
+                        <div> 
+                            <div className='header2allborder'>
+                                <label>Registration</label>
+                            </div>                
+                        </div>                
                         <div className="sectionDataDiv">
+                                <div className="hs20" />
                                 <Register 
                                         fromHome="false"
+                                        labelClassName="glabel"
+                                        fieldClassName="gfield"
+                                        rowClassName="gFieldRow"
                                 />
                         </div>
                     </div>                    

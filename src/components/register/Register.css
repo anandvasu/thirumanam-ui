@@ -5,6 +5,10 @@
     font-size: 18px;
 }
 
+.rrow{
+    padding-bottom: 1px;
+}
+
 .rlabel {
     display: inline-block;
     width: 150px;

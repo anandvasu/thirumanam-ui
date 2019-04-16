@@ -95,11 +95,11 @@ class BasicSearch extends Component {
         return (
                 <div>
                     { (sessionStorage.getItem(Constant.USER_PROFILE_ID) == null) && 
-                    <div className="fieldRow">
-                        <div className='rdlabel'>
+                    <div className="gFieldRow">
+                        <div className='glabel'>
                                 <label>Gender</label>
                         </div>                    
-                        <div className='rdfield'>
+                        <div className='gfield'>
                             <label>                              
                                 <input type="radio" value="M" checked={this.state.gender === 'M'} onChange={this.genderChange}/>                                    
                                     Male
@@ -112,11 +112,11 @@ class BasicSearch extends Component {
                         </div>                        
                     </div>  
                      }
-                    <div className="fieldRow">
-                        <div className='rdlabel'>
+                    <div className="gFieldRow">
+                        <div className='glabel'>
                             <label>Age&nbsp;</label>
                         </div>    
-                        <div className='rdfield'>
+                        <div className='gfield'>
                             <Age 
                                 ageFrom = {this.state.ageFrom}
                                 ageTo = {this.state.ageTo}
@@ -126,10 +126,10 @@ class BasicSearch extends Component {
                         </div>  
                     </div>
                     <div style={{width:'100%',paddingBottom:'5px'}}> 
-                        <div className="rdlabel">
+                        <div className="glabel">
                             <label>Height</label>
                         </div>
-                        <div className="rdfield">
+                        <div className="gfield">
                             <Height 
                                 minHeight = {this.state.minHeight}
                                 maxHeight = {this.state.maxHeight}
@@ -138,22 +138,22 @@ class BasicSearch extends Component {
                             />
                         </div>  
                     </div>  
-                    <div className="fieldRow">            
-                        <div className='rdlabel'>       
+                    <div className="gFieldRow">            
+                        <div className='glabel'>       
                             <label>Religion</label>
                         </div>  
-                        <div className='rdfield'>
+                        <div className='gfield'>
                             <ReligionMultiSelect
                                 handleReligionChange = {this.handleReligionChange}
                                 religions = {this.state.religions}
                             />
                         </div> 
                     </div>  
-                    <div className="fieldRow">            
-                        <div className='rdlabel'>       
+                    <div className="gFieldRow">            
+                        <div className='glabel'>       
                             <label>Marital Status&nbsp;</label>
                         </div>  
-                        <div className='rdfield'>
+                        <div className='gfield'>
                             <MaritalStatusSelect 
                                 maritalStatusChange = {this.maritalStatusChange}
                                 mStatus = {this.state.mStatus}
@@ -161,10 +161,10 @@ class BasicSearch extends Component {
                         </div> 
                     </div>                    
                     <div style={{width:'100%',paddingBottom:'5px'}}> 
-                        <div className="rdlabel">
+                        <div className="glabel">
                             <label>Education</label>
                         </div>
-                        <div className="rdfield">
+                        <div className="gfield">
                             <EducationMultiSelect 
                                 education = {this.state.education}
                                 educationChange = {this.educationChange}
@@ -172,10 +172,10 @@ class BasicSearch extends Component {
                         </div>  
                     </div> 
                     <div style={{width:'100%',paddingBottom:'5px'}}> 
-                        <div className="rdlabel">
+                        <div className="glabel">
                             <label>Profile</label>
                         </div>
-                        <div className="rdfield">
+                        <div className="gfield">
                            <ShowProfileSelect 
                                 showProfileChange={this.showProfileChange}
                             />
