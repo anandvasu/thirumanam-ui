@@ -1,6 +1,7 @@
 import React from 'react';
-import District from '../utils/District';
+import DistrictSelect from '../utils/DistrictSelect';
 import IndiaState from '../utils/IndiaState';
+import CountrySelect from '../utils/CountrySelect';
 
 function location(props) {     
         
@@ -19,11 +20,10 @@ function location(props) {
                     </div>
                     
                     <div className='rdfield'>
-                        <select  onChange={props.countryChange} value={props.country}>
-                            <option value="IND">India</option>
-                            <option value="USA">United States of America</option>
-                            <option value="GBR">United Kingdom</option>                            
-                        </select>
+                        <CountrySelect
+                            countryChange={props.countryChange}
+                            country={props.country}
+                        />
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@ function location(props) {
                     </div>
                     
                     <div className='rdfield'>
-                        <District 
+                        <DistrictSelect 
                             districtChange = {props.districtChange}
                             district = {props.district}
                             pstate = {props.pstate} 

@@ -1,7 +1,7 @@
 import React from 'react';
 import CountryDropdownConsts from './CountryDropdownConsts';
 
-function district(props) {
+function districtSelect(props) {
     return(
         <div>
             <select  onChange={props.districtChange} value={props.district}>               
@@ -11,4 +11,4 @@ function district(props) {
     );
 }
 
-export default district;
+export default districtSelect;
