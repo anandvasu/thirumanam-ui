@@ -22,7 +22,7 @@ class UpdateLocation extends Component {
 
         this.state = {
             country: "IND",
-            pstate:"TN",
+            pstate:58,
             district:"",
             city:"",
             profileId:"",
@@ -132,6 +132,7 @@ class UpdateLocation extends Component {
                         profileStateChange = {this.profileStateChange}
                         districtChange = {this.districtChange}
                         cityChange = {this.cityChange}
+                        pstate = {this.state.pstate}
                     /> 
                     <div className="hs30" />
                     <div style={{width:'100%'}}>

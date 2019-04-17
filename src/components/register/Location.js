@@ -1,5 +1,5 @@
 import React from 'react';
-import TamilnaduDistrict from '../utils/TamilnaduDistrict';
+import District from '../utils/District';
 import IndiaState from '../utils/IndiaState';
 
 function location(props) {     
@@ -46,9 +46,10 @@ function location(props) {
                     </div>
                     
                     <div className='rdfield'>
-                        <TamilnaduDistrict 
+                        <District 
                             districtChange = {props.districtChange}
                             district = {props.district}
+                            pstate = {props.pstate} 
                         />
                     </div>                        
                 </div>
