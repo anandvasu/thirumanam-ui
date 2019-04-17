@@ -7,6 +7,7 @@ function stateSelect(props) {
         <div>
             <select  onChange={props.profileStateChange} value={props.pstate}>         
                 { (props.country === "IN") &&  CountryDropdownConsts.indiaStates.map(data => <option value={data.value}>{data.label}</option>)}  
+                { (props.country === "US") &&  CountryDropdownConsts.usaStates.map(data => <option value={data.value}>{data.label}</option>)}  
             </select>
         </div>
     ) ;
