@@ -4,6 +4,7 @@ import house from '../../assets/images/villupuram.jpg';
 import Footer from '../footer/Footer';
 import TopMenu from '../menu/TopMenu';
 import ApiConstant from '../../components/utils/ApiConstant';
+import Aboutus from '../../components/home/Aboutus';
 
 class Contact extends Component {
 
@@ -23,8 +24,8 @@ class Contact extends Component {
             console.log(data)
             const contacts = data.map((contact) => {
                 return (
-                    <div>                       
-                        <div className="contactParent">
+            
+                        <div>
                             <div className="containerChild" style={{verticalAlign:'top'}}>
                                 <div className="image">
                                     <img src={house} alt='Not Available'></img>
@@ -51,7 +52,7 @@ class Contact extends Component {
                                         </div>
                             </div>    
                         </div>
-                    </div>               
+    
                 );
             });
             this.setState({contacts:contacts});
@@ -63,10 +64,14 @@ class Contact extends Component {
         return (
             <div>
                 <TopMenu />
-               <div className='hs50'></div>      
-                <div className="addressContainer" key="contactContainer">                
-                    {this.state.contacts}
+               <div className='hs50'></div>     
+               <div className="contactParent"> 
+                    <div className="addressContainer" key="contactContainer">                
+                        {this.state.contacts}
+                    </div>
                 </div>
+                <Aboutus /> 
+                <div className="hs20" /> 
                 <Footer />
             </div>
         );

@@ -3,6 +3,7 @@ import Footer from '../../components/footer/Footer';
 import Constant from '../../components/utils/Constant';
 import TopMenu from '../../components/menu/TopMenu';
 import SearchMenu from '../../components/search/SearchMenu';
+import Aboutus from '../../components/home/Aboutus';
 
 class SearchContainer extends Component {
 
@@ -29,7 +30,9 @@ class SearchContainer extends Component {
                                <SearchMenu 
                                          refreshFooter={this.refreshFooter}
                                />
-                        </div>                      
+                        </div>           
+                        <Aboutus /> 
+                        <div className="hs20" />           
                         <Footer 
                                 refreshFooter={this.refreshFooter}
                         />                       

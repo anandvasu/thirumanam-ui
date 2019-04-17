@@ -4,7 +4,9 @@
 }
 
 .contactParent {
-    display: inline;
+    display: inline-block;
+    width:1100px;
+    text-align: center;
 }
 
 .containerChild {

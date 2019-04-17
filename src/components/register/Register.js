@@ -104,6 +104,14 @@ class Register extends Component {
         });
     }
 
+    openTandc() {
+        window.open(window.location.origin + "/tandc", "_blank");
+    }
+
+    openPrivacyPolicy() {
+        window.open(window.location.origin + "/ROUTE_U_WANT", "_blank");
+    }
+
     register(event) {
 
         var errorMessage = "";
@@ -385,7 +393,8 @@ class Register extends Component {
                   
                         <div>
                             <div className='tandc'>
-                                <input type="checkbox" id="tcondition"/>I have read and agree to the <b><u>T&amp;C</u></b> and <b><u>Privacy Policy</u></b>
+                            <input type="checkbox" id="tcondition"/>I have read and agree to the <a href="#" onClick={this.openTandc}><b><u>T&amp;C</u></b></a> and&nbsp;  
+                                    <a href="#" onClick={this.openPrivacyPolicy}><b><u>Privacy Policy</u></b></a>
                             </div>
                             <div className='registerButton'>
                                 <button onClick={this.register} >Register</button>
@@ -396,7 +405,8 @@ class Register extends Component {
                         (this.props.fromHome === "false") &&
                         <div>
                             <div style={{paddingBottom:'15px'}} >
-                                <input type="checkbox" id="tcondition"/>I have read and agree to the <b><u>T&amp;C</u></b> and <b><u>Privacy Policy</u></b>
+                                <input type="checkbox" id="tcondition"/>I have read and agree to the <a href="#" onClick={this.openTandc}><b><u>T&amp;C</u></b></a> and&nbsp;  
+                                    <a href="#" onClick={this.openPrivacyPolicy}><b><u>Privacy Policy</u></b></a>
                             </div>
                             <div style={{paddingBottom:'15px'}}>
                                 <button onClick={this.register} >Register</button>

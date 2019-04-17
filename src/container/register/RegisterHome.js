@@ -3,6 +3,7 @@ import Footer from '../../components/footer/Footer';
 import Constant from '../../components/utils/Constant';
 import TopBarGlobal from '../../components/menu/TopBarGlobal';
 import Register from '../../components/register/Register';
+import Aboutus from '../../components/home/Aboutus';
 
 class RegisterHome extends Component {
 
@@ -42,7 +43,9 @@ class RegisterHome extends Component {
                                         refreshFooter={this.refreshFooter}
                                 />
                         </div>
-                    </div>                    
+                    </div>          
+                    <Aboutus /> 
+                    <div className="hs20" />          
                     <Footer 
                         refreshFooter={this.state.refreshFooter}
                     />                       
