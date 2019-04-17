@@ -8,6 +8,8 @@ import ShowProfileSelect from '../utils/ShowProfileSelect';
 import EducationMultiSelect from '../utils/EducationMultiSelect'; 
 import MaritalStatusSelect from '../utils/MaritalStatusSelect';
 import ReligionMultiSelect from '../utils/ReligionMultiSelect';
+import CountryMultiSelect from '../utils/CountryMultiSelect';
+import IndiaStateMultiSelect from '../utils/IndiaStateMultiSelect';
 
 class AdvancedSearch extends Component {
 
@@ -181,6 +183,35 @@ class AdvancedSearch extends Component {
                             />
                         </div>  
                     </div> 
+                    <div className="sectionParentDiv">
+                    <div className="header2bottomborder">
+                        <label><h2>Location</h2></label>
+                    </div>
+                    <div style={{paddingTop:'25px'}}>
+                        <div className="prefDataRow">
+                            <div className="prefLableDiv">
+                                Country Living In
+                            </div>
+                            <div className="prefDataDiv">
+                            <CountryMultiSelect 
+                                    handleCountryChange = {this.handleCountryChange}
+                                    countries = {this.state.countries}
+                            />
+                            </div>
+                        </div>
+                        <div className="prefDataRow">
+                            <div className="prefLableDiv">
+                                State
+                            </div>
+                            <div className="prefDataDiv">
+                            <IndiaStateMultiSelect
+                                    handleStateChange = {this.handleStateChange}
+                                    states = {this.state.states}
+                            />
+                            </div>
+                        </div>  
+                    </div>                                       
+                </div>   
                     <div>                               
                         <button onClick={this.basicSearch}>Search</button>  
                     </div>

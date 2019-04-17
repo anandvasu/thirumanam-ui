@@ -257,6 +257,20 @@ hr {
     vertical-align: middle;
 }
 
+.header2bottomborder {
+  height:28px;  
+  /* background-color: #d896ff;  */
+  border-style: solid;  
+  border-color: darkgrey;  
+  vertical-align: center;
+  text-align: left;   
+  border-bottom-width: 1px;  
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px; 
+  vertical-align: middle;
+}
+
 .header2allborder label {  
   width:100%;
   height: 100%;  
