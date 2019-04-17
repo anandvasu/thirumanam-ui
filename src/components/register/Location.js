@@ -1,7 +1,7 @@
 import React from 'react';
 import DistrictSelect from '../utils/DistrictSelect';
-import IndiaState from '../utils/IndiaState';
 import CountrySelect from '../utils/CountrySelect';
+import StateSelect from '../utils/StateSelect';
 
 function location(props) {     
         
@@ -33,9 +33,10 @@ function location(props) {
                     </div>
                     
                     <div className='rdfield'>
-                        <IndiaState 
+                        <StateSelect 
                             profileStateChange = {props.profileStateChange}           
-                            pstate = {props.pstate}                
+                            pstate = {props.pstate}    
+                            country={props.country}            
                         />
                     </div>                        
                 </div>
