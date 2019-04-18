@@ -9,8 +9,6 @@ import EducationMultiSelect from '../utils/EducationMultiSelect';
 import MaritalStatusSelect from '../utils/MaritalStatusSelect';
 import ReligionMultiSelect from '../utils/ReligionMultiSelect';
 import CountryMultiSelect from '../utils/CountryMultiSelect';
-import IndiaStateMultiSelect from '../utils/IndiaStateMultiSelect';
-
 class AdvancedSearch extends Component {
 
     constructor (props) {
@@ -204,10 +202,7 @@ class AdvancedSearch extends Component {
                                 State
                             </div>
                             <div className="prefDataDiv">
-                            <IndiaStateMultiSelect
-                                    handleStateChange = {this.handleStateChange}
-                                    states = {this.state.states}
-                            />
+                           
                             </div>
                         </div>  
                     </div>                                       

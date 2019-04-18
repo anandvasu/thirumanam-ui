@@ -96,10 +96,13 @@ class Register extends Component {
         this.setState({countryCode:event.target.value});
     }
 
-    religionChangeHandler(event) {
-        this.setState({
-            religion:parseInt(event.target.value)
-        });
+    religionChangeHandler(valueObj) {        
+        this.setState(
+            {
+                religionObj:populateArray(valueObj),
+                religion:valueObj.value
+            }
+        );
     }
 
     openTandc() {
@@ -335,7 +338,7 @@ class Register extends Component {
                         </div>
                         <div className={this.props.fieldClassName}>
                             <ReligionSelect 
-                                 religions = {this.state.religion}
+                                 religionObj = {this.state.religionObj}
                                  religionChangeHandler = {this.religionChangeHandler}                                
                             />
                         </div>

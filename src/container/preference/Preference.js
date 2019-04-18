@@ -11,7 +11,6 @@ import ApiConstant from '../../components/utils/ApiConstant';
 import axios from 'axios';
 import {toast} from 'react-toastify';
 import CountryMultiSelect from '../../components/utils/CountryMultiSelect';
-import IndiaStateMultiSelect from '../../components/utils/IndiaStateMultiSelect';
 import CasteMultiSelect from '../../components/utils/CasteMultiSelect';
 import {getValueArrFromReactSelect, convertReactSelectValues} from '../../components/utils/Util';
 import DropDownConstant from '../../components/utils/DropDownConstant';
@@ -289,10 +288,7 @@ class Preference extends Component {
                                 State
                             </div>
                             <div className="prefDataDiv">
-                            <IndiaStateMultiSelect
-                                    handleStateChange = {this.handleStateChange}
-                                    states = {this.state.states}
-                            />
+                            
                             </div>
                         </div>  
                     </div>                                       
