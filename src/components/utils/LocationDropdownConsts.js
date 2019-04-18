@@ -1,6 +1,5 @@
 export default {
     countries :[
-        { value:"", label: "--Select--"},
         { value:"AF", label: "Afghanistan"},
         { value:"AX", label: "Aland Islands"},
         { value:"AL", label: "Albania"},
@@ -286,7 +285,6 @@ export default {
         { value: 68, label: "West Bengal" }
      ],
      usaStates :[
-        { value: 0, label: "--Select--" },
         { value:100, label: "Alabama"},
         { value:102, label: "Alaska"},
         { value:104, label: "Arizona"},
@@ -339,7 +337,6 @@ export default {
         { value:198, label: "Wyoming"}
      ],
      tamilnaduDistricts :[
-        { value: 0, label: "--Select--" },
         { value: 1, label: "Ariyalur" },
         { value: 2, label: "Chennai" },  
         { value: 3, label: "Coimbatore" },  

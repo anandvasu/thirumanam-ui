@@ -1,4 +1,5 @@
 import React from 'react';
+import DropDownConstant from '../utils/DropDownConstant';
 
 function profDetail (props) {
     return (
@@ -10,21 +11,20 @@ function profDetail (props) {
             </div>
 
             <div className="sectionDataDiv">     
-                <div>                         
+                <div className="gFieldRow">                         
                     <div className='rdlabel'>
                             <label>Education</label>
                     </div>
                     
                     <div className='rdfield'>
                         <select  onChange={props.educationChange} value={props.education}>
-                            <option value="">--Select--</option>
-                            <option value="BE">Bachelor of Engineering</option>
-                            <option value="BTech">Bachelor of Technology</option>                     
+                                <option value="">--Select--</option>
+                                {DropDownConstant.educationValues.map(data => <option value={data.value}>{data.label}</option>)}                      
                         </select>
                     </div>
                 </div>
 
-                <div>
+                <div className="gFieldRow">
                     <div className='rdlabel'>
                             <label>Employment</label>
                     </div>                    
@@ -41,7 +41,18 @@ function profDetail (props) {
                     </div>                        
                 </div>
 
-                <div>
+                <div className="gFieldRow">
+                    <div className='rdlabel'>
+                            <label>Occupation</label>
+                    </div>                    
+                    <div className='rdfield'>
+                        <div className="fieldLen200"> 
+                            <input type="text" onBlur={props.occupationChange} defaultValue={props.occupation}/>                         
+                        </div>
+                    </div>                        
+                </div>
+
+                <div className="gFieldRow">
                     <div className='rdlabel'>
                             <label>Income</label>
                     </div>                    

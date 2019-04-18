@@ -1,11 +1,13 @@
 import React from 'react';
-import CountryDropdownConsts from './CountryDropdownConsts';
+import LocationDropdownConsts from './LocationDropdownConsts';
+import DropDownConstant from './DropDownConstant';
 
 function districtSelect(props) {
     return(
         <div>
-            <select  onChange={props.districtChange} value={props.district}>               
-                { (props.pstate === 58) &&  CountryDropdownConsts.tamilnaduDistricts.map(data => <option value={data.value}>{data.label}</option>)}                     
+            <select  onChange={props.districtChange} value={props.district}>     
+                <option value="0">{DropDownConstant.dropdownDefault}</option>          
+                { (props.pstate === 58) &&  LocationDropdownConsts.tamilnaduDistricts.map(data => <option value={data.value}>{data.label}</option>)}                     
             </select>
         </div>
     );

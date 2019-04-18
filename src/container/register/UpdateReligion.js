@@ -17,7 +17,7 @@ class UpdateReligion extends Component {
         this.casteChange = this.casteChange.bind(this);
         this.subCasteChange = this.subCasteChange.bind(this);        
         this.otherGothramChange = this.otherGothramChange.bind(this);
-        this.hinduGothramChange = this.hinduGothramChange.bind(this);
+        this.gothramChange = this.gothramChange.bind(this);
         this.otherDhoshamChange = this.otherDhoshamChange.bind(this);
         this.hinduDhoshamChange = this.hinduDhoshamChange.bind(this);
         
@@ -53,7 +53,7 @@ class UpdateReligion extends Component {
             document.getElementById("otherDhosham").style.display = "none";
         } else if ((religionValue === 4) || (religionValue === 5) || (religionValue === 6)) { 
             document.getElementById("otherCaste").style.display = "none";  
-            document.getElementById("hinduGothram").style.display = "none";
+            document.getElementById("gothram").style.display = "none";
             document.getElementById("hinduDhosham").style.display = "none";
         } else {
             document.getElementById("caste").style.display = "none";
@@ -76,7 +76,7 @@ class UpdateReligion extends Component {
         this.setState({subcaste:event.target.value});
     }
 
-    hinduGothramChange(valueObj) {
+    gothramChange(valueObj) {
         this.setState(
             {
                 gothramObj:populateArray(valueObj),
@@ -181,7 +181,7 @@ class UpdateReligion extends Component {
                        
                         gothramObj = {this.state.gothramObj}
                         gothram = {this.state.gothram}
-                        hinduGothramChange = {this.hinduGothramChange}
+                        gothramChange = {this.gothramChange}
                         otherGothramChange = {this.otherGothramChange}
                         
                         dhoshamObj = {this.state.dhoshamObj}

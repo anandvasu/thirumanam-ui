@@ -1,5 +1,6 @@
 import React from 'react';
 import Select from "react-select";
+import ReligionDropdownConsts from './ReligionDropdownConsts';
 import DropDownConstant from './DropDownConstant';
 
 function gothramSelect(props) {     
@@ -10,8 +11,8 @@ function gothramSelect(props) {
                     name="gothramSelect"
                     placeholder={DropDownConstant.dropdownDefault}
                     value={props.gothramObj}
-                    options={DropDownConstant.gothramValues}
-                    onChange={props.hinduGothramChange}                  
+                    options={ReligionDropdownConsts.gothramValues}
+                    onChange={props.gothramChange}                  
                     />
             </div>
         ) ;

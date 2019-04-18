@@ -48,14 +48,14 @@ function religionDetail(props) {
                     </div>                        
                 </div>
 
-                <div id="hinduGothram" className="gFieldRow">
+                <div id="gothram" className="gFieldRow">
                     <div className='rdlabel'>
                         <label>Gothra(m)</label>
                     </div>            
                     <div className='rdfield'>
                         <GothramSelect 
                             gothramObj = {props.gothramObj}
-                            hinduGothramChange = {props.hinduGothramChange}              
+                            gothramChange = {props.gothramChange}              
                         />
                     </div>                        
                 </div>
@@ -65,7 +65,7 @@ function religionDetail(props) {
                         <label>Gothra(m)</label>
                     </div>            
                     <div className='rdfield'>
-                        <input type="text" onBlur={props.OtherCasteChange} />                        
+                        <input type="text" onBlur={props.otherGothramChange} />                        
                     </div>                        
                 </div>
                 <div id="hinduDhosham" className="gFieldRow">
@@ -85,7 +85,7 @@ function religionDetail(props) {
                         <label>Dosham</label>
                     </div>            
                     <div className='rdfield'>
-                        <input type="text" onBlur={props.OtherCasteChange} />                        
+                        <input type="text" onBlur={props.otherDhoshamChange} />                        
                     </div>                        
                 </div>
                 <div className="hs10" />

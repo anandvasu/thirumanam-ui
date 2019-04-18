@@ -18,10 +18,12 @@ class UpdateProfessional extends Component {
         this.redirectToProfImage = this.redirectToProfImage.bind(this);
         this.doThisLater = this.doThisLater.bind(this);
         this.updateProfDetail = this.updateProfDetail.bind(this);
+        this.occupationChange = this.occupationChange.bind(this);
 
         this.state = {
             education:"",
             employment:"",
+            occupation:"",
             income:0,
             profileId:"",
             email:"",
@@ -35,6 +37,10 @@ class UpdateProfessional extends Component {
             email : this.props.location.state.email,
             religion:this.props.location.state.religion
         });       
+    }
+
+    occupationChange(event) {
+        this.setState({occupation:event.target.value});
     }
 
     educationChange(event) {
@@ -123,6 +129,11 @@ class UpdateProfessional extends Component {
                         educationChange = {this.educationChange}
                         employmentChange = {this.employmentChange}
                         incomeChange = {this.incomeChange}
+                        occupationChange = {this.occupationChange}
+                        occupation = {this.state.occupation}
+                        education = {this.state.education}
+                        income = {this.state.income}
+                        employment = {this.state.employment}
                     />
                     <div className="hs30" />
                     <div style={{width:'100%'}}>
