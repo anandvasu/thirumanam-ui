@@ -172,7 +172,7 @@ class ProfileSelf extends Component {
     mCountryCodeChange(value) {
         this.setState({
             mCountryCode:value
-        })
+        });        
     }
 
     mobileChange(event) {
@@ -245,13 +245,15 @@ class ProfileSelf extends Component {
     countryChange(event) {
         this.setState({
             country:event.target.value
-        })
+        });
+        this.handleLocationFields(event.target.value, this.state.pstate);
     }
 
     profileStateChange(event) {
         this.setState({
-            pstate:event.target.value
-        })
+            pstate:parseInt(event.target.value)
+        });
+        this.handleLocationFields(this.state.country, event.target.value);
     }
 
     otherStateChange(event) {
