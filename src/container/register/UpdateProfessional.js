@@ -5,6 +5,7 @@ import ProfDetail from '../../components/register/ProfDetail';
 import Footer from '../../components/footer/Footer';
 import {toast} from 'react-toastify';
 import axios from 'axios';
+import {populateArray} from '../../components/utils/Util';
 
 class UpdateProfessional extends Component {
 
@@ -21,6 +22,7 @@ class UpdateProfessional extends Component {
         this.occupationChange = this.occupationChange.bind(this);
 
         this.state = {
+            educationObj:[],
             education:"",
             employment:"",
             occupation:"",
@@ -43,8 +45,11 @@ class UpdateProfessional extends Component {
         this.setState({occupation:event.target.value});
     }
 
-    educationChange(event) {
-        this.setState({education:event.target.value});
+    educationChange(valueObj) {
+        this.setState({
+            educationObj:populateArray(valueObj),
+            education:valueObj.value
+        });
     }
 
     employmentChange(event) {
@@ -126,6 +131,7 @@ class UpdateProfessional extends Component {
                <div className='hs30' />  
                <div className="prefSectionContainer"> 
                     <ProfDetail 
+                        educationObj = {this.educationObj}
                         educationChange = {this.educationChange}
                         employmentChange = {this.employmentChange}
                         incomeChange = {this.incomeChange}
