@@ -358,13 +358,13 @@ class Register extends Component {
                         <div className={this.props.labelClassName}>
                             <label>Gender</label>
                         </div>
-                        <div className={this.props.fieldClassName}>        
-                            <input type="radio" name='gender' value="M" onChange={this.genderChange}/>
+                        <div className={this.props.fieldClassName}>       
                             <label>
+                                <input type="radio" name='gender' value="M" onChange={this.genderChange}/>
                                 Male
-                            </label>                
-                            <input type="radio" name='gender' value="F" onChange={this.genderChange}/>
+                            </label>    
                             <label>
+                                <input type="radio" name='gender' value="F" onChange={this.genderChange}/>
                                 Female
                             </label>
                         </div>

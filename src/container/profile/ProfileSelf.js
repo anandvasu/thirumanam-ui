@@ -38,10 +38,11 @@ class ProfileSelf extends Component {
         this.profileStateChange = this.profileStateChange.bind(this);
         this.districtChange = this.districtChange.bind(this);
         this.cityChange = this.cityChange.bind(this);
+        this.otherStateChange = this.otherStateChange.bind(this);
 
         this.educationChange = this.educationChange.bind(this);
         this.employmentChange = this.employmentChange.bind(this);        
-        this.incomeChange = this.incomeChange.bind(this);
+        this.incomeChange = this.incomeChange.bind(this); 
 
         this.updateProfileSelf = this.updateProfileSelf.bind(this);        
 
@@ -68,12 +69,32 @@ class ProfileSelf extends Component {
             country : '',
             pstate : '',                                  
             district : '',
+            otherState:"",
+            otherDistrict:"",
             city : '',
             religion : '',
             caste : '',    
             education : '',
             employment : '',
             income : ''
+        }
+    }
+
+    handleLocationFields(country, pstate) {
+        if(country === "IN" || country === "US") {            
+            document.getElementById("stateText").style.display = "none";
+            document.getElementById("stateDropDown").style.display = "block";
+        } else {
+            document.getElementById("stateDropDown").style.display = "none";
+            document.getElementById("stateText").style.display = "block";
+        }
+
+        if(pstate == 58) {
+            document.getElementById("districtText").style.display = "none";
+            document.getElementById("districtDropDown").style.display = "block";
+        } else {
+            document.getElementById("districtText").style.display = "block";
+            document.getElementById("districtDropDown").style.display = "none";
         }
     }
 
@@ -109,6 +130,7 @@ class ProfileSelf extends Component {
             employment : this.props.location.state.employment,
             income : this.props.location.state.income,     
         });
+        this.handleLocationFields(this.props.location.state.country, this.props.location.state.pstate);
     }
 
     firstNameChange(event) {
@@ -229,6 +251,12 @@ class ProfileSelf extends Component {
     profileStateChange(event) {
         this.setState({
             pstate:event.target.value
+        })
+    }
+
+    otherStateChange(event) {
+        this.setState({
+            otherState:event.target.value
         })
     }
 
@@ -371,6 +399,7 @@ class ProfileSelf extends Component {
                         city = {this.state.city}
                         countryChange = {this.countryChange}
                         profileStateChange = {this.profileStateChange}
+                        otherStateChange = {this.otherStateChange}
                         districtChange = {this.districtChange}
                         cityChange = {this.cityChange}
                     />
