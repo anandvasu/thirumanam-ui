@@ -27,7 +27,8 @@ class UpdateReligion extends Component {
 
         this.state = {
             casteObj:[],
-            caste:"",
+            caste:0,
+            otherCaste:"",
             subcaste:"",
             gothramObj:[],
             gothram:"",
@@ -45,14 +46,17 @@ class UpdateReligion extends Component {
             email : this.props.location.state.email,
             religion:this.props.location.state.religion
         });       
-        if(this.props.location.state.religion === 1) {
+        const religionValue = this.props.location.state.religion;
+        if(parseInt(religionValue) === 1) {
             document.getElementById("otherCaste").style.display = "none";
             document.getElementById("otherGothram").style.display = "none";
-            document.getElementById("otherDhosham").style.display = "none"; 
-        } else {
-            document.getElementById("hinduCaste").style.display = "none";
+            document.getElementById("otherDhosham").style.display = "none";
+        } else if ((religionValue === 4) || (religionValue === 5) || (religionValue === 6)) { 
+            document.getElementById("otherCaste").style.display = "none";  
             document.getElementById("hinduGothram").style.display = "none";
             document.getElementById("hinduDhosham").style.display = "none";
+        } else {
+            document.getElementById("caste").style.display = "none";
         }
     }
 
@@ -65,7 +69,7 @@ class UpdateReligion extends Component {
     }
 
     otherCasteChange(event) {
-        this.setState({caste:event.target.value});
+        this.setState({otherCaste:event.target.value});
     }
 
     subCasteChange(event) {
@@ -130,6 +134,7 @@ class UpdateReligion extends Component {
             axios.put(ApiConstant.USER_RELIGION_API, 
                 {
                     caste: this.state.caste,
+                    otherCaste: this.state.otherCaste,
                     subcaste:this.state.subcaste,
                     gothram:this.state.gothram,
                     dhosham:this.state.dhosham,
@@ -174,7 +179,7 @@ class UpdateReligion extends Component {
                         casteObj = {this.state.casteObj}
                         caste = {this.state.caste}
                         religion = {this.state.religion}
-                        hinduCasteChange = {this.hinduCasteChange}
+                        casteChange = {this.casteChange}
                         otherCasteChange = {this.otherCasteChange}  
                         
                         subcaste = {this.state.subcaste}

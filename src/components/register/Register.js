@@ -98,7 +98,7 @@ class Register extends Component {
 
     religionChangeHandler(event) {
         this.setState({
-            religion:event.target.value
+            religion:parseInt(event.target.value)
         });
     }
 
@@ -150,7 +150,7 @@ class Register extends Component {
                     dob:this.state.bday+"/"+this.state.bmonth+"/"+this.state.byear,
                     email:this.state.email,
                     gender: this.state.gender,
-                    religion:this.state.religionValue,
+                    religion:this.state.religion,
                     phCountryCode: this.state.countryCode,
                     phonenumber:this.state.mobile,
                     registerBy: this.state.registerBy,

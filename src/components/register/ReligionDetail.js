@@ -17,7 +17,7 @@ function religionDetail(props) {
 
             <div className="sectionDataDiv">    
                 <div className="hs10" />
-                <div id="hinduCaste" className="gFieldRow">
+                <div id="caste" className="gFieldRow">
                     <div className='rdlabel'>
                         <label>Caste</label>
                     </div>            
