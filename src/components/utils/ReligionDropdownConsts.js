@@ -1,5 +1,5 @@
 export default {
-   
+
     regilionValues :[
         { value:0, label:"--Select--" },
         { value:1, label:"Hindu" },
@@ -16,6 +16,7 @@ export default {
         { value:12, label:"Inter-Religion" }
      ],
      gothramValues :[
+        { value:0, label:"--Select--" },
         { value: "1", label: "Anuradha / Anusham / Anizham" },
         { value: "2", label: "Ardra / Thiruvathira" },
         { value: "3", label: "Ashlesha / Ayilyam" },

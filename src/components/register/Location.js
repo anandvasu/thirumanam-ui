@@ -27,7 +27,7 @@ function location(props) {
                     </div>
                 </div>
 
-                <div>
+                <div id="stateDropDown">
                     <div className='rdlabel'>
                             <label>State</label>
                     </div>
@@ -38,10 +38,20 @@ function location(props) {
                             pstate = {props.pstate}    
                             country={props.country}            
                         />
-                    </div>                        
+                    </div>     
                 </div>
 
-                <div>
+                <div id="stateText" >
+                    <div className='rdlabel'>
+                        <label>State</label>
+                    </div>                    
+                            
+                    <div className='rdfield'>
+                        <input type="text" onBlur={props.otherStateChange} />                        
+                    </div>                
+                </div>
+
+                <div id="districtDropDown">
                     <div className='rdlabel'>
                             <label>District</label>
                     </div>
@@ -53,6 +63,16 @@ function location(props) {
                             pstate = {props.pstate} 
                         />
                     </div>                        
+                </div>
+
+                <div id="districtText" >
+                    <div className='rdlabel'>
+                        <label>District</label>
+                    </div>                    
+                            
+                    <div className='rdfield'>
+                        <input type="text" onBlur={props.otherStateChange} />                        
+                    </div>                
                 </div>
 
                 <div>

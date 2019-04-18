@@ -121,7 +121,7 @@ class UpdateReligion extends Component {
     updateReligionDetail() {
         var errorMessage = null;
 
-        if (this.state.caste === 0 || this.state.otherCaste ==="") {
+        if ((this.state.caste === 0) && (this.state.otherCaste ==="")) {
             errorMessage = "Please enter Caste."; 
         } 
         if(errorMessage === null) {

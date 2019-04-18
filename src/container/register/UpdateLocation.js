@@ -15,14 +15,16 @@ class UpdateLocation extends Component {
         this.profileStateChange = this.profileStateChange.bind(this);
         this.districtChange = this.districtChange.bind(this);
         this.cityChange = this.cityChange.bind(this);
-
         this.redirectToProfDetail = this.redirectToProfDetail.bind(this);
         this.doThisLater = this.doThisLater.bind(this);
         this.updateLocationDetail = this.updateLocationDetail.bind(this);
+        this.otherStateChange = this.otherStateChange.bind(this);
 
         this.state = {
             country: "IN",
             pstate:58,
+            otherState:"",
+            otherDistrict:"",
             district:"",
             city:"",
             profileId:"",
@@ -37,14 +39,52 @@ class UpdateLocation extends Component {
             email : this.props.location.state.email,
             religion:this.props.location.state.religion
         });       
+        this.handleLocationFields(this.state.country, this.state.pstate);
+    }
+
+    handleLocationFields(country, pstate) {
+        if(country === "IN" || country === "US") {            
+            document.getElementById("stateText").style.display = "none";
+            document.getElementById("stateDropDown").style.display = "block";
+        } else {
+            document.getElementById("stateDropDown").style.display = "none";
+            document.getElementById("stateText").style.display = "block";
+        }
+
+        if(pstate == 58) {
+            document.getElementById("districtText").style.display = "none";
+            document.getElementById("districtDropDown").style.display = "block";
+        } else {
+            document.getElementById("districtText").style.display = "block";
+            document.getElementById("districtDropDown").style.display = "none";
+        }
     }
 
     countryChange(event) {
-        this.setState({country:event.target.value});
+        const country = event.target.value;
+        let state = 0;
+        if(country === "IN") {
+            this.setState({
+                country:country,
+                pstate:58
+            });
+            state = 58;
+        } else {
+            this.setState({
+                country:country,
+                pstate:0
+            });
+        }
+        
+        this.handleLocationFields(country, state);
     }
 
     profileStateChange(event) {
         this.setState({pstate:event.target.value});
+    }
+
+    otherStateChange(event) {
+        this.setState({otherState:event.target.value});
     }
 
     districtChange(event) {
@@ -77,9 +117,9 @@ class UpdateLocation extends Component {
 
         if (this.state.country === "") {
             errorMessage = "Please select Country."; 
-        } else if (this.state.pstate ==="") {
+        } else if ((this.state.pstate ==="") && (this.state.otherState ==="")) {
             errorMessage = "Please enter State."; 
-        } else if (this.state.district === "") {
+        } else if ((this.state.district === "")  && (this.state.otherDistrict ==="")) {
             errorMessage = "Please enter District."; 
         } else if (this.state.city === "") {
             errorMessage = "Please enter City."; 
@@ -91,7 +131,9 @@ class UpdateLocation extends Component {
                         country:this.state.country,
                         pstate:this.state.pstate,
                         district:this.state.district,
+                        otherDistrict:this.state.otherDistrict,
                         city:this.state.city,
+                        otherState:this.state.otherState,
                         id:this.state.profileId
                     },
                     {                                            
@@ -130,6 +172,7 @@ class UpdateLocation extends Component {
                     <Location 
                         countryChange = {this.countryChange}
                         profileStateChange = {this.profileStateChange}
+                        otherStateChange = {this.otherStateChange}
                         districtChange = {this.districtChange}
                         cityChange = {this.cityChange}
                         pstate = {this.state.pstate}
