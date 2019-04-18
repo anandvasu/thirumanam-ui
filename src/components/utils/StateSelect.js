@@ -1,16 +1,29 @@
 import React from 'react';
 import LocationDropdownConsts from './LocationDropdownConsts';
-import DropDownConstant from './DropDownConstant';
+import Select from "react-select";
 
 function stateSelect(props) {
 
     return(
-        <div>
-            <select  onChange={props.profileStateChange} value={props.pstate}>   
-                <option value="0">{DropDownConstant.dropdownDefault}</option>      
-                { (props.country === "IN") &&  LocationDropdownConsts.indiaStates.map(data => <option value={data.value}>{data.label}</option>)}  
-                { (props.country === "US") &&  LocationDropdownConsts.usaStates.map(data => <option value={data.value}>{data.label}</option>)}  
-            </select>
+        <div>           
+            { (props.country === "IN") && 
+            <Select
+                    name="filters"
+                    placeholder="--Select--"
+                    value={props.pstateObj}
+                    options={LocationDropdownConsts.indiaStates}
+                    onChange={props.profileStateChange}
+                    />
+            }
+             { (props.country === "US") && 
+            <Select
+                    name="filters"
+                    placeholder="--Select--"
+                    value={props.pstateObj}
+                    options={LocationDropdownConsts.usaStates}
+                    onChange={props.profileStateChange}
+                    />
+            }
         </div>
     ) ;
 }

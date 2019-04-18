@@ -5,6 +5,7 @@ import Location from '../../components/register/Location';
 import Footer from '../../components/footer/Footer';
 import {toast} from 'react-toastify';
 import axios from 'axios';
+import {populateArray} from '../../components/utils/Util';
 
 class UpdateLocation extends Component {
 
@@ -22,9 +23,12 @@ class UpdateLocation extends Component {
 
         this.state = {
             country: "IN",
+            countryObj:[],
+            pstateObj:[],
             pstate:58,
             otherState:"",
             otherDistrict:"",
+            districtObj:[],
             district:"",
             city:"",
             profileId:"",
@@ -60,17 +64,19 @@ class UpdateLocation extends Component {
         }
     }
 
-    countryChange(event) {
-        const country = event.target.value;
+    countryChange(valueObj) {
+        const country = valueObj.value;        
         let state = 0;
         if(country === "IN") {
             this.setState({
+                countryObj:populateArray(valueObj),
                 country:country,
                 pstate:58
             });
             state = 58;
         } else {
             this.setState({
+                countryObj:populateArray(valueObj),
                 country:country,
                 pstate:0
             });
@@ -79,16 +85,22 @@ class UpdateLocation extends Component {
         this.handleLocationFields(country, state);
     }
 
-    profileStateChange(event) {
-        this.setState({pstate:event.target.value});
+    profileStateChange(valueObj) {
+        this.setState({
+            pstateObj:populateArray(valueObj),
+            pstate:valueObj.value,
+        });
     }
 
     otherStateChange(event) {
         this.setState({otherState:event.target.value});
     }
 
-    districtChange(event) {
-        this.setState({district:event.target.value});
+    districtChange(valueObj) {
+        this.setState({
+            districtObj:populateArray(valueObj),
+            district:valueObj.value,
+        });
     }
 
     cityChange(event) {

@@ -1,15 +1,18 @@
 import React from 'react';
 import LocationDropdownConsts from './LocationDropdownConsts';
-import DropDownConstant from './DropDownConstant';
+import Select from "react-select";
 
 function countrySelect(props) {     
         
     return(
-        <div>           
-            <select  onChange={props.countryChange} value={props.country}>  
-                <option value="">{DropDownConstant.dropdownDefault}</option>             
-                { LocationDropdownConsts.countries.map(data => <option value={data.value}>{data.label}</option>)}                     
-            </select>
+        <div>       
+            <Select
+                    name="filters"
+                    placeholder="--Select--"
+                    value={props.countryObj}
+                    options={LocationDropdownConsts.countries}
+                    onChange={props.countryChange}
+                    />
         </div>
     );
 }

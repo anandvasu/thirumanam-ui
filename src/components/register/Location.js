@@ -14,7 +14,7 @@ function location(props) {
             </div>
 
             <div className="sectionDataDiv">
-                <div>                         
+                <div className="gFieldRow">                         
                     <div className='rdlabel'>
                             <label>Country</label>
                     </div>
@@ -27,7 +27,7 @@ function location(props) {
                     </div>
                 </div>
 
-                <div id="stateDropDown">
+                <div id="stateDropDown" className="gFieldRow">
                     <div className='rdlabel'>
                             <label>State</label>
                     </div>
@@ -41,7 +41,7 @@ function location(props) {
                     </div>     
                 </div>
 
-                <div id="stateText" >
+                <div id="stateText" className="gFieldRow">
                     <div className='rdlabel'>
                         <label>State</label>
                     </div>                    
@@ -51,7 +51,7 @@ function location(props) {
                     </div>                
                 </div>
 
-                <div id="districtDropDown">
+                <div id="districtDropDown" className="gFieldRow">
                     <div className='rdlabel'>
                             <label>District</label>
                     </div>
@@ -65,7 +65,7 @@ function location(props) {
                     </div>                        
                 </div>
 
-                <div id="districtText" >
+                <div id="districtText" className="gFieldRow">
                     <div className='rdlabel'>
                         <label>District</label>
                     </div>                    
@@ -75,7 +75,7 @@ function location(props) {
                     </div>                
                 </div>
 
-                <div>
+                <div className="gFieldRow">
                     <div className='rdlabel'>
                             <label>City</label>
                     </div>

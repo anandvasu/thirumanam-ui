@@ -2,7 +2,6 @@ import React from 'react';
 import CasteSelect from '../utils/CasteSelect';
 import DhoshamSelect from '../utils/DhoshamSelect';
 import GothramSelect from '../utils/GothramSelect';
-import HinduCasteSelect from '../utils/HinduCasteSelect';
 
 function religionDetail(props) {     
         
