@@ -14,7 +14,7 @@ class UpdateReligion extends Component {
         super(props);
 
         this.otherCasteChange = this.otherCasteChange.bind(this);
-        this.hinduCasteChange = this.hinduCasteChange.bind(this);
+        this.casteChange = this.casteChange.bind(this);
         this.subCasteChange = this.subCasteChange.bind(this);        
         this.otherGothramChange = this.otherGothramChange.bind(this);
         this.hinduGothramChange = this.hinduGothramChange.bind(this);
@@ -56,12 +56,10 @@ class UpdateReligion extends Component {
         }
     }
 
-    hinduCasteChange(valueObj) {
-        console.log("caste:" + valueObj.value);
+    casteChange(event) {
         this.setState(
             {
-                casteObj:populateArray(valueObj),
-                caste:valueObj.value
+                caste:event.target.value
             }
         );
     }
@@ -175,6 +173,7 @@ class UpdateReligion extends Component {
                     <ReligionDetail 
                         casteObj = {this.state.casteObj}
                         caste = {this.state.caste}
+                        religion = {this.state.religion}
                         hinduCasteChange = {this.hinduCasteChange}
                         otherCasteChange = {this.otherCasteChange}  
                         

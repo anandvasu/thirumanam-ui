@@ -44,8 +44,7 @@ class Register extends Component {
             profileId:"",
             countryCode:"+91",
             registersuccess:false,
-            religionValue:0,
-            religion:[]          
+            religion:0         
         }
     }
 
@@ -97,10 +96,9 @@ class Register extends Component {
         this.setState({countryCode:event.target.value});
     }
 
-    religionChangeHandler(valueObj) {
+    religionChangeHandler(event) {
         this.setState({
-            religion:populateArray(valueObj),
-            religionValue:valueObj.value
+            religion:event.target.value
         });
     }
 
@@ -197,7 +195,7 @@ class Register extends Component {
                         state:{
                             profileId:this.state.profileId,
                             email:this.state.email,
-                            religion:this.state.religionValue
+                            religion:this.state.religion
                         }                                   
                     }}/>
         }

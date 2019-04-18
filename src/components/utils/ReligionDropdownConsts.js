@@ -1,5 +1,6 @@
 export default {
     regilionValues :[
+        { value: 0, label: "--Select--" },
         { value: 1, label: "Hindu" },
         { value: 2, label: "Buddhist" },      
         { value: 3, label: "Christian" },
@@ -48,6 +49,7 @@ export default {
         { value: "MUL", label: "Mudaliyar" }  
      ],    
      muslimCasteValues :[
+        { value: 0, label: "--Select--" },
         { value: 2002, label: "Ansari" },
         { value: 2004, label: "Arain" },  
         { value: 2006, label: "Awan" },  

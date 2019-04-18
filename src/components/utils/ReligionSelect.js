@@ -1,30 +1,15 @@
 import React from 'react';
-import Select from "react-select";
-import DropDownConstant from './DropDownConstant';
+import ReligionDropdownConsts from './ReligionDropdownConsts';
 
-const customStyles = {
-    control : (base, state) => (
-       {...base,
-        boxShadow:"none",
-        border: '1px solid red',
-        borderRadius: '4px'
-       })
-   }
-
-function religionSelect(props) {     
-        
-        return(
-            <div>
-                <Select
-                    name="religionSelect"
-                    placeholder={DropDownConstant.dropdownDefault}
-                    value={props.religions}
-                    options={DropDownConstant.regilionValues}
-                    onChange={props.religionChangeHandler}  
-                    className = "reactSelectStyle"             
-                    />
-            </div>
-        ) ;
+function religionSelect(props) {
+    return(
+        <div>
+            <select  onChange={props.religionChangeHandler} value={props.religion}>               
+                {ReligionDropdownConsts.regilionValues.map(data => <option value={data.value}>{data.label}</option>)}                     
+            </select>
+        </div>
+    );
 }
+
 
 export default religionSelect;

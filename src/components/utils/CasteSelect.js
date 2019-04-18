@@ -1,23 +1,15 @@
 import React from 'react';
-import Select from "react-select";
-import DropDownConstant from './DropDownConstant';
+import ReligionDropdownConsts from './ReligionDropdownConsts';
 
-function casteSelect(props) {     
-        
-        return(
-            <div>
-                <Select
-                    name="religionSelect"
-                    placeholder={DropDownConstant.dropdownDefault}
-                    value={props.casteObj}
-                    options={DropDownConstant.casteValues}
-                    onChange={props.hinduCasteChange}  
-                    styles={{ 
-                        control: (base, _state) => ({...base, minHeight: '30px', height: '30px'})
-                    }}                
-                    />
-            </div>
-        ) ;
+function casteSelect(props) {
+    return(
+        <div>
+            <select  onChange={props.casteChange} value={props.caste}>               
+                { (props.religion === 1) && ReligionDropdownConsts.hinduCasteValues.map(data => <option value={data.value}>{data.label}</option>)}    
+                { ((props.religion === 4) || (props.religion === 5) || (props.religion === 6)) && ReligionDropdownConsts.muslimCasteValues.map(data => <option value={data.value}>{data.label}</option>)}                   
+            </select>
+        </div>
+    );
 }
 
 export default casteSelect;

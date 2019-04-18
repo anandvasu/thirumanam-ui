@@ -22,9 +22,10 @@ function religionDetail(props) {
                         <label>Caste</label>
                     </div>            
                     <div className='rdfield'>
-                        <HinduCasteSelect 
-                            casteObj = {props.casteObj}       
-                            hinduCasteChange = {props.hinduCasteChange}                           
+                        <CasteSelect 
+                            caste = {props.caste}       
+                            casteChange = {props.casteChange}  
+                            religion = {props.religion}                         
                         />
                     </div>                        
                 </div>
