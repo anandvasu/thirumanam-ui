@@ -63,7 +63,7 @@ class UpdateReligion extends Component {
     casteChange(event) {
         this.setState(
             {
-                caste:event.target.value
+                caste:parseInt(event.target.value)
             }
         );
     }
@@ -121,14 +121,8 @@ class UpdateReligion extends Component {
     updateReligionDetail() {
         var errorMessage = null;
 
-        if (this.state.caste === "") {
+        if (this.state.caste === 0 || this.state.otherCaste ==="") {
             errorMessage = "Please enter Caste."; 
-        } else if (this.state.subcaste === "") {
-            errorMessage = "Please enter Sub Caste."; 
-        } else if (this.state.gothram === "") {
-            errorMessage = "Please select Gothram."; 
-        } else if (this.state.dhosham === "") {
-            errorMessage = "Please select Dhosham."; 
         } 
         if(errorMessage === null) {
             axios.put(ApiConstant.USER_RELIGION_API, 
