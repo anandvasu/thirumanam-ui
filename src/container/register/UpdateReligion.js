@@ -60,10 +60,11 @@ class UpdateReligion extends Component {
         }
     }
 
-    casteChange(event) {
+    casteChange(valueObj) {
         this.setState(
             {
-                caste:parseInt(event.target.value)
+                casteObj:populateArray(valueObj),
+                caste:valueObj.value
             }
         );
     }
