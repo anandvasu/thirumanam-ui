@@ -50,6 +50,7 @@ export default {
    USER_LOCATION_API:"http://localhost:8085/matrimony/user/profile/location/",
    USER_RELIGION_API:"http://localhost:8085/matrimony/user/profile/religion/",
    USER_PROF_API:"http://localhost:8085/matrimony/user/profile/professional/",
+   USER_ABOUT_API:"http://localhost:8085/matrimony/user/profile/about/",
    USER_COMPLETE_PROFILE_API:"http://localhost:8085/matrimony/user/completeprofile/",
    USER_PROFILE_IMAGE_API:"http://localhost:8085/matrimony/user/image/",
    USER_PROFILE_HOROSCOPE_API:"http://localhost:8085/matrimony/user/horoscope/",

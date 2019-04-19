@@ -43,16 +43,12 @@ class UpdateGroomBride extends Component {
     updateAbout() {
         var errorMessage = null;
 
-        if (this.state.education === "") {
-            errorMessage = "Please select Education."; 
-        } else if (this.state.employment === "") {
-            errorMessage = "Please select Employment."; 
-        } else if (this.state.income === 0) {
-            errorMessage = "Please enter income."; 
+        if (this.state.about === "") {
+            errorMessage = "Please write something about yourself."; 
         } 
 
         if(errorMessage === null) {
-            axios.put(ApiConstant.USER_PROF_API, 
+            axios.put(ApiConstant.USER_ABOUT_API, 
                     {
                         about: this.state.about,
                         id:this.state.profileId

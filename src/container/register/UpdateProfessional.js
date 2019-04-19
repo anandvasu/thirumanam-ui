@@ -85,6 +85,8 @@ class UpdateProfessional extends Component {
             errorMessage = "Please select Education."; 
         } else if (this.state.employment === "") {
             errorMessage = "Please select Employment."; 
+        } else if (this.state.occupation === "") {
+            errorMessage = "Please enter Occupation."; 
         } else if (this.state.income === 0) {
             errorMessage = "Please enter income."; 
         } 
@@ -92,6 +94,7 @@ class UpdateProfessional extends Component {
         if(errorMessage === null) {
             axios.put(ApiConstant.USER_PROF_API, 
                     {
+                        occupation:this.state.occupation,
                         education: this.state.education,
                         employment: this.state.employment,
                         income: this.state.income,

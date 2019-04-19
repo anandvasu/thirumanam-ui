@@ -19,7 +19,7 @@ function aboutGroomBride(props) {
                             Write about yourself.
                         </div>
                         <div>
-                            <textarea rows="5" cols="50">
+                            <textarea rows="5" cols="50" onBlur={props.aboutGroomBrideChange}> 
 
                             </textarea>
                         </div>
