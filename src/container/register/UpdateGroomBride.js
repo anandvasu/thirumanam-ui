@@ -51,7 +51,7 @@ class UpdateGroomBride extends Component {
             axios.put(ApiConstant.USER_ABOUT_API, 
                     {
                         about: this.state.about,
-                        id:this.state.profileId
+                        profileId:this.state.profileId
                     },
                     {                                            
                     })
