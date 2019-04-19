@@ -114,7 +114,7 @@ export function convertReactSelectValue(value, listValues) {
     for(var i=0; i < listValues.length; i++) {
         arrObject = listValues[i];
         if(arrObject.value === value) {
-            defaultValue = arrObject;
+            defaultValue.push(arrObject);
             return defaultValue;
         }
     }

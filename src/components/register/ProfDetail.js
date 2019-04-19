@@ -1,5 +1,5 @@
 import React from 'react';
-import DropDownConstant from '../utils/DropDownConstant';
+import EducationSelect from '../utils/EducationSelect';
 
 function profDetail (props) {
     return (
@@ -17,10 +17,10 @@ function profDetail (props) {
                     </div>
                     
                     <div className='rdfield'>
-                        <select  onChange={props.educationChange} value={props.education}>
-                                <option value="">--Select--</option>
-                                {DropDownConstant.educationValues.map(data => <option value={data.value}>{data.label}</option>)}                      
-                        </select>
+                        <EducationSelect 
+                            educationObj = {props.educationObj}
+                            educationChange = {props.educationChange}
+                        />
                     </div>
                 </div>
 

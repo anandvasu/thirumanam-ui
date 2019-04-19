@@ -44,6 +44,7 @@ class Register extends Component {
             profileId:"",
             countryCode:"+91",
             registersuccess:false,
+            religionObj:[],
             religion:0         
         }
     }
@@ -103,6 +104,7 @@ class Register extends Component {
                 religion:valueObj.value
             }
         );
+        console.log(valueObj.value);
     }
 
     openTandc() {
@@ -124,7 +126,7 @@ class Register extends Component {
             errorMessage = "Please enter Last Name."; 
         } else if (this.state.bday === "" || this.state.byear === "" || this.state.byear === "") {
             errorMessage = "Please enter Data of birth."; 
-        } else if (this.state.religionValue === 0) {
+        } else if (this.state.religion === 0) {
             errorMessage = "Please select Religion."; 
         } else if (this.state.mobile === "") {
             errorMessage = "Please enter Mobile Number"; 

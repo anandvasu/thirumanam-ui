@@ -23,6 +23,7 @@ function location(props) {
                         <CountrySelect
                             countryChange={props.countryChange}
                             country={props.country}
+                            countryObj={props.countryObj}
                         />
                     </div>
                 </div>
@@ -35,7 +36,8 @@ function location(props) {
                     <div className='rdfield'>
                         <StateSelect 
                             profileStateChange = {props.profileStateChange}           
-                            pstate = {props.pstate}    
+                            pstate = {props.pstate}   
+                            pstateObj = {props.pstateObj}  
                             country={props.country}            
                         />
                     </div>     
@@ -60,6 +62,7 @@ function location(props) {
                         <DistrictSelect 
                             districtChange = {props.districtChange}
                             district = {props.district}
+                            districtObj = {props.districtObj}
                             pstate = {props.pstate} 
                         />
                     </div>                        

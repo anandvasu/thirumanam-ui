@@ -22,9 +22,10 @@ function religionDetail(props) {
                     </div>            
                     <div className='rdfield'>
                         <CasteSelect 
-                            caste = {props.caste}       
+                            casteObj = {props.casteObj}       
                             casteChange = {props.casteChange}  
-                            religion = {props.religion}                         
+                            religionObj = {props.religionObj}                         
+                            religion = {props.religion}   
                         />
                     </div>                        
                 </div>
@@ -43,7 +44,7 @@ function religionDetail(props) {
                         <label>Sub Caste</label>
                     </div>            
                     <div className='rdfield'>
-                        <input type="text" onBlur={props.subCasteChange} />
+                        <input type="text" onBlur={props.subCasteChange} defaultValue={props.subcaste}/>
                     </div>                        
                 </div>
 

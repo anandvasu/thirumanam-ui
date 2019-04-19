@@ -76,34 +76,7 @@ class ProfileSelfSummary extends Component {
                this.props.history.push({
                     pathname: '/profileSelf',
                     state: {
-                        id : res.data.id,
-                        firstName : res.data.firstName,
-                        lastName : res.data.lastName,
-                        bDay : res.data.bDay,
-                        bMonth : res.data.bMonth,
-                        bYear : res.data.bYear,
-                        email : res.data.email,
-                        mCountryCode : res.data.mCountryCode,  
-                        mobile : res.data.mobile,  
-                        heightInch : res.data.heightInch,
-                        heightCm : res.data.heightCm,
-                        weight : res.data.weight,
-                        mStatus : res.data.mStatus,
-                        familyType : res.data.familyType,
-                        familyValue : res.data.familyValue,
-                        foodHabit : res.data.foodHabit,
-                        disabled : res.data.disabled,
-                        disInfo : res.data.disInfo,
-                        bodyType : res.data.bodyType,
-                        country : res.data.country,
-                        pstate : res.data.pstate,                                  
-                        district : res.data.district,
-                        city : res.data.city,
-                        religion : res.data.religion,
-                        caste : res.data.caste,    
-                        education : res.data.education,
-                        employment : res.data.employment,
-                        income : res.data.income,                        
+                        profile : res.data                      
                     }
                 }) 
             }).catch((err) => {

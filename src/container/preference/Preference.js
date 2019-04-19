@@ -14,6 +14,8 @@ import CountryMultiSelect from '../../components/utils/CountryMultiSelect';
 import CasteMultiSelect from '../../components/utils/CasteMultiSelect';
 import {getValueArrFromReactSelect, convertReactSelectValues} from '../../components/utils/Util';
 import DropDownConstant from '../../components/utils/DropDownConstant';
+import LocationDropdownConsts from '../../components/utils/LocationDropdownConsts';
+import ReligionDropdownConsts from '../../components/utils/ReligionDropdownConsts';
 
 
 class Preference extends Component {
@@ -86,9 +88,9 @@ class Preference extends Component {
             maxHeight:this.props.location.state.preference.maxHeight,
             mStatus:this.props.location.state.preference.mStatus,
             foodHabits:this.props.location.state.preference.foodHabits,
-            countries:convertReactSelectValues(this.props.location.state.preference.countries, DropDownConstant.countries),
-            states:convertReactSelectValues(this.props.location.state.preference.states, DropDownConstant.indiaStates),
-            religions:convertReactSelectValues(this.props.location.state.preference.religions, DropDownConstant.regilionValues)            
+            countries:convertReactSelectValues(this.props.location.state.preference.countries, LocationDropdownConsts.countries),
+            states:convertReactSelectValues(this.props.location.state.preference.states, LocationDropdownConsts.indiaStates),
+            religions:convertReactSelectValues(this.props.location.state.preference.religions, ReligionDropdownConsts.regilionValues)            
         });
     }
 

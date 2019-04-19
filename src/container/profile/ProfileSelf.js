@@ -11,6 +11,8 @@ import {convertReactSelectValue} from '../../components/utils/Util';
 import {toast} from 'react-toastify';
 import axios from 'axios';
 import ReligionDetail from '../../components/register/ReligionDetail';
+import LocationDropdownConsts from '../../components/utils/LocationDropdownConsts';
+import ReligionDropdownConsts from '../../components/utils/ReligionDropdownConsts';
 
 class ProfileSelf extends Component {
 
@@ -42,7 +44,8 @@ class ProfileSelf extends Component {
         this.cityChange = this.cityChange.bind(this);
         this.otherStateChange = this.otherStateChange.bind(this);
 
-        this.educationChange = this.educationChange.bind(this);
+        this.educationChange = this.educationChange.bind(this); 
+        this.occupationChange = this.occupationChange.bind(this);     
         this.employmentChange = this.employmentChange.bind(this);        
         this.incomeChange = this.incomeChange.bind(this); 
 
@@ -77,20 +80,24 @@ class ProfileSelf extends Component {
             disInfo : '',
             bodyType : '',
             country : '',
-            pstate : '',                                  
+            countryObj : [],
+            pstate : '',      
+            pstateObj : [],                            
             district : '',
             otherState:"",
             otherDistrict:"",
             city : '',
             religion : '',
             caste : '',    
+            subcaste:'',
+            otherCaste:"",
             education : '',
+            educationObj:[],
+            occupation:"",
             employment : '',
             income : '',
             casteObj:[],
             caste:0,
-            otherCaste:"",
-            subcaste:"",
             gothramObj:[],
             gothram:"",
             dhoshamObj:[],
@@ -134,37 +141,49 @@ class ProfileSelf extends Component {
     componentDidMount(value) {
        
         this.setState({
-            id : this.props.location.state.id,
-            firstName : this.props.location.state.firstName,
-            lastName : this.props.location.state.lastName,
-            bDay : this.props.location.state.bDay,
-            bMonth : this.props.location.state.bMonth,
-            bYear : this.props.location.state.bYear,
-            email : this.props.location.state.email,
-            mCountryCode : this.props.location.state.mCountryCode,  
-            mobile : this.props.location.state.mobile,  
-            heightInch : this.props.location.state.heightInch,
-            heightCm : this.props.location.state.heightCm,
-            weight : this.props.location.state.weight,
-            mStatus : this.props.location.state.mStatus,
-            familyType : this.props.location.state.familyType,
-            familyValue : this.props.location.state.familyValue,
-            foodHabit : this.props.location.state.foodHabit,
-            disabled : this.props.location.state.disabled,
-            disInfo : this.props.location.state.disInfo,
-            bodyType : this.props.location.state.bodyType,
-            country : this.props.location.state.country,
-            pstate : this.props.location.state.pstate,                                  
-            district : this.props.location.state.district,
-            city : this.props.location.state.city,
-            religion : this.props.location.state.religion,
-            caste : this.props.location.state.caste,    
-            education : this.props.location.state.education,
-            employment : this.props.location.state.employment,
-            income : this.props.location.state.income,     
+            id : this.props.location.state.profile.id,
+            firstName : this.props.location.state.profile.firstName,
+            lastName : this.props.location.state.profile.lastName,
+            bDay : this.props.location.state.profile.bDay,
+            bMonth : this.props.location.state.profile.bMonth,
+            bYear : this.props.location.state.profile.bYear,
+            email : this.props.location.state.profile.email,
+            mCountryCode : this.props.location.state.profile.mCountryCode,  
+            mobile : this.props.location.state.profile.mobile,  
+            heightInch : this.props.location.state.profile.heightInch,
+            heightCm : this.props.location.state.profile.heightCm,
+            weight : this.props.location.state.profile.weight,
+            mStatus : this.props.location.state.profile.mStatus,
+            familyType : this.props.location.state.profile.familyType,
+            familyValue : this.props.location.state.profile.familyValue,
+            foodHabit : this.props.location.state.profile.foodHabit,
+            disabled : this.props.location.state.profile.disabled,
+            disInfo : this.props.location.state.profile.disInfo,
+            bodyType : this.props.location.state.profile.bodyType,
+            country : this.props.location.state.profile.country,
+            countryObj: convertReactSelectValue(this.props.location.state.profile.country, LocationDropdownConsts.countries),
+            pstate : this.props.location.state.profile.pstate,  
+            pstateObj: convertReactSelectValue(this.props.location.state.profile.pstate, LocationDropdownConsts.indiaStates),   
+            district : this.props.location.state.profile.district,
+            districtObj: convertReactSelectValue(this.props.location.state.profile.district, LocationDropdownConsts.tamilnaduDistricts),
+            city : this.props.location.state.profile.city,
+            religion : this.props.location.state.profile.religion,
+            religionObj: convertReactSelectValue(this.props.location.state.profile.religion, ReligionDropdownConsts.regilionValues),
+            caste : this.props.location.state.profile.caste,    
+            casteObj: convertReactSelectValue(this.props.location.state.profile.caste, ReligionDropdownConsts.hinduCasteValues),
+            subcaste : this.props.location.state.profile.subcaste,
+            gothram: this.props.location.state.profile.gothram,  
+            gothramObj : convertReactSelectValue(this.props.location.state.profile.gothram, ReligionDropdownConsts.gothramValues),
+            dhosham : this.props.location.state.profile.dhosham,
+            dhoshamObj : convertReactSelectValue(this.props.location.state.profile.dhosham, ReligionDropdownConsts.dhoshamValues),
+            education : this.props.location.state.profile.education,
+            educationObj: convertReactSelectValue(this.props.location.state.profile.education, DropDownConstant.educationValues),
+            occupation : this.props.location.state.profile.occupation,
+            employment : this.props.location.state.profile.employment,
+            income : this.props.location.state.profile.income           
         });
-        this.handleLocationFields(this.props.location.state.country, this.props.location.state.pstate);
-        this.handleReligionFields(this.props.location.state.religion);
+        this.handleLocationFields(this.props.location.state.profile.country, this.props.location.state.profile.pstate);
+        this.handleReligionFields(this.props.location.state.profile.religion);
     }
 
     casteChange(valueObj) {
@@ -370,16 +389,21 @@ class ProfileSelf extends Component {
         })
     }
 
-    educationChange(valueObj) {
+    educationChange(event) {
         this.setState({
-            educationObj:populateArray(valueObj),
-            education:valueObj.value
+            education:event.target.value
         })
     }
     
     employmentChange(event) {
         this.setState({
             employment:event.target.value
+        })
+    }
+
+    occupationChange(event) {
+        this.setState({
+            occupation:event.target.value
         })
     }
 
@@ -417,7 +441,9 @@ class ProfileSelf extends Component {
                 city : this.state.city,
                 religion : this.state.religion,
                 caste : this.state.caste,    
+                subCasubcasteste : this.state.subcaste,
                 education : this.state.education,
+                occupation: this.state.occupation,
                 employment : this.state.employment,
                 income : this.state.income  
             })
@@ -494,6 +520,7 @@ class ProfileSelf extends Component {
                      <ReligionDetail 
                         casteObj = {this.state.casteObj}
                         caste = {this.state.caste}
+                        religionObj = {this.state.religionObj}
                         religion = {this.state.religion}
                         casteChange = {this.casteChange}
                         otherCasteChange = {this.otherCasteChange}  
@@ -512,8 +539,11 @@ class ProfileSelf extends Component {
                         otherDhoshamChange = {this.otherDhoshamChange}
                     />
                     <Location 
+                        countryObj = {this.state.countryObj}
                         country = {this.state.country}
+                        pstateObj = {this.state.pstateObj}
                         pstate = {this.state.pstate}
+                        districtObj = {this.state.districtObj}
                         district = {this.state.district}
                         city = {this.state.city}
                         countryChange = {this.countryChange}
@@ -523,10 +553,12 @@ class ProfileSelf extends Component {
                         cityChange = {this.cityChange}
                     />
                     <ProfDetail 
-                        education = {this.state.education}
+                        educationObj = {this.state.educationObj}
                         employment = {this.state.employment}
                         income = {this.state.income}
+                        occupation = {this.state.occupation}
                         educationChange = {this.educationChange}
+                        occupationChange = {this.occupationChange}
                         employmentChange = {this.employmentChange}
                         incomeChange = {this.incomeChange}
                     />

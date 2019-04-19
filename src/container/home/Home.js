@@ -70,7 +70,7 @@ class Home extends Component {
                     </div>
                 </div>                
                 <div className="hs20" />
-                <ImageGalleryAnimation />
+                
                 <div className="hs20" />
                 <Aboutus /> 
                 <div className="hs20" />
