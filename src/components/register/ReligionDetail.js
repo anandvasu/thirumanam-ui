@@ -6,7 +6,7 @@ import GothramSelect from '../utils/GothramSelect';
 function religionDetail(props) {     
         
     return(
-        <div className="rdlcontaniner" style={{backgroundColor:'#FFFFFF'}}>
+        <div className="sectionParentDiv">
 
             <div> 
                 <div className='header2allborder'>

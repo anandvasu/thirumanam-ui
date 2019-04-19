@@ -5,10 +5,12 @@ import Location from '../../components/register/Location';
 import ProfDetail from '../../components/register/ProfDetail';
 import CompletePersonalDetail from '../../components/register/CompletePersonalDetail';
 import ApiConstant from '../../components/utils/ApiConstant';
+import {populateArray} from '../../components/utils/Util';
 import DropDownConstant from '../../components/utils/DropDownConstant'
 import {convertReactSelectValue} from '../../components/utils/Util';
 import {toast} from 'react-toastify';
 import axios from 'axios';
+import ReligionDetail from '../../components/register/ReligionDetail';
 
 class ProfileSelf extends Component {
 
@@ -44,7 +46,15 @@ class ProfileSelf extends Component {
         this.employmentChange = this.employmentChange.bind(this);        
         this.incomeChange = this.incomeChange.bind(this); 
 
-        this.updateProfileSelf = this.updateProfileSelf.bind(this);        
+        this.updateProfileSelf = this.updateProfileSelf.bind(this);     
+        
+        this.otherCasteChange = this.otherCasteChange.bind(this);
+        this.casteChange = this.casteChange.bind(this);
+        this.subCasteChange = this.subCasteChange.bind(this);        
+        this.otherGothramChange = this.otherGothramChange.bind(this);
+        this.gothramChange = this.gothramChange.bind(this);
+        this.otherDhoshamChange = this.otherDhoshamChange.bind(this);
+        this.hinduDhoshamChange = this.hinduDhoshamChange.bind(this);
 
         this.state = {
             id:'',
@@ -76,7 +86,16 @@ class ProfileSelf extends Component {
             caste : '',    
             education : '',
             employment : '',
-            income : ''
+            income : '',
+            casteObj:[],
+            caste:0,
+            otherCaste:"",
+            subcaste:"",
+            gothramObj:[],
+            gothram:"",
+            dhoshamObj:[],
+            dhosham:"",
+            religion:0,
         }
     }
 
@@ -95,6 +114,20 @@ class ProfileSelf extends Component {
         } else {
             document.getElementById("districtText").style.display = "block";
             document.getElementById("districtDropDown").style.display = "none";
+        }
+    }
+
+    handleReligionFields(religionValue) {
+        if(parseInt(religionValue) === 1) {
+            document.getElementById("otherCaste").style.display = "none";
+            document.getElementById("otherGothram").style.display = "none";
+            document.getElementById("otherDhosham").style.display = "none";
+        } else if ((religionValue === 4) || (religionValue === 5) || (religionValue === 6)) { 
+            document.getElementById("otherCaste").style.display = "none";  
+            document.getElementById("gothram").style.display = "none";
+            document.getElementById("hinduDhosham").style.display = "none";
+        } else {
+            document.getElementById("caste").style.display = "none";
         }
     }
 
@@ -131,7 +164,68 @@ class ProfileSelf extends Component {
             income : this.props.location.state.income,     
         });
         this.handleLocationFields(this.props.location.state.country, this.props.location.state.pstate);
+        this.handleReligionFields(this.props.location.state.religion);
     }
+
+    casteChange(valueObj) {
+        this.setState(
+            {
+                casteObj:populateArray(valueObj),
+                caste:valueObj.value
+            }
+        );
+    }
+
+    otherCasteChange(event) {
+        this.setState({otherCaste:event.target.value});
+    }
+
+    subCasteChange(event) {
+        this.setState({subcaste:event.target.value});
+    }
+
+    gothramChange(valueObj) {
+        this.setState(
+            {
+                gothramObj:populateArray(valueObj),
+                gothram:valueObj.value
+            }
+        );
+    }
+
+    otherGothramChange(event) {
+        this.setState({gothram:event.target.value});
+    }
+
+    hinduDhoshamChange(valueObj) {
+        this.setState(
+            {
+                dhoshamObj:populateArray(valueObj),
+                dhosham:valueObj.value
+            }
+        );
+    }
+    otherDhoshamChange(event) {
+        this.setState({dhosham:event.target.value});
+    }
+
+    doThisLater() {
+       this.redirectLocationDetail();
+    }
+
+    redirectLocationDetail() {
+        this.props.history.push(
+            {
+                pathname:'/updateLocation' ,
+                state:{
+                    profileId : this.state.profileId,
+                    email : this.state.email,
+                    religion:this.state.religion
+                }                                   
+            }
+        );
+    }
+
 
     firstNameChange(event) {
         this.setState({
@@ -240,20 +334,21 @@ class ProfileSelf extends Component {
             bodyType:event.target.value
         })
     }
-
   
-    countryChange(event) {
+    countryChange(valueObj) {
         this.setState({
-            country:event.target.value
+            countryObj:populateArray(valueObj),
+            country:valueObj.value
         });
-        this.handleLocationFields(event.target.value, this.state.pstate);
+        this.handleLocationFields(parseInt(valueObj.value), this.state.pstate);
     }
 
-    profileStateChange(event) {
+    profileStateChange(valueObj) {
         this.setState({
-            pstate:parseInt(event.target.value)
+            pstateObj:populateArray(valueObj),
+            pstate:parseInt(valueObj.value)
         });
-        this.handleLocationFields(this.state.country, event.target.value);
+        this.handleLocationFields(this.state.country, parseInt(valueObj.value));
     }
 
     otherStateChange(event) {
@@ -268,15 +363,17 @@ class ProfileSelf extends Component {
         })
     }
 
-    districtChange(event) {
+    districtChange(valueObj) {
         this.setState({
-            district:event.target.value
+            districtObj:populateArray(valueObj),
+            district:parseInt(valueObj.value)
         })
     }
 
-    educationChange(event) {
+    educationChange(valueObj) {
         this.setState({
-            education:event.target.value
+            educationObj:populateArray(valueObj),
+            education:valueObj.value
         })
     }
     
@@ -393,6 +490,26 @@ class ProfileSelf extends Component {
                          disabledChange = {this.disabledChange}
                          disInfoChange = {this.disInfoChange}
                          bodyTypeChange = {this.bodyTypeChange}
+                    />
+                     <ReligionDetail 
+                        casteObj = {this.state.casteObj}
+                        caste = {this.state.caste}
+                        religion = {this.state.religion}
+                        casteChange = {this.casteChange}
+                        otherCasteChange = {this.otherCasteChange}  
+                        
+                        subcaste = {this.state.subcaste}
+                        subCasteChange = {this.subCasteChange}
+                       
+                        gothramObj = {this.state.gothramObj}
+                        gothram = {this.state.gothram}
+                        gothramChange = {this.gothramChange}
+                        otherGothramChange = {this.otherGothramChange}
+                        
+                        dhoshamObj = {this.state.dhoshamObj}
+                        dhosham = {this.state.dhosham}
+                        hinduDhoshamChange = {this.hinduDhoshamChange}
+                        otherDhoshamChange = {this.otherDhoshamChange}
                     />
                     <Location 
                         country = {this.state.country}

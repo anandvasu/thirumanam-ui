@@ -47,6 +47,20 @@ class UpdateReligion extends Component {
             religion:this.props.location.state.religion
         });       
         const religionValue = this.props.location.state.religion;
+        this.handleReligionFields(religionValue);
+       
+    }
+
+    casteChange(valueObj) {
+        this.setState(
+            {
+                casteObj:populateArray(valueObj),
+                caste:valueObj.value
+            }
+        );
+    }
+
+    handleReligionFields(religionValue) {
         if(parseInt(religionValue) === 1) {
             document.getElementById("otherCaste").style.display = "none";
             document.getElementById("otherGothram").style.display = "none";
@@ -58,15 +72,6 @@ class UpdateReligion extends Component {
         } else {
             document.getElementById("caste").style.display = "none";
         }
-    }
-
-    casteChange(valueObj) {
-        this.setState(
-            {
-                casteObj:populateArray(valueObj),
-                caste:valueObj.value
-            }
-        );
     }
 
     otherCasteChange(event) {
