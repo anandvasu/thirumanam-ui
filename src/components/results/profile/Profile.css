@@ -58,11 +58,6 @@
     vertical-align:middle;
 }
 
-.profileLabel {
-    text-align: left;
-    width:30%;
-    display: inline-block;
-}
 
 .profileCenter {
     display: inline-block;
@@ -73,9 +68,15 @@
     padding-bottom: 5px;
 }
 
+.profileLabel {
+    text-align: left;
+    width:38%;
+    display: inline-block;
+}
+
 .profileField {
     text-align: left;
-    width:65%;
+    width:57%;
     display: inline-block;
 }
 

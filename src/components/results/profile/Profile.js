@@ -201,7 +201,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <label> {this.props.profile.weight} </label>
+                                        <label> {this.props.profile.weight} Kg</label>
                                     </div>     
                                 </div> 
                                 <div className="vs30" />
@@ -232,7 +232,7 @@ class Profile extends Component {
                                         <img src={addImage} alt="Not Available"  style={{width:'25px',height:'25px'}}/>
                                     </div>
                                     <div className="inlineBlock" style={{height:'30px',width:'90px',float: 'left',paddingTop:'3px'}}>
-                                        <label><b> <a href="#" onClick={this.shortlist}><b>Shortlisted</b></a></b></label>   
+                                        <label><b> <a href="#" onClick={this.shortlist}><b>Shortlist</b></a></b></label>   
                                     </div>
                                 </div>
                             </div>
@@ -256,7 +256,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <b> <label> {this.props.profile.phone} </label>  </b>
+                                        <b> <label> {this.props.profile.phonenumber} </label>  </b>
                                     </div>   
                                 </div>   
                             </div>

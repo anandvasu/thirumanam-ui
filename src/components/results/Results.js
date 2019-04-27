@@ -302,6 +302,7 @@ class Results extends Component {
         }
         //this.displayResults(pageNumber);
         this.searchProfile(
+            this.state.showProfile,
             this.state.ageFrom,
             this.state.ageTo,
             this.state.minHeight,
