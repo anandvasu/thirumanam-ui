@@ -24,7 +24,7 @@ class ShortListedProfiles extends Component {
 
         this.state = {
             profiles:[],
-            totalMatches:0,
+            totalProfiles:0,
             pageNo:1
 
         }
@@ -32,7 +32,7 @@ class ShortListedProfiles extends Component {
 
     nextClick() {
         const pageNo = this.state.pageNo;
-        if((pageNo * 10) < this.state.totalMatches) {
+        if((pageNo * 10) < this.state.totalProfiles) {
             this.setState({
                 pageNo:pageNo + 1
             });
@@ -97,9 +97,9 @@ class ShortListedProfiles extends Component {
             }) .then((res) => {
                // Update User Detail to session
                console.log(res);
-               const totalMatches = res.headers["x-total-docs"]; 
+               const totalDocs = parseInt(res.headers["x-total-docs"]); 
                this.setState({
-                totalMatches:totalMatches
+                totalProfiles:totalDocs
                })
                this.displayResults(res.data);
              
@@ -151,14 +151,23 @@ class ShortListedProfiles extends Component {
             <div className="myMatchContainer">               
                <div className="header2"> 
                     <div className="vs5px inlineBlock"/>
-                    <div className="inlineBlock"><b>Shortlisted Profiles ({this.state.totalMatches})</b>&nbsp;&nbsp;</div>
-                    <div className="inlineBlock" style={{float:'right'}}>
+                    <div className="inlineBlock"><b>Shortlisted Profiles ({this.state.totalProfiles})</b>&nbsp;&nbsp;</div>
+                    {(this.state.totalProfiles > 10 ) &&
+                    <div className="inlineBlock" style={{float:'right'}}>                       
                         <img className="prevNextImage" src={prevImage} onClick={this.prevClick}/> 
                         <img className="prevNextImage" src={prevImage} src={nextImage} onClick={this.nextClick}/> 
-                        </div>
+                    </div>
+                    }
                 </div>
                <div className="hs10" />
-               {this.state.profiles}
+               {(this.state.totalProfiles > 0 ) && this.state.profiles}
+               {(this.state.totalProfiles === 0 ) && 
+                    <div style={{textAlign:'left',paddingLeft:'5px'}}>
+                        <label className="text14pxNormal">
+                            Profiles shortlisted by you will be listed in this section. Currenlty, you have no shortlisted profiles.
+                        </label>
+                    </div>
+               }
                <div className="hs20" />
             </div>            
         ) ;

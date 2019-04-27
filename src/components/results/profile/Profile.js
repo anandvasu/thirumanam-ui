@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import './Profile.css';
 import {getDropDownLabel} from '../../utils/Util';
 import DropDownConstant from '../../utils/DropDownConstant';
+import ReligionDropdownConsts from '../../utils/ReligionDropdownConsts';
+import LocationDropdownConsts from '../../utils/LocationDropdownConsts';
 import heartImage from '../../../assets/images/heart.png';
 import axios from 'axios';
 import ApiConstant from '../../../components/utils/ApiConstant';
@@ -291,7 +293,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <b><label>{getDropDownLabel(this.props.profile.religion, DropDownConstant.regilionValues)}</label></b>
+                                        <b><label>{getDropDownLabel(this.props.profile.religion, ReligionDropdownConsts.regilionValues)}</label></b>
                                     </div>      
                                 </div> 
                                 <div className="profileFieldContainer">
@@ -326,7 +328,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <b> <label>{getDropDownLabel(this.props.profile.gothram, DropDownConstant.gothramValues)} </label>  </b>
+                                        <b> <label>{getDropDownLabel(this.props.profile.gothram, ReligionDropdownConsts.gothramValues)} </label>  </b>
                                     </div>      
                                 </div>   
                                 <div className="profileFieldContainer">
@@ -360,7 +362,7 @@ class Profile extends Component {
                                     </div>
                                     
                                     <div className="profileField">
-                                        <label> {getDropDownLabel(this.props.profile.country,DropDownConstant.countries)} </label>
+                                        <label> {getDropDownLabel(this.props.profile.country,LocationDropdownConsts.countries)} </label>
                                     </div>  
                                 </div>
                                 <div className="profileFieldContainer">  
@@ -371,7 +373,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <label> {getDropDownLabel(this.props.profile.pstate,DropDownConstant.indiaStates)} </label>
+                                        <label> {getDropDownLabel(this.props.profile.pstate,LocationDropdownConsts.indiaStates)} </label>
                                     </div> 
                                 </div>
                             </div> 
@@ -384,7 +386,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <label> {getDropDownLabel(this.props.profile.district, DropDownConstant.tamilnaduDistrict)} </label>
+                                        <label> {getDropDownLabel(this.props.profile.district, LocationDropdownConsts.tamilnaduDistrict)} </label>
                                     </div>
                                 </div>
 

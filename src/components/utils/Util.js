@@ -138,11 +138,12 @@ export function convertReactSelectValues(values, listValues) {
 export function getDropDownLabel(value, listValues) {
     let outLabel = value;
     let arrObject = null;
-
-    for(var i=0; i < listValues.length; i++) {
-        arrObject = listValues[i];
-        if(arrObject.value === value) {
-            return arrObject.label;
+    if(listValues !== null && listValues != undefined) {
+        for(var i=0; i < listValues.length; i++) {
+            arrObject = listValues[i];
+            if(arrObject.value === value) {
+                return arrObject.label;
+            }
         }
     }
     return outLabel;

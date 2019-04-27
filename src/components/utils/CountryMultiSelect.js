@@ -1,6 +1,6 @@
 import React from 'react';
 import Select from "react-select";
-import DropDownConstant from './DropDownConstant';
+import LocationDropdownConsts from './LocationDropdownConsts';
 
 function countryMultiSelect(props) {       
     return(
@@ -9,7 +9,7 @@ function countryMultiSelect(props) {
                 name="filters"
                 placeholder="Filters"
                 value={props.countries}
-                options={DropDownConstant.countries}
+                options={LocationDropdownConsts.countries}
                 onChange={props.handleCountryChange}
                 isMulti = {true}
                 />
