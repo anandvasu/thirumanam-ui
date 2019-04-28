@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import './Profile.css';
-import {getDropDownLabel} from '../../utils/Util';
+import {getDropDownLabel,formatDate} from '../../utils/Util';
 import DropDownConstant from '../../utils/DropDownConstant';
 import ReligionDropdownConsts from '../../utils/ReligionDropdownConsts';
 import LocationDropdownConsts from '../../utils/LocationDropdownConsts';
@@ -168,7 +168,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <label> {this.props.profile.lastName} </label>
+                                        <label> {formatDate(this.props.profile.bDay, this.props.profile.bMonth, this.props.profile.bYear)} </label>
                                     </div>     
                                 </div>
                                 <div className="profileFieldContainer">
@@ -189,9 +189,16 @@ class Profile extends Component {
                                     <div className="profileCenter">
                                         <label> : </label>
                                     </div>
-                                    <div className="profileField">
-                                        <label> {this.props.profile.height} </label>
-                                    </div>     
+                                    {(this.props.profile.heightInch === 0) && 
+                                        <div className="profileField">
+                                            <label> {this.props.profile.heightCm} cm</label>
+                                        </div> 
+                                    }   
+                                     {(this.props.profile.heightCm === 0) && 
+                                        <div className="profileField">
+                                            <label> {this.props.profile.heightInch} inch</label>
+                                        </div> 
+                                    }  
                                 </div>  
                                 <div className="profileFieldContainer">
                                     <div className="profileLabel">
@@ -393,7 +400,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <label> {getDropDownLabel(this.props.profile.district, LocationDropdownConsts.tamilnaduDistrict)} </label>
+                                        <label> {getDropDownLabel(this.props.profile.district, LocationDropdownConsts.tamilnaduDistricts)} </label>
                                     </div>
                                 </div>
 

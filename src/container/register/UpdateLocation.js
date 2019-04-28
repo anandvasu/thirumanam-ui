@@ -6,6 +6,7 @@ import Footer from '../../components/footer/Footer';
 import {toast} from 'react-toastify';
 import axios from 'axios';
 import {populateArray} from '../../components/utils/Util';
+import LocationDropdownConsts from '../../components/utils/LocationDropdownConsts';
 
 class UpdateLocation extends Component {
 
@@ -23,8 +24,8 @@ class UpdateLocation extends Component {
 
         this.state = {
             country: "IN",
-            countryObj:[],
-            pstateObj:[],
+            countryObj:LocationDropdownConsts.country_DF,
+            pstateObj:LocationDropdownConsts.state_DF,
             pstate:58,
             otherState:"",
             otherDistrict:"",
@@ -189,6 +190,7 @@ class UpdateLocation extends Component {
                         cityChange = {this.cityChange}
                         pstate = {this.state.pstate}
                         country = {this.state.country}
+                        countryObj = {this.state.countryObj}
                     /> 
                     <div className="hs30" />
                     <div style={{width:'100%'}}>

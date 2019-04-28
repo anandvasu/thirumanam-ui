@@ -35,7 +35,7 @@ class ProfileSelf extends Component {
         this.familyValueChange = this.familyValueChange.bind(this);
         this.foodHabitChange = this.foodHabitChange.bind(this);
         this.disabledChange = this.disabledChange.bind(this);
-        this.disInfoChange = this.disInfoChange.bind(this);
+        this.disablityReasonChange = this.disablityReasonChange.bind(this);
         this.bodyTypeChange = this.bodyTypeChange.bind(this);
 
         this.countryChange = this.countryChange.bind(this);
@@ -77,7 +77,7 @@ class ProfileSelf extends Component {
             familyValue : '',
             foodHabit : '',
             disabled : '',
-            disInfo : '',
+            disablityInfo : '',
             bodyType : '',
             country : '',
             countryObj : [],
@@ -158,7 +158,7 @@ class ProfileSelf extends Component {
             familyValue : this.props.location.state.profile.familyValue,
             foodHabit : this.props.location.state.profile.foodHabit,
             disabled : this.props.location.state.profile.disabled,
-            disInfo : this.props.location.state.profile.disInfo,
+            disablityInfo : this.props.location.state.profile.disablityInfo,
             bodyType : this.props.location.state.profile.bodyType,
             country : this.props.location.state.profile.country,
             countryObj: convertReactSelectValue(this.props.location.state.profile.country, LocationDropdownConsts.countries),
@@ -184,6 +184,11 @@ class ProfileSelf extends Component {
         });
         this.handleLocationFields(this.props.location.state.profile.country, this.props.location.state.profile.pstate);
         this.handleReligionFields(this.props.location.state.profile.religion);
+        if(this.props.location.state.profile.disabled === 'Y') {
+            document.getElementById("disablityReason").style.display = "block";
+        } else {
+            document.getElementById("disablityReason").style.display = "none";
+        }
     }
 
     casteChange(valueObj) {
@@ -339,7 +344,16 @@ class ProfileSelf extends Component {
     disabledChange(event) {
         this.setState({
             disabled:event.target.value
-        })
+        });
+        if(event.target.value === 'Y') {
+            document.getElementById("disablityReason").style.display = "block";
+        } else {
+            document.getElementById("disablityReason").style.display = "none";
+        }
+    }
+
+    disablityReasonChange(event) {
+        this.setState({disablityInfo:event.target.value});
     }
 
     disInfoChange(event) {
@@ -418,10 +432,8 @@ class ProfileSelf extends Component {
             { 
                 id:this.state.id,
                 firstName : this.state.firstName,
-                lastName : this.state.lastName,
-                bDay : this.state.bDay,
-                bMonth : this.state.bMonth,
-                bYear : this.state.bYear,
+                lastName : this.state.lastName,               
+                dob:this.state.bDay+"/"+this.state.bMonth+"/"+this.state.bYear,
                 email : this.state.email,
                 mCountryCode : this.state.mCountryCode,  
                 mobile : this.state.mobile,  
@@ -433,15 +445,20 @@ class ProfileSelf extends Component {
                 familyValue : this.state.familyValue,
                 foodHabit : this.state.foodHabit,
                 disabled : this.state.disabled,
-                disInfo : this.state.disInfo,
+                disablityInfo:this.state.disablityInfo,
                 bodyType : this.state.bodyType,
                 country : this.state.country,
-                pstate : this.state.pstate,                                  
+                pstate : this.state.pstate,     
+                otherState : this.state.otherState,                              
                 district : this.state.district,
+                otherDistrict : this.state.otherDistrict, 
                 city : this.state.city,
                 religion : this.state.religion,
-                caste : this.state.caste,    
-                subCasubcasteste : this.state.subcaste,
+                caste : this.state.caste,  
+                otherCaste : this.state.otherCaste,  
+                subcaste : this.state.subcaste,
+                gothram : this.state.gothram,
+                dhosham : this.state.dhosham,
                 education : this.state.education,
                 occupation: this.state.occupation,
                 employment : this.state.employment,
@@ -496,7 +513,7 @@ class ProfileSelf extends Component {
                          familyValue = {this.state.familyValue}
                          foodHabit = {this.state.foodHabit}
                          disabled = {this.state.disabled}
-                         disInfo = {this.state.disInfo}
+                         disablityInfo = {this.state.disablityInfo}
                          bodyType = {this.state.bodyType}
                          firstNameChange = {this.firstNameChange}
                          lastNameChange = {this.lastNameChange}
@@ -514,6 +531,7 @@ class ProfileSelf extends Component {
                          familyValueChange = {this.familyValueChange}
                          foodHabitChange = {this.foodHabitChange}
                          disabledChange = {this.disabledChange}
+                         disablityReasonChange = {this.disablityReasonChange}
                          disInfoChange = {this.disInfoChange}
                          bodyTypeChange = {this.bodyTypeChange}
                     />

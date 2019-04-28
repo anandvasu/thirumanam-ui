@@ -303,7 +303,18 @@ function completePersonalDetail (props) {
                     <option value="Y">Yes</option>
                     <option value="N">No</option>                                                       
                 </select>
-            </div>                        
+            </div>     
+            <div id="disablityReason">
+                <div className='rdlabel' style={{verticalAlign:'top'}}>
+                    <label>Disablity Detail:</label>
+                </div>
+                
+                <div className='rdfield'>
+                    <textarea rows="5" cols="40" onChange={props.disablityReasonChange} value={props.disablityInfo}>
+                        
+                    </textarea>
+                </div> 
+            </div>                   
         </div>
         <div className="hs10" />
     </div>
