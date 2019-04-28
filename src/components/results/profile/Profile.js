@@ -256,7 +256,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <b> <label> {this.props.profile.phonenumber} </label>  </b>
+                                       <label> {this.props.profile.phonenumber} </label>
                                     </div>   
                                 </div>   
                             </div>
@@ -269,7 +269,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <b> <label> {this.props.profile.email} </label>  </b>
+                                        <label> {this.props.profile.email} </label>
                                     </div>      
                                 </div>
                             </div>
@@ -293,7 +293,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <b><label>{getDropDownLabel(this.props.profile.religion, ReligionDropdownConsts.regilionValues)}</label></b>
+                                       <label>{getDropDownLabel(this.props.profile.religion, ReligionDropdownConsts.regilionValues)}</label>
                                     </div>      
                                 </div> 
                                 <div className="profileFieldContainer">
@@ -303,9 +303,16 @@ class Profile extends Component {
                                     <div className="profileCenter">
                                         <label> : </label>
                                     </div>
-                                    <div className="profileField">
-                                        <b><label> </label></b>
-                                    </div>      
+                                    { (this.props.profile.caste !==0) &&
+                                        <div className="profileField">
+                                           <label>{getDropDownLabel(this.props.profile.caste, ReligionDropdownConsts.hinduCasteValues)}</label>
+                                        </div>  
+                                    }  
+                                    { (this.props.profile.caste ===0) &&
+                                        <div className="profileField">
+                                           <label>{this.props.profile.otherCaste}</label>
+                                        </div>  
+                                    }   
                                 </div>    
                                 <div className="profileFieldContainer">
                                     <div className="profileLabel">
@@ -315,7 +322,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <b> <label>  </label>  </b>
+                                        <label>{this.props.profile.subcaste}</label>
                                     </div>      
                                 </div>   
                             </div>
@@ -328,7 +335,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <b> <label>{getDropDownLabel(this.props.profile.gothram, ReligionDropdownConsts.gothramValues)} </label>  </b>
+                                        <label>{getDropDownLabel(this.props.profile.gothram, ReligionDropdownConsts.gothramValues)} </label> 
                                     </div>      
                                 </div>   
                                 <div className="profileFieldContainer">
@@ -339,7 +346,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <b> <label> </label>  </b>
+                                        <label>{getDropDownLabel(this.props.profile.dhosham, ReligionDropdownConsts.dhoshamValues)}</label>
                                     </div>      
                                 </div>   
                             </div>
@@ -473,7 +480,7 @@ class Profile extends Component {
                         About:
                         <div>
                             <p>
-                            <label> {this.props.profile.income} </label>
+                            <label> {this.props.profile.about} </label>
                             </p>
                         </div>
                     </div>
