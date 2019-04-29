@@ -1,24 +1,23 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Select from "react-select";
+import {dynamicCaste} from './DropdownUtil';
 import DropDownConstant from './DropDownConstant';
 
-class CasteMultiSelect extends Component {
-   
-    render() {       
+function casteMultiSelect(props) {   
+    
         return(
             <div>
                 <Select
                     name="filters"
                     placeholder={DropDownConstant.dropdownDefault}
-                    value={this.props.castes}
-                    options={DropDownConstant.casteValues}
-                    onChange={this.props.handleCasteChange}
+                    value={props.castes}
+                    options={dynamicCaste(props.religions)}
+                    onChange={props.handleCasteChange}
                     isMulti = {true}
                     />
             </div>
         ) ;
-    }
 
 }
 
-export default CasteMultiSelect;
+export default casteMultiSelect;

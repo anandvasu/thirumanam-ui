@@ -8,9 +8,9 @@ function districtMultiSelect(props) {
             <Select
                     name="filters"
                     placeholder="--Select--"
-                    value={props.districtObj}
+                    value={props.districts}
                     options={LocationDropdownConsts.tamilnaduDistricts}
-                    onChange={props.districtChange}
+                    onChange={props.handleDistrictChange}
                     isMulti = {true}
                 />
         </div>

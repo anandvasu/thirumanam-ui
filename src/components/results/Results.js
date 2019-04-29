@@ -50,8 +50,16 @@ class Results extends Component {
             religions:[],
             foodHabits:[],
             bodyTypes:[],
-            occupation:[],
-            education:[]
+            religions:[],
+            castes:[],
+            gothrams:[],
+            dhoshams:[],
+            countries:[],
+            states:[],
+            districts:[],
+            education:[],
+            occupation:[]
+            
         };
     }
 
@@ -63,21 +71,41 @@ class Results extends Component {
         const maxHeight = this.props.location.state.maxHeight;
         const gender = this.props.location.state.gender;
         const mStatus = this.props.location.state.mStatus;
-        let showProfile = "A";
-        let religions = [];
+        let showProfile = "A";        
         let education = [];
         let foodHabits = [];
         let bodyTypes = [];
         let occupation = [];
 
+        let religions = [];
+        let castes = [];
+        let gothrams = [];
+        let dhoshams = [];
+
+        let countries = [];
+        let states = [];
+        let districts = [];
+
+
         if(this.props.location.state.fromPage === "MyMatch") {
             religions = this.props.location.state.religions;                
         } 
 
-        if(this.props.location.state.fromPage === "B") {            
+        if(this.props.location.state.fromPage === "B" ||
+            this.props.location.state.fromPage === "A"
+            ) {            
             religions = this.props.location.state.religions;   
             education = this.props.location.state.education;    
             showProfile = this.props.location.state.showProfile;            
+        }
+
+        if(this.props.location.state.fromPage === "A") {            
+            castes = this.props.location.state.castes;   
+            gothrams = this.props.location.state.gothrams;    
+            dhoshams = this.props.location.state.dhoshams;            
+            countries = this.props.location.state.countries;    
+            states = this.props.location.state.states;    
+            districts = this.props.location.state.districts;    
         }
 
         this.setState({
@@ -89,7 +117,13 @@ class Results extends Component {
             gender:gender,
             mStatus:mStatus,
             religions:religions,
-            education:education
+            education:education,
+            castes:castes,
+            gothrams:gothrams,
+            dhoshams:dhoshams,
+            countries:countries,
+            states:states,
+            districts:districts
         });
         
         this.searchProfile(
@@ -105,6 +139,12 @@ class Results extends Component {
             bodyTypes,
             occupation,
             education,
+            castes,
+            gothrams,
+            dhoshams,
+            countries,
+            states,
+            districts,
             1
         );    
     }
@@ -123,6 +163,12 @@ class Results extends Component {
             this.state.bodyTypes,
             this.state.occupation,
             this.state.education,
+            this.state.castes,
+            this.state.gothrams,
+            this.state.dhoshams,
+            this.state.countries,
+            this.state.states,
+            this.state.districts,
             1
         ); 
     }
@@ -167,6 +213,12 @@ class Results extends Component {
         abodyTypes,
         aOccupation,
         aEducation,
+        aCastes,
+        aGothrams,
+        aDhoshams,
+        aCountries,
+        aStates,
+        aDistricts,
         pageNumber) {
         console.log("in searchProfile");    
         console.log(aMstatus);
@@ -180,13 +232,19 @@ class Results extends Component {
             gender:aGender,
             maritalStatus:aMstatus,
             totalDocs:this.state.totalDocs,
-            religions:getValueArrFromReactSelect(aReligions),
             foodHabits:aFoodHabits,
             bodyTypes:abodyTypes,
+            religions:getValueArrFromReactSelect(aReligions),      
+            castes:getValueArrFromReactSelect(aCastes),       
+            gothrams:getValueArrFromReactSelect(aGothrams),   
+            dhoshams:getValueArrFromReactSelect(aDhoshams),   
+            countries:getValueArrFromReactSelect(aCountries), 
+            states:getValueArrFromReactSelect(aStates), 
+            districts:getValueArrFromReactSelect(aDistricts), 
             employments:aOccupation,
-            education: getValueArrFromReactSelect(aEducation),
+            educations: getValueArrFromReactSelect(aEducation),
             pageNumber:pageNumber 
-             })
+         })
          .then(function (res) {
              console.log(res);
              totalDocs = res.headers["x-total-docs"]; 

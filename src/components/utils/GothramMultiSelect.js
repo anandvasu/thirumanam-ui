@@ -12,7 +12,7 @@ function gothramMultiSelect(props) {
                     placeholder={DropDownConstant.dropdownDefault}
                     value={props.gothramObj}
                     options={ReligionDropdownConsts.gothramValues}
-                    onChange={props.gothramChange}  
+                    onChange={props.handleGothramChange}  
                     isMulti = {true}                
                     />
             </div>

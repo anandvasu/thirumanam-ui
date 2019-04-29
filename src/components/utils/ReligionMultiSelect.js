@@ -1,36 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Select from "react-select";
 import ReligionDropdownConsts from './ReligionDropdownConsts';
 import DropDownConstant from './DropDownConstant';
 
-class ReligionMultiSelect extends Component {
-
-    constructor(props) {
-        super(props);
-           this.state = {
-            filterOptions: [
-              { value: "H", label: "Hindu" },
-              { value: "M", label: "Muslim" }
-            ]
-          };
-    }
-
-    render() {     
+function religionMultiSelect(props) {
         
-        return(
-            <div>
-                <Select
-                    name="filters"
-                    placeholder={DropDownConstant.dropdownDefault}
-                    value={this.props.religions}
-                    options={ReligionDropdownConsts.regilionValues}
-                    onChange={this.props.handleReligionChange}
-                    isMulti = {true}
-                />
-            </div>
-        ) ;
-    }
-
+    return(
+        <div>
+            <Select
+                name="filters"
+                placeholder={DropDownConstant.dropdownDefault}
+                value={props.religions}
+                options={ReligionDropdownConsts.regilionValues}
+                onChange={props.handleReligionChange}
+                isMulti = {true}
+            />
+        </div>
+    ) ;
 }
 
-export default ReligionMultiSelect;
+export default religionMultiSelect;

@@ -10,9 +10,9 @@ function stateMultiSelect(props) {
             <Select
                 name="filters"
                 placeholder={DropDownConstant.dropdownDefault}
-                value={props.pstateObj}
+                value={props.states}
                 options={dynamicStates(props.countries)}
-                onChange={props.profileStateChange}
+                onChange={props.handleStateChange}
             />
         </div>
     ) ;

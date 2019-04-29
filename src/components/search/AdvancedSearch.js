@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import Constant from '../utils/Constant';
-import {populateArray} from '../utils/Util';
+import {populateArray, getValueArrFromReactSelect } from '../utils/Util';
 import Age from '../utils/Age';
 import Height from '../utils/Height';
 import ShowProfileSelect from '../utils/ShowProfileSelect';
@@ -14,20 +14,29 @@ import StateMultiSelect from '../utils/StateMultiSelect';
 import OccupationMultiSelect from '../utils/OccupationMultiSelect';
 import GothramMultiSelect from '../utils/GothramMultiSelect';
 import DhoshamMultiSelect from '../utils/DhoshamMultiSelect';
+import DistrictMultiSelect from '../utils/DistrictMultiSelect';
 
 class AdvancedSearch extends Component {
 
     constructor (props) {
         super(props);
+        this.showProfileChange = this.showProfileChange.bind(this);
         this.basicSearch = this.basicSearch.bind(this);
         this.genderChange = this.genderChange.bind(this);
         this.ageFromChange = this.ageFromChange.bind(this);
         this.ageToChange = this.ageToChange.bind(this);
         this.maritalStatusChange = this.maritalStatusChange.bind(this); 
-        this.educationChange = this.educationChange.bind(this);
+        
         this.handleReligionChange = this.handleReligionChange.bind(this);
-        this.showProfileChange = this.showProfileChange.bind(this);
-        this.handleCountryChange = this.handleCountryChange.bind(this);        
+        this.handleCasteChange = this.handleCasteChange.bind(this);
+        this.handleGothramChange = this.handleGothramChange.bind(this);
+        this.handleDhoshamChange = this.handleDhoshamChange.bind(this);
+        
+        this.handleCountryChange = this.handleCountryChange.bind(this);  
+        this.handleStateChange = this.handleStateChange.bind(this);  
+
+        
+        this.educationChange = this.educationChange.bind(this);      
 
         this.state = {
             searchClicked: false,
@@ -38,13 +47,14 @@ class AdvancedSearch extends Component {
             maxHeight:Constant.maxHeight,
             mStatus:"NM",
             religions:[],
-            education:[],
+            castes:[],
+            gothrams:[],
+            dhoshams:[],            
             countries:[],
-            countryObj:[],
-            districtObj:[],
-            showProfile:"A",
-            pstateObj:[],
-            pstate:0
+            states:[],
+            districts:[],
+            education:[],
+            showProfile:"A"
         }
     }
 
@@ -84,11 +94,41 @@ class AdvancedSearch extends Component {
     showProfileChange(event) {
         this.setState({showProfile:event.target.value});
     }
+  
+    handleReligionChange(option) {
+        this.setState({
+            religions: option
+        });
+    }
+
+    handleCasteChange(option) {
+        this.setState({
+            castes: option
+        });
+    }
+
+    handleGothramChange(option) {
+        this.setState({
+            gothrams: option
+        });
+    }
+
+    handleDhoshamChange(option) {
+        this.setState({
+            dhoshams: option
+        });
+    }
+
 
     handleCountryChange(option) {
-        console.log(option);
         this.setState({
             countries: option
+        });
+    }
+
+    handleStateChange(option) {
+        this.setState({
+            states: option
         });
     }
 
@@ -97,7 +137,7 @@ class AdvancedSearch extends Component {
             return <Redirect to= {{
                 pathname:'/results',
                 state:{
-                    fromPage:"B",
+                    fromPage:"A",
                     gender:this.state.gender,
                     ageFrom:this.state.ageFrom,
                     ageTo:this.state.ageTo,
@@ -106,7 +146,15 @@ class AdvancedSearch extends Component {
                     mStatus:populateArray(this.state.mStatus),
                     religions:this.state.religions,
                     education:this.state.education,
-                    showProfile:this.state.showProfile
+                    showProfile:this.state.showProfile,
+                    religions:this.state.religions,
+                    castes:this.state.castes,
+                    gothrams:this.state.gothrams,
+                    dhoshams:this.state.dhoshams,                    
+                    countries:this.state.countries,              
+                    states:this.state.states,
+                    districts:this.state.districts,
+                    educations:this.state.educations,
                 }
                 }}/>
         }
@@ -198,7 +246,9 @@ class AdvancedSearch extends Component {
                         </div>
                         <div className="gfield">
                             <CasteMultiSelect 
-                                 countries = {this.state.countries}
+                                  religions = {this.state.religions}
+                                  castes = {this.state.castes}
+                                  handleCasteChange = {this.handleCasteChange}
                             />
                         </div>
                     </div>     
@@ -208,7 +258,8 @@ class AdvancedSearch extends Component {
                         </div>
                         <div className="gfield">
                             <GothramMultiSelect 
-                                 countries = {this.state.countries}
+                                  gothrams = {this.state.gothrams}
+                                  handleGothramChange = {this.handleGothramChange}
                             />
                         </div>
                     </div>    
@@ -218,7 +269,8 @@ class AdvancedSearch extends Component {
                         </div>
                         <div className="gfield">
                             <DhoshamMultiSelect 
-                                 countries = {this.state.countries}
+                                 dhoshams = {this.state.dhoshams}
+                                 handleDhoshamChange = {this.handleDhoshamChange}
                             />
                         </div>
                     </div>                                
@@ -236,8 +288,6 @@ class AdvancedSearch extends Component {
                             <CountryMultiSelect 
                                 handleCountryChange = {this.handleCountryChange}
                                 countries = {this.state.countries}
-                                countryObj = {this.state.countryObj}
-                                pstateObj = {this.state.pstateObj}
                             />
                         </div>
                     </div>
@@ -248,6 +298,8 @@ class AdvancedSearch extends Component {
                         <div className="gfield">
                             <StateMultiSelect 
                                  countries = {this.state.countries}
+                                 states = {this.state.states}
+                                 handleStateChange = {this.handleStateChange}
                             />
                         </div>
                     </div>   
@@ -256,8 +308,10 @@ class AdvancedSearch extends Component {
                             District
                         </div>
                         <div className="gfield">
-                            <StateMultiSelect 
-                                 countries = {this.state.countries}
+                            <DistrictMultiSelect 
+                                 states = {this.state.states}
+                                 districts = {this.state.districts}
+                                 handleDistrictChange = {this.handleDistrictChange}
                             />
                         </div>
                     </div>                                   
