@@ -37,6 +37,7 @@ class AdvancedSearch extends Component {
         this.handleDistrictChange = this.handleDistrictChange.bind(this);  
         
         this.educationChange = this.educationChange.bind(this);      
+        this.handleOccupationChange = this.handleOccupationChange.bind(this);
 
         this.state = {
             searchClicked: false,
@@ -54,6 +55,7 @@ class AdvancedSearch extends Component {
             states:[],
             districts:[],
             education:[],
+            occupations:[],
             showProfile:"A"
         }
     }
@@ -77,6 +79,12 @@ class AdvancedSearch extends Component {
     educationChange(inputEducation) {
         this.setState({
             education:inputEducation
+        }); 
+    }
+
+    handleOccupationChange(option) {
+        this.setState({
+            occupations:option
         }); 
     }
 
@@ -161,6 +169,7 @@ class AdvancedSearch extends Component {
                     states:this.state.states,
                     districts:this.state.districts,
                     educations:this.state.educations,
+                    occupations:this.state.occupations
                 }
                 }}/>
         }
@@ -344,7 +353,8 @@ class AdvancedSearch extends Component {
                         </div>
                         <div className="gfield">
                             <OccupationMultiSelect 
-                                 countries = {this.state.countries}
+                                 occupations = {this.state.occupations}
+                                 handleOccupationChange = {this.handleOccupationChange}
                             />
                         </div>
                     </div>                                     

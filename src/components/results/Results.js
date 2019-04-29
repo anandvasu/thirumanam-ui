@@ -30,6 +30,15 @@ class Results extends Component {
         this.educationChange = this.educationChange.bind(this);   
         this.showProfileChange = this.showProfileChange.bind(this);          
 
+        this.handleReligionChange = this.handleReligionChange.bind(this);        
+        this.handleCasteChange = this.handleCasteChange.bind(this);        
+        this.handleGothramChange = this.handleGothramChange.bind(this);        
+        this.handleDhoshamChange = this.handleDhoshamChange.bind(this);  
+        
+        this.handleCountryChange = this.handleCountryChange.bind(this);  
+        this.handleStateChange = this.handleStateChange.bind(this);  
+        this.handleDistrictChange = this.handleDistrictChange.bind(this);  
+
         this.state = {
             showProfile:"A",
             ageFrom:Constant.ageFrom,
@@ -106,6 +115,7 @@ class Results extends Component {
             countries = this.props.location.state.countries;    
             states = this.props.location.state.states;    
             districts = this.props.location.state.districts;    
+            occupation = this.props.location.state.occupations;
         }
 
         this.setState({
@@ -240,8 +250,8 @@ class Results extends Component {
             countries:getValueArrFromReactSelect(aCountries), 
             states:getValueArrFromReactSelect(aStates), 
             districts:getValueArrFromReactSelect(aDistricts), 
-            employments:aOccupation,
             educations: getValueArrFromReactSelect(aEducation),
+            occupations: getValueArrFromReactSelect(aOccupation),
             pageNumber:pageNumber 
          })
          .then(function (res) {
@@ -427,6 +437,48 @@ class Results extends Component {
         });
     }
 
+    handleReligionChange(option) {
+        this.setState({
+            religions: option
+        });
+    }
+
+    handleCasteChange(option) {
+        this.setState({
+            castes: option
+        });
+    }
+
+    handleGothramChange(option) {
+        this.setState({
+            gothrams: option
+        });
+    }
+
+    handleDhoshamChange(option) {
+        this.setState({
+            dhoshams: option
+        });
+    }
+
+    handleCountryChange(option) {
+        this.setState({
+            countries: option
+        });
+    }
+
+    handleStateChange(option) {
+        this.setState({
+            states: option
+        });
+    }
+
+    handleDistrictChange(option) {
+        this.setState({
+            districts: option
+        });
+    }
+
     profileCloseHandler() {
         this.setState({
             profileClicked:false
@@ -475,6 +527,20 @@ class Results extends Component {
                                     occupationChange = {this.occupationChange}
                                     education = {this.state.education}
                                     educationChange = {this.educationChange}
+                                    religions = {this.state.religions}
+                                    handleReligionChange = {this.handleReligionChange}
+                                    castes = {this.state.castes}
+                                    handleCasteChange = {this.handleCasteChange}
+                                    gothrams = {this.state.gothrams}
+                                    handleGothramChange = {this.handleGothramChange}
+                                    dhoshams = {this.state.dhoshams}
+                                    handleDhoshamChange = {this.handleDhoshamChange}
+                                    countries = {this.state.countries}
+                                    handleCountryChange = {this.handleCountryChange}
+                                    states = {this.state.states}
+                                    handleStateChange = {this.handleStateChange}
+                                    districts = {this.state.districts}
+                                    handleDistrictChange = {this.handleDistrictChange}
                                 />
                             </div>
 

@@ -1,40 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Select from "react-select";
 import DropDownConstant from './DropDownConstant';
 
-class OccupationMultiSelect extends Component {
+function occupationMultiSelect(props) {
 
-    constructor(props) {
-        super(props);
-
-        this.handleMultiChange = this.handleMultiChange.bind(this);
-
-        this.state = {
-            multiValue: []            
-          };
-    }
-
-    handleMultiChange(option) {
-        this.setState({
-            multiValue: option
-        });
-      }
-
-    render() {       
-        return(
-            <div>
-                <Select
-                    name="filters"
-                    placeholder={DropDownConstant.dropdownDefault}
-                    value={this.state.multiValue}
-                    options={DropDownConstant.employmentValues}
-                    onChange={this.handleMultiChange}
-                    isMulti = {true}
-                    />
-            </div>
-        ) ;
-    }
+    return(
+        <div>
+            <Select
+                name="filters"
+                placeholder={DropDownConstant.dropdownDefault}
+                value={props.occupations}
+                options={DropDownConstant.employmentValues}
+                onChange={props.handleOccupationChange}
+                isMulti = {true}
+                />
+        </div>
+    ) ;
 
 }
 
-export default OccupationMultiSelect;
+export default occupationMultiSelect;

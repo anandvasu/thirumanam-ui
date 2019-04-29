@@ -8,6 +8,13 @@ import FoodHabit from '../utils/FoodHabit';
 import ShowProfileSelect from '../utils/ShowProfileSelect';
 import './Filter.css';
 import EducationMultiSelect from '../utils/EducationMultiSelect';
+import ReligionMultiSelect from '../utils/ReligionMultiSelect';
+import CasteMultiSelect from '../utils/CasteMultiSelect';
+import GothramMultiSelect from '../utils/GothramMultiSelect';
+import DhoshamMultiSelect from '../utils/DhoshamMultiSelect';
+import CountryMultiSelect from '../utils/CountryMultiSelect';
+import StateMultiSelect from '../utils/StateMultiSelect';
+import DistrictMultiSelect from '../utils/DistrictMultiSelect';
 
 function filter (props) {
 
@@ -83,7 +90,73 @@ function filter (props) {
                             bodyTypesChange = {props.bodyTypesChange}    
                         />
                     </div>
-                </div>                  
+                </div>          
+                <div className="header3Parent">
+                    <div className="header3"><label>Religion</label></div>
+                    <div className="filterContentMSelect">  
+                    <ReligionMultiSelect 
+                         religions = {props.religions}
+                         handleReligionChange = {props.handleReligionChange}
+                    />
+                    </div>
+                </div>                
+                <div className="header3Parent">
+                    <div className="header3"><label>Caste</label></div>
+                    <div className="filterContentMSelect">
+                    <CasteMultiSelect 
+                        religions = {props.religions}
+                        castes = {props.castes}
+                        handleCasteChange = {props.handleCasteChange}
+                    />
+                    </div>
+                </div>    
+                <div className="header3Parent">
+                    <div className="header3"><label>Gothram</label></div>
+                    <div className="filterContentMSelect">
+                    <GothramMultiSelect 
+                        gothrams = {props.gothrams}
+                        handleGothramChange = {props.handleGothramChange}
+                    />
+                    </div>
+                </div>    
+                <div className="header3Parent">
+                    <div className="header3"><label>Dhosham</label></div>
+                    <div className="filterContentMSelect">
+                    <DhoshamMultiSelect 
+                        dhoshams = {props.dhoshams}
+                        handleDhoshamChange = {props.handleDhoshamChange}
+                    />
+                    </div>
+                </div>    
+                <div className="header3Parent">
+                    <div className="header3"><label>Country</label></div>
+                    <div className="filterContentMSelect">
+                    <CountryMultiSelect 
+                        countries = {props.countries}
+                        handleCountryChange = {props.handleCountryChange}
+                    />
+                    </div>
+                </div>  
+                <div className="header3Parent">
+                    <div className="header3"><label>State</label></div>
+                    <div className="filterContentMSelect">
+                    <StateMultiSelect 
+                        countries = {props.countries}
+                        states = {props.states}
+                        handleStateChange = {props.handleStateChange}
+                    />
+                    </div>
+                </div> 
+                <div className="header3Parent">
+                    <div className="header3"><label>District</label></div>
+                    <div className="filterContentMSelect">
+                    <DistrictMultiSelect 
+                        states = {props.states}
+                        districts = {props.districts}
+                        handleDistrictChange = {props.handleDistrictChange}
+                    />
+                    </div>
+                </div>
                 <div className="header3Parent">
                     <div className="header3"><label>Education</label></div>
                     <div className="filterContentMSelect">  
