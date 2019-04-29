@@ -369,7 +369,7 @@ export default {
         { value: 28, label: "Tiruvannamalai" },
         { value: 29, label: "Tiruvarur" },
         { value: 30, label: "Vellore" },
-        { value: 31, label: "Viluppuram" },
+        { value: 31, label: "Villupuram" },
         { value: 32, label: "Virudunagar" }
        ],        
 }

@@ -13,6 +13,7 @@ function stateMultiSelect(props) {
                 value={props.states}
                 options={dynamicStates(props.countries)}
                 onChange={props.handleStateChange}
+                isMulti = {true}
             />
         </div>
     ) ;

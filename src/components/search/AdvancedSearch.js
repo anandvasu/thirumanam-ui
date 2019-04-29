@@ -34,7 +34,7 @@ class AdvancedSearch extends Component {
         
         this.handleCountryChange = this.handleCountryChange.bind(this);  
         this.handleStateChange = this.handleStateChange.bind(this);  
-
+        this.handleDistrictChange = this.handleDistrictChange.bind(this);  
         
         this.educationChange = this.educationChange.bind(this);      
 
@@ -129,6 +129,12 @@ class AdvancedSearch extends Component {
     handleStateChange(option) {
         this.setState({
             states: option
+        });
+    }
+
+    handleDistrictChange(option) {
+        this.setState({
+            districts: option
         });
     }
 
@@ -349,15 +355,10 @@ class AdvancedSearch extends Component {
                     </div>
                     <div className="gFieldRow" style={{paddingTop:'25px'}}>
                         <div className="glabel">
-                            Country Living In
+                           
                         </div>
                         <div className="gfield">
-                            <CountryMultiSelect 
-                                handleCountryChange = {this.handleCountryChange}
-                                countries = {this.state.countries}
-                                countryObj = {this.state.countryObj}
-                                pstateObj = {this.state.pstateObj}
-                            />
+                           
                         </div>
                     </div>
                     <div className="gFieldRow">
@@ -365,9 +366,7 @@ class AdvancedSearch extends Component {
                             State
                         </div>
                         <div className="gfield">
-                            <StateMultiSelect 
-                                 countries = {this.state.countries}
-                            />
+                           
                         </div>
                     </div>                                     
                 </div>    

@@ -125,6 +125,8 @@ class Results extends Component {
             states:states,
             districts:districts
         });
+        console.log("states");
+        console.log(states);
         
         this.searchProfile(
             showProfile,
@@ -183,7 +185,6 @@ class Results extends Component {
 
             axios.get(ApiConstant.USER_API+profileId+"?userId="+sessionStorage.getItem(Constant.USER_PROFILE_ID))
                 .then(res => {
-                    console.log(res);
                     this.props.history.push({
                         pathname: '/viewProfile',
                         state: {
@@ -220,8 +221,6 @@ class Results extends Component {
         aStates,
         aDistricts,
         pageNumber) {
-        console.log("in searchProfile");    
-        console.log(aMstatus);
         var totalDocs = 0;
         axios.post(ApiConstant.USER_SEARCH_API, { 
             showProfile:aShowProfile,
@@ -246,7 +245,6 @@ class Results extends Component {
             pageNumber:pageNumber 
          })
          .then(function (res) {
-             console.log(res);
              totalDocs = res.headers["x-total-docs"]; 
              return res.data;
          })
@@ -268,7 +266,6 @@ class Results extends Component {
     }
 
     displayResults(pageNumber) {
-        console.log(this.state.data);
         this.setState({pageNo:pageNumber});
         const startNumber = (pageNumber - 1) * this.state.docsPerPage;
         let maxDocs = startNumber + this.state.docsPerPage;
@@ -276,7 +273,6 @@ class Results extends Component {
             maxDocs = this.state.totalDocs;
         }
         
-        console.log("startNumber"+ startNumber);
         let picData = this.state.data;
      
         //for (let i= startNumber; i < maxDocs; i ++) {
@@ -287,8 +283,6 @@ class Results extends Component {
            // console.log("results"+ results);
            // picData.push(results);
        // }
-
-        console.log(picData);
 
         let pictures = picData.map((data) => {
 
@@ -319,8 +313,6 @@ class Results extends Component {
     displayPageNumbers(pageNumber) {
         const pages = Math.ceil(this.state.totalDocs/this.state.docsPerPage);
         let pageStart = 1;
-        console.log("pages" + pages);
-        console.log("pageNumber" + pageNumber);
         if (pages > 5 ) {
             if ((parseInt(pageNumber) + 4) < pages) {
                 pageStart = pageNumber;                              
@@ -346,15 +338,12 @@ class Results extends Component {
 
     handlePageClick(event) {
         event.preventDefault();
-        console.log(event.target.value);
         let pageNumber = 1;
         if (event.target.value === "First") {
             pageNumber = 1;
         } else if (event.target.value === "Last") {
             const lastPage = this.state.totalDocs/this.state.docsPerPage;
-            console.log("lastPage" + lastPage);
             pageNumber = Math.ceil(lastPage);
-            console.log("pageNumber" + pageNumber);
         } else {
             pageNumber = event.target.value;
         }
