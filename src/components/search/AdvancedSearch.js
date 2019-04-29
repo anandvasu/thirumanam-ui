@@ -9,6 +9,7 @@ import EducationMultiSelect from '../utils/EducationMultiSelect';
 import MaritalStatusSelect from '../utils/MaritalStatusSelect';
 import ReligionMultiSelect from '../utils/ReligionMultiSelect';
 import CountryMultiSelect from '../utils/CountryMultiSelect';
+import StateMultiSelect from '../utils/StateMultiSelect';
 class AdvancedSearch extends Component {
 
     constructor (props) {
@@ -21,6 +22,7 @@ class AdvancedSearch extends Component {
         this.educationChange = this.educationChange.bind(this);
         this.handleReligionChange = this.handleReligionChange.bind(this);
         this.showProfileChange = this.showProfileChange.bind(this);
+        this.handleCountryChange = this.handleCountryChange.bind(this);        
 
         this.state = {
             searchClicked: false,
@@ -32,7 +34,11 @@ class AdvancedSearch extends Component {
             mStatus:"NM",
             religions:[],
             education:[],
-            showProfile:"A"
+            countries:[],
+            countryObj:[],
+            showProfile:"A",
+            pstateObj:[],
+            pstate:0
         }
     }
 
@@ -62,8 +68,7 @@ class AdvancedSearch extends Component {
         this.setState({
             religions:inputReligion
         });
-    }
-    
+    }    
 
     basicSearch(event) {
         this.setState({searchClicked:true});
@@ -72,6 +77,13 @@ class AdvancedSearch extends Component {
 
     showProfileChange(event) {
         this.setState({showProfile:event.target.value});
+    }
+
+    handleCountryChange(option) {
+        console.log(option);
+        this.setState({
+            countries: option
+        });
     }
 
     render () {
@@ -185,32 +197,34 @@ class AdvancedSearch extends Component {
                     <div className="header2bottomborder">
                         <label><h2>Location</h2></label>
                     </div>
-                    <div style={{paddingTop:'25px'}}>
-                        <div className="prefDataRow">
-                            <div className="prefLableDiv">
-                                Country Living In
-                            </div>
-                            <div className="prefDataDiv">
-                            <CountryMultiSelect 
-                                    handleCountryChange = {this.handleCountryChange}
-                                    countries = {this.state.countries}
-                            />
-                            </div>
+                    <div className="gFieldRow" style={{paddingTop:'25px'}}>
+                        <div className="glabel">
+                            Country Living In
                         </div>
-                        <div className="prefDataRow">
-                            <div className="prefLableDiv">
-                                State
-                            </div>
-                            <div className="prefDataDiv">
-                           
-                            </div>
-                        </div>  
-                    </div>                                       
-                </div>   
-                    <div>                               
-                        <button onClick={this.basicSearch}>Search</button>  
+                        <div className="gfield">
+                            <CountryMultiSelect 
+                                handleCountryChange = {this.handleCountryChange}
+                                countries = {this.state.countries}
+                                countryObj = {this.state.countryObj}
+                                pstateObj = {this.state.pstateObj}
+                        />
                     </div>
-                </div>
+                    <div className="gFieldRow">
+                        <div className="glabel">
+                            State
+                        </div>
+                        <div className="gfield">
+                            <StateMultiSelect 
+                                 countries = {this.state.countries}
+                            />
+                        </div>
+                    </div>  
+                </div>                                       
+        </div>   
+        <div>                               
+            <button onClick={this.basicSearch}>Search</button>  
+        </div>
+    </div>
         );
     }
 }

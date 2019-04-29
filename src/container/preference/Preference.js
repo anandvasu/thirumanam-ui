@@ -290,7 +290,10 @@ class Preference extends Component {
                                 State
                             </div>
                             <div className="prefDataDiv">
-                            
+                            <CountryMultiSelect 
+                                    handleCountryChange = {this.handleCountryChange}
+                                    countries = {this.state.countries}
+                            />
                             </div>
                         </div>  
                     </div>                                       
