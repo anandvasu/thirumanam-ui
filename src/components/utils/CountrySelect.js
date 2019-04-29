@@ -1,5 +1,6 @@
 import React from 'react';
 import LocationDropdownConsts from './LocationDropdownConsts';
+import DropDownConstant from './DropDownConstant';
 import Select from "react-select";
 
 function countrySelect(props) {     
@@ -8,7 +9,7 @@ function countrySelect(props) {
         <div>       
             <Select
                     name="filters"
-                    placeholder="--Select--"
+                    placeholder={DropDownConstant.dropdownDefault}
                     value={props.countryObj}
                     options={LocationDropdownConsts.countries}
                     onChange={props.countryChange}

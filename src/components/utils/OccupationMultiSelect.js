@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Select from "react-select";
-import DropDownConstant from './DropDownConstant'
+import DropDownConstant from './DropDownConstant';
+
 class OccupationMultiSelect extends Component {
 
     constructor(props) {
@@ -24,7 +25,7 @@ class OccupationMultiSelect extends Component {
             <div>
                 <Select
                     name="filters"
-                    placeholder="Filters"
+                    placeholder={DropDownConstant.dropdownDefault}
                     value={this.state.multiValue}
                     options={DropDownConstant.employmentValues}
                     onChange={this.handleMultiChange}

@@ -9,7 +9,7 @@ class CasteMultiSelect extends Component {
             <div>
                 <Select
                     name="filters"
-                    placeholder="Filters"
+                    placeholder={DropDownConstant.dropdownDefault}
                     value={this.props.castes}
                     options={DropDownConstant.casteValues}
                     onChange={this.props.handleCasteChange}

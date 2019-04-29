@@ -1,6 +1,7 @@
 import React from 'react';
 import Select from "react-select";
 import {dynamicStates} from './DropdownUtil';
+import DropDownConstant from './DropDownConstant';
 
 function stateMultiSelect(props) {
 
@@ -8,7 +9,7 @@ function stateMultiSelect(props) {
         <div>       
             <Select
                 name="filters"
-                placeholder="--Select--"
+                placeholder={DropDownConstant.dropdownDefault}
                 value={props.pstateObj}
                 options={dynamicStates(props.countries)}
                 onChange={props.profileStateChange}

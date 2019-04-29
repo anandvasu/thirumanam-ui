@@ -7,7 +7,7 @@ function educationMultiSelect(props) {
         <div>
             <Select
                 name="filters"
-                placeholder="Filters"
+                placeholder={DropDownConstant.dropdownDefault}
                 value={props.education}
                 options={DropDownConstant.educationValues}
                 onChange={props.educationChange}

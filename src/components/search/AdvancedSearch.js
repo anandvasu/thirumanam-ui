@@ -8,8 +8,13 @@ import ShowProfileSelect from '../utils/ShowProfileSelect';
 import EducationMultiSelect from '../utils/EducationMultiSelect'; 
 import MaritalStatusSelect from '../utils/MaritalStatusSelect';
 import ReligionMultiSelect from '../utils/ReligionMultiSelect';
+import CasteMultiSelect from '../utils/CasteMultiSelect';
 import CountryMultiSelect from '../utils/CountryMultiSelect';
 import StateMultiSelect from '../utils/StateMultiSelect';
+import OccupationMultiSelect from '../utils/OccupationMultiSelect';
+import GothramMultiSelect from '../utils/GothramMultiSelect';
+import DhoshamMultiSelect from '../utils/DhoshamMultiSelect';
+
 class AdvancedSearch extends Component {
 
     constructor (props) {
@@ -36,6 +41,7 @@ class AdvancedSearch extends Component {
             education:[],
             countries:[],
             countryObj:[],
+            districtObj:[],
             showProfile:"A",
             pstateObj:[],
             pstate:0
@@ -106,6 +112,16 @@ class AdvancedSearch extends Component {
         }
         return (
                 <div>
+                    <div className="gFieldRow"> 
+                        <div className="glabel">
+                            <label>Profile</label>
+                        </div>
+                        <div className="gfield">
+                           <ShowProfileSelect 
+                                showProfileChange={this.showProfileChange}
+                            />
+                        </div>  
+                    </div> 
                     { (sessionStorage.getItem(Constant.USER_PROFILE_ID) == null) && 
                     <div className="gFieldRow">
                         <div className='glabel'>
@@ -149,18 +165,7 @@ class AdvancedSearch extends Component {
                                 maxHeightChange = {this.maxHeightChange}
                             />
                         </div>  
-                    </div>  
-                    <div className="gFieldRow">            
-                        <div className='glabel'>       
-                            <label>Religion</label>
-                        </div>  
-                        <div className='gfield'>
-                            <ReligionMultiSelect
-                                handleReligionChange = {this.handleReligionChange}
-                                religions = {this.state.religions}
-                            />
-                        </div> 
-                    </div>  
+                    </div>                      
                     <div className="gFieldRow">            
                         <div className='glabel'>       
                             <label>Marital Status&nbsp;</label>
@@ -171,29 +176,55 @@ class AdvancedSearch extends Component {
                                 mStatus = {this.state.mStatus}
                             />
                         </div> 
-                    </div>                    
-                    <div style={{width:'100%',paddingBottom:'5px'}}> 
+                    </div>    
+                <div className="sectionParentDiv">
+                    <div className="header2bottomborder">
+                        <label><h2>Religion</h2></label>
+                    </div>
+                    <div className="gFieldRow" style={{paddingTop:'25px'}}>            
+                        <div className='glabel'>       
+                            <label>Religion</label>
+                        </div>  
+                        <div className='gfield'>
+                            <ReligionMultiSelect
+                                handleReligionChange = {this.handleReligionChange}
+                                religions = {this.state.religions}
+                            />
+                        </div> 
+                    </div> 
+                    <div className="gFieldRow">
                         <div className="glabel">
-                            <label>Education</label>
+                            Caste
                         </div>
                         <div className="gfield">
-                            <EducationMultiSelect 
-                                education = {this.state.education}
-                                educationChange = {this.educationChange}
+                            <CasteMultiSelect 
+                                 countries = {this.state.countries}
                             />
-                        </div>  
-                    </div> 
-                    <div style={{width:'100%',paddingBottom:'5px'}}> 
+                        </div>
+                    </div>     
+                    <div className="gFieldRow">
                         <div className="glabel">
-                            <label>Profile</label>
+                            Gothram
                         </div>
                         <div className="gfield">
-                           <ShowProfileSelect 
-                                showProfileChange={this.showProfileChange}
+                            <GothramMultiSelect 
+                                 countries = {this.state.countries}
                             />
-                        </div>  
-                    </div> 
-                    <div className="sectionParentDiv">
+                        </div>
+                    </div>    
+                    <div className="gFieldRow">
+                        <div className="glabel">
+                            Dhosham
+                        </div>
+                        <div className="gfield">
+                            <DhoshamMultiSelect 
+                                 countries = {this.state.countries}
+                            />
+                        </div>
+                    </div>                                
+                </div>   
+                    
+                <div className="sectionParentDiv">
                     <div className="header2bottomborder">
                         <label><h2>Location</h2></label>
                     </div>
@@ -207,7 +238,8 @@ class AdvancedSearch extends Component {
                                 countries = {this.state.countries}
                                 countryObj = {this.state.countryObj}
                                 pstateObj = {this.state.pstateObj}
-                        />
+                            />
+                        </div>
                     </div>
                     <div className="gFieldRow">
                         <div className="glabel">
@@ -218,9 +250,73 @@ class AdvancedSearch extends Component {
                                  countries = {this.state.countries}
                             />
                         </div>
-                    </div>  
-                </div>                                       
-        </div>   
+                    </div>   
+                    <div className="gFieldRow">
+                        <div className="glabel">
+                            District
+                        </div>
+                        <div className="gfield">
+                            <StateMultiSelect 
+                                 countries = {this.state.countries}
+                            />
+                        </div>
+                    </div>                                   
+                </div>  
+
+                <div className="sectionParentDiv">
+                    <div className="header2bottomborder">
+                        <label><h2>Education</h2></label>
+                    </div>
+                    <div className="gFieldRow" style={{paddingTop:'25px'}}> 
+                        <div className="glabel">
+                            <label>Education</label>
+                        </div>
+                        <div className="gfield">
+                            <EducationMultiSelect 
+                                education = {this.state.education}
+                                educationChange = {this.educationChange}
+                            />
+                        </div>  
+                    </div> 
+                    <div className="gFieldRow">
+                        <div className="glabel">
+                            Occupation
+                        </div>
+                        <div className="gfield">
+                            <OccupationMultiSelect 
+                                 countries = {this.state.countries}
+                            />
+                        </div>
+                    </div>                                     
+                </div>    
+                <div className="sectionParentDiv">
+                    <div className="header2bottomborder">
+                        <label><h2>Horoscope</h2></label>
+                    </div>
+                    <div className="gFieldRow" style={{paddingTop:'25px'}}>
+                        <div className="glabel">
+                            Country Living In
+                        </div>
+                        <div className="gfield">
+                            <CountryMultiSelect 
+                                handleCountryChange = {this.handleCountryChange}
+                                countries = {this.state.countries}
+                                countryObj = {this.state.countryObj}
+                                pstateObj = {this.state.pstateObj}
+                            />
+                        </div>
+                    </div>
+                    <div className="gFieldRow">
+                        <div className="glabel">
+                            State
+                        </div>
+                        <div className="gfield">
+                            <StateMultiSelect 
+                                 countries = {this.state.countries}
+                            />
+                        </div>
+                    </div>                                     
+                </div>    
         <div>                               
             <button onClick={this.basicSearch}>Search</button>  
         </div>

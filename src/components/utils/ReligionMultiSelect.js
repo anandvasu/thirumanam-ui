@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Select from "react-select";
 import ReligionDropdownConsts from './ReligionDropdownConsts';
+import DropDownConstant from './DropDownConstant';
 
 class ReligionMultiSelect extends Component {
 
@@ -20,12 +21,12 @@ class ReligionMultiSelect extends Component {
             <div>
                 <Select
                     name="filters"
-                    placeholder="Filters"
+                    placeholder={DropDownConstant.dropdownDefault}
                     value={this.props.religions}
                     options={ReligionDropdownConsts.regilionValues}
                     onChange={this.props.handleReligionChange}
                     isMulti = {true}
-                    />
+                />
             </div>
         ) ;
     }
