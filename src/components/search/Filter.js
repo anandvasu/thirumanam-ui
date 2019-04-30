@@ -75,16 +75,7 @@ function filter (props) {
                             maritalStatusChange = {props.maritalStatusChange}
                         />
                     </div>
-                </div>               
-                <div className="header3Parent">
-                    <div className="header3"><label>Body Type</label></div>
-                    <div className="filterContent">  
-                        <BodyType
-                            bodyTypes = {props.bodyTypes}
-                            bodyTypesChange = {props.bodyTypesChange}    
-                        />
-                    </div>
-                </div>          
+                </div>       
                 <div className="header3Parent">
                     <div className="header3"><label>Religion</label></div>
                     <div className="filterContentMSelect">  
@@ -205,7 +196,15 @@ function filter (props) {
                         />
                     </div>        
                 </div>   
-                                
+                <div className="header3Parent">
+                    <div className="header3"><label>Body Type</label></div>
+                    <div className="filterContent">  
+                        <BodyType
+                            bodyTypes = {props.bodyTypes}
+                            bodyTypesChange = {props.bodyTypesChange}    
+                        />
+                    </div>
+                </div>                                   
                 <div style={{width:'100%',height:'50px'}}>
                     <div className="clearAllFilter">
                         <a href="#" onClick={props.clearFilters}>[Clear Filters]</a>

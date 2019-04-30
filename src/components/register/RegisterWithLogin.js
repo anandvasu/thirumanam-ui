@@ -12,6 +12,10 @@ class RegisterWithLogin extends Component {
                 <div className="rwlogincontainer">
                     <Register 
                          refreshFooter = {this.refreshFooter}
+                         fromHome="true"
+                         labelClassName="rlabel"
+                         fieldClassName="rfield"
+                         rowClassName="rrow"
                     />
                     <div className="hs10" />
                     <hr />
