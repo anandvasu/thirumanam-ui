@@ -9,7 +9,7 @@ import RegisterWithLogin from '../register/RegisterWithLogin';
 import ApiConstant from '../../components/utils/ApiConstant';
 import Constant from '../utils/Constant';
 import TopMenu from '../menu/TopMenu';
-import {getValueArrFromReactSelect,formatDate} from '../../components/utils/Util';
+import {getValueArrFromReactSelect,formatDate, getValueFromReactSelect} from '../../components/utils/Util';
 
 class Results extends Component {
 
@@ -23,11 +23,11 @@ class Results extends Component {
         this.ageFromChange = this.ageFromChange.bind(this);
         this.maritalStatusChange = this.maritalStatusChange.bind(this);
         this.loginClickHandler = this.loginClickHandler.bind(this);
-        this.applyFilter = this.applyFilter.bind(this);
-        this.foodHabitChange = this.foodHabitChange.bind(this);
+        this.applyFilter = this.applyFilter.bind(this);       
         this.bodyTypesChange = this.bodyTypesChange.bind(this);
         this.occupationChange = this.occupationChange.bind(this);        
         this.educationChange = this.educationChange.bind(this);   
+        this.handleIncomeChange = this.handleIncomeChange.bind(this);        
         this.showProfileChange = this.showProfileChange.bind(this);          
 
         this.handleReligionChange = this.handleReligionChange.bind(this);        
@@ -38,6 +38,10 @@ class Results extends Component {
         this.handleCountryChange = this.handleCountryChange.bind(this);  
         this.handleStateChange = this.handleStateChange.bind(this);  
         this.handleDistrictChange = this.handleDistrictChange.bind(this);  
+
+        this.foodHabitChange = this.foodHabitChange.bind(this);
+        this.smokingHabitChange = this.smokingHabitChange.bind(this);    
+        this.drinkingHabitChange = this.drinkingHabitChange.bind(this);
 
         this.state = {
             showProfile:"A",
@@ -56,8 +60,7 @@ class Results extends Component {
             registerDisplay:false,
             gender:((sessionStorage.getItem(Constant.USER_GENDER)===Constant.genderM) ? Constant.genderF : Constant.genderM),
             mStatus:[],
-            religions:[],
-            foodHabits:[],
+            religions:[],            
             bodyTypes:[],
             religions:[],
             castes:[],
@@ -67,8 +70,11 @@ class Results extends Component {
             states:[],
             districts:[],
             education:[],
-            occupation:[]
-            
+            occupations:[],
+            incomeObj:"",
+            foodHabits:[],
+            drinkingHabits:[],
+            smokingHabits:[]            
         };
     }
 
@@ -84,7 +90,7 @@ class Results extends Component {
         let education = [];
         let foodHabits = [];
         let bodyTypes = [];
-        let occupation = [];
+        let occupations = [];
 
         let religions = [];
         let castes = [];
@@ -94,6 +100,7 @@ class Results extends Component {
         let countries = [];
         let states = [];
         let districts = [];
+        let incomeObj = [];
 
 
         if(this.props.location.state.fromPage === "MyMatch") {
@@ -115,7 +122,8 @@ class Results extends Component {
             countries = this.props.location.state.countries;    
             states = this.props.location.state.states;    
             districts = this.props.location.state.districts;    
-            occupation = this.props.location.state.occupations;
+            occupations = this.props.location.state.occupations;
+            incomeObj = this.props.location.state.incomeObj;
         }
 
         this.setState({
@@ -128,12 +136,14 @@ class Results extends Component {
             mStatus:mStatus,
             religions:religions,
             education:education,
+            occupations:occupations,
             castes:castes,
             gothrams:gothrams,
             dhoshams:dhoshams,
             countries:countries,
             states:states,
-            districts:districts
+            districts:districts,
+            incomeObj:incomeObj
         });
         console.log("states");
         console.log(states);
@@ -149,7 +159,7 @@ class Results extends Component {
             religions,
             foodHabits,
             bodyTypes,
-            occupation,
+            occupations,
             education,
             castes,
             gothrams,
@@ -157,6 +167,7 @@ class Results extends Component {
             countries,
             states,
             districts,
+            incomeObj,
             1
         );    
     }
@@ -173,7 +184,7 @@ class Results extends Component {
             this.state.religions,
             this.state.foodHabits,
             this.state.bodyTypes,
-            this.state.occupation,
+            this.state.occupations,
             this.state.education,
             this.state.castes,
             this.state.gothrams,
@@ -181,6 +192,7 @@ class Results extends Component {
             this.state.countries,
             this.state.states,
             this.state.districts,
+            this.state.incomeObj,
             1
         ); 
     }
@@ -230,6 +242,7 @@ class Results extends Component {
         aCountries,
         aStates,
         aDistricts,
+        aIncomeObj,
         pageNumber) {
         var totalDocs = 0;
         axios.post(ApiConstant.USER_SEARCH_API, { 
@@ -252,6 +265,7 @@ class Results extends Component {
             districts:getValueArrFromReactSelect(aDistricts), 
             educations: getValueArrFromReactSelect(aEducation),
             occupations: getValueArrFromReactSelect(aOccupation),
+            income: getValueFromReactSelect(aIncomeObj),
             pageNumber:pageNumber 
          })
          .then(function (res) {
@@ -371,6 +385,13 @@ class Results extends Component {
             this.state.bodyTypes,
             this.state.occupation,
             this.state.education,
+            this.state.castes,
+            this.state.gothrams,
+            this.state.dhoshams,
+            this.state.countries,
+            this.state.states,
+            this.state.districts,
+            this.state.incomeObj,
             pageNumber
         );
     }
@@ -431,9 +452,27 @@ class Results extends Component {
         });
     }
 
+    smokingHabitChange(inputHabits) {
+        this.setState({
+            smokingHabits:inputHabits
+        });
+    }
+
+    drinkingHabitChange(inputHabits) {
+        this.setState({
+            drinkingHabits:inputHabits
+        });
+    }
+
     occupationChange(inputOccupation) {
         this.setState({
             occupation:inputOccupation
+        });
+    }
+
+    handleIncomeChange(option) {
+        this.setState({
+            incomeObj:option
         });
     }
 
@@ -523,7 +562,7 @@ class Results extends Component {
                                     foodHabitChange = {this.foodHabitChange}
                                     bodyTypes = {this.state.bodyTypes}
                                     bodyTypesChange = {this.bodyTypesChange}
-                                    occupation = {this.state.occupation}
+                                    occupations = {this.state.occupations}
                                     occupationChange = {this.occupationChange}
                                     education = {this.state.education}
                                     educationChange = {this.educationChange}
@@ -541,6 +580,8 @@ class Results extends Component {
                                     handleStateChange = {this.handleStateChange}
                                     districts = {this.state.districts}
                                     handleDistrictChange = {this.handleDistrictChange}
+                                    incomeObj = {this.state.incomeObj}
+                                    handleIncomeChange = {this.handleIncomeChange}
                                 />
                             </div>
 

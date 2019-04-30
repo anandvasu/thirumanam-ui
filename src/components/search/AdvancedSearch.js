@@ -15,6 +15,10 @@ import OccupationMultiSelect from '../utils/OccupationMultiSelect';
 import GothramMultiSelect from '../utils/GothramMultiSelect';
 import DhoshamMultiSelect from '../utils/DhoshamMultiSelect';
 import DistrictMultiSelect from '../utils/DistrictMultiSelect';
+import IncomeSelect from '../utils/IncomeSelect';
+import FoodHabit from '../utils/FoodHabit';
+import DrinkingHabits from '../utils/DrinkingHabits';
+import SmokingHabits from '../utils/SmokingHabits';
 
 class AdvancedSearch extends Component {
 
@@ -38,6 +42,11 @@ class AdvancedSearch extends Component {
         
         this.educationChange = this.educationChange.bind(this);      
         this.handleOccupationChange = this.handleOccupationChange.bind(this);
+        this.handleIncomeChange = this.handleIncomeChange.bind(this);   
+        
+        this.foodHabitChange = this.foodHabitChange.bind(this);        
+        this.smokingHabitChange = this.smokingHabitChange.bind(this);    
+        this.drinkingHabitChange = this.drinkingHabitChange.bind(this);    
 
         this.state = {
             searchClicked: false,
@@ -56,7 +65,11 @@ class AdvancedSearch extends Component {
             districts:[],
             education:[],
             occupations:[],
-            showProfile:"A"
+            incomeObj:[],
+            showProfile:"A",
+            foodHabits:[],
+            drinkingHabits:[],
+            smokingHabits:[]  
         }
     }
 
@@ -86,6 +99,12 @@ class AdvancedSearch extends Component {
         this.setState({
             occupations:option
         }); 
+    }
+
+    handleIncomeChange(option) {
+        this.setState({
+            incomeObj:option
+        });
     }
 
     handleReligionChange(inputReligion) {
@@ -146,6 +165,24 @@ class AdvancedSearch extends Component {
         });
     }
 
+    foodHabitChange(inputHabits) {
+        this.setState({
+            foodHabits:inputHabits
+        });
+    }
+
+    smokingHabitChange(inputHabits) {
+        this.setState({
+            smokingHabits:inputHabits
+        });
+    }
+
+    drinkingHabitChange(inputHabits) {
+        this.setState({
+            drinkingHabits:inputHabits
+        });
+    }
+
     render () {
         if (this.state.searchClicked === true) {
             return <Redirect to= {{
@@ -169,7 +206,11 @@ class AdvancedSearch extends Component {
                     states:this.state.states,
                     districts:this.state.districts,
                     educations:this.state.educations,
-                    occupations:this.state.occupations
+                    occupations:this.state.occupations,
+                    incomeObj:this.state.incomeObj,
+                    foodHabits:this.state.foodHabits,
+                    smokingHabits:this.state.smokingHabits,
+                    drinkingHabits:this.state.drinkingHabits,
                 }
                 }}/>
         }
@@ -334,7 +375,7 @@ class AdvancedSearch extends Component {
 
                 <div className="sectionParentDiv">
                     <div className="header2bottomborder">
-                        <label><h2>Education</h2></label>
+                        <label><h2>Education/Occupation/Income</h2></label>
                     </div>
                     <div className="gFieldRow" style={{paddingTop:'25px'}}> 
                         <div className="glabel">
@@ -357,28 +398,56 @@ class AdvancedSearch extends Component {
                                  handleOccupationChange = {this.handleOccupationChange}
                             />
                         </div>
-                    </div>                                     
+                    </div>     
+                    <div className="gFieldRow">
+                        <div className="glabel">
+                            Income
+                        </div>
+                        <div className="gfield">
+                            <IncomeSelect 
+                                 incomeObj = {this.state.incomeObj}
+                                 handleIncomeChange = {this.handleIncomeChange}
+                            />
+                        </div>
+                    </div>                                  
                 </div>    
                 <div className="sectionParentDiv">
                     <div className="header2bottomborder">
-                        <label><h2>Horoscope</h2></label>
+                        <label><h2>Habits</h2></label>
                     </div>
                     <div className="gFieldRow" style={{paddingTop:'25px'}}>
                         <div className="glabel">
-                           
+                            Food Habits
                         </div>
                         <div className="gfield">
-                           
+                            <FoodHabit
+                                 foodHabits = {this.state.foodHabits}
+                                 foodHabitChange = {this.foodHabitChange}
+                            />
                         </div>
-                    </div>
+                    </div>                      
                     <div className="gFieldRow">
                         <div className="glabel">
-                            State
+                            Smoking
                         </div>
                         <div className="gfield">
-                           
+                           <SmokingHabits
+                                smokingHabits = {this.state.smokingHabits}
+                                smokingHabitChange = {this.smokingHabitChange}
+                           />
                         </div>
-                    </div>                                     
+                    </div>     
+                    <div className="gFieldRow">
+                        <div className="glabel">
+                            Drinking
+                        </div>
+                        <div className="gfield">
+                           <DrinkingHabits
+                                drinkingHabits = {this.state.drinkingHabits}
+                                drinkingHabitChange = {this.drinkingHabitChange}
+                           />
+                        </div>
+                    </div>                               
                 </div>    
         <div>                               
             <button onClick={this.basicSearch}>Search</button>  

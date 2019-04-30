@@ -2,7 +2,7 @@ import React from 'react';
 import Age from '../utils/Age';
 import Height from '../utils/Height';
 import MaritalStatus from '../utils/MaritalStatus';
-import Occupation from '../utils/Occupation';
+import OccupationMultiSelect from '../utils/OccupationMultiSelect';
 import BodyType from '../utils/BodyType';
 import FoodHabit from '../utils/FoodHabit';
 import ShowProfileSelect from '../utils/ShowProfileSelect';
@@ -15,6 +15,9 @@ import DhoshamMultiSelect from '../utils/DhoshamMultiSelect';
 import CountryMultiSelect from '../utils/CountryMultiSelect';
 import StateMultiSelect from '../utils/StateMultiSelect';
 import DistrictMultiSelect from '../utils/DistrictMultiSelect';
+import IncomeSelect from '../utils/IncomeSelect';
+import SmokingHabits from '../utils/SmokingHabits';
+import DrinkingHabits from '../utils/DrinkingHabits';
 
 function filter (props) {
 
@@ -72,16 +75,7 @@ function filter (props) {
                             maritalStatusChange = {props.maritalStatusChange}
                         />
                     </div>
-                </div>
-                <div className="header3Parent">
-                    <div className="header3"><label>Food Habit</label></div>
-                    <div className="filterContent">   
-                        <FoodHabit 
-                            foodHabits = {props.foodHabits}
-                            foodHabitChange = {props.foodHabitChange}
-                        />
-                    </div>        
-                </div> 
+                </div>               
                 <div className="header3Parent">
                     <div className="header3"><label>Body Type</label></div>
                     <div className="filterContent">  
@@ -160,18 +154,58 @@ function filter (props) {
                 <div className="header3Parent">
                     <div className="header3"><label>Education</label></div>
                     <div className="filterContentMSelect">  
-                    <EducationMultiSelect 
-                         education = {props.education}
-                         educationChange = {props.educationChange}
-                    />
+                        <EducationMultiSelect 
+                            education = {props.education}
+                            educationChange = {props.educationChange}
+                        />
                     </div>
-                </div>                
+                </div>     
                 <div className="header3Parent">
-                    <Occupation 
-                        occupation = {props.occupation}
-                        occupationChange = {props.occupationChange}
-                    />
-                </div>                    
+                    <div className="header3"><label>Occupation</label></div>
+                    <div className="filterContentMSelect">  
+                        <OccupationMultiSelect 
+                                 occupations = {props.occupations}
+                                 handleOccupationChange = {props.handleOccupationChange}
+                            />
+                    </div>
+                </div>   
+                <div className="header3Parent">
+                    <div className="header3"><label>Income</label></div>
+                    <div className="filterContentMSelect">  
+                        <IncomeSelect 
+                            incomeObj = {props.incomeObj}
+                            handleIncomeChange = {props.handleIncomeChange}
+                        />
+                    </div>
+                </div>       
+                <div className="header3Parent">
+                    <div className="header3"><label>Food Habit</label></div>
+                    <div className="filterContent">   
+                        <FoodHabit 
+                            foodHabits = {props.foodHabits}
+                            foodHabitChange = {props.foodHabitChange}
+                        />
+                    </div>        
+                </div> 
+                <div className="header3Parent">
+                    <div className="header3"><label>Smoking Habit</label></div>
+                    <div className="filterContent">   
+                        <SmokingHabits 
+                           smokingHabits = {props.smokingHabits}
+                           smokingHabitChange = {props.smokingHabitChange}
+                        />
+                    </div>        
+                </div> 
+                <div className="header3Parent">
+                    <div className="header3"><label>Drinking Habit</label></div>
+                    <div className="filterContent">   
+                        <DrinkingHabits 
+                            drinkingHabits = {props.drinkingHabits}
+                            drinkingHabitChange = {props.drinkingHabitChange}
+                        />
+                    </div>        
+                </div>   
+                                
                 <div style={{width:'100%',height:'50px'}}>
                     <div className="clearAllFilter">
                         <a href="#" onClick={props.clearFilters}>[Clear Filters]</a>

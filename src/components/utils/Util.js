@@ -77,10 +77,18 @@ export function populateArray (valueObject) {
     return arrayObj;
 }
 
-export function getValueFromReactSelect(objectArray) {
+export function getValueFromReactMultiSelect(objectArray) {
     let value = "";
     if (objectArray.length > 0) {
         value = objectArray[0].value
+    }
+    return value;
+}
+
+export function getValueFromReactSelect(inputObj) {
+    let value = "";
+    if (inputObj != null && inputObj !== "") {
+        value = inputObj.value
     }
     return value;
 }

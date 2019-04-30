@@ -10,7 +10,7 @@ function gothramMultiSelect(props) {
                 <Select
                     name="gothramSelect"
                     placeholder={DropDownConstant.dropdownDefault}
-                    value={props.gothramObj}
+                    value={props.gothrams}
                     options={ReligionDropdownConsts.gothramValues}
                     onChange={props.handleGothramChange}  
                     isMulti = {true}                
