@@ -1,6 +1,7 @@
 import React from 'react';
 import Select from "react-select";
 import DropDownConstant from './DropDownConstant';
+import ReligionDropdownConsts from './ReligionDropdownConsts';
 
 function dhoshamSelect(props) {     
         
@@ -10,7 +11,7 @@ function dhoshamSelect(props) {
                     name="gothramSelect"
                     placeholder={DropDownConstant.dropdownDefault}
                     value={props.dhoshamObj}
-                    options={DropDownConstant.dhoshamValues}
+                    options={ReligionDropdownConsts.dhoshamValues}
                     onChange={props.hinduDhoshamChange}                  
                     />
             </div>

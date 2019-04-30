@@ -1,6 +1,6 @@
 export default {
     country_DF:[{value:'IN',label:"India"}],
-    state_DF:[{value:58,label:"Tamilnadu"}],
+    state_DF:[{value:58,label:"Tamil Nadu"}],
     countries :[
         { value:"AF", label: "Afghanistan"},
         { value:"AX", label: "Aland Islands"},

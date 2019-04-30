@@ -7,9 +7,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import Constant from '../utils/Constant';
 import ApiConstant from '../utils/ApiConstant';
 import ReligionSelect from '../utils/ReligionSelect';
+import MotherTongueSelect from '../utils/MotherTongueSelect';
 import {populateArray} from '../utils/Util';
 import {validateEmail,preventNumbers} from '../utils/Util';
 import PhoneCountryCode from '../utils/PhoneCountryCode';
+import DropDownConstant from '../utils/DropDownConstant';
 
 class Register extends Component {
 
@@ -29,6 +31,7 @@ class Register extends Component {
         this.onChangeRegisteredBy = this.onChangeRegisteredBy.bind(this);   
         this.onChangeCountryCode = this.onChangeCountryCode.bind(this);   
         this.religionChangeHandler = this.religionChangeHandler.bind(this);         
+        this.handleMTongueChange = this.handleMTongueChange.bind(this);
         
         this.state = {
             first:"",
@@ -45,7 +48,9 @@ class Register extends Component {
             countryCode:"+91",
             registersuccess:false,
             religionObj:[],
-            religion:0         
+            religion:0,
+            mtongue:250,
+            mTongueObj:DropDownConstant.mtongue_SEL_DF        
         }
     }
 
@@ -107,6 +112,15 @@ class Register extends Component {
         console.log(valueObj.value);
     }
 
+    handleMTongueChange(valueObj) {
+        this.setState(
+            {
+                mTongueObj:populateArray(valueObj),
+                mtongue:valueObj.value
+            }
+        );
+    }
+
     openTandc() {
         window.open(window.location.origin + "/tandc", "_blank");
     }
@@ -159,7 +173,8 @@ class Register extends Component {
                     phCountryCode: this.state.countryCode,
                     phonenumber:this.state.mobile,
                     registerBy: this.state.registerBy,
-                    externalId: externalIdValue
+                    externalId: externalIdValue,
+                    mtongue: this.state.mtongue,
                 }) .then((res) => {
                     console.log(res);
                     this.setState({
@@ -344,7 +359,18 @@ class Register extends Component {
                                  religionChangeHandler = {this.religionChangeHandler}                                
                             />
                         </div>
-                    </div>                   
+                    </div>   
+                    <div className={this.props.rowClassName}>
+                        <div className={this.props.labelClassName}>
+                            <label>Mother Tongue</label>
+                        </div>
+                        <div className={this.props.fieldClassName}>
+                            <MotherTongueSelect 
+                                 mTongueObj = {this.state.mTongueObj}
+                                 handleMTongueChange = {this.handleMTongueChange}                                
+                            />
+                        </div>
+                    </div>                  
                     <div className={this.props.rowClassName}>
                         <div className={this.props.labelClassName}>                           
                             <label>Mobile Number</label>

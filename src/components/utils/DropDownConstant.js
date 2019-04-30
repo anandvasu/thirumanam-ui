@@ -2,6 +2,7 @@ export default {
 
     mStatus_NM:[{value:'NM',label:"Never Married"}],
     mtongue_DF:[{value:250,label:"Tamil"}],
+    mtongue_SEL_DF:{value:250,label:"Tamil"},
     dropdownDefault:"--Select--",
 
     motherToungeValues :[

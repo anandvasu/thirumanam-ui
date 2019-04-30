@@ -33,7 +33,7 @@ class UpdateLocation extends Component {
             district:"",
             city:"",
             profileId:"",
-            email:"",
+            email:"", 
             religion:0
         }        
     }
@@ -189,6 +189,7 @@ class UpdateLocation extends Component {
                         districtChange = {this.districtChange}
                         cityChange = {this.cityChange}
                         pstate = {this.state.pstate}
+                        pstateObj = {this.state.pstateObj}
                         country = {this.state.country}
                         countryObj = {this.state.countryObj}
                     /> 
