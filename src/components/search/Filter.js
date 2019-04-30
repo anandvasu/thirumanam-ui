@@ -18,6 +18,7 @@ import DistrictMultiSelect from '../utils/DistrictMultiSelect';
 import IncomeSelect from '../utils/IncomeSelect';
 import SmokingHabits from '../utils/SmokingHabits';
 import DrinkingHabits from '../utils/DrinkingHabits';
+import MotherTongueMultiSelect from '../utils/MotherTongueMultiSelect';
 
 function filter (props) {
 
@@ -66,7 +67,16 @@ function filter (props) {
                              maxHeightChange={props.maxHeightChange}
                         />
                     </div>             
-                </div>                
+                </div>       
+                <div className="header3Parent">
+                    <div className="header3"><label>Mother Tongue</label></div>
+                    <div className="filterContentMSelect">   
+                            <MotherTongueMultiSelect
+                                handleMTongueChange = {props.handleMTongueChange}
+                                mtongues = {props.mtongues}
+                            />
+                    </div>
+                </div>          
                 <div className="header3Parent">
                     <div className="header3"><label>Marital Status</label></div>
                     <div className="filterContent">   

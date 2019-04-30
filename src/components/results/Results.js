@@ -29,6 +29,7 @@ class Results extends Component {
         this.educationChange = this.educationChange.bind(this);   
         this.handleIncomeChange = this.handleIncomeChange.bind(this);        
         this.showProfileChange = this.showProfileChange.bind(this);          
+        this.handleMTongueChange = this.handleMTongueChange.bind(this);     
 
         this.handleReligionChange = this.handleReligionChange.bind(this);        
         this.handleCasteChange = this.handleCasteChange.bind(this);        
@@ -74,7 +75,8 @@ class Results extends Component {
             incomeObj:"",
             foodHabits:[],
             drinkingHabits:[],
-            smokingHabits:[]            
+            smokingHabits:[],
+            mtongues:[]            
         };
     }
 
@@ -87,9 +89,9 @@ class Results extends Component {
         const gender = this.props.location.state.gender;
         const mStatus = this.props.location.state.mStatus;
         let showProfile = "A";        
-        let education = [];
-        let foodHabits = [];
+        let education = [];        
         let bodyTypes = [];
+        let mtongues = [];
         let occupations = [];
 
         let religions = [];
@@ -102,6 +104,10 @@ class Results extends Component {
         let districts = [];
         let incomeObj = [];
 
+        let foodHabits = [];
+        let smokingHabits = [];
+        let drinkingHabits = [];
+
 
         if(this.props.location.state.fromPage === "MyMatch") {
             religions = this.props.location.state.religions;                
@@ -112,18 +118,22 @@ class Results extends Component {
             ) {            
             religions = this.props.location.state.religions;   
             education = this.props.location.state.education;    
-            showProfile = this.props.location.state.showProfile;            
-        }
-
-        if(this.props.location.state.fromPage === "A") {            
-            castes = this.props.location.state.castes;   
-            gothrams = this.props.location.state.gothrams;    
-            dhoshams = this.props.location.state.dhoshams;            
+            showProfile = this.props.location.state.showProfile;   
+            mtongues = this.props.location.state.mtongues;        
             countries = this.props.location.state.countries;    
             states = this.props.location.state.states;    
-            districts = this.props.location.state.districts;    
+            districts = this.props.location.state.districts;   
+            castes = this.props.location.state.castes;    
+        }
+
+        if(this.props.location.state.fromPage === "A") {   
+            gothrams = this.props.location.state.gothrams;    
+            dhoshams = this.props.location.state.dhoshams;     
             occupations = this.props.location.state.occupations;
             incomeObj = this.props.location.state.incomeObj;
+            foodHabits = this.props.location.state.foodHabits;
+            smokingHabits = this.props.location.state.smokingHabits;
+            drinkingHabits = this.props.location.state.drinkingHabits;
         }
 
         this.setState({
@@ -143,10 +153,12 @@ class Results extends Component {
             countries:countries,
             states:states,
             districts:districts,
-            incomeObj:incomeObj
+            incomeObj:incomeObj,
+            mtongues:mtongues,
+            foodHabits:foodHabits,
+            smokingHabits:smokingHabits,
+            drinkingHabits:drinkingHabits,
         });
-        console.log("states");
-        console.log(states);
         
         this.searchProfile(
             showProfile,
@@ -168,6 +180,9 @@ class Results extends Component {
             states,
             districts,
             incomeObj,
+            mtongues,
+            smokingHabits,
+            drinkingHabits,
             1
         );    
     }
@@ -193,6 +208,9 @@ class Results extends Component {
             this.state.states,
             this.state.districts,
             this.state.incomeObj,
+            this.state.mtongues,
+            this.state.smokingHabits,
+            this.state.drinkingHabits,
             1
         ); 
     }
@@ -243,6 +261,9 @@ class Results extends Component {
         aStates,
         aDistricts,
         aIncomeObj,
+        aMtongues,
+        aSmokingHabits,
+        aDrinkingHabits,
         pageNumber) {
         var totalDocs = 0;
         axios.post(ApiConstant.USER_SEARCH_API, { 
@@ -266,6 +287,9 @@ class Results extends Component {
             educations: getValueArrFromReactSelect(aEducation),
             occupations: getValueArrFromReactSelect(aOccupation),
             income: getValueFromReactSelect(aIncomeObj),
+            mtongues:getValueArrFromReactSelect(aMtongues),
+            smokingHabits:aSmokingHabits,
+            drinkingHabits:aDrinkingHabits,
             pageNumber:pageNumber 
          })
          .then(function (res) {
@@ -392,6 +416,9 @@ class Results extends Component {
             this.state.states,
             this.state.districts,
             this.state.incomeObj,
+            this.state.mtongues,
+            this.state.smokingHabits,
+            this.state.drinkingHabits,
             pageNumber
         );
     }
@@ -439,6 +466,13 @@ class Results extends Component {
             education:inputEducation
         }); 
     }
+
+    handleMTongueChange(option) {
+        this.setState({
+            mtongues: option
+        });
+    }
+
 
     bodyTypesChange(inputBodyTypes) {
         this.setState({
@@ -555,6 +589,8 @@ class Results extends Component {
                                     mStatus = {this.state.mStatus}
                                     minHeightChange = {this.minHeightChange}
                                     maxHeightChange = {this.maxHeighthange}
+                                    handleMTongueChange = {this.handleMTongueChange}
+                                    mtongues = {this.state.mtongues}
                                     maritalStatusChange = {this.maritalStatusChange}
                                     applyFilter = {this.applyFilter}
                                     clearFilters = {this.clearFilters}
