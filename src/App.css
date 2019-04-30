@@ -440,12 +440,10 @@ hr {
   display: inline-block;
   width: 150px;
   text-align: left;
-  vertical-align: top;
 }
 
 .gfield {
   display: inline-block;
   width: 320px;
   text-align: left;
-  vertical-align: top;
 }

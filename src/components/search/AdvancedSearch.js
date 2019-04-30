@@ -19,6 +19,8 @@ import IncomeSelect from '../utils/IncomeSelect';
 import FoodHabit from '../utils/FoodHabit';
 import DrinkingHabits from '../utils/DrinkingHabits';
 import SmokingHabits from '../utils/SmokingHabits';
+import MotherTongueMultiSelect from '../utils/MotherTongueMultiSelect';
+import DropDownConstant from '../utils/DropDownConstant';
 
 class AdvancedSearch extends Component {
 
@@ -29,6 +31,7 @@ class AdvancedSearch extends Component {
         this.genderChange = this.genderChange.bind(this);
         this.ageFromChange = this.ageFromChange.bind(this);
         this.ageToChange = this.ageToChange.bind(this);
+        this.handleMTongueChange = this.handleMTongueChange.bind(this);   
         this.maritalStatusChange = this.maritalStatusChange.bind(this); 
         
         this.handleReligionChange = this.handleReligionChange.bind(this);
@@ -55,6 +58,7 @@ class AdvancedSearch extends Component {
             ageTo:Constant.ageTo,
             minHeight:Constant.minHeight,
             maxHeight:Constant.maxHeight,
+            mtongues:DropDownConstant.mtongue_DF,
             mStatus:"NM",
             religions:[],
             castes:[],
@@ -83,6 +87,12 @@ class AdvancedSearch extends Component {
 
     genderChange(event) {
         this.setState({gender:event.target.value});
+    }
+
+    handleMTongueChange(option) {
+        this.setState({
+            mtongues: option
+        });
     }
 
     maritalStatusChange(event) {
@@ -211,6 +221,7 @@ class AdvancedSearch extends Component {
                     foodHabits:this.state.foodHabits,
                     smokingHabits:this.state.smokingHabits,
                     drinkingHabits:this.state.drinkingHabits,
+                    mtongues:this.state.mtongues,
                 }
                 }}/>
         }
@@ -269,7 +280,18 @@ class AdvancedSearch extends Component {
                                 maxHeightChange = {this.maxHeightChange}
                             />
                         </div>  
-                    </div>                      
+                    </div>          
+                    <div className="gFieldRow">            
+                        <div className='glabel'>       
+                            <label>Mother Tongue</label>
+                        </div>  
+                        <div className='gfield'>
+                            <MotherTongueMultiSelect
+                                handleMTongueChange = {this.handleMTongueChange}
+                                mtongues = {this.state.mtongues}
+                            />
+                        </div> 
+                    </div>             
                     <div className="gFieldRow">            
                         <div className='glabel'>       
                             <label>Marital Status&nbsp;</label>
@@ -416,7 +438,7 @@ class AdvancedSearch extends Component {
                         <label><h2>Habits</h2></label>
                     </div>
                     <div className="gFieldRow" style={{paddingTop:'25px'}}>
-                        <div className="glabel">
+                        <div className="glabel" style={{verticalAlign:'top'}}>
                             Food Habits
                         </div>
                         <div className="gfield">
@@ -427,7 +449,7 @@ class AdvancedSearch extends Component {
                         </div>
                     </div>                      
                     <div className="gFieldRow">
-                        <div className="glabel">
+                        <div className="glabel" style={{verticalAlign:'top'}}>
                             Smoking
                         </div>
                         <div className="gfield">
@@ -438,7 +460,7 @@ class AdvancedSearch extends Component {
                         </div>
                     </div>     
                     <div className="gFieldRow">
-                        <div className="glabel">
+                        <div className="glabel" style={{verticalAlign:'top'}}>
                             Drinking
                         </div>
                         <div className="gfield">

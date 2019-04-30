@@ -8,6 +8,12 @@ import ShowProfileSelect from '../utils/ShowProfileSelect';
 import EducationMultiSelect from '../utils/EducationMultiSelect'; 
 import MaritalStatusSelect from '../utils/MaritalStatusSelect';
 import ReligionMultiSelect from '../utils/ReligionMultiSelect';
+import CasteMultiSelect from '../utils/CasteMultiSelect';
+import CountryMultiSelect from '../utils/CountryMultiSelect';
+import StateMultiSelect from '../utils/StateMultiSelect';
+import DistrictMultiSelect from '../utils/DistrictMultiSelect';
+import MotherTongueMultiSelect from '../utils/MotherTongueMultiSelect';
+import DropDownConstant from '../utils/DropDownConstant';
 
 class BasicSearch extends Component {
 
@@ -20,7 +26,13 @@ class BasicSearch extends Component {
         this.maritalStatusChange = this.maritalStatusChange.bind(this); 
         this.educationChange = this.educationChange.bind(this);
         this.handleReligionChange = this.handleReligionChange.bind(this);
+        this.handleCasteChange = this.handleCasteChange.bind(this);
         this.showProfileChange = this.showProfileChange.bind(this);
+        this.handleMTongueChange = this.handleMTongueChange.bind(this);        
+
+        this.handleCountryChange = this.handleCountryChange.bind(this);  
+        this.handleStateChange = this.handleStateChange.bind(this);  
+        this.handleDistrictChange = this.handleDistrictChange.bind(this); 
 
         this.state = {
             searchClicked: false,
@@ -31,7 +43,12 @@ class BasicSearch extends Component {
             maxHeight:Constant.maxHeight,
             mStatus:"NM",
             religions:[],
+            castes:[],
+            countries:[],
+            states:[],
+            districts:[],
             education:[],
+            mtongues:DropDownConstant.mtongue_DF,
             showProfile:"A"
         }
     }
@@ -63,6 +80,37 @@ class BasicSearch extends Component {
             religions:inputReligion
         });
     }
+
+    handleCasteChange(option) {
+        this.setState({
+            castes: option
+        });
+    }
+
+
+    handleCountryChange(option) {
+        this.setState({
+            countries: option
+        });
+    }
+
+    handleStateChange(option) {
+        this.setState({
+            states: option
+        });
+    }
+
+    handleDistrictChange(option) {
+        this.setState({
+            districts: option
+        });
+    }
+
+    handleMTongueChange(option) {
+        this.setState({
+            mtongues: option
+        });
+    }
     
 
     basicSearch(event) {
@@ -87,7 +135,12 @@ class BasicSearch extends Component {
                     maxHeight:this.state.maxHeight,
                     mStatus:populateArray(this.state.mStatus),
                     religions:this.state.religions,
+                    castes:this.state.castes,
+                    countries:this.state.countries,
+                    states:this.state.states,
+                    districts:this.state.districts,
                     education:this.state.education,
+                    mtongues:this.state.mtongues,
                     showProfile:this.state.showProfile
                 }
                 }}/>
@@ -140,6 +193,17 @@ class BasicSearch extends Component {
                     </div>  
                     <div className="gFieldRow">            
                         <div className='glabel'>       
+                            <label>Mother Tongue</label>
+                        </div>  
+                        <div className='gfield'>
+                            <MotherTongueMultiSelect
+                                handleMTongueChange = {this.handleMTongueChange}
+                                mtongues = {this.state.mtongues}
+                            />
+                        </div> 
+                    </div> 
+                    <div className="gFieldRow">            
+                        <div className='glabel'>       
                             <label>Religion</label>
                         </div>  
                         <div className='gfield'>
@@ -148,6 +212,18 @@ class BasicSearch extends Component {
                                 religions = {this.state.religions}
                             />
                         </div> 
+                    </div>  
+                    <div className="gFieldRow">
+                        <div className="glabel">
+                            Caste
+                        </div>
+                        <div className="gfield">
+                            <CasteMultiSelect 
+                                  religions = {this.state.religions}
+                                  castes = {this.state.castes}
+                                  handleCasteChange = {this.handleCasteChange}
+                            />
+                        </div>
                     </div>  
                     <div className="gFieldRow">            
                         <div className='glabel'>       
@@ -171,7 +247,42 @@ class BasicSearch extends Component {
                             />
                         </div>  
                     </div> 
-                    <div style={{width:'100%',paddingBottom:'5px'}}> 
+                    <div className="gFieldRow">
+                        <div className="glabel">
+                            Country Living In
+                        </div>
+                        <div className="gfield">
+                            <CountryMultiSelect 
+                                handleCountryChange = {this.handleCountryChange}
+                                countries = {this.state.countries}
+                            />
+                        </div>
+                    </div>
+                    <div className="gFieldRow">
+                        <div className="glabel">
+                            State
+                        </div>
+                        <div className="gfield">
+                            <StateMultiSelect 
+                                 countries = {this.state.countries}
+                                 states = {this.state.states}
+                                 handleStateChange = {this.handleStateChange}
+                            />
+                        </div>
+                    </div>   
+                    <div className="gFieldRow">
+                        <div className="glabel">
+                            District
+                        </div>
+                        <div className="gfield">
+                            <DistrictMultiSelect 
+                                 states = {this.state.states}
+                                 districts = {this.state.districts}
+                                 handleDistrictChange = {this.handleDistrictChange}
+                            />
+                        </div>
+                    </div>       
+                    <div className="gFieldRow"> 
                         <div className="glabel">
                             <label>Profile</label>
                         </div>
