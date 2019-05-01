@@ -6,7 +6,7 @@ import Age from '../utils/Age';
 import Height from '../utils/Height';
 import ShowProfileSelect from '../utils/ShowProfileSelect';
 import EducationMultiSelect from '../utils/EducationMultiSelect'; 
-import MaritalStatusSelect from '../utils/MaritalStatusSelect';
+import MaritalStatus from '../utils/MaritalStatus';
 import ReligionMultiSelect from '../utils/ReligionMultiSelect';
 import CasteMultiSelect from '../utils/CasteMultiSelect';
 import CountryMultiSelect from '../utils/CountryMultiSelect';
@@ -27,7 +27,7 @@ class AdvancedSearch extends Component {
     constructor (props) {
         super(props);
         this.showProfileChange = this.showProfileChange.bind(this);
-        this.basicSearch = this.basicSearch.bind(this);
+        this.search = this.search.bind(this);
         this.genderChange = this.genderChange.bind(this);
         this.ageFromChange = this.ageFromChange.bind(this);
         this.ageToChange = this.ageToChange.bind(this);
@@ -59,7 +59,7 @@ class AdvancedSearch extends Component {
             minHeight:Constant.minHeight,
             maxHeight:Constant.maxHeight,
             mtongues:DropDownConstant.mtongue_DF,
-            mStatus:"NM",
+            mStatus:[],
             religions:[],
             castes:[],
             gothrams:[],
@@ -74,6 +74,22 @@ class AdvancedSearch extends Component {
             foodHabits:[],
             drinkingHabits:[],
             smokingHabits:[]  
+        }
+    }
+
+    componentDidMount() {
+        if((this.props.fromPage === "P") && (this.props.preference != null)) {  
+            this.setState({
+                ageFrom:this.props.preference.ageFrom,
+                ageTo:this.props.preference.ageTo,
+                minHeight:this.props.preference.minHeight,
+                maxHeight:this.props.preference.maxHeight,
+                mStatus:this.props.preference.mStatus,
+                foodHabits:this.props.preference.foodHabits,
+                countries:convertReactSelectValues(this.props.preference.countries, LocationDropdownConsts.countries),
+                states:convertReactSelectValues(this.props.preference.states, LocationDropdownConsts.indiaStates),
+                religions:convertReactSelectValues(this.props.preference.religions, ReligionDropdownConsts.regilionValues)            
+            });
         }
     }
 
@@ -95,8 +111,8 @@ class AdvancedSearch extends Component {
         });
     }
 
-    maritalStatusChange(event) {
-        this.setState({mStatus:event.target.value});
+    maritalStatusChange(value) {
+        this.setState({mStatus:value});
     }
 
     educationChange(inputEducation) {
@@ -123,9 +139,49 @@ class AdvancedSearch extends Component {
         });
     }    
 
-    basicSearch(event) {
-        this.setState({searchClicked:true});
-        console.log(this.state.searchClicked);
+    search(event) {
+        if(this.props.location.state.fromPage === "P") {
+            event.preventDefault();
+            const profileId = sessionStorage.getItem("profileId");  
+            console.log(profileId);
+            axios.put(ApiConstant.PREFERENCE_API, 
+                { 
+                    id:profileId,
+                    ageFrom:this.state.ageFrom,
+                    ageTo:this.state.ageTo,
+                    mStatus:this.state.mStatus,
+                    city:this.state.city,
+                    minHeight:this.state.minHeight,
+                    maxHeight:this.state.maxHeight,
+                    foodHabits:this.state.foodHabits,  
+                    religions:getValueArrFromReactSelect(this.state.religions),
+                    castes:getValueArrFromReactSelect(this.state.castes),
+                    countries:getValueArrFromReactSelect(this.state.countries),              
+                    states:getValueArrFromReactSelect(this.state.states)      
+                })
+                .then((res) => {
+                    console.log(res);                
+                    toast.success("Preferences Saved Successfully", 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            testId:20
+                        });
+                }) .catch((error) => {
+                    console.log(error);
+                    toast.error("Server Error Occurred. Please try again", 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            testId:20
+                        });
+                
+                });
+        } else {
+            this.setState({searchClicked:true});
+        }
     }
 
     showProfileChange(event) {
@@ -204,7 +260,7 @@ class AdvancedSearch extends Component {
                     ageTo:this.state.ageTo,
                     minHeight:this.state.minHeight,
                     maxHeight:this.state.maxHeight,
-                    mStatus:populateArray(this.state.mStatus),
+                    mStatus:this.state.mStatus,
                     religions:this.state.religions,
                     education:this.state.education,
                     showProfile:this.state.showProfile,
@@ -292,14 +348,14 @@ class AdvancedSearch extends Component {
                             />
                         </div> 
                     </div>             
-                    <div className="gFieldRow">            
+                    <div className="gFieldRow" style={{paddingTop:'5px'}}>            
                         <div className='glabel'>       
                             <label>Marital Status&nbsp;</label>
                         </div>  
-                        <div className='gfield'>
-                            <MaritalStatusSelect 
-                                maritalStatusChange = {this.maritalStatusChange}
-                                mStatus = {this.state.mStatus}
+                        <div className='gfield' style={{verticalAlign:'top'}}>
+                            <MaritalStatus 
+                              mStatus = {this.state.mStatus}
+                              maritalStatusChange = {this.maritalStatusChange}
                             />
                         </div> 
                     </div>    
@@ -448,7 +504,7 @@ class AdvancedSearch extends Component {
                             />
                         </div>
                     </div>                      
-                    <div className="gFieldRow">
+                    <div className="gFieldRow" style={{paddingTop:'5px'}}>
                         <div className="glabel" style={{verticalAlign:'top'}}>
                             Smoking
                         </div>
@@ -459,7 +515,7 @@ class AdvancedSearch extends Component {
                            />
                         </div>
                     </div>     
-                    <div className="gFieldRow">
+                    <div className="gFieldRow" style={{paddingTop:'5px'}}>
                         <div className="glabel" style={{verticalAlign:'top'}}>
                             Drinking
                         </div>
@@ -471,8 +527,8 @@ class AdvancedSearch extends Component {
                         </div>
                     </div>                               
                 </div>    
-        <div>                               
-            <button onClick={this.basicSearch}>Search</button>  
+        <div style={{paddingBottom:'20px'}}>                               
+            <button onClick={this.search}>Search</button>  
         </div>
     </div>
         );

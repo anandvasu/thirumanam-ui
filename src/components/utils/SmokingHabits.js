@@ -9,44 +9,44 @@ class SmokingHabits extends Component {
 
     handleInputChange(event) {
 
-        let smokinggHabits = [];
+        let smokingHabits = [];
 
         if(document.getElementById("nonS").checked) {
-            smokinggHabits.push(document.getElementById("nonS").value);
+            smokingHabits.push(document.getElementById("nonS").value);
         }
 
         if(document.getElementById("lightS").checked) {
-            smokinggHabits.push(document.getElementById("lightS").value);
+            smokingHabits.push(document.getElementById("lightS").value);
         }
 
         if(document.getElementById("regS").checked) {
-            smokinggHabits.push(document.getElementById("regS").value);
+            smokingHabits.push(document.getElementById("regS").value);
         }
 
-        this.props.smokingHabitChange(smokinggHabits);
+        this.props.smokingHabitChange(smokingHabits);
     }
 
 
     render() {
 
-            let smokinggHabits = this.props.smokinggHabits;
-            if(smokinggHabits === null || smokinggHabits === undefined) {
-                smokinggHabits = "";
+            let smokingHabits = this.props.smokingHabits;
+            if(smokingHabits === null || smokingHabits === undefined) {
+                smokingHabits = "";
             }
 
             return (
                 <div>                   
                     <div>                     
                         <div className="filterLeft">
-                            <input type="checkbox" id="nonS" value="N"  checked={smokinggHabits.includes("N")} value="N" onChange={this.handleInputChange} />Non-smoker
+                            <input type="checkbox" id="nonS" value="N"  checked={smokingHabits.includes("N")} value="N" onChange={this.handleInputChange} />Non-smoker
                         </div>
                         <div className="filterRight">
-                            <input type="checkbox" id="regS" value="R"  checked={smokinggHabits.includes("R")} value="R" onChange={this.handleInputChange}/>Regular Smoker
+                            <input type="checkbox" id="regS" value="R"  checked={smokingHabits.includes("R")} value="R" onChange={this.handleInputChange}/>Regular Smoker
                         </div>                        
                     </div> 
                     <div>                            
                         <div>
-                            <input type="checkbox" id="lightS" value="L"  checked={smokinggHabits.includes("L")} value="L" onChange={this.handleInputChange}/>Light/Social Smoker
+                            <input type="checkbox" id="lightS" value="L"  checked={smokingHabits.includes("L")} value="L" onChange={this.handleInputChange}/>Light/Social Smoker
                         </div>                      
                     </div>                    
                 </div>

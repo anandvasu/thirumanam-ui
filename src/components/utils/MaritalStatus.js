@@ -36,7 +36,6 @@ class MaritalStatus extends Component {
         if(mStatus === null || mStatus === undefined) {
             mStatus = "";
         }
-        console.log("m Status Value:" + mStatus);
         return (
             <div> 
                     <div>                     

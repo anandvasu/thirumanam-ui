@@ -6,7 +6,7 @@ import Age from '../utils/Age';
 import Height from '../utils/Height';
 import ShowProfileSelect from '../utils/ShowProfileSelect';
 import EducationMultiSelect from '../utils/EducationMultiSelect'; 
-import MaritalStatusSelect from '../utils/MaritalStatusSelect';
+import MaritalStatus from '../utils/MaritalStatus';
 import ReligionMultiSelect from '../utils/ReligionMultiSelect';
 import CasteMultiSelect from '../utils/CasteMultiSelect';
 import CountryMultiSelect from '../utils/CountryMultiSelect';
@@ -41,7 +41,7 @@ class BasicSearch extends Component {
             ageTo:Constant.ageTo,
             minHeight:Constant.minHeight,
             maxHeight:Constant.maxHeight,
-            mStatus:"NM",
+            mStatus:[],
             religions:[],
             castes:[],
             countries:[],
@@ -65,8 +65,8 @@ class BasicSearch extends Component {
         this.setState({gender:event.target.value});
     }
 
-    maritalStatusChange(event) {
-        this.setState({mStatus:event.target.value});
+    maritalStatusChange(value) {
+        this.setState({mStatus:value});
     }
 
     educationChange(inputEducation) {
@@ -133,7 +133,7 @@ class BasicSearch extends Component {
                     ageTo:this.state.ageTo,
                     minHeight:this.state.minHeight,
                     maxHeight:this.state.maxHeight,
-                    mStatus:populateArray(this.state.mStatus),
+                    mStatus:this.state.mStatus,
                     religions:this.state.religions,
                     castes:this.state.castes,
                     countries:this.state.countries,
@@ -204,6 +204,17 @@ class BasicSearch extends Component {
                     </div> 
                     <div className="gFieldRow">            
                         <div className='glabel'>       
+                            <label>Marital Status&nbsp;</label>
+                        </div>  
+                        <div className='gfield' style={{verticalAlign:'top'}}>
+                            <MaritalStatus 
+                              mStatus = {this.state.mStatus}
+                              maritalStatusChange = {this.maritalStatusChange}
+                            />
+                        </div> 
+                    </div>  
+                    <div className="gFieldRow">            
+                        <div className='glabel'>       
                             <label>Religion</label>
                         </div>  
                         <div className='gfield'>
@@ -224,18 +235,7 @@ class BasicSearch extends Component {
                                   handleCasteChange = {this.handleCasteChange}
                             />
                         </div>
-                    </div>  
-                    <div className="gFieldRow">            
-                        <div className='glabel'>       
-                            <label>Marital Status&nbsp;</label>
-                        </div>  
-                        <div className='gfield'>
-                            <MaritalStatusSelect 
-                                maritalStatusChange = {this.maritalStatusChange}
-                                mStatus = {this.state.mStatus}
-                            />
-                        </div> 
-                    </div>                    
+                    </div>                                       
                     <div style={{width:'100%',paddingBottom:'5px'}}> 
                         <div className="glabel">
                             <label>Education</label>

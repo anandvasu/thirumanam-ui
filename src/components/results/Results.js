@@ -618,6 +618,10 @@ class Results extends Component {
                                     handleDistrictChange = {this.handleDistrictChange}
                                     incomeObj = {this.state.incomeObj}
                                     handleIncomeChange = {this.handleIncomeChange}
+                                    smokingHabits = {this.state.smokingHabits}
+                                    smokingHabitChange = {this.smokingHabitChange}
+                                    drinkingHabits = {this.state.drinkingHabits}
+                                    drinkingHabitChange = {this.drinkingHabitChange}
                                 />
                             </div>
 

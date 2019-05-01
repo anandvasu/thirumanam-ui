@@ -45,6 +45,7 @@ import Notification from './components/account/Notification';
 import SearchHome from './container/home/SearchHome';
 import RegisterHome from './container/register/RegisterHome';
 import Tandc from './components/home/Tandc';
+import AdvancedSearch from './components/search/AdvancedSearch';
 
 class App extends Component {
  
@@ -120,7 +121,7 @@ class App extends Component {
             <Route path="/notification" component={Notification} /> 
             <Route path="/searchHome" component={SearchHome} /> 
             <Route path="/registerHome" component={RegisterHome} />             
-            <Route path="/tandc" component={Tandc} />             
+            <Route path="/tandc" component={Tandc} />      
         </Aux>
       </Router>
     );
