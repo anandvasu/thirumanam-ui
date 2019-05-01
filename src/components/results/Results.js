@@ -47,7 +47,7 @@ class Results extends Component {
         this.drinkingHabitChange = this.drinkingHabitChange.bind(this);
 
         this.state = {
-            showProfile:"A",
+            showProfile:[],
             ageFrom:Constant.ageFrom,
             ageTo:Constant.ageTo,
             minHeight:Constant.minHeight,
@@ -90,7 +90,7 @@ class Results extends Component {
         const maxHeight = this.props.location.state.maxHeight;
         const gender = this.props.location.state.gender;
         const mStatus = this.props.location.state.mStatus;
-        let showProfile = "A";        
+        let showProfile = [];        
         let education = [];        
         let bodyTypes = [];
         let mtongues = [];
@@ -429,8 +429,8 @@ class Results extends Component {
         
     }
 
-    showProfileChange(event) {
-        this.setState({showProfile:event.target.value});
+    showProfileChange(value) {
+        this.setState({showProfile:value});
     }
 
     minHeightChange(event) {

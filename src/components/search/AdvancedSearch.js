@@ -5,7 +5,7 @@ import ApiConstant from '../utils/ApiConstant';
 import {populateArray, getValueArrFromReactSelect,convertReactSelectValues } from '../utils/Util';
 import Age from '../utils/Age';
 import Height from '../utils/Height';
-import ShowProfileSelect from '../utils/ShowProfileSelect';
+import ShowProfile from '../utils/ShowProfile';
 import EducationMultiSelect from '../utils/EducationMultiSelect'; 
 import MaritalStatus from '../utils/MaritalStatus';
 import ReligionMultiSelect from '../utils/ReligionMultiSelect';
@@ -78,7 +78,7 @@ class AdvancedSearch extends Component {
             education:[],
             occupations:[],
             incomeObj:[],
-            showProfile:"A",
+            showProfile:[],
             foodHabits:[],
             drinkingHabits:[],
             smokingHabits:[]  
@@ -86,10 +86,7 @@ class AdvancedSearch extends Component {
     }
 
     componentDidMount() {
-        console.log("from page:" + this.props.fromPage);
-        console.log("preference:" + this.props.preference);
         if((this.props.fromPage === "P") && (this.props.preference !== null)) {  
-            console.log("inside if loop")
             this.setState({                
                 ageFrom:this.props.preference.searchCriteria.ageGreater,
                 ageTo:this.props.preference.searchCriteria.ageLess,
@@ -181,30 +178,30 @@ class AdvancedSearch extends Component {
             { 
                 id:profileId,
                 searchCriteria: {   
-                                    gender:((sessionStorage.getItem(Constant.USER_GENDER)===Constant.genderM) ? Constant.genderF : Constant.genderM),
-                                    ageGreater:this.state.ageFrom,
-                                    ageLess:this.state.ageTo,
-                                    minHeight:this.state.minHeight,
-                                    maxHeight:this.state.maxHeight,
-                                    maritalStatus:this.state.mStatus,
-                                    religions:getValueArrFromReactSelect(this.state.religions),
-                                    education:getValueArrFromReactSelect(this.state.education),
-                                    showProfile:this.state.showProfile,
-                                    religions:getValueArrFromReactSelect(this.state.religions),
-                                    castes:getValueArrFromReactSelect(this.state.castes),
-                                    gothrams:getValueArrFromReactSelect(this.state.gothrams),
-                                    dhoshams:getValueArrFromReactSelect(this.state.dhoshams),                    
-                                    countries:getValueArrFromReactSelect(this.state.countries),              
-                                    states:getValueArrFromReactSelect(this.state.states),
-                                    districts:getValueArrFromReactSelect(this.state.districts),
-                                    educations:getValueArrFromReactSelect(this.state.educations),
-                                    occupations:getValueArrFromReactSelect(this.state.occupations),
-                                    incomeObj:getValueArrFromReactSelect(this.state.incomeObj),
-                                    foodHabits:this.state.foodHabits,
-                                    smokingHabits:this.state.smokingHabits,
-                                    drinkingHabits:this.state.drinkingHabits,
-                                    mtongues:getValueArrFromReactSelect(this.state.mtongues)
-                                }   
+                    gender:((sessionStorage.getItem(Constant.USER_GENDER)===Constant.genderM) ? Constant.genderF : Constant.genderM),
+                    ageGreater:this.state.ageFrom,
+                    ageLess:this.state.ageTo,
+                    minHeight:this.state.minHeight,
+                    maxHeight:this.state.maxHeight,
+                    maritalStatus:this.state.mStatus,
+                    religions:getValueArrFromReactSelect(this.state.religions),
+                    education:getValueArrFromReactSelect(this.state.education),
+                    showProfile:this.state.showProfile,
+                    religions:getValueArrFromReactSelect(this.state.religions),
+                    castes:getValueArrFromReactSelect(this.state.castes),
+                    gothrams:getValueArrFromReactSelect(this.state.gothrams),
+                    dhoshams:getValueArrFromReactSelect(this.state.dhoshams),                    
+                    countries:getValueArrFromReactSelect(this.state.countries),              
+                    states:getValueArrFromReactSelect(this.state.states),
+                    districts:getValueArrFromReactSelect(this.state.districts),
+                    educations:getValueArrFromReactSelect(this.state.educations),
+                    occupations:getValueArrFromReactSelect(this.state.occupations),
+                    incomeObj:getValueArrFromReactSelect(this.state.incomeObj),
+                    foodHabits:this.state.foodHabits,
+                    smokingHabits:this.state.smokingHabits,
+                    drinkingHabits:this.state.drinkingHabits,
+                    mtongues:getValueArrFromReactSelect(this.state.mtongues)
+                }   
             })
             .then((res) => {
                 console.log(res);                
@@ -232,8 +229,8 @@ class AdvancedSearch extends Component {
         this.setState({searchClicked:true});        
     }
 
-    showProfileChange(event) {
-        this.setState({showProfile:event.target.value});
+    showProfileChange(value) {
+        this.setState({showProfile:value});
     }
   
     handleReligionChange(option) {
@@ -333,12 +330,13 @@ class AdvancedSearch extends Component {
                 <div>
                     <div className={this.props.prefClassName}>
                         <div className="gFieldRow"> 
-                            <div className="glabel">
+                            <div className="glabel" style={{verticalAlign:'top'}}>
                                 <label>Profile</label>
                             </div>
                             <div className="gfield">
-                            <ShowProfileSelect 
+                            <ShowProfile 
                                     showProfileChange={this.showProfileChange}
+                                    showProfile = {this.state.showProfile}
                                 />
                             </div>  
                         </div> 

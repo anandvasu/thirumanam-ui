@@ -4,7 +4,7 @@ import Constant from '../utils/Constant';
 import {populateArray} from '../utils/Util';
 import Age from '../utils/Age';
 import Height from '../utils/Height';
-import ShowProfileSelect from '../utils/ShowProfileSelect';
+import ShowProfile from '../utils/ShowProfile';
 import EducationMultiSelect from '../utils/EducationMultiSelect'; 
 import MaritalStatus from '../utils/MaritalStatus';
 import ReligionMultiSelect from '../utils/ReligionMultiSelect';
@@ -49,7 +49,7 @@ class BasicSearch extends Component {
             districts:[],
             education:[],
             mtongues:DropDownConstant.mtongue_DF,
-            showProfile:"A"
+            showProfile:[]
         }
     }
 
@@ -118,8 +118,8 @@ class BasicSearch extends Component {
         console.log(this.state.searchClicked);
     }
 
-    showProfileChange(event) {
-        this.setState({showProfile:event.target.value});
+    showProfileChange(value) {
+        this.setState({showProfile:value});
     }
 
     render () {
@@ -147,6 +147,17 @@ class BasicSearch extends Component {
         }
         return (
                 <div>
+                    <div className="gFieldRow"> 
+                        <div className="glabel" style={{verticalAlign:'top'}}>
+                            <label>Profile</label>
+                        </div>
+                        <div className="gfield">
+                           <ShowProfile 
+                                showProfileChange={this.showProfileChange}
+                                showProfile = {this.state.showProfile}
+                            />
+                        </div>  
+                    </div> 
                     { (sessionStorage.getItem(Constant.USER_PROFILE_ID) == null) && 
                     <div className="gFieldRow">
                         <div className='glabel'>
@@ -281,17 +292,7 @@ class BasicSearch extends Component {
                                  handleDistrictChange = {this.handleDistrictChange}
                             />
                         </div>
-                    </div>       
-                    <div className="gFieldRow"> 
-                        <div className="glabel">
-                            <label>Profile</label>
-                        </div>
-                        <div className="gfield">
-                           <ShowProfileSelect 
-                                showProfileChange={this.showProfileChange}
-                            />
-                        </div>  
-                    </div> 
+                    </div>      
                     <div>                               
                         <button onClick={this.basicSearch}>Search</button>  
                     </div>

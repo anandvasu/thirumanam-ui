@@ -5,7 +5,7 @@ import MaritalStatus from '../utils/MaritalStatus';
 import OccupationMultiSelect from '../utils/OccupationMultiSelect';
 import BodyType from '../utils/BodyType';
 import FoodHabit from '../utils/FoodHabit';
-import ShowProfileSelect from '../utils/ShowProfileSelect';
+import ShowProfile from '../utils/ShowProfile';
 import './Filter.css';
 import EducationMultiSelect from '../utils/EducationMultiSelect';
 import ReligionMultiSelect from '../utils/ReligionMultiSelect';
@@ -37,11 +37,11 @@ function filter (props) {
             </div>
                 <div className="header3Parent">
                     <div className="header3"><label>Show Profile</label></div>
-                    <div className="filterContent">
-                            <ShowProfileSelect 
+                    <div className="filterContent">                               
+                        <ShowProfile 
                                 showProfileChange={props.showProfileChange}
-                                showProfile={props.showProfile}
-                            />                                  
+                                showProfile = {props.showProfile}
+                            />                            
                     </div>                             
                 </div>
                 <div className="header3Parent">
