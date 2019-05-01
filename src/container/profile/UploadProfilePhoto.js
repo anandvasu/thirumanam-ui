@@ -134,6 +134,17 @@ class UploadProfilePhoto extends Component {
                             </div>                    
                         </div>
                     }
+                    <div style={{paddingTop:'20px',textAlign:'left'}}>
+                        <label><b>Recommended Dimensions and Size:</b></label>
+                        <div style={{paddingTop:'10px'}}>                            
+                            <label>Size:</label>
+                            <label><b>1MB (Max)</b></label>
+                        </div>
+                        <div style={{paddingTop:'10px'}}>
+                            <label>Pixels:</label>
+                            <label><b>300 X 200</b></label>
+                        </div>
+                    </div>
                </div> 
                <Footer />
             </div>

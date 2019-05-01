@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {toast} from 'react-toastify';
 import {
     withRouter
   } from 'react-router-dom';
@@ -48,6 +49,8 @@ class SearchMenu extends Component {
         }
         this.goToMessageHome = this.goToMessageHome.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.viewProfile = this.viewProfile.bind(this);
+        
     }
 
     handleChange(event, value) {
@@ -77,6 +80,46 @@ class SearchMenu extends Component {
             
         });
         this.props.refreshFooter();
+    }
+
+    viewProfile(event) {
+
+        event.preventDefault();
+
+        const profileId = document.getElementById("profileId").value;
+
+        if (String.prototype.trim.call(profileId) !== "") {
+
+            axios.get(ApiConstant.USER_API+profileId+"?userId="+sessionStorage.getItem(Constant.USER_PROFILE_ID))
+                .then((response) => {
+                    if(response.status === 200) {
+                        this.props.history.push({
+                            pathname: '/viewProfile',
+                            state: {
+                                profile:response.data
+                            }
+                        });
+                    }
+                }).catch(function (error) {
+                    if (error.response.status === 400) {
+                        toast.error("Invalid Profile ID. Profile ID doesn't exist.", 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            toastId:Constant.toastIdErr
+                        });
+                    }
+                  });
+        } else {
+            toast.error("Please enter Profile ID", 
+                {
+                    position:toast.POSITION.TOP_CENTER,
+                    hideProgressBar:true,
+                    autoClose:3000,
+                    toastId:Constant.toastIdErr
+                });
+        } 
     }
 
     render() {
@@ -113,11 +156,11 @@ class SearchMenu extends Component {
                             <label>Profile ID</label>
                         </div>
                         <div className="rdfield">
-                           <input type="text" />
+                           <input type="text" id="profileId"/>
                         </div>  
                     </div> 
-                    <div>                               
-                        <button onClick={this.quickSearch}>Search</button>  
+                    <div style={{paddingTop:'10px'}}>                               
+                        <button onClick={this.viewProfile}>Search</button>  
                     </div>
                 </TabContainer>
                 }               

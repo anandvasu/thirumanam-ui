@@ -9,7 +9,7 @@ function motherTongueSelect(props) {
             <Select
                 name="filters"
                 value={props.mTongueObj}
-                options={DropDownConstant.motherTongueValues}
+                options={DropDownConstant.motherTongueSValues}
                 onChange={props.handleMTongueChange}
                 />
         </div>

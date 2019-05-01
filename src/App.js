@@ -67,7 +67,7 @@ class App extends Component {
       }    
       return config;
     }, function(err) {
-      return Promise.reject(err);
+      return err;
     });
  
     createAuthRefreshInterceptor(axios, refreshAuthLogic, {

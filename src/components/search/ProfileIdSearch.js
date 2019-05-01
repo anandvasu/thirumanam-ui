@@ -31,10 +31,19 @@ class ProfileIdSearch extends Component {
                             state: {
                                 profile:response.data
                             }
-                }).catch((err) => {
-                        
+                        });
+                }).catch((error) => {
+                    if (error.response.status === 400) {
+                        toast.error("Invalid Profile ID. Profile ID doesn't exist.", 
+                        {
+                            position:toast.POSITION.TOP_CENTER,
+                            hideProgressBar:true,
+                            autoClose:3000,
+                            toastId:Constant.toastIdErr
+                        });
+                    }
                 });
-            });
+ 
         } else {
             toast.error("Please enter Profile ID", 
                 {
