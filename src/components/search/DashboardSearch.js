@@ -5,7 +5,7 @@ import './DashboardSearch.css';
 import {toast} from 'react-toastify';
 import Height from '../../components/utils/Height';
 import Age from '../../components/utils/Age';
-import ReligionSelect from '../utils/ReligionSelect';
+import ReligionMultiSelect from '../utils/ReligionMultiSelect';
 import MaritalStatusSelect from '../utils/MaritalStatusSelect';
 import Constant from '../utils/Constant';
 import ApiConstant from '../utils/ApiConstant';
@@ -27,7 +27,7 @@ class DashboardSearch extends Component {
         this.maritalStatusChange = this.maritalStatusChange.bind(this);
         this.minHeightChange = this.minHeightChange.bind(this);
         this.maxHeightChange = this.maxHeightChange.bind(this);
-        this.religionChangeHandler = this.religionChangeHandler.bind(this);
+        this.handleReligionChange = this.handleReligionChange.bind(this);
         this.viewProfile = this.viewProfile.bind(this);
 
         this.state = {
@@ -40,7 +40,6 @@ class DashboardSearch extends Component {
             mStatus:"NM",
             religions:[],
             gothrams:[],
-            religionValue:null        
         }
     }
 
@@ -70,10 +69,9 @@ class DashboardSearch extends Component {
         });    
     }
     
-    religionChangeHandler(valueObj) {
+    handleReligionChange(valueObj) {
         this.setState({
-            religions:populateArray(valueObj),
-            religionValue:valueObj.value
+            religions:valueObj
         });
     }
    
@@ -117,14 +115,15 @@ class DashboardSearch extends Component {
         if (this.state.searchClicked === true) {
             return <Redirect to= {{
                 pathname:'/results',
-                state:{                   
+                state:{          
+                    fromPage:"D",
                     ageFrom:this.state.ageFrom,
                     ageTo:this.state.ageTo,
                     minHeight:this.state.minHeight,
                     maxHeight:this.state.maxHeight,
                     gender:this.state.gender,
                     mStatus:populateArray(this.state.mStatus),
-                    religions:populateArray(this.state.religionValue)
+                    religions:this.state.religions
                 }
                 }}/>
         }
@@ -179,9 +178,9 @@ class DashboardSearch extends Component {
                             <label>Religion:</label>
                         </div> 
                         <div className="dashRightField">
-                             <ReligionSelect 
+                             <ReligionMultiSelect 
                                 religions = {this.state.religions}
-                                religionChangeHandler = {this.religionChangeHandler}
+                                handleReligionChange = {this.handleReligionChange}
                              />
                         </div>
                     </div>                                      

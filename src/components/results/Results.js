@@ -109,7 +109,7 @@ class Results extends Component {
         let drinkingHabits = [];
 
 
-        if(this.props.location.state.fromPage === "MyMatch") {
+        if(this.props.location.state.fromPage === "MyMatch" || this.props.location.state.fromPage === "D") {
             religions = this.props.location.state.religions;                
         } 
 
