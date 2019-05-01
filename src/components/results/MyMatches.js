@@ -202,7 +202,7 @@ class MyMatches extends Component {
         }) .then((res) => {
            // Update User Detail to session
            console.log(res);
-           const totalMatches = res.headers["x-total-docs"]; 
+           const totalMatches = parseInt(res.headers["x-total-docs"]); 
            if(res.data.prefernceExists === true) {                
                 this.displayResults(res.data.userList, totalMatches);
            } else {
@@ -276,11 +276,23 @@ class MyMatches extends Component {
                         }
                     </div>
                <div className="hs10" />
-                    {this.state.prefExists && this.state.content}
+                    {this.state.prefExists && (this.state.totalMatches > 0) && 
+                        <div>
+                            {this.state.content}
+                        </div>    
+                    }
                     {(this.state.prefExists === false) && 
                        <div style={{textAlign:'left',paddingLeft:'5px'}}>
                             <label className="text14pxNormal">
                                 You don't have updated your partner preferences. Please update your partner preferences&nbsp;  
+                                <a href="#" onClick={this.goToPreferences}> here</a>.
+                            </label>
+                        </div>
+                    }
+                    {(this.state.prefExists === true) && (this.state.totalMatches === 0) &&
+                       <div style={{textAlign:'left',paddingLeft:'5px'}}>
+                            <label className="text14pxNormal">
+                                No profiles available matching your prferences. Please check and update your proferences&nbsp;   
                                 <a href="#" onClick={this.goToPreferences}> here</a>.
                             </label>
                         </div>

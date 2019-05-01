@@ -3,7 +3,6 @@ import MaritalStatusSelect from '../utils/MaritalStatusSelect';
 
 function completePersonalDetail (props) {
 
-    console.log("mStatus:" + props.mStatus);
     return (
         <div className="sectionParentDiv">
             <div> 

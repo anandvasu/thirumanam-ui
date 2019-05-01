@@ -10,7 +10,7 @@ function occupationMultiSelect(props) {
                 name="filters"
                 placeholder={DropDownConstant.dropdownDefault}
                 value={props.occupations}
-                options={DropDownConstant.employmentValues}
+                options={DropDownConstant.occupationValues}
                 onChange={props.handleOccupationChange}
                 isMulti = {true}
                 />

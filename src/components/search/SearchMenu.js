@@ -15,7 +15,6 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import BasicSearch from './BasicSearch';
 import AdvancedSearch from './AdvancedSearch';
-import ProfileIdSearch from './ProfileIdSearch';
 
 function TabContainer(props) {
     return (
@@ -125,8 +124,8 @@ class SearchMenu extends Component {
     render() {
         const { classes } = this.props;
         return(
-            <div style={{border:"1px solid darkgrey"}}>
-               <div style={{backgroundColor:"#FFFFFF"}}>
+            <div className="homeFullSection" style={{backgroundColor:"#FFFFFF"}}>
+               <div>
                 <Paper square className={classes.root}>
                     <Tabs value={this.state.selectedTab} 
                         onChange={this.handleChange} 

@@ -30,6 +30,8 @@ class Results extends Component {
         this.handleIncomeChange = this.handleIncomeChange.bind(this);        
         this.showProfileChange = this.showProfileChange.bind(this);          
         this.handleMTongueChange = this.handleMTongueChange.bind(this);     
+        this.minHeightChange = this.minHeightChange.bind(this); 
+        this.maxHeightChange = this.maxHeightChange.bind(this); 
 
         this.handleReligionChange = this.handleReligionChange.bind(this);        
         this.handleCasteChange = this.handleCasteChange.bind(this);        

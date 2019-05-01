@@ -14,7 +14,7 @@ import MessageSummary from '../../components/message/MessageSummary';
 import axios from 'axios';
 import ApiConstant from '../../components/utils/ApiConstant';
 import ProfileIdSearch from '../../components/search/ProfileIdSearch';
-
+import Aboutus from '../../components/home/Aboutus';
 
 class LoggedInHome extends Component {
 
@@ -81,6 +81,9 @@ class LoggedInHome extends Component {
                         </div>
 
                         </div>
+                        <div className='hs30' />
+                                <Aboutus /> 
+                        <div className="hs100" />
                         <Footer />                       
                 </div>                        
                 );

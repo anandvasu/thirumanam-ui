@@ -104,7 +104,7 @@ export default {
          { value:"PHD", label: "Ph.d"},
          { value:"PTECH", label: "Polytechnic"}     
       ],
-      employmentValues :[
+      occupationValues :[
          { value: "G", label: "Government" },
          { value: "P", label: "Private" },
          { value: "B", label: "Business" },
