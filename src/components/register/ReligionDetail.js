@@ -35,7 +35,7 @@ function religionDetail(props) {
                         <label>Caste</label>
                     </div>            
                     <div className='rdfield'>
-                        <input type="text" onBlur={props.OtherCasteChange} />                        
+                        <input type="text" onChange={props.otherCasteChange} />                        
                     </div>                        
                 </div>
 

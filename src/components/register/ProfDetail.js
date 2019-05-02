@@ -1,5 +1,8 @@
 import React from 'react';
 import EducationSelect from '../utils/EducationSelect';
+import EmploymentRadio from '../utils/EmploymentRadio';
+import OccupationSelect from '../utils/OccupationSelect';
+import IncomeSelect from '../utils/IncomeSelect';
 
 function profDetail (props) {
     return (
@@ -11,7 +14,7 @@ function profDetail (props) {
             </div>
 
             <div className="sectionDataDiv">     
-                <div className="gFieldRow">                         
+                <div className="gFieldRow" style={{paddingTop:'10px'}}>                         
                     <div className='rdlabel'>
                             <label>Education</label>
                     </div>
@@ -19,25 +22,20 @@ function profDetail (props) {
                     <div className='rdfield'>
                         <EducationSelect 
                             educationObj = {props.educationObj}
-                            educationChange = {props.educationChange}
+                            handleEducationChange = {props.handleEducationChange}
                         />
                     </div>
                 </div>
 
-                <div className="gFieldRow">
-                    <div className='rdlabel'>
+                <div className="gFieldRow" style={{paddingTop:'5px', paddingBottom:'5px'}}>
+                    <div className='rdlabel' style={{verticalAlign:'top'}}>
                             <label>Employment</label>
                     </div>                    
-                    <div className='rdfield'>
-                    <select  onChange={props.employmentChange} value={props.employment}>
-                            <option value="">--Select--</option>
-                            <option value="G">Government</option>
-                            <option value="P">Private</option>
-                            <option value="B">Business</option> 
-                            <option value="D">Defence</option> 
-                            <option value="S">Self Employed</option>    
-                            <option value="N">Not Working</option>                            
-                        </select>
+                    <div className='rdfield'>                   
+                        <EmploymentRadio 
+                            handleEmploymentChange = {props.handleEmploymentChange}
+                            employment = {props.employment}
+                        />
                     </div>                        
                 </div>
 
@@ -46,19 +44,25 @@ function profDetail (props) {
                             <label>Occupation</label>
                     </div>                    
                     <div className='rdfield'>
-                        <div className="fieldLen200"> 
-                            <input type="text" onBlur={props.occupationChange} defaultValue={props.occupation}/>                         
+                        <div className="rdfield">  
+                            <OccupationSelect 
+                                occupationObj = {props.occupationObj}
+                                handleOccupationChange = {props.handleOccupationChange}
+                            />
                         </div>
                     </div>                        
                 </div>
 
                 <div className="gFieldRow">
                     <div className='rdlabel'>
-                            <label>Income</label>
+                            <label>Income (Indian Rs.)</label>
                     </div>                    
                     <div className='rdfield'>
-                        <div className="fieldLen200"> 
-                            <input type="text" onBlur={props.incomeChange} defaultValue={props.income}/>                         
+                        <div className="rdfield">   
+                            <IncomeSelect 
+                                incomeObj = {props.incomeObj}
+                                handleIncomeChange = {props.handleIncomeChange}
+                            />                    
                         </div>
                     </div>                        
                 </div>

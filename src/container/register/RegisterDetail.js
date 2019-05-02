@@ -45,10 +45,10 @@ class RegisterDetail extends Component {
         this.cityChange = this.cityChange.bind(this);
         this.otherStateChange = this.otherStateChange.bind(this);       
 
-        this.educationChange = this.educationChange.bind(this);
-        this.employmentChange = this.employmentChange.bind(this);
-        this.incomeChange = this.incomeChange.bind(this);
-        this.occupationChange = this.occupationChange.bind(this);
+        this.handleEducationChange = this.handleEducationChange.bind(this);
+        this.handleEmploymentChange = this.handleEmploymentChange.bind(this);
+        this.handleIncomeChange = this.handleIncomeChange.bind(this);
+        this.handleOccupationChange = this.handleOccupationChange.bind(this);
 
         this.aboutGroomBrideChange = this.aboutGroomBrideChange.bind(this); 
 
@@ -88,7 +88,9 @@ class RegisterDetail extends Component {
             educationObj:[],
             education:"",
             employment:"",
-            occupation:"",
+            occupationObj:[],
+            occupation:0,
+            incomeObj:[],
             income:0,         
             about:"",
             updateSuccess:false            
@@ -105,6 +107,7 @@ class RegisterDetail extends Component {
         this.handleReligionFields(religionValue);
         this.handleLocationFields(this.state.country, this.state.pstate);
         document.getElementById("disablityReason").style.display = "none";
+        console.log("Religion Value:"+religionValue);
     }
 
     //Personal Detail Changes
@@ -160,12 +163,18 @@ class RegisterDetail extends Component {
             document.getElementById("otherCaste").style.display = "none";
             document.getElementById("otherGothram").style.display = "none";
             document.getElementById("otherDhosham").style.display = "none";
-        } else if ((religionValue === 4) || (religionValue === 5) || (religionValue === 6)) { 
+        } else if ((religionValue === 4) || (religionValue === 5) || 
+            (religionValue === 6) || (religionValue === 2) || (religionValue === 3)
+            || (religionValue === 7) || (religionValue === 8) || (religionValue === 9) || (religionValue === 10)) { 
             document.getElementById("otherCaste").style.display = "none";  
             document.getElementById("gothram").style.display = "none";
             document.getElementById("hinduDhosham").style.display = "none";
+            document.getElementById("otherGothram").style.display = "none";
+            document.getElementById("otherDhosham").style.display = "none";
         } else {
             document.getElementById("caste").style.display = "none";
+            document.getElementById("gothram").style.display = "none";
+            document.getElementById("hinduDhosham").style.display = "none";
         }
     }
 
@@ -275,23 +284,29 @@ class RegisterDetail extends Component {
     //Location Changes - Starts
 
     //Professional Changes - Starts
-    occupationChange(event) {
-        this.setState({occupation:event.target.value});
+    handleOccupationChange(valueObj) {
+        this.setState({
+            occupationObj:populateArray(valueObj),
+            occupation:valueObj.value
+        });
     }
 
-    educationChange(valueObj) {
+    handleEducationChange(valueObj) {
         this.setState({
             educationObj:populateArray(valueObj),
             education:valueObj.value
         });
     }
 
-    employmentChange(event) {
+    handleEmploymentChange(event) {
         this.setState({employment:event.target.value});
     }
 
-    incomeChange(event) {
-        this.setState({income:event.target.value});
+    handleIncomeChange(valueObj) {
+        this.setState({
+            incomeObj:populateArray(valueObj),
+            income:valueObj.value
+        });
     }   
     //Location Changes - Ends
 
@@ -318,13 +333,13 @@ class RegisterDetail extends Component {
             errorMessage = "Please enter District."; 
         } else if (this.state.city === "") {
             errorMessage = "Please enter City."; 
-        } else if ((this.state.caste === 0) && (this.state.otherCaste ==="")) {
+        } else if ((this.state.religion === 1) && (this.state.caste === 0) && (this.state.otherCaste ==="")) {
             errorMessage = "Please enter Caste."; 
         } else if (this.state.education === "") {
             errorMessage = "Please select Education."; 
         } else if (this.state.employment === "") {
             errorMessage = "Please select Employment."; 
-        } else if (this.state.occupation === "") {
+        } else if (this.state.occupation === 0) {
             errorMessage = "Please enter Occupation."; 
         } else if (this.state.income === 0) {
             errorMessage = "Please enter income."; 
@@ -468,13 +483,13 @@ class RegisterDetail extends Component {
                      <div className="hs10" />
                     <ProfDetail 
                         educationObj = {this.educationObj}
-                        educationChange = {this.educationChange}
-                        employmentChange = {this.employmentChange}
-                        incomeChange = {this.incomeChange}
-                        occupationChange = {this.occupationChange}
+                        handleEducationChange = {this.handleEducationChange}
+                        handleEmploymentChange = {this.handleEmploymentChange}
+                        handleIncomeChange = {this.handleIncomeChange}
+                        handleOccupationChange = {this.handleOccupationChange}
                         occupation = {this.state.occupation}
                         education = {this.state.education}
-                        income = {this.state.income}
+                        incomeObj = {this.state.incomeObj}
                         employment = {this.state.employment}
                     />
                     <div className="hs10" />

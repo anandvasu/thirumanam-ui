@@ -2,19 +2,21 @@ import React from 'react';
 import Select from "react-select";
 import DropDownConstant from './DropDownConstant';
 
-function educationMultiSelect(props) {       
+function employmentMultiSelect(props) {
+
     return(
         <div>
             <Select
                 name="filters"
                 placeholder={DropDownConstant.dropdownDefault}
-                value={props.education}
-                options={DropDownConstant.educationValues}
-                onChange={props.handleEducationChange}
+                value={props.employments}
+                options={DropDownConstant.employmentValues}
+                onChange={props.handleEmploymentChange}
                 isMulti = {true}
                 />
         </div>
-    ) ; 
+    ) ;
+
 }
 
-export default educationMultiSelect;
+export default employmentMultiSelect;

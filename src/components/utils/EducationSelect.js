@@ -11,7 +11,7 @@ function educationSelect(props) {
                     placeholder="--Select--"
                     value={props.educationObj}
                     options={DropDownConstant.educationValues}
-                    onChange={props.educationChange}
+                    onChange={props.handleEducationChange}
                     />
         </div>
     );
