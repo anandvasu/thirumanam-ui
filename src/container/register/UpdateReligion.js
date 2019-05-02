@@ -49,64 +49,8 @@ class UpdateReligion extends Component {
         const religionValue = this.props.location.state.religion;
         this.handleReligionFields(religionValue);
        
-    }
-
-    casteChange(valueObj) {
-        this.setState(
-            {
-                casteObj:populateArray(valueObj),
-                caste:valueObj.value
-            }
-        );
-    }
-
-    handleReligionFields(religionValue) {
-        if(parseInt(religionValue) === 1) {
-            document.getElementById("otherCaste").style.display = "none";
-            document.getElementById("otherGothram").style.display = "none";
-            document.getElementById("otherDhosham").style.display = "none";
-        } else if ((religionValue === 4) || (religionValue === 5) || (religionValue === 6)) { 
-            document.getElementById("otherCaste").style.display = "none";  
-            document.getElementById("gothram").style.display = "none";
-            document.getElementById("hinduDhosham").style.display = "none";
-        } else {
-            document.getElementById("caste").style.display = "none";
-        }
-    }
-
-    otherCasteChange(event) {
-        this.setState({otherCaste:event.target.value});
-    }
-
-    subCasteChange(event) {
-        this.setState({subcaste:event.target.value});
-    }
-
-    gothramChange(valueObj) {
-        this.setState(
-            {
-                gothramObj:populateArray(valueObj),
-                gothram:valueObj.value
-            }
-        );
-    }
-
-    otherGothramChange(event) {
-        this.setState({gothram:event.target.value});
-    }
-
-    hinduDhoshamChange(valueObj) {
-        this.setState(
-            {
-                dhoshamObj:populateArray(valueObj),
-                dhosham:valueObj.value
-            }
-        );
-    }
-    otherDhoshamChange(event) {
-        this.setState({dhosham:event.target.value});
-    }
-
+    }   
+   
     doThisLater() {
        this.redirectLocationDetail();
     }

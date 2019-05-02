@@ -54,10 +54,10 @@ class UploadHoroscope extends Component {
     redirectToUpdageGroomBride() {
         this.props.history.push(
             {
-                pathname:'/updateGroomBride' ,
+                pathname:'/confirmSignUp' ,
                 state:{
                     profileId : this.state.profileId,
-                    email : this.state.email
+                    username:this.state.email
                 }                                   
             }
         );

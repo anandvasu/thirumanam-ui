@@ -211,7 +211,7 @@ class Register extends Component {
 
         if (this.state.registersuccess === true) {
             return <Redirect to= {{
-                        pathname:'/updatePersonal' ,
+                        pathname:'/register' ,
                         state:{
                             profileId:this.state.profileId,
                             email:this.state.email,

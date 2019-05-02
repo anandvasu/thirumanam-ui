@@ -44,7 +44,7 @@ class UpdatePersonal extends Component {
     }
 
     componentDidMount() {
-        document.getElementById("disablityReason").style.display = "none";
+       
         this.setState({
             profileId : this.props.location.state.profileId,
             email : this.props.location.state.email,

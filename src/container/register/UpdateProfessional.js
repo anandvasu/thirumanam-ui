@@ -15,11 +15,12 @@ class UpdateProfessional extends Component {
         this.educationChange = this.educationChange.bind(this);
         this.employmentChange = this.employmentChange.bind(this);
         this.incomeChange = this.incomeChange.bind(this);
+        this.occupationChange = this.occupationChange.bind(this);
 
         this.redirectToProfImage = this.redirectToProfImage.bind(this);
         this.doThisLater = this.doThisLater.bind(this);
         this.updateProfDetail = this.updateProfDetail.bind(this);
-        this.occupationChange = this.occupationChange.bind(this);
+        
 
         this.state = {
             educationObj:[],

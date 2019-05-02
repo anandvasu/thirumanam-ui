@@ -293,7 +293,7 @@ class BasicSearch extends Component {
                             />
                         </div>
                     </div>      
-                    <div>                               
+                    <div style={{paddingTop:'20px'}}>                               
                         <button onClick={this.basicSearch}>Search</button>  
                     </div>
                 </div>
