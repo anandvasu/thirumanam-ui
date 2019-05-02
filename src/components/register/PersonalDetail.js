@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 function personalDetail(props) {   
    
     return (
-                <div>
+                <div className="sectionParentDiv">
                     <div> 
                         <div className='header2allborder'>
                                 <label>Personal Information</label>

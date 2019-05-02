@@ -185,7 +185,8 @@ class Results extends Component {
             mtongues,
             smokingHabits,
             drinkingHabits,
-            1
+            1,
+            false
         );    
     }
 
@@ -213,7 +214,8 @@ class Results extends Component {
             this.state.mtongues,
             this.state.smokingHabits,
             this.state.drinkingHabits,
-            1
+            1,
+            false
         ); 
     }
 
@@ -266,7 +268,8 @@ class Results extends Component {
         aMtongues,
         aSmokingHabits,
         aDrinkingHabits,
-        pageNumber) {
+        pageNumber,
+        pageClick) {
         var totalDocs = 0;
         axios.post(ApiConstant.USER_SEARCH_API, { 
             showProfile:aShowProfile,
@@ -292,7 +295,8 @@ class Results extends Component {
             mtongues:getValueArrFromReactSelect(aMtongues),
             smokingHabits:aSmokingHabits,
             drinkingHabits:aDrinkingHabits,
-            pageNumber:pageNumber 
+            pageNumber:pageNumber,
+            pageClick:pageClick
          })
          .then(function (res) {
              totalDocs = res.headers["x-total-docs"]; 
@@ -421,7 +425,8 @@ class Results extends Component {
             this.state.mtongues,
             this.state.smokingHabits,
             this.state.drinkingHabits,
-            pageNumber
+            pageNumber,
+            true
         );
     }
 
