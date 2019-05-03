@@ -444,12 +444,12 @@ hr {
 
 .gfield {
   display: inline-block;
-  width: 320px;
+  width: 400px;
   text-align: left;
 }
 
 .gfieldLong {
   display: inline-block;
-  width: 450px;
+  width: 400px;
   text-align: left;
 }

@@ -521,7 +521,7 @@ class AdvancedSearch extends Component {
                             <div className="glabel">
                                 <label>Education</label>
                             </div>
-                            <div className="gfieldLong">
+                            <div className="gfield">
                                 <EducationMultiSelect 
                                     educations = {this.state.educations}
                                     handleEducationChange = {this.handleEducationChange}
