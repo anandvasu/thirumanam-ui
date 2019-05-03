@@ -109,7 +109,7 @@ class AdvancedSearch extends Component {
                 states:convertReactSelectValues(this.props.preference.searchCriteria.states, LocationDropdownConsts.indiaStates),             
                 districts:convertReactSelectValues(this.props.preference.searchCriteria.districts, LocationDropdownConsts.tamilnaduDistricts),
                 educations:convertReactSelectValues(this.props.preference.searchCriteria.educations, DropDownConstant.educationValues),
-                occupations:convertReactSelectValues(this.props.preference.searchCriteria.occupations, DropDownConstant.occupationValues),     
+                occupations:convertReactSelectValues(this.props.preference.searchCriteria.occupations, DropDownConstant.occupationValuesAll),     
                 mtongues:convertReactSelectValues(this.props.preference.searchCriteria.mtongues, DropDownConstant.motherTongueValues),   
                 employments:this.props.preference.searchCriteria.employments,           
                 foodHabits:this.props.preference.searchCriteria.foodHabits,

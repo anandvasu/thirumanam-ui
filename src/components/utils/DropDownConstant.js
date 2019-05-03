@@ -113,7 +113,166 @@ export default {
          { value: "N", label: "Not Working" }      
       ],   
       occupationValues :[
-         { value:0, label: "--ADMIN--"},
+         {
+            label: "--ADMIN--",
+            options: [
+              { value:10, label: "Administrative Professional" },
+              { value:15, label: "Clerk"},
+              { value:20, label: "Executive"},
+              { value:25, label: "Human Resource Professional - HR"},
+              { value:30, label: "Manager"},
+              { value:35, label: "Officer"},
+              { value:40, label: "Supervisor"}
+            ]
+          },     
+          {
+            label: "--AGRICULTURE--",
+            options: [
+               { value:50, label: "Agriculture & Farming Professional"}
+            ]
+          },
+          {
+            label: "--AIRLINE--",
+            options: [
+               { value:60, label: "Pilot"},
+               { value:65, label: "Air Hostes"},
+               { value:70, label: "Airline Professional"},
+               { value:75, label: "Aiport Services"},
+            ]
+          },
+          {
+            label: "--ARCHITECT--",
+            options: [
+               { value:85, label: "Architect"},
+               { value:90, label: "Interior Designer"},
+            ]
+          },
+          {
+            label: "--BANKING & FINANCE--",
+            options: [
+               { value:100, label: "Accounts Finance Professional"},
+               { value:105, label: "Aditor"},
+               { value:110, label: "Banking Service Professional"},
+               { value:115, label: "Charted Accountant"},
+               { value:120, label: "Company Secretary"},
+               { value:125, label: "Financial Accountant"},
+               { value:130, label: "Financial Analyst/Planning"},
+            ]
+          },
+          {
+            label: "--BEAUTY & FASHION--",
+            options: [
+               { value:140, label: "Beautician"},
+               { value:145, label: "Fashion Designer"},
+            ]
+          },
+          {
+            label: "--CIVIL SERVICES--",
+            options: [
+               { value:155, label: "Civil Services -IAS"},
+               { value:160, label: "Civil Services -IES"},
+               { value:165, label: "Civil Services -IFS"},
+               { value:170, label: "Civil Services -IPS"},
+               { value:175, label: "Civil Services -IRS"},
+            ]
+          },       
+          {
+            label: "--DEFENCE--",
+            options: [
+               { value:185, label: "Army"},
+               { value:190, label: "Navy"},
+               { value:195, label: "Airforce"},
+            ]
+          },
+          {
+            label: "--EDUCATION--",
+            options: [
+               { value:205, label: "Education Professional"},
+               { value:210, label: "Professor/Lecturer"},
+               { value:215, label: "Teaching/Academician"},
+            ]
+          },
+          {
+            label: "--HOSPITALITY--",
+            options: [
+               { value:225, label: "Hotel/Hospitality Professional"},
+            ]
+          },
+          {
+            label: "--IT & ENGINEERING--",
+            options: [
+               { value:235, label: "Designer"},
+               { value:240, label: "Engineer - Non IT"},
+               { value:245, label: "Hardware Professional"},
+               { value:250, label: "Software Professional"},
+            ]
+          },
+          {
+            label: "--LEGAL--",
+            options: [
+               { value:260, label: "Lawyer & Legal Professinal"},
+            ]
+          },
+          {
+            label: "--MEDICAL--",
+            options: [
+               { value:270, label: "Doctor"},
+               { value:275, label: "Healthcare Professional"},
+               { value:280, label: "Nurse"},
+               { value:285, label: "Paramedical Professional"},
+            ]
+          },
+          {
+            label: "--MARKETING & SALES--",
+            options: [
+               { value:295, label: "Marketing Professional"},
+               { value:300, label: "Sales Professional"},
+            ]
+          },
+          {
+            label: "--MEDIA & ENTERTAINMENT--",
+            options: [
+               { value:310, label: "Advertising/PR Professional"},
+               { value:315, label: "Designer"},
+               { value:320, label: "Entertainment Professional"},
+               { value:325, label: "Journalist"},
+               { value:330, label: "Media Professional"},
+            ]
+          },
+          {
+            label: "--MERCHANT NAVY--",
+            options: [
+               { value:340, label: "Mariner/Merchant Navy"},
+            ]
+          },
+          {
+            label: "--SCIENTIST--",
+            options: [
+               { value:350, label: "Scientist/Researcher"},
+            ]
+          },
+          {
+            label: "--TOP MANAGEMENT--",
+            options: [
+               { value:360, label: "CEO/President/Chairman/Director"},
+            ]
+          },
+          {
+            label: "--OTHER PROFESSIONS--",
+            options: [
+               { value:370, label: "Arts/Craftsman"},
+               { value:375, label: "Business Owner/Entrepreneur"},
+               { value:380, label: "Consultant"},
+               { value:385, label: "Customer Care Professional"},
+               { value:390, label: "Labour"},
+               { value:395, label: "Other"},
+               { value:400, label: "Social Worker"},
+               { value:405, label: "Sportsman"},
+               { value:410, label: "Technician"} 
+            ]
+          },         
+      ], 
+      occupationValuesAll :[
          { value:10, label: "Administrative Professional"},
          { value:15, label: "Clerk"},
          { value:20, label: "Executive"},
@@ -121,17 +280,13 @@ export default {
          { value:30, label: "Manager"},
          { value:35, label: "Officer"},
          { value:40, label: "Supervisor"},
-         { value:0, label: "--AGRICULTURE--"},
          { value:50, label: "Agriculture & Farming Professional"},
-         { value:0, label: "--AIRLINE--"},
          { value:60, label: "Pilot"},
          { value:65, label: "Air Hostes"},
          { value:70, label: "Airline Professional"},
          { value:75, label: "Aiport Services"},
-         { value:0, label: "--ARCHITECT--"},
          { value:85, label: "Architect"},
          { value:90, label: "Interior Designer"},
-         { value:0, label: "--BANKING & FINANCE--"},
          { value:100, label: "Accounts Finance Professional"},
          { value:105, label: "Aditor"},
          { value:110, label: "Banking Service Professional"},
@@ -139,53 +294,39 @@ export default {
          { value:120, label: "Company Secretary"},
          { value:125, label: "Financial Accountant"},
          { value:130, label: "Financial Analyst/Planning"},
-         { value:0, label: "--BEAUTY & FASHION--"},
          { value:140, label: "Beautician"},
          { value:145, label: "Fashion Designer"},
-         { value:0, label: "--CIVIL SERVICES--"},
          { value:155, label: "Civil Services -IAS"},
          { value:160, label: "Civil Services -IES"},
          { value:165, label: "Civil Services -IFS"},
          { value:170, label: "Civil Services -IPS"},
          { value:175, label: "Civil Services -IRS"},
-         { value:0, label: "--DEFENCE--"},
          { value:185, label: "Army"},
          { value:190, label: "Navy"},
          { value:195, label: "Airforce"},
-         { value:0, label: "--EDUCATION--"},
          { value:205, label: "Education Professional"},
          { value:210, label: "Professor/Lecturer"},
          { value:215, label: "Teaching/Academician"},
-         { value:0, label: "--HOSPITALITY--"},
          { value:225, label: "Hotel/Hospitality Professional"},
-         { value:0, label: "--IT & ENGINEERING"},
          { value:235, label: "Designer"},
          { value:240, label: "Engineer - Non IT"},
          { value:245, label: "Hardware Professional"},
          { value:250, label: "Software Professional"},
-         { value:0, label: "--LEGAL--"},
          { value:260, label: "Lawyer & Legal Professinal"},
-         { value:0, label: "--MEDICAL--"},
          { value:270, label: "Doctor"},
          { value:275, label: "Healthcare Professional"},
          { value:280, label: "Nurse"},
          { value:285, label: "Paramedical Professional"},
-         { value:0, label: "--MARKETING & SALES--"},
          { value:295, label: "Marketing Professional"},
          { value:300, label: "Sales Professional"},
-         { value:0, label: "--MEDIA & ENTERTAINMENT--"},
          { value:310, label: "Advertising/PR Professional"},
          { value:315, label: "Designer"},
          { value:320, label: "Entertainment Professional"},
          { value:325, label: "Journalist"},
          { value:330, label: "Media Professional"},
-         { value:0, label: "--MERCHANT NAVY--"},
          { value:340, label: "Mariner/Merchant Navy"},
-         { value:0, label: "--SCIENTIST--"},
          { value:350, label: "Scientist/Researcher"},
-         { value:0, label: "--TOP MANAGEMENT--"},
          { value:360, label: "CEO/President/Chairman/Director"},
-         { value:0, label: "--OTHER PROFESSIONS--"},
          { value:370, label: "Arts/Craftsman"},
          { value:375, label: "Business Owner/Entrepreneur"},
          { value:380, label: "Consultant"},
