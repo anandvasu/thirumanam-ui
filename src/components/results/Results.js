@@ -211,7 +211,7 @@ class Results extends Component {
             this.state.foodHabits,
             this.state.bodyTypes,
             this.state.occupations,
-            this.state.education,
+            this.state.educations,
             this.state.castes,
             this.state.gothrams,
             this.state.dhoshams,
@@ -519,7 +519,7 @@ class Results extends Component {
 
     handleEducationChange(inputEducation) {
         this.setState({
-            education:inputEducation
+            educations:inputEducation
         }); 
     }
 

@@ -158,7 +158,7 @@ function filter (props) {
                     <div className="filterContentMSelect">  
                         <EducationMultiSelect 
                             educations = {props.educations}
-                            educationChange = {props.educationChange}
+                            handleEducationChange = {props.handleEducationChange}
                         />
                     </div>
                 </div>     
