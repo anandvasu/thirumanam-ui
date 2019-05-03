@@ -11,7 +11,8 @@ function incomeSelect(props) {
                     placeholder={DropDownConstant.dropdownDefault}
                     value={props.incomeObj}
                     options={DropDownConstant.incomeValues}
-                    onChange={props.handleIncomeChange}                  
+                    onChange={props.handleIncomeChange}            
+                    styles={DropDownConstant.customStyles}      
                     />
             </div>
         ) ;

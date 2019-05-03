@@ -13,6 +13,7 @@ function employmentMultiSelect(props) {
                 options={DropDownConstant.employmentValues}
                 onChange={props.handleEmploymentChange}
                 isMulti = {true}
+                styles={DropDownConstant.customStyles}
                 />
         </div>
     ) ;

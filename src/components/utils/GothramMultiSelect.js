@@ -13,7 +13,8 @@ function gothramMultiSelect(props) {
                     value={props.gothrams}
                     options={ReligionDropdownConsts.gothramValues}
                     onChange={props.handleGothramChange}  
-                    isMulti = {true}                
+                    isMulti = {true}        
+                    styles={DropDownConstant.customStyles}        
                     />
             </div>
         ) ;

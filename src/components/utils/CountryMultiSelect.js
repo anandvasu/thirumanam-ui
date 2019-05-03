@@ -3,6 +3,8 @@ import Select from "react-select";
 import LocationDropdownConsts from './LocationDropdownConsts';
 import DropDownConstant from './DropDownConstant';
 
+
+
 function countryMultiSelect(props) {       
     return(
         <div>
@@ -13,6 +15,7 @@ function countryMultiSelect(props) {
                 options={LocationDropdownConsts.countries}
                 onChange={props.handleCountryChange}
                 isMulti = {true}
+                styles={DropDownConstant.customStyles}
                 />
         </div>
     ) ;

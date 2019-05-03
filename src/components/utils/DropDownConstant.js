@@ -471,5 +471,18 @@ export default {
          { value:265, label: "Tulu"},
          { value:270, label: "Urdu"}     
       ],      
-     
+      
+      customStyles : {
+         control: styles => ({ ...styles, backgroundColor: 'white' }),
+         option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+           return {
+             ...styles,
+             backgroundColor: isDisabled
+               ? null
+               : isSelected ? "#DDA0DD" : isFocused ? '#DDA0DD' : null,
+             cursor: isDisabled ? 'not-allowed' : 'default',
+           };
+         },
+       },      
 }
+

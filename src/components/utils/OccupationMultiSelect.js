@@ -13,6 +13,7 @@ function occupationMultiSelect(props) {
                 options={DropDownConstant.occupationValues}
                 onChange={props.handleOccupationChange}
                 isMulti = {true}
+                styles={DropDownConstant.customStyles}
                 />
         </div>
     ) ;

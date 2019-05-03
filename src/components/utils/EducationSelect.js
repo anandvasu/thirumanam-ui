@@ -12,6 +12,7 @@ function educationSelect(props) {
                     value={props.educationObj}
                     options={DropDownConstant.educationValues}
                     onChange={props.handleEducationChange}
+                    styles={DropDownConstant.customStyles}
                     />
         </div>
     );

@@ -12,6 +12,7 @@ function occupationSelect(props) {
                 value={props.occupationObj}
                 options={DropDownConstant.occupationValues}
                 onChange={props.handleOccupationChange}
+                styles={DropDownConstant.customStyles}
                 />
         </div>
     ) ;

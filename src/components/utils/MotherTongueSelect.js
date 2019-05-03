@@ -11,6 +11,7 @@ function motherTongueSelect(props) {
                 value={props.mTongueObj}
                 options={DropDownConstant.motherTongueSValues}
                 onChange={props.handleMTongueChange}
+                styles={DropDownConstant.customStyles}
                 />
         </div>
     ) ;

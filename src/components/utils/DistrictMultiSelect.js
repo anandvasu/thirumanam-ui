@@ -1,6 +1,7 @@
 import React from 'react';
 import LocationDropdownConsts from './LocationDropdownConsts';
 import Select from "react-select";
+import DropDownConstant from './DropDownConstant';
 
 function districtMultiSelect(props) {
     return(
@@ -12,6 +13,7 @@ function districtMultiSelect(props) {
                     options={LocationDropdownConsts.tamilnaduDistricts}
                     onChange={props.handleDistrictChange}
                     isMulti = {true}
+                    styles={DropDownConstant.customStyles}
                 />
         </div>
     );

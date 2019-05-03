@@ -12,6 +12,7 @@ function employmentSelect(props) {
                 value={props.employment}
                 options={DropDownConstant.employmentValues}
                 onChange={props.handleEmploymentChange}
+                styles={DropDownConstant.customStyles}
                 />
         </div>
     ) ;

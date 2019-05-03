@@ -12,6 +12,7 @@ function motherTongueMultiSelect(props) {
                 options={DropDownConstant.motherTongueValues}
                 onChange={props.handleMTongueChange}
                 isMulti = {true}
+                styles={DropDownConstant.customStyles}
                 />
         </div>
     ) ;

@@ -1,6 +1,7 @@
 import React from 'react';
 import Select from "react-select";
 import ReligionDropdownConsts from './ReligionDropdownConsts';
+import DropDownConstant from './DropDownConstant';
 
 function religionSelect(props) {
     return(
@@ -11,6 +12,7 @@ function religionSelect(props) {
                     value={props.religionObj}
                     options={ReligionDropdownConsts.regilionValues}
                     onChange={props.religionChangeHandler}
+                    styles={DropDownConstant.customStyles}
                     />
         </div>
     );

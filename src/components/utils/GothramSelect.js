@@ -12,7 +12,8 @@ function gothramSelect(props) {
                     placeholder={DropDownConstant.dropdownDefault}
                     value={props.gothramObj}
                     options={ReligionDropdownConsts.gothramValues}
-                    onChange={props.gothramChange}                  
+                    onChange={props.gothramChange}  
+                    styles={DropDownConstant.customStyles}                
                     />
             </div>
         ) ;

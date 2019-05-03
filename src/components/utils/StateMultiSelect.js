@@ -14,6 +14,7 @@ function stateMultiSelect(props) {
                 options={dynamicStates(props.countries)}
                 onChange={props.handleStateChange}
                 isMulti = {true}
+                styles={DropDownConstant.customStyles}
             />
         </div>
     ) ;

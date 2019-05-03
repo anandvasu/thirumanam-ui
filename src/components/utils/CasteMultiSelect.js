@@ -14,6 +14,7 @@ function casteMultiSelect(props) {
                     options={dynamicCaste(props.religions)}
                     onChange={props.handleCasteChange}
                     isMulti = {true}
+                    styles={DropDownConstant.customStyles}
                     />
             </div>
         ) ;

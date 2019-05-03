@@ -13,7 +13,8 @@ function dhoshamMultiSelect(props) {
                     value={props.dhoshams}
                     options={ReligionDropdownConsts.dhoshamValues}
                     onChange={props.handleDhoshamChange}   
-                    isMulti = {true}               
+                    isMulti = {true} 
+                    styles={DropDownConstant.customStyles}              
                     />
             </div>
         ) ;

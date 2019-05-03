@@ -12,6 +12,7 @@ function educationMultiSelect(props) {
                 options={DropDownConstant.educationValues}
                 onChange={props.handleEducationChange}
                 isMulti = {true}
+                styles={DropDownConstant.customStyles}
                 />
         </div>
     ) ; 

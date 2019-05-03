@@ -14,6 +14,7 @@ function religionMultiSelect(props) {
                 options={ReligionDropdownConsts.regilionValues}
                 onChange={props.handleReligionChange}
                 isMulti = {true}
+                styles={DropDownConstant.customStyles}
             />
         </div>
     ) ;

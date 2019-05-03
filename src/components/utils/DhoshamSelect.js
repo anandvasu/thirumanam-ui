@@ -12,7 +12,8 @@ function dhoshamSelect(props) {
                     placeholder={DropDownConstant.dropdownDefault}
                     value={props.dhoshamObj}
                     options={ReligionDropdownConsts.dhoshamValues}
-                    onChange={props.hinduDhoshamChange}                  
+                    onChange={props.hinduDhoshamChange}  
+                    styles={DropDownConstant.customStyles}                
                     />
             </div>
         ) ;

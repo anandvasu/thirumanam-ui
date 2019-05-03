@@ -13,6 +13,7 @@ function countrySelect(props) {
                     value={props.countryObj}
                     options={LocationDropdownConsts.countries}
                     onChange={props.countryChange}
+                    styles={DropDownConstant.customStyles}
                     />
         </div>
     );

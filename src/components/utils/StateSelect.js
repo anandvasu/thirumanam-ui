@@ -1,6 +1,7 @@
 import React from 'react';
 import LocationDropdownConsts from './LocationDropdownConsts';
 import Select from "react-select";
+import DropDownConstant from './DropDownConstant';
 
 function stateSelect(props) {
 
@@ -13,6 +14,7 @@ function stateSelect(props) {
                     value={props.pstateObj}
                     options={LocationDropdownConsts.indiaStates}
                     onChange={props.profileStateChange}
+                    styles={DropDownConstant.customStyles}
                     />
             }
              { (props.country === "US") && 
@@ -22,6 +24,7 @@ function stateSelect(props) {
                     value={props.pstateObj}
                     options={LocationDropdownConsts.usaStates}
                     onChange={props.profileStateChange}
+                    styles={DropDownConstant.customStyles}
                     />
             }
         </div>
