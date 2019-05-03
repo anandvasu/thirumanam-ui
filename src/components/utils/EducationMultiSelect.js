@@ -8,7 +8,7 @@ function educationMultiSelect(props) {
             <Select
                 name="filters"
                 placeholder={DropDownConstant.dropdownDefault}
-                value={props.education}
+                value={props.educations}
                 options={DropDownConstant.educationValues}
                 onChange={props.handleEducationChange}
                 isMulti = {true}

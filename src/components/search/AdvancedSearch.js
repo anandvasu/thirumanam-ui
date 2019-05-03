@@ -26,6 +26,7 @@ import ReligionDropdownConsts from '../utils/ReligionDropdownConsts';
 import LocationDropdownConsts from '../utils/LocationDropdownConsts';
 import {toast} from 'react-toastify';
 import axios from 'axios';
+import EmploymentCheckbox from '../utils/EmploymentCheckbox';
 
 class AdvancedSearch extends Component {
 
@@ -51,9 +52,10 @@ class AdvancedSearch extends Component {
         this.handleStateChange = this.handleStateChange.bind(this);  
         this.handleDistrictChange = this.handleDistrictChange.bind(this);  
         
-        this.educationChange = this.educationChange.bind(this);      
+        this.handleEducationChange = this.handleEducationChange.bind(this);      
         this.handleOccupationChange = this.handleOccupationChange.bind(this);
         this.handleIncomeChange = this.handleIncomeChange.bind(this);   
+        this.handleEmploymentChange = this.handleEmploymentChange.bind(this); 
         
         this.foodHabitChange = this.foodHabitChange.bind(this);        
         this.smokingHabitChange = this.smokingHabitChange.bind(this);    
@@ -76,6 +78,7 @@ class AdvancedSearch extends Component {
             states:[],
             districts:[],
             education:[],
+            employments:[],
             occupations:[],
             incomeObj:[],
             showProfile:[],
@@ -104,7 +107,8 @@ class AdvancedSearch extends Component {
                 states:convertReactSelectValues(this.props.preference.searchCriteria.states, LocationDropdownConsts.indiaStates),             
                 districts:convertReactSelectValues(this.props.preference.searchCriteria.districts, LocationDropdownConsts.tamilnaduDistricts),
                 educations:convertReactSelectValues(this.props.preference.searchCriteria.educations, DropDownConstant.educationValues),
-                occupations:convertReactSelectValues(this.props.preference.searchCriteria.occupations, DropDownConstant.occupationValues),                
+                occupations:convertReactSelectValues(this.props.preference.searchCriteria.occupations, DropDownConstant.occupationValues),     
+                employments:this.props.preference.searchCriteria.employments,           
                 foodHabits:this.props.preference.searchCriteria.foodHabits,
                 smokingHabits:this.props.preference.searchCriteria.smokingHabits,
                 drinkingHabits:this.props.preference.searchCriteria.drinkingHabits               
@@ -146,7 +150,7 @@ class AdvancedSearch extends Component {
         });  
     }
 
-    educationChange(inputEducation) {
+    handleEducationChange(inputEducation) {
         this.setState({
             education:inputEducation
         }); 
@@ -161,6 +165,12 @@ class AdvancedSearch extends Component {
     handleIncomeChange(option) {
         this.setState({
             incomeObj:option
+        });
+    }
+
+    handleEmploymentChange(value) {
+        this.setState({
+            employments:value
         });
     }
 
@@ -196,6 +206,7 @@ class AdvancedSearch extends Component {
                     districts:getValueArrFromReactSelect(this.state.districts),
                     educations:getValueArrFromReactSelect(this.state.educations),
                     occupations:getValueArrFromReactSelect(this.state.occupations),
+                    employments:this.state.employments,
                     incomeObj:getValueArrFromReactSelect(this.state.incomeObj),
                     foodHabits:this.state.foodHabits,
                     smokingHabits:this.state.smokingHabits,
@@ -318,6 +329,7 @@ class AdvancedSearch extends Component {
                     districts:this.state.districts,
                     educations:this.state.educations,
                     occupations:this.state.occupations,
+                    employments:this.state.employments,
                     incomeObj:this.state.incomeObj,
                     foodHabits:this.state.foodHabits,
                     smokingHabits:this.state.smokingHabits,
@@ -509,10 +521,21 @@ class AdvancedSearch extends Component {
                             <div className="gfield">
                                 <EducationMultiSelect 
                                     education = {this.state.education}
-                                    educationChange = {this.educationChange}
+                                    handleEducationChange = {this.handleEducationChange}
                                 />
                             </div>  
                         </div> 
+                        <div className="gFieldRow">
+                            <div className="glabel">
+                                Employment
+                            </div>
+                            <div className="gfield">
+                                <EmploymentCheckbox 
+                                    employments = {this.state.employments}
+                                    handleEmploymentChange = {this.handleEmploymentChange}
+                                />
+                            </div>
+                        </div>    
                         <div className="gFieldRow">
                             <div className="glabel">
                                 Occupation

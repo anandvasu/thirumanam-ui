@@ -19,6 +19,7 @@ import IncomeSelect from '../utils/IncomeSelect';
 import SmokingHabits from '../utils/SmokingHabits';
 import DrinkingHabits from '../utils/DrinkingHabits';
 import MotherTongueMultiSelect from '../utils/MotherTongueMultiSelect';
+import EmploymentCheckbox from '../utils/EmploymentCheckbox';
 
 function filter (props) {
 
@@ -156,11 +157,20 @@ function filter (props) {
                     <div className="header3"><label>Education</label></div>
                     <div className="filterContentMSelect">  
                         <EducationMultiSelect 
-                            education = {props.education}
+                            educations = {props.educations}
                             educationChange = {props.educationChange}
                         />
                     </div>
                 </div>     
+                <div className="header3Parent">
+                    <div className="header3"><label>Employment</label></div>
+                    <div className="filterContentMSelect">  
+                        <EmploymentCheckbox 
+                            employments = {props.employments}
+                            handleEmploymentChange = {props.handleEmploymentChange}
+                        />
+                    </div>
+                </div> 
                 <div className="header3Parent">
                     <div className="header3"><label>Occupation</label></div>
                     <div className="filterContentMSelect">  
