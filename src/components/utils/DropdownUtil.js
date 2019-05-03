@@ -53,6 +53,11 @@ export function dynamicCaste (religionArr) {
                 values.push(element);
           });
         }
+        if(relogionObj.value === 11) {
+            ReligionDropdownConsts.parsiCasteValues.forEach(function(element) {
+                values.push(element);
+            });
+        }
        
     }  
     values.sort((a, b) => (a.label > b.label) ? 1 : -1 );
@@ -85,6 +90,10 @@ export function getSingleSelectCasteValues (religion) {
         ReligionDropdownConsts.jainCasteValues.forEach(function(element) {
             values.push(element);
         });
-    } 
+    } else if(religion === 11) {
+        ReligionDropdownConsts.parsiCasteValues.forEach(function(element) {
+            values.push(element);
+        });
+    }
     return values;
 }

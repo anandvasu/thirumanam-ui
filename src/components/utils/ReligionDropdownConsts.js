@@ -46,7 +46,6 @@ export default {
         { value: 28, label: "Vishaka / Vishakam" },
      ], 
      muslimCasteValues :[
-        { value: 0, label: "--Select--" },
         { value: 2002, label: "Ansari" },
         { value: 2004, label: "Arain" },  
         { value: 2006, label: "Awan" },  
@@ -73,7 +72,6 @@ export default {
         { value: 2046, label: "Other Caste" }
      ],
      christianCasteValues :[
-      { value: 0, label: "--Select--" },
       { value:3000, label: "Adventist"},
       { value:3005, label: "Anglican/Episcopal"},
       { value:3010, label: "Anglo-Indian"},
@@ -122,21 +120,18 @@ export default {
       { value:3235, label: "Don't wish to specify"},
    ],
    buddhaCasteValues :[
-      { value:0, label: "--Select--" },
       { value:3500, label: "Neo Buddhist" },
       { value:3505, label: "Tibetan Buddhist" },  
       { value:3510, label: "Other Caste"},
       { value:3515, label: "Don't wish to specify"},    
    ],
    sikhCasteValues :[
-      { value:0, label: "--Select--" },
       { value:3600, label: "Sikh - AhluWalia" },
       { value:3605, label: "Sikh - Arora" },  
       { value:3610, label: "Other Caste"},
       { value:3615, label: "Don't wish to specify"},    
    ],
    jainCasteValues :[
-      { value:0, label: "--Select--" },
       { value:3700, label: "Jain - Agarwal" },
       { value:3705, label: "Jain - Bania" },  
       { value:3710, label: "Jain - Intercaste"},
@@ -151,8 +146,14 @@ export default {
       { value:3755, label: "Other Caste"},
       { value:3760, label: "Don't wish to specify"},    
    ],
+   parsiCasteValues :[
+      { value:3800, label: "Intercaste" },
+      { value:3805, label: "Irani" },  
+      { value:3810, label: "Parsi" }, 
+      { value:3815, label: "Other Caste"},
+      { value:3820, label: "Don't wish to specify"},    
+   ],
    hinduCasteValues :[
-         { value:0, label: "--Select--"},
          { value:2, label: "Aaru Nattu Vellala"},
          { value:4, label: "Achirapakkam Chettiar"},
          { value:6, label: "Ad Dharmi"},
