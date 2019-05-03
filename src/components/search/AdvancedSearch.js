@@ -108,7 +108,7 @@ class AdvancedSearch extends Component {
                 countries:convertReactSelectValues(this.props.preference.searchCriteria.countries, LocationDropdownConsts.countries),
                 states:convertReactSelectValues(this.props.preference.searchCriteria.states, LocationDropdownConsts.indiaStates),             
                 districts:convertReactSelectValues(this.props.preference.searchCriteria.districts, LocationDropdownConsts.tamilnaduDistricts),
-                educations:convertReactSelectValues(this.props.preference.searchCriteria.educations, DropDownConstant.educationValues),
+                educations:convertReactSelectValues(this.props.preference.searchCriteria.educations, DropDownConstant.educationValuesOptions),
                 occupations:convertReactSelectValues(this.props.preference.searchCriteria.occupations, DropDownConstant.occupationValuesAll),     
                 mtongues:convertReactSelectValues(this.props.preference.searchCriteria.mtongues, DropDownConstant.motherTongueValues),   
                 employments:this.props.preference.searchCriteria.employments,           
@@ -521,7 +521,7 @@ class AdvancedSearch extends Component {
                             <div className="glabel">
                                 <label>Education</label>
                             </div>
-                            <div className="gfield">
+                            <div className="gfieldLong">
                                 <EducationMultiSelect 
                                     educations = {this.state.educations}
                                     handleEducationChange = {this.handleEducationChange}

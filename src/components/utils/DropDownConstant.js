@@ -28,81 +28,267 @@ export default {
         { value: "AD", label: "Awaiting Divorce" }
      ],
      educationValues :[
-         { value:"AE", label: "Aeronautical Engineering"},
-         { value:"AD", label: "Aviation Degree"},
-         { value:"BA", label: "B.A"},
-         { value:"BAMS", label: "B.A.M.S"},
-         { value:"BARCH", label: "B.Arch"},
-         { value:"BCOM", label: "B.Com"},
-         { value:"BED", label: "B.Ed"},
-         { value:"BL", label: "B.L"},
-         { value:"BMM", label: "B.M.M"},
-         { value:"BPHIL", label: "B.Phil"},
-         { value:"BPLAN", label: "B.Plan"},
-         { value:"BSE", label: "B.S (Engineering)"},
-         { value:"BSW", label: "B.S.W"},
-         { value:"BSCIT", label: "B.SC IT/Computer Science"},
-         { value:"BSCN", label: "B.Sc Nursing"},
-         { value:"BSC", label: "B.Sc."},
-         { value:"BTECH", label: "B.Tech"},
-         { value:"BBA", label: "BBA"},
-         { value:"BCA", label: "BCA"},
-         { value:"BDS", label: "BDS"},
-         { value:"BE", label: "BE"},
-         { value:"BFA", label: "BFA"},
-         { value:"BFM", label: "BFM - Bachelor of Financial Management"},
-         { value:"BFT", label: "BFT"},
-         { value:"BGL", label: "BGL"},
-         { value:"BHA", label: "BHA - Bachelor of Hospital Administration"},
-         { value:"BHM", label: "BHM - Bachelor of Hospital Management"},
-         { value:"BHMT", label: "BHM - Bachelor of Hotel Management"},
-         { value:"BHMS", label: "BHMS"},
-         { value:"BLIS", label: "BLIS"},
-         { value:"BPT", label: "BPT"},
-         { value:"BPHARM", label: "BPharm"},
-         { value:"BUMS", label: "BUMS"},
-         { value:"BVSC", label: "BVSc"},
-         { value:"CA", label: "CA"},
-         { value:"CFA", label: "CFA - Chartered Financial Analyst"},
-         { value:"CS", label: "CS"},
-         { value:"DTED", label: "D.Ted"},
-         { value:"DIPLOMA", label: "Diploma"},
-         { value:"HSC", label: "Higher Secondary School"},
-         { value:"IAS", label: "IAS"},
-         { value:"ICWA", label: "ICWA"},
-         { value:"IES", label: "IES"},
-         { value:"IFS", label: "IFS"},
-         { value:"LLB", label: "LL.B"},
-         { value:"LLM", label: "LL.M"},
-         { value:"MA", label: "M.A"},
-         { value:"MARCH", label: "M.Arch"},
-         { value:"MED", label: "M.Ed."},
-         { value:"ML", label: "M.L"},
-         { value:"MPHARM", label: "M.Pharm"},
-         { value:"MPHIL", label: "M.Phil."},
-         { value:"MSE", label: "M.S.(Engg)"},
-         { value:"MSCIT", label: "M.Sc IT / Computer Science"},
-         { value:"MSC", label: "M.Sc. - Master of Science"},
-         { value:"MTECH", label: "M.Tech"},
-         { value:"MBA", label: "MBA"},
-         { value:"MBBS", label: "MBBS"},
-         { value:"MCA", label: "MCA"},
-         { value:"MCOM", label: "MCom"},
-         { value:"MD", label: "MD"},
-         { value:"MDS", label: "MDS"},
-         { value:"ME", label: "ME"},
-         { value:"MFA", label: "MFA"},
-         { value:"MFM", label: "MFM - Master of Financial Management"},
-         { value:"MHM", label: "MHM - Master of Hotel Management"},
-         { value:"MHRM", label: "MHRM - Master of Human Resource Management"},
-         { value:"MPT", label: "MPT"},
-         { value:"MSM", label: "MS-Medical"},
-         { value:"MSW", label: "MSW"},
-         { value:"MVSC", label: "MVSc"},
-         { value:"PGDCA", label: "PGDCA"},
-         { value:"PGDM", label: "PGDM"},
-         { value:"PHD", label: "Ph.d"},
-         { value:"PTECH", label: "Polytechnic"}     
+      {
+         label: "--Bachelors-Engineering/Computers/Others--",
+         options: [
+           { value:10, label: "Aeronautical Engineering" },
+           { value:15, label: "B.Arch"},
+           { value:20, label: "B.Plan"},
+           { value:25, label: "B.Sc IT/Computer Science"},
+           { value:30, label: "B.Tech"},
+           { value:35, label: "BCA"},
+           { value:40, label: "BE"},
+           { value:45, label: "Other Bachelor Degree in Engineering/Computers"}
+         ]
+       },     
+       {
+         label: "--Masters-Engineering/Computers/Others--",
+         options: [
+            { value:50, label: "M.Arch"},
+            { value:55, label: "M.S.(Engg)"},
+            { value:60, label: "MSc. IT/Computer Science"},
+            { value:65, label: "M.Tech"},
+            { value:70, label: "MCA"},
+            { value:75, label: "ME"},
+            { value:80, label: "Other Masters Degree in Engineering/Computers"},
+            { value:85, label: "PGDCA"}
+         ]
+       },
+       {
+          label: "--Bachelors-Arts/Science/Commerce/Others--",
+         options: [
+            { value:90, label: "Aviation Degree"},
+            { value:95, label: "B.A"},
+            { value:100, label: "B.Com"},
+            { value:105, label: "B.Ed"},
+            { value:110, label: "B.M.M."},
+            { value:115, label: "B.Phil"},
+            { value:120, label: "B.S.W"},
+            { value:125, label: "B.Sc"},
+            { value:130, label: "BFA"},
+            { value:135, label: "BFT"},
+            { value:140, label: "BLIS"},
+            { value:145, label: "Other Bachelor Degree in Arts/Science/Commerce"}
+         ]
+       },
+       {
+         label: "--Masters-Arts/Science/Commerce/Others--",
+         options: [
+            { value:150, label: "M.A."},
+            { value:155, label: "M.Ed."},
+            { value:160, label: "M.Phil"},
+            { value:165, label: "M.Sc"},
+            { value:170, label: "MCom"},
+            { value:175, label: "MFA"},
+            { value:180, label: "MLIS"},
+            { value:185, label: "MSW"},
+            { value:190, label: "Other Master Degree in Arts/Science/Commerce"}
+         ]
+       },
+       {
+         label: "--Bachelors-Management/Others--",
+         options: [
+            { value:195, label: "BBA"},
+            { value:200, label: "BFM"},
+            { value:205, label: "BHM"},
+            { value:210, label: "Other Bachelor Degree in Management"}       
+         ]
+       },
+       {
+      label: "--Masters-Management/Others--",
+      options: [
+    { value:215, label: "MBA"},
+    { value:220, label: "MFM - Financial Management"},
+    { value:225, label: "MHM - Hotel Management"},
+    { value:230, label: "MHRM - Human Resource Management"},
+    { value:235, label: "PGDM"},
+    { value:240, label: "Other Master Degree in Management"}       
+      ]
+       },
+       {
+          label: "--Bachelors-Medicine General/Dental/Surgeon/Others--",
+         options: [
+            { value:245, label: "B.A.M.S"},
+            { value:250, label: "B.Sc Nursing"},
+            { value:255, label: "BDS"},
+            { value:260, label: "BHMS"},
+            { value:265, label: "BPharm"},
+            { value:270, label: "BPT"},
+            { value:275, label: "BSMS"},
+            { value:280, label: "BUMS"},
+            { value:285, label: "BVSc"},     
+            { value:290, label: "MBBS"},   
+            { value:295, label: "Other Bachelor Degree in Medicine"} 
+         ]
+       },
+       {
+      label: "--Masters-Medicine General/Dental/Surgeon/Others--",
+      options: [
+    { value:300, label: "M.Pharm"},
+    { value:305, label: "MD/MS Medical"},
+    { value:310, label: "MDS"},
+    { value:315, label: "MPT"},
+    { value:320, label: "MVSc"},	 
+    { value:325, label: "Other Master Degree in Medicine"} 
+      ]
+       },
+       {
+         label: "--Bachelors Legal/Others--",
+         options: [
+            { value:330, label: "B.L,"},
+            { value:335, label: "BGL"},
+            { value:340, label: "LL.B"},
+            { value:345, label: "Other Bachelor Degree in Legal"},
+         ]
+       },       
+       {
+         label: "--Masters Legal/Others--",
+         options: [
+            { value:350, label: "LL.M."},
+            { value:355, label: "M.L"},
+            { value:360, label: "Other Master Degree in Legal"},
+         ]
+       },
+       {
+         label: "--Finance ICWAI/CA/CS/CFA Others--",
+         options: [
+            { value:365, label: "CA"},
+            { value:370, label: "CFA - Charted Financial Analyst"},
+            { value:375, label: "CS"},
+            { value:380, label: "ICWA"},
+            { value:385, label: "Other Degree in Finance"},
+         ]
+       },
+       {
+         label: "--Service IAS/IES/IFS/IPS/IRS Others--",
+         options: [
+             { value:390, label: "IAS"},
+             { value:395, label: "IES"},
+             { value:400, label: "IFS"},
+             { value:405, label: "IPS"},
+             { value:410, label: "IRS"},
+             { value:415, label: "Other Degree in Service"},
+               
+         ]
+       },
+       {
+         label: "--PhD--",
+         options: [
+            { value:420, label: "Ph.D"},
+         ]
+       },
+       {
+         label: "--Diploma Others--",
+         options: [
+            { value:425, label: "Diploma"},               
+            { value:430, label: "Polytechnic"},
+            { value:435, label: "Trade School"},
+            { value:440, label: "Others in Diploma"},
+         ]
+       },
+       {
+         label: "--Higher Secondary--",
+         options: [
+            { value:445, label: "Higher Secondary School / High School"},
+         ]
+       },
+       {
+         label: "--Any Degree--",
+         options: [
+            { value:450, label: "Any Degree"},
+         ]
+       },         
+   ], 
+     educationValuesOptions :[
+      { value:10, label: "Aeronautical Engineering" },
+      { value:15, label: "B.Arch"},
+      { value:20, label: "B.Plan"},
+      { value:25, label: "B.Sc IT/Computer Science"},
+      { value:30, label: "B.Tech"},
+      { value:35, label: "BCA"},
+      { value:40, label: "BE"},
+      { value:45, label: "Other Bachelor Degree in Engineering/Computers"},
+      { value:50, label: "M.Arch"},
+      { value:55, label: "M.S.(Engg)"},
+      { value:60, label: "MSc. IT/Computer Science"},
+      { value:65, label: "M.Tech"},
+      { value:70, label: "MCA"},
+      { value:75, label: "ME"},
+      { value:80, label: "Other Masters Degree in Engineering/Computers"},
+      { value:85, label: "PGDCA"},
+      { value:90, label: "Aviation Degree"},
+      { value:95, label: "B.A"},
+      { value:100, label: "B.Com"},
+      { value:105, label: "B.Ed"},
+      { value:110, label: "B.M.M."},
+      { value:115, label: "B.Phil"},
+      { value:120, label: "B.S.W"},
+      { value:125, label: "B.Sc"},
+      { value:130, label: "BFA"},
+      { value:135, label: "BFT"},
+      { value:140, label: "BLIS"},
+      { value:145, label: "Other Bachelor Degree in Arts/Science/Commerce"},
+      { value:150, label: "M.A."},
+      { value:155, label: "M.Ed."},
+      { value:160, label: "M.Phil"},
+      { value:165, label: "M.Sc"},
+      { value:170, label: "MCom"},
+      { value:175, label: "MFA"},
+      { value:180, label: "MLIS"},
+      { value:185, label: "MSW"},
+      { value:190, label: "Other Master Degree in Arts/Science/Commerce"},
+      { value:195, label: "BBA"},
+      { value:200, label: "BFM"},
+      { value:205, label: "BHM"},
+      { value:210, label: "Other Bachelor Degree in Management"},
+      { value:215, label: "MBA"},
+      { value:220, label: "MFM - Financial Management"},
+      { value:225, label: "MHM - Hotel Management"},
+      { value:230, label: "MHRM - Human Resource Management"},
+      { value:235, label: "PGDM"},
+      { value:240, label: "Other Master Degree in Management"},
+      { value:245, label: "B.A.M.S"},
+      { value:250, label: "B.Sc Nursing"},
+      { value:255, label: "BDS"},
+      { value:260, label: "BHMS"},
+      { value:265, label: "BPharm"},
+      { value:270, label: "BPT"},
+      { value:275, label: "BSMS"},
+      { value:280, label: "BUMS"},
+      { value:285, label: "BVSc"},     
+      { value:290, label: "MBBS"},   
+      { value:295, label: "Other Bachelor Degree in Medicine"},
+      { value:300, label: "M.Pharm"},
+      { value:305, label: "MD/MS Medical"},
+      { value:310, label: "MDS"},
+      { value:315, label: "MPT"},
+      { value:320, label: "MVSc"},	 
+      { value:325, label: "Other Master Degree in Medicine"},
+      { value:330, label: "B.L,"},
+      { value:335, label: "BGL"},
+      { value:340, label: "LL.B"},
+      { value:345, label: "Other Bachelor Degree in Legal"},
+      { value:350, label: "LL.M."},
+      { value:355, label: "M.L"},
+      { value:360, label: "Other Master Degree in Legal"},
+      { value:365, label: "CA"},
+      { value:370, label: "CFA - Charted Financial Analyst"},
+      { value:375, label: "CS"},
+      { value:380, label: "ICWA"},
+      { value:385, label: "Other Degree in Finance"},
+      { value:390, label: "IAS"},
+      { value:395, label: "IES"},
+      { value:400, label: "IFS"},
+      { value:405, label: "IPS"},
+      { value:410, label: "IRS"},
+      { value:415, label: "Other Degree in Service"},
+      { value:420, label: "Ph.D"},
+      { value:425, label: "Diploma"},               
+      { value:430, label: "Polytechnic"},
+      { value:435, label: "Trade School"},
+      { value:440, label: "Others in Diploma"},
+      { value:445, label: "Higher Secondary School / High School"},
+      { value:450, label: "Any Degree"},
       ],
       employmentValues :[
          { value: "G", label: "Government" },
@@ -479,10 +665,17 @@ export default {
              ...styles,
              backgroundColor: isDisabled
                ? null
-               : isSelected ? "#DDA0DD" : isFocused ? '#DDA0DD' : null,
-             cursor: isDisabled ? 'not-allowed' : 'default',
+               : isSelected ? "#8E44AD" : isFocused ? '#DDA0DD' : null,
+             cursor: isDisabled ? 'not-allowed' : 'pointer',
            };
          },
+         groupHeading: (styles) => {
+            return {
+              ...styles,
+             color:'black',
+             fontWeight:'bold'
+            };
+          },
        },      
 }
 

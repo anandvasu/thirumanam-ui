@@ -447,3 +447,9 @@ hr {
   width: 320px;
   text-align: left;
 }
+
+.gfieldLong {
+  display: inline-block;
+  width: 450px;
+  text-align: left;
+}
