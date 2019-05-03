@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import Constant from '../utils/Constant';
 import ApiConstant from '../utils/ApiConstant';
-import {populateArray, getValueArrFromReactSelect,convertReactSelectValues } from '../utils/Util';
+import {populateArray, getValueArrFromReactSelect,convertReactSelectValues,convertReactSelectValue } from '../utils/Util';
 import Age from '../utils/Age';
 import Height from '../utils/Height';
 import ShowProfile from '../utils/ShowProfile';
@@ -77,10 +77,11 @@ class AdvancedSearch extends Component {
             countries:[],
             states:[],
             districts:[],
-            education:[],
+            educations:[],
             employments:[],
             occupations:[],
             incomeObj:[],
+            income:0,
             showProfile:[],
             foodHabits:[],
             drinkingHabits:[],
@@ -98,7 +99,8 @@ class AdvancedSearch extends Component {
                 mStatus:this.props.preference.searchCriteria.maritalStatus,                
                 foodHabits:this.props.preference.searchCriteria.foodHabits,
                 showProfile:this.props.preference.searchCriteria.showProfile,       
-                income:this.props.preference.searchCriteria.income,        
+                income:this.props.preference.searchCriteria.income,       
+                incomeObj:convertReactSelectValue(this.props.preference.searchCriteria.income, DropDownConstant.incomeValues), 
                 religions:convertReactSelectValues(this.props.preference.searchCriteria.religions, ReligionDropdownConsts.regilionValues),
                 castes:convertReactSelectValues(this.props.preference.searchCriteria.castes, ReligionDropdownConsts.hinduCasteValues),
                 gothrams:convertReactSelectValues(this.props.preference.searchCriteria.gothrams, ReligionDropdownConsts.gothramValues),
@@ -108,6 +110,7 @@ class AdvancedSearch extends Component {
                 districts:convertReactSelectValues(this.props.preference.searchCriteria.districts, LocationDropdownConsts.tamilnaduDistricts),
                 educations:convertReactSelectValues(this.props.preference.searchCriteria.educations, DropDownConstant.educationValues),
                 occupations:convertReactSelectValues(this.props.preference.searchCriteria.occupations, DropDownConstant.occupationValues),     
+                mtongues:convertReactSelectValues(this.props.preference.searchCriteria.mtongues, DropDownConstant.motherTongueValues),   
                 employments:this.props.preference.searchCriteria.employments,           
                 foodHabits:this.props.preference.searchCriteria.foodHabits,
                 smokingHabits:this.props.preference.searchCriteria.smokingHabits,
@@ -152,7 +155,7 @@ class AdvancedSearch extends Component {
 
     handleEducationChange(inputEducation) {
         this.setState({
-            education:inputEducation
+            educations:inputEducation
         }); 
     }
 
@@ -162,9 +165,10 @@ class AdvancedSearch extends Component {
         }); 
     }
 
-    handleIncomeChange(option) {
+    handleIncomeChange(valueObj) {
         this.setState({
-            incomeObj:option
+            incomeObj:populateArray(valueObj),
+            income:valueObj.value
         });
     }
 
@@ -194,7 +198,6 @@ class AdvancedSearch extends Component {
                     minHeight:this.state.minHeight,
                     maxHeight:this.state.maxHeight,
                     maritalStatus:this.state.mStatus,
-                    religions:getValueArrFromReactSelect(this.state.religions),
                     education:getValueArrFromReactSelect(this.state.education),
                     showProfile:this.state.showProfile,
                     religions:getValueArrFromReactSelect(this.state.religions),
@@ -206,8 +209,8 @@ class AdvancedSearch extends Component {
                     districts:getValueArrFromReactSelect(this.state.districts),
                     educations:getValueArrFromReactSelect(this.state.educations),
                     occupations:getValueArrFromReactSelect(this.state.occupations),
-                    employments:this.state.employments,
-                    incomeObj:getValueArrFromReactSelect(this.state.incomeObj),
+                    income:this.state.income,
+                    employments:this.state.employments, 
                     foodHabits:this.state.foodHabits,
                     smokingHabits:this.state.smokingHabits,
                     drinkingHabits:this.state.drinkingHabits,
@@ -520,7 +523,7 @@ class AdvancedSearch extends Component {
                             </div>
                             <div className="gfield">
                                 <EducationMultiSelect 
-                                    education = {this.state.education}
+                                    educations = {this.state.educations}
                                     handleEducationChange = {this.handleEducationChange}
                                 />
                             </div>  
