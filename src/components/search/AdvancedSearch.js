@@ -89,7 +89,7 @@ class AdvancedSearch extends Component {
     }
 
     componentDidMount() {
-        if((this.props.fromPage === "P") && (this.props.preference !== null)) {  
+        if((this.props.fromPage === "P") && (this.props.preference.searchCriteria !== null)) {  
             this.setState({                
                 ageFrom:this.props.preference.searchCriteria.ageGreater,
                 ageTo:this.props.preference.searchCriteria.ageLess,
@@ -343,7 +343,7 @@ class AdvancedSearch extends Component {
                     <div className={this.props.prefClassName}>
                         <div className="gFieldRow"> 
                             <div className="glabel" style={{verticalAlign:'top'}}>
-                                <label>Profile</label>
+                                <label>Show Profile</label>
                             </div>
                             <div className="gfield">
                             <ShowProfile 
