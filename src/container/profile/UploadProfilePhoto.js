@@ -72,7 +72,7 @@ class UploadProfilePhoto extends Component {
                     pathname:'/confirmSignUp' ,
                     state:{
                         profileId : this.state.profileId,
-                        email : this.state.email
+                        username:this.state.email
                     }                                   
                 }
             );
