@@ -69,7 +69,7 @@ class UploadProfilePhoto extends Component {
         } else {
             this.props.history.push(
                 {
-                    pathname:'/updateGroomBride' ,
+                    pathname:'/confirmSignUp' ,
                     state:{
                         profileId : this.state.profileId,
                         email : this.state.email

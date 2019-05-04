@@ -13,7 +13,7 @@ class UploadHoroscope extends Component {
 
         this.horoscopeImageHandler = this.horoscopeImageHandler.bind(this);
         this.uploadHoroscope = this.uploadHoroscope.bind(this);
-        this.redirectToUpdageGroomBride = this.redirectToUpdageGroomBride.bind(this);
+        this.redirectToNextPage = this.redirectToNextPage.bind(this);
         this.doThisLater = this.doThisLater.bind(this);
         this.handleProtectChange = this.handleProtectChange.bind(this);
 
@@ -63,10 +63,10 @@ class UploadHoroscope extends Component {
     }
 
     doThisLater() {
-        this.redirectToUpdageGroomBride();
+        this.redirectToNextPage();
     }
 
-    redirectToUpdageGroomBride() {
+    redirectToNextPage() {
         this.props.history.push(
             {
                 pathname:'/confirmSignUp' ,
@@ -86,9 +86,8 @@ class UploadHoroscope extends Component {
                     {                                            
                     })
             .then((res) => {
-                this.redirectToUpdageGroomBride();
                 if(this.state.fromPage === "E") {
-                    toast.success("Your Photo has been uploaded successfully.", 
+                    toast.success("Your horoscope has been uploaded successfully.", 
                     {
                         position:toast.POSITION.TOP_CENTER,
                         hideProgressBar:true,

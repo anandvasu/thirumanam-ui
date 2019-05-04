@@ -451,7 +451,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <label> {getDropDownLabel(this.props.profile.education, DropDownConstant.educationValues)} </label>
+                                        <label> {getDropDownLabel(this.props.profile.education, DropDownConstant.educationValuesOptions)} </label>
                                     </div> 
                                 </div>
 
@@ -470,13 +470,13 @@ class Profile extends Component {
                             <div className="profilRightConNoborder"> 
                                 <div className="profileFieldContainer">
                                     <div className="profileLabel">
-                                        <label> Income </label>
+                                        <label> Income (Indian Rs.) </label>
                                     </div>
                                     <div className="profileCenter">
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <label> {this.props.profile.income} </label>
+                                        <label>{getDropDownLabel(this.props.profile.income, DropDownConstant.incomeValues)} </label>
                                     </div> 
                                 </div>
                             </div>
