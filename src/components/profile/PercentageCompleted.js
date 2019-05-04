@@ -19,7 +19,7 @@ class PercentageCompleted extends Component {
                     </div>  
                     <div className="inlineBlock"> 
                         <b>&nbsp;&nbsp;  {this.props.profileCompPercent}%.</b> 
-                    </div>
+                    </div>                  
                 </div>
                 <div className="hs20" />
                 <div style={{width:'100%'}}>
