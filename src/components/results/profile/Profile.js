@@ -15,6 +15,9 @@ import addImage from '../../../assets/images/add.png';
 import ProfileIdSearch from '../../search/ProfileIdSearch';
 import DisplayMessage from '../../utils/DisplayMessage';
 import Modal from '../../modal/Modal';
+import defaultFImage from '../../../assets/images/defalt_female.png';
+import defaultMImage from '../../../assets/images/default_male.jpg';
+import protectImage from '../../../assets/images/protect.png';
 
 class Profile extends Component {
 
@@ -98,6 +101,20 @@ class Profile extends Component {
 
     render () {
 
+        let image;
+
+        if (this.props.profile.image !== null && (this.props.profile.protectImage === false)) {
+            image = <img src={"data:image/jpeg;base64,"+this.props.profile.image} alt="Not Available" width="300px" height="400px"></img>;            
+        } else if (this.props.profile.protectImage){
+            image = <img src={protectImage} alt="Not Available" width="300px" height="400px"/> 
+        } else {
+            if(this.props.gender === "F") {
+                image = <img src={defaultFImage} alt="Not Available" width="300px" height="400px"/> 
+            } else {
+                image = <img src={defaultMImage} alt="Not Available" width="300px" height="400px"/>
+            }
+        }
+
         return (
             <div className="profileParentContainer">                   
                 <Modal show={this.state.modelDisplay}
@@ -133,7 +150,7 @@ class Profile extends Component {
                         <div>
                             <div className="profileLeftConNoborder">             
                                 <div className="profileImage">
-                                    <img src={"data:image/jpeg;base64,"+this.props.profile.image} alt="Not Available" width="300px" height="400px"></img>&nbsp;&nbsp;&nbsp;
+                                   {image}
                                 </div> 
                             </div>
                             <div className="vs20" />
