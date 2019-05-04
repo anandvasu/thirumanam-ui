@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import './ProfileSummary.css';
 import defaultFImage from '../../assets/images/defalt_female.png';
 import defaultMImage from '../../assets/images/default_male.jpg';
+import protectImage from '../../assets/images/protect_thumb.png';
 import {getDropDownLabel} from '../utils/Util';
 import DropDownConstant from '../utils/DropDownConstant';
 import heartImage from '../../assets/images/heart.png';
@@ -17,13 +18,15 @@ class ProfileSummary extends Component {
         let image;
         const preFix = (this.props.gender === "F") ? "Ms." : "Mr.";
 
-        if (this.props.thumbImage !== null) {
+        if (this.props.thumbImage !== null && (this.props.protectImage === false)) {
             image = <img src={"data:image/jpeg;base64,"+this.props.thumbImage} alt="Not Available" width="100px" height="100px"></img>;            
+        } else if (this.props.protectImage){
+            image = <img src={protectImage} alt="Not Available" style={{width:'80px'}} /> 
         } else {
             if(this.props.gender === "F") {
-                image = <img src={defaultFImage} alt="Not Available" style={{width:'80px'}} onClick={this.goToHome} /> 
+                image = <img src={defaultFImage} alt="Not Available" style={{width:'80px'}} /> 
             } else {
-                image = <img src={defaultMImage} alt="Not Available" style={{width:'80px'}} onClick={this.goToHome} />
+                image = <img src={defaultMImage} alt="Not Available" style={{width:'80px'}} />
             }
         }
 

@@ -365,6 +365,7 @@ class Results extends Component {
                         education = {data.education}
                         city = {data.city}
                         bDate = {formatDate(data.bDay, data.bMonth, data.bYear)}
+                        protectImage = {data.protectImage}
                     />
                     <span>&nbsp;&nbsp;</span>
                 </div>
