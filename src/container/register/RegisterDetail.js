@@ -6,7 +6,6 @@ import './RegisterDetail.css';
 import axios from 'axios';
 import {toast} from 'react-toastify';
 import {Redirect} from "react-router-dom";
-import Aux from '../../hoc/Aux';
 import TopBar from '../../components/menu/TopBar';
 import ApiConstant from '../../components/utils/ApiConstant';
 import Footer from '../../components/footer/Footer';

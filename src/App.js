@@ -13,7 +13,6 @@ import ConfirmSignUp from './components/login/ConfirmSignUp'
 import ILogin from './components/login/ILogin'
 import Account from './container/account/AccountHome';
 import Payment from './components/payment/Payment';
-import Aux from './hoc/Aux';
 import LoggedInHome from './container/home/LoggedInHome';
 import ViewProfile from './container/profile/ViewProfile';
 import Preference from './container/preference/Preference';
@@ -81,7 +80,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Aux className="app">
+        <div className="app">
         <ToastContainer />                    
             <Route exact path="/" component={ParentHome} />
             <Route path="/home" component={Home} />
@@ -122,7 +121,7 @@ class App extends Component {
             <Route path="/searchHome" component={SearchHome} /> 
             <Route path="/registerHome" component={RegisterHome} />             
             <Route path="/tandc" component={Tandc} />      
-        </Aux>
+        </div>
       </Router>
     );
   }

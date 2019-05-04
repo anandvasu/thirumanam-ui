@@ -5,7 +5,6 @@ import Footer from '../../components/footer/Footer'
 import mobile from '../../assets/images/mobile.png';
 import TopMenu from '../../components/menu/TopMenu';
 import './Home.css';
-import Aux from '../../hoc/Aux';
 import ImageGalleryAnimation from '../../components/featuredprofile/ImageGalleryAnimation';
 import Aboutus from '../../components/home/Aboutus';
 
@@ -27,7 +26,7 @@ class Home extends Component {
  
     render () {
         return (
-            <Aux>                 
+            <div>                 
                 <div className="hs10" />
                 <TopMenu 
                     homePage="true"
@@ -78,7 +77,7 @@ class Home extends Component {
                     backgroundColor="#D6DBDF"
                     refreshFooter = {this.state.refreshFooter}
                 />
-            </Aux>          
+            </div>          
         );
     }
 }
