@@ -262,6 +262,11 @@ class Profile extends Component {
                             </div>
                         </div>
                     </div>   
+                    <div className="profileRowContainer">
+                        <div style={{textAlign:'left',paddingLeft:'10px'}}>
+                          {this.props.profile.about}    
+                        </div>  
+                    </div>
                 </div>
                 <div className="vs30" />
                 <div className="sectionContainer">
@@ -322,35 +327,15 @@ class Profile extends Component {
                                 </div> 
                                 <div className="profileFieldContainer">
                                     <div className="profileLabel">
-                                        <label>Caste </label>
-                                    </div>
-                                    <div className="profileCenter">
-                                        <label> : </label>
-                                    </div>
-                                    { (this.props.profile.caste !==0) &&
+                                            <label>Sub Caste </label>
+                                        </div>
+                                        <div className="profileCenter">
+                                            <label> : </label>
+                                        </div>
                                         <div className="profileField">
-                                           <label>{getDropDownLabel(this.props.profile.caste, ReligionDropdownConsts.hinduCasteValues)}</label>
-                                        </div>  
-                                    }  
-                                    { (this.props.profile.caste ===0) &&
-                                        <div className="profileField">
-                                           <label>{this.props.profile.otherCaste}</label>
-                                        </div>  
-                                    }   
-                                </div>    
-                                <div className="profileFieldContainer">
-                                    <div className="profileLabel">
-                                        <label>Sub Caste </label>
-                                    </div>
-                                    <div className="profileCenter">
-                                        <label> : </label>
-                                    </div>
-                                    <div className="profileField">
-                                        <label>{this.props.profile.subcaste}</label>
-                                    </div>      
-                                </div>   
-                            </div>
-                            <div className="profilRightConNoborder"> 
+                                            <label>{this.props.profile.subcaste}</label>
+                                        </div>                             
+                                    </div>    
                                 <div className="profileFieldContainer">
                                     <div className="profileLabel">
                                         <label>Gothra (m) </label>
@@ -360,7 +345,30 @@ class Profile extends Component {
                                     </div>
                                     <div className="profileField">
                                         <label>{getDropDownLabel(this.props.profile.gothram, ReligionDropdownConsts.gothramValues)} </label> 
-                                    </div>      
+                                    </div> 
+                                </div>   
+                            </div>
+                            <div className="profilRightConNoborder"> 
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label>Caste </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>                                   
+                                    <div className="profileField">
+                                        { (this.props.profile.religion ===1) &&  <label>{getDropDownLabel(this.props.profile.caste, ReligionDropdownConsts.hinduCasteValues)}</label> }
+                                        { ((this.props.profile.religion ===4) || (this.props.profile.religion ===5) || (this.props.profile.religion ===6)) &&
+                                            <label>{getDropDownLabel(this.props.profile.caste, ReligionDropdownConsts.muslimCasteValues)}</label>
+                                        }
+                                        { (this.props.profile.religion ===2) &&  <label>{getDropDownLabel(this.props.profile.caste, ReligionDropdownConsts.buddhaCasteValues)}</label> }
+                                        { (this.props.profile.religion ===3) &&  <label>{getDropDownLabel(this.props.profile.caste, ReligionDropdownConsts.christianCasteValues)}</label> }
+                                        { (this.props.profile.religion ===7) &&  <label>{getDropDownLabel(this.props.profile.caste, ReligionDropdownConsts.sikhCasteValues)}</label> }
+                                        { ((this.props.profile.religion ===8) || (this.props.profile.religion ===9) || (this.props.profile.religion ===10)) &&
+                                            <label>{getDropDownLabel(this.props.profile.caste, ReligionDropdownConsts.jainCasteValues)}</label>
+                                        }
+                                        { (this.props.profile.religion ===11) &&  <label>{getDropDownLabel(this.props.profile.caste, ReligionDropdownConsts.parsiCasteValues)}</label> }
+                                    </div>                                          
                                 </div>   
                                 <div className="profileFieldContainer">
                                     <div className="profileLabel">
@@ -492,22 +500,35 @@ class Profile extends Component {
                         </div>
                         <div>      
                             <div className="profileLeftConNoborder"> 
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label> Family Values </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {getDropDownLabel(this.props.profile.familyValue, DropDownConstant.educationValuesOptions)} </label>
+                                    </div> 
+                                </div>
 
+                                <div className="profileFieldContainer">
+                                    <div className="profileLabel">
+                                        <label> Famliy Type </label>
+                                    </div>
+                                    <div className="profileCenter">
+                                        <label> : </label>
+                                    </div>
+                                    <div className="profileField">
+                                        <label> {getDropDownLabel(this.props.profile.familyType, DropDownConstant.employmentValues)} </label>
+                                    </div> 
+                                </div>
                             </div>
                             <div className="profilRightConNoborder"> 
-                            
+                               
                             </div>
                         </div>
-                    </div>
-                    <div className="vs20" />                
-                    <div>
-                        About:
-                        <div>
-                            <p>
-                            <label> {this.props.profile.about} </label>
-                            </p>
-                        </div>
-                    </div>
+                    </div>                   
                 </div>
                 </div>
                 <div className="vs30">

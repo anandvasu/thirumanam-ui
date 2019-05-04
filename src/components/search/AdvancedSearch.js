@@ -63,7 +63,7 @@ class AdvancedSearch extends Component {
 
         this.state = {
             searchClicked: false,
-            gender:Constant.genderF,
+            gender:((sessionStorage.getItem(Constant.USER_GENDER)===Constant.genderM) ? Constant.genderF : Constant.genderM),
             ageFrom:Constant.ageFrom,
             ageTo:Constant.ageTo,
             minHeight:Constant.minHeight,

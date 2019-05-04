@@ -241,7 +241,7 @@ class Results extends Component {
                     this.props.history.push({
                         pathname: '/viewProfile',
                         state: {
-                            profile:res.data
+                            profile:res.data 
                         }
                     });
             });
@@ -282,6 +282,7 @@ class Results extends Component {
         pageClick) {
         var totalDocs = 0;
         axios.post(ApiConstant.USER_SEARCH_API, { 
+            loggedInUserId:sessionStorage.getItem(Constant.USER_PROFILE_ID),
             showProfile:aShowProfile,
             ageGreater:ageGrater,
             ageLess:ageLess,

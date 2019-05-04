@@ -132,7 +132,7 @@ export function convertReactSelectValues(values, listValues) {
 
 
 export function getDropDownLabel(value, listValues) {
-    let outLabel = value;
+    let outLabel = "Not Speficied";
     let arrObject = null;
     if(listValues !== null && listValues != undefined) {
         for(var i=0; i < listValues.length; i++) {
