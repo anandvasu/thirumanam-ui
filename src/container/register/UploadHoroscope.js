@@ -15,21 +15,36 @@ class UploadHoroscope extends Component {
         this.uploadHoroscope = this.uploadHoroscope.bind(this);
         this.redirectToUpdageGroomBride = this.redirectToUpdageGroomBride.bind(this);
         this.doThisLater = this.doThisLater.bind(this);
+        this.handleProtectChange = this.handleProtectChange.bind(this);
 
         this.state = {
             horoscope:null,
             email:null,
             fromPage:null,
-            profileId:null
+            profileId:null,
+            protectHScope:false
         }        
     }
 
     componentDidMount() {
+        let protectHScope = false;
+        if(this.props.location.state.fromPage === "E") {
+            protectHScope = this.props.location.state.protectHScope;
+        }
         this.setState({
             profileId : this.props.location.state.profileId,
             email : this.props.location.state.email,
-            fromPage:this.props.location.state.fromPage
+            fromPage:this.props.location.state.fromPage,
+            protectHScope:protectHScope
         });       
+    }
+
+    handleProtectChange() {
+        if(document.getElementById("protectImage").checked) {
+           this.setState({
+                protectImage:true
+           });
+        }
     }
 
     horoscopeImageHandler(event) {
@@ -67,11 +82,22 @@ class UploadHoroscope extends Component {
         if(this.state.horoscope !== null) {
             const formData = new FormData();
             formData.append("horoscopeImage", this.state.horoscope, sessionStorage.getItem("profileId"));
-            axios.post(ApiConstant.USER_PROFILE_HOROSCOPE_API+'?profileId='+sessionStorage.getItem("profileId"), formData,
+            axios.post(ApiConstant.USER_PROFILE_HOROSCOPE_API+'?profileId='+sessionStorage.getItem("profileId")+"&protectImage="+this.state.protectHScope, formData,
                     {                                            
                     })
             .then((res) => {
                 this.redirectToUpdageGroomBride();
+                if(this.state.fromPage === "E") {
+                    toast.success("Your Photo has been uploaded successfully.", 
+                    {
+                        position:toast.POSITION.TOP_CENTER,
+                        hideProgressBar:true,
+                        autoClose:3000,
+                        testId:20
+                    });
+                } else {
+                    this.redirectToNextPage();
+                }
             })
             .catch((error) => {
                 console.log(error);
@@ -101,7 +127,11 @@ class UploadHoroscope extends Component {
                 <TopBar />
                <div className='hs50' />  
                <div className="prefSectionContainer"> 
-                    <Horoscope horoscopeImageHandler={this.horoscopeImageHandler}/>  
+                    <Horoscope 
+                        horoscopeImageHandler={this.horoscopeImageHandler}
+                        handleProtectChange={this.handleProtectChange}
+                        protectHScope = {this.state.protectHScope}
+                        />  
                  
                     <div className="hs30" />
 

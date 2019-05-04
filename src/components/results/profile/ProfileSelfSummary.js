@@ -21,7 +21,9 @@ class ProfileSelfSummary extends Component {
         this.uploadHoroscope = this.uploadHoroscope.bind(this);        
 
         this.state = {
-            image:null
+            image:null,
+            protectHScope:false,
+            protectImage:false
         }
     }
 
@@ -30,6 +32,8 @@ class ProfileSelfSummary extends Component {
             pathname: '/uploadProfilePhoto',
             state:{
                 fromPage : 'E',
+                profileId:sessionStorage.getItem(Constant.USER_PROFILE_ID),
+                protectImage:this.state.protectImage
             }
         });
     }
@@ -39,6 +43,8 @@ class ProfileSelfSummary extends Component {
             pathname: '/uploadHoroscope',
             state:{
                 fromPage : 'E',
+                profileId:sessionStorage.getItem(Constant.USER_PROFILE_ID),
+                protectHScope:this.state.protectHScope
             }
         });
     }
@@ -50,7 +56,9 @@ class ProfileSelfSummary extends Component {
                console.log(res);
                console.log(res.data.id);              
                this.setState({
-                    image:res.data.thumbImage
+                    image:res.data.thumbImage,
+                    protectHScope:res.data.protectHScope,
+                    protectImage:res.data.protectImage,
                });
                if(res.data.thumbImage === null) {
                     sessionStorage.setItem(Constant.IMAGE_EXISTS, Constant.NO);

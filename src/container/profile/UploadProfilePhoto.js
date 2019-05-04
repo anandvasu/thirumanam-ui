@@ -15,28 +15,43 @@ class UploadProfilePhoto extends Component {
         this.redirectToNextPage = this.redirectToNextPage.bind(this);
         this.doThisLater = this.doThisLater.bind(this);
         this.uploadProfilePhoto = this.uploadProfilePhoto.bind(this);
+        this.handleProtectChange = this.handleProtectChange.bind(this);
 
         this.state = {
             image:null,
             email:null,
             religion:0,
             fromPage:null,
-            profileId:null
+            profileId:null,
+            protectImage:false
         }
         
     }
 
     componentDidMount() {
+        let protectImage = false;
+        if(this.props.location.state.fromPage === "E") {
+            protectImage = this.props.location.state.protectImage;
+        }
         this.setState({
             fromPage:this.props.location.state.fromPage,
             profileId : this.props.location.state.profileId,
             email : this.props.location.state.email,
-            religion:this.props.location.state.religion,            
+            religion:this.props.location.state.religion,  
+            protectImage:protectImage,            
         });       
     }
 
     doThisLater() {
         this.redirectToNextPage();
+    }
+
+    handleProtectChange() {
+        if(document.getElementById("protectImage").checked) {
+           this.setState({
+                protectImage:true
+           });
+        }
     }
 
     redirectToNextPage() {
@@ -81,12 +96,22 @@ class UploadProfilePhoto extends Component {
     uploadProfilePhoto() {
         if(this.state.image !== null) {
             const formData = new FormData();
-            formData.append("imageFile", this.state.image, this.state.profileId);
-            axios.post(ApiConstant.USER_PROFILE_IMAGE_API+'?profileId='+this.state.profileId, formData,
+            formData.append("imageFile", this.state.image, this.state.profileId, this.state.protectImage);
+            axios.post(ApiConstant.USER_PROFILE_IMAGE_API+'?profileId='+this.state.profileId+"&protectImage="+this.state.protectImage, formData,
                     {                                            
                     })
             .then((res) => {
-                this.redirectToNextPage();
+                if(this.state.fromPage === "E") {
+                    toast.success("Your Photo has been uploaded successfully.", 
+                    {
+                        position:toast.POSITION.TOP_CENTER,
+                        hideProgressBar:true,
+                        autoClose:3000,
+                        testId:20
+                    });
+                } else {
+                    this.redirectToNextPage();
+                }
             })
             .catch((error) => {
                 console.log(error);
@@ -116,8 +141,11 @@ class UploadProfilePhoto extends Component {
                 <TopBar />
                <div className='hs50' />  
                <div className="prefSectionContainer"> 
-                    <UploadImage imageHandler={this.imageHandler}/>  
-                
+                    <UploadImage 
+                        imageHandler={this.imageHandler}
+                        handleProtectChange = {this.handleProtectChange}
+                        protectImage = {this.state.protectImage}
+                    />  
                     <div className="hs30" />
                     { (this.state.fromPage === "E") &&
                         <div>

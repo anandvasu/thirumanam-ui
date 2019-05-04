@@ -149,7 +149,7 @@ class BasicSearch extends Component {
                 <div>
                     <div className="gFieldRow"> 
                         <div className="glabel" style={{verticalAlign:'top'}}>
-                            <label>Profile</label>
+                            <label>Show Profile</label>
                         </div>
                         <div className="gfield">
                            <ShowProfile 
