@@ -7,7 +7,6 @@ import {
     withRouter
   } from 'react-router-dom';
 import MyMatchProfileSummary from '../profile/MyMatchProfileSummary';
-import myMatchProfileSummary from '../profile/MyMatchProfileSummary';
 
 class VisitedProfilesMini extends Component {
 
@@ -64,9 +63,11 @@ class VisitedProfilesMini extends Component {
                         firstName = {data.firstName}
                         lastName = {data.lastName}                        
                         email = {data.email}
-                        thumbImage = {data.image}
+                        thumbImage = {data.thumbImage}
                         profileClick = {this.props.profileClick}
                         gender = {data.gender}
+                        education = {data.education}
+                        city = {data.city}
                         bDate = "12/12/1990"
                     />
                    { 

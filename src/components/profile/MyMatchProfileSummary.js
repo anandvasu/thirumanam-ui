@@ -5,6 +5,8 @@ import defaultMImage from '../../assets/images/default_male.jpg';
 import addImage from '../../assets/images/add.png';
 import viewImage from '../../assets/images/view.png';
 import './MyMatchProfileSummary.css';
+import {getDropDownLabel} from '../utils/Util';
+import DropDownConstant from '../utils/DropDownConstant';
 
 function myMatchProfileSummary(props) {  
     let image;
@@ -44,7 +46,7 @@ function myMatchProfileSummary(props) {
                 </div>
                 <div className="summaryFullWidth">
                         <label className="otherText"> {props.age} years</label> 
-                        <label className="otherText"> | {props.education}</label> 
+                        <label className="otherText"> | {getDropDownLabel(props.education, DropDownConstant.educationValuesOptions)}</label> 
                         <label className="otherText"> | {props.city}</label>
                 </div>
                 <div className="hs25"/>

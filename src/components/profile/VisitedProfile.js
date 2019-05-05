@@ -5,6 +5,8 @@ import defaultMImage from '../../assets/images/default_male.jpg';
 import unBlockImage from '../../assets/images/unblock.png';
 import viewImage from '../../assets/images/view.png';
 import './MyMatchProfileSummary.css';
+import {getDropDownLabel} from '../utils/Util';
+import DropDownConstant from '../utils/DropDownConstant'
 
 function visitedProfile(props) {  
     let image;
@@ -40,12 +42,12 @@ function visitedProfile(props) {
                         </div>
                         <div>
                             <label> {props.age} years</label> 
-                            <label> | {props.education}</label> 
+                            <label> | {getDropDownLabel(props.education, DropDownConstant.educationValuesOptions)} </label> 
                             <label> | {props.city}</label>
                         </div>                                      
                 </div>
 
-                <div className="psBottom">
+                <div className="psBottom"> 
                     <div className="profileId">
                         
                     </div>
