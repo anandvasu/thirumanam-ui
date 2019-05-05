@@ -139,7 +139,7 @@ class UploadProfilePhoto extends Component {
         return (
             <div>
                 <TopBar />
-               <div className='hs50' />  
+               <div className='hs100' />  
                <div className="prefSectionContainer"> 
                     <UploadImage 
                         imageHandler={this.imageHandler}

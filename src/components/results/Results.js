@@ -601,7 +601,7 @@ class Results extends Component {
                 <TopMenu 
                     homePage="false"
                 /> 
-                <div className="hs30" />                       
+                <div className="hs100" />                       
                 <Modal show={this.state.registerDisplay}
                         className="RegisterModal">   
                         <RegisterWithLogin 

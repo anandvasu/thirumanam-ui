@@ -124,7 +124,7 @@ class UploadHoroscope extends Component {
         return (
             <div>
                 <TopBar />
-               <div className='hs50' />  
+               <div className='hs100' />  
                <div className="prefSectionContainer"> 
                     <Horoscope 
                         horoscopeImageHandler={this.horoscopeImageHandler}

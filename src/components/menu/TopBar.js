@@ -9,6 +9,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
+import grey from '@material-ui/core/colors/grey';
 import {
     withRouter
   } from 'react-router-dom';
@@ -134,24 +135,24 @@ class TopBar extends React.Component {
 
     return (
       <div>     
-        <AppBar position="static" color="secondary">           
+        <AppBar position="fixed" color="secondary">           
           <Toolbar>                 
           <div className="menuContainerFull">
-                <Button color="primary" className={classes.button} onClick={this.goToHome}>
+                <Button onClick={this.goToHome}>
                     <b>Home</b>
                 </Button>                     
-                <Button color="primary" className={classes.button} onClick={this.goToSearch}>
+                <Button color="grey" className={classes.button} onClick={this.goToSearch}>
                     <b>Search</b>
                 </Button>
                 { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 
-                <Button color="primary" className={classes.button} onClick={this.goToMessages}>
+                <Button color="grey" className={classes.button} onClick={this.goToMessages}>
                     <b>Messages</b>
                 </Button>
                 }
-                <Button color="primary" className={classes.button} onClick={this.goToPayment}>
+                <Button className={classes.button} onClick={this.goToPayment}>
                     <b>Payment</b>
                 </Button>
-                <Button color="primary" className={classes.button} onClick={this.contactClick}>
+                <Button className={classes.button} onClick={this.contactClick}>
                     <b>Contact</b>
                 </Button>
                 { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 
@@ -160,8 +161,9 @@ class TopBar extends React.Component {
                   aria-owns={open ? 'material-appbar' : undefined} 
                   aria-haspopup="true"
                   onClick={this.handleMenu}
+                  width="20px"
                   color="inherit">                  
-                    <AccountCircle />
+                    <AccountCircle />                    
                 </IconButton>
                 <Menu
                   id="material-appbar"
