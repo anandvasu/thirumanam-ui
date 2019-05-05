@@ -24,10 +24,10 @@ class PercentageCompleted extends Component {
                 <div className="hs20" />
                 <div style={{width:'100%'}}>
                     <div className="inlineBlock" style={{width:'50%'}}> 
-                        <button style={{width:'200px'}}> Update Profile</button>
+                        <button className="standard-button" style={{width:'200px'}}> Update Profile</button>
                     </div>
                     <div className="inlineBlock" style={{width:'50%'}}> 
-                        <button style={{width:'200px'}}> Add/Edit Photo</button>
+                        <button className="standard-button" style={{width:'200px'}}> Add/Edit Photo</button>
                     </div>                    
                 </div>
                 <div className="hs10" />

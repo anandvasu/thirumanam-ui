@@ -185,7 +185,7 @@ class DashboardSearch extends Component {
                         </div>
                     </div>                                      
                     <div style={{paddingBottom:'10px'}}>                               
-                        <button onClick={this.searchProfile}>Search</button>  
+                        <button className="standard-button" onClick={this.searchProfile}>Search</button>  
                     </div>
                 </div>
             </form>

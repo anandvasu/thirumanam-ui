@@ -142,7 +142,7 @@ class QuickSearch extends Component {
                             </select>
                         </div>
                         <div>                               
-                            <button onClick={this.quickSearch}>Search</button>  
+                            <button onClick={this.quickSearch} className="standard-button">Search</button>  
                         </div>
                     </div>
                 </div>

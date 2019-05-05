@@ -161,7 +161,7 @@ class TopBar extends React.Component {
                   aria-owns={open ? 'material-appbar' : undefined} 
                   aria-haspopup="true"
                   onClick={this.handleMenu}
-                  width="20px"
+                  vertical="top"
                   color="inherit">                  
                     <AccountCircle />                    
                 </IconButton>

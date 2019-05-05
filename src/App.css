@@ -57,7 +57,7 @@ font {
   color: white;
 } */
 
-button {
+.standard-button {
   color: #D5DBDB;
   font-weight: bold;
   width:100px;

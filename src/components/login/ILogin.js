@@ -170,7 +170,7 @@ class ILogin extends Component {
                         </div>      
                         <div>
                             <div className='fieldParent'>                               
-                                <button style={{width:'350px'}} onClick={this.loginClick}>Login</button>                               
+                                <button className="standard-button" style={{width:'350px'}} onClick={this.loginClick}>Login</button>                               
                             </div>                            
                         </div>   
                         </div>  

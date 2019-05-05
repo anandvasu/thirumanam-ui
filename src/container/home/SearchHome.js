@@ -25,7 +25,7 @@ class SearchContainer extends Component {
                        <TopMenu
                            homePage="false"
                         /> 
-                         <div className='hs20' />
+                         <div className='hs100' />
                         <div className="homeFullSection">
                                <SearchMenu 
                                          refreshFooter={this.refreshFooter}

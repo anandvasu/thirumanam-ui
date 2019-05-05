@@ -216,7 +216,7 @@ class Login extends Component {
                                 defaultValue="Password" onFocus={this.passwordFocus} onBlur={this.passwordFocusOut} onKeyDown={this.loginKeySubmit}></input>
                         </div>
                         <div className='lfield'>
-                            <button onClick={this.loginClick}>Login</button>
+                            <button onClick={this.loginClick} className="standard-button">Login</button>
                         </div>
                     </div>
                     <div style={{paddingTop:'5px'}}>                       

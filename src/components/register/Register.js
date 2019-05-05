@@ -438,7 +438,7 @@ class Register extends Component {
                                     <a href="#" onClick={this.openPrivacyPolicy}><b><u>Privacy Policy</u></b></a>
                             </div>
                             <div style={{paddingBottom:'15px'}}>
-                                <button onClick={this.register} >Register</button>
+                                <button className="standard-button" onClick={this.register} >Register</button>
                             </div>
                          </div>
                     }

@@ -76,7 +76,7 @@ class MessageHome extends Component {
                 return (
                 <div>
                         <TopBar />
-                        <div className='hs10' />
+                        <div className='hs100' />
                         <div style={{textAlign:'left',width:'1100px',display:'inline-block'}}>
                                 <b>Hello! {sessionStorage.getItem(Constant.USER_FIRST_NAME)},{sessionStorage.getItem(Constant.USER_LAST_NAME)} 
                                         ({sessionStorage.getItem(Constant.USER_PROFILE_ID)})</b>
