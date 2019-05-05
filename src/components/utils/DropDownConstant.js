@@ -657,7 +657,27 @@ export default {
          { value:265, label: "Tulu"},
          { value:270, label: "Urdu"}     
       ],      
-      
+      familyValues :[
+        { value:'OR', label: "Orthodox"},         
+        { value:'TL', label: "Traditional"},
+        { value:'MO', label: "Moderate"},
+        { value:'LI', label: "Liberal"},       
+     ],     
+     foodHabits :[
+        { value:'V', label: "Vegetarian"},         
+        { value:'N', label: "Non-Vegetarian"},
+        { value:'E', label: "Eggetarian"}      
+      ], 
+      bodyTypes :[
+        { value:'AG', label: "Average"},         
+        { value:'AT', label: "Athletic"},
+        { value:'HY', label: "Heavy"},
+        { value:'SM', label: "Slim"}     
+      ],    
+      familyTypes :[
+        { value:'JO', label: "Joint"},         
+        { value:'NU', label: "Nucler"}
+      ],       
       customStyles : {
          control: styles => ({ ...styles, backgroundColor: 'white' }),
          option: (styles, { data, isDisabled, isFocused, isSelected }) => {

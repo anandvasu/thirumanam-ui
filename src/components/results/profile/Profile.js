@@ -508,7 +508,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <label> {getDropDownLabel(this.props.profile.familyValue, DropDownConstant.educationValuesOptions)} </label>
+                                        <label> {getDropDownLabel(this.props.profile.familyValue, DropDownConstant.familyValues)} </label>
                                     </div> 
                                 </div>
 
@@ -520,7 +520,7 @@ class Profile extends Component {
                                         <label> : </label>
                                     </div>
                                     <div className="profileField">
-                                        <label> {getDropDownLabel(this.props.profile.familyType, DropDownConstant.employmentValues)} </label>
+                                        <label> {getDropDownLabel(this.props.profile.familyType, DropDownConstant.familyTypes)} </label>
                                     </div> 
                                 </div>
                             </div>

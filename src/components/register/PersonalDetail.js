@@ -160,7 +160,7 @@ function personalDetail(props) {
                                     <option value="MO">Moderate</option> 
                                     <option value="LI">Liberal</option>                             
                                 </select>
-                            </div>                        
+                            </div>                         
                         </div>
                         <div>
                             <div className='rdlabel'>
