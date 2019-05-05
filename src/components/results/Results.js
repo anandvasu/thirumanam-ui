@@ -399,7 +399,7 @@ class Results extends Component {
                 break;
             }
         }
-        pageContents.push(<button onClick={this.handlePageClick} key="lastPage" value="Last" className="pageButton">Last</button>);
+        pageContents.push(<button className="standard-button" onClick={this.handlePageClick} key="lastPage" value="Last" className="pageButton">Last</button>);
         this.setState({pages:pageContents});
     }
 

@@ -138,21 +138,21 @@ class TopBar extends React.Component {
         <AppBar position="fixed" color="secondary">           
           <Toolbar>                 
           <div className="menuContainerFull">
-                <Button onClick={this.goToHome}>
+                <Button onClick={this.goToHome} style={{width:'100px',color:'#DCB239',fontSize:'15px'}}>
                     <b>Home</b>
                 </Button>                     
-                <Button color="grey" className={classes.button} onClick={this.goToSearch}>
+                <Button onClick={this.goToSearch} style={{width:'100px',color:'#DCB239',fontSize:'15px'}}>
                     <b>Search</b>
                 </Button>
                 { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 
-                <Button color="grey" className={classes.button} onClick={this.goToMessages}>
+                <Button onClick={this.goToMessages} style={{width:'100px',color:'#DCB239',fontSize:'15px'}}>
                     <b>Messages</b>
                 </Button>
                 }
-                <Button className={classes.button} onClick={this.goToPayment}>
+                <Button onClick={this.goToPayment} style={{width:'100px',color:'#DCB239',fontSize:'15px'}}>
                     <b>Payment</b>
                 </Button>
-                <Button className={classes.button} onClick={this.contactClick}>
+                <Button onClick={this.contactClick} style={{width:'100px',color:'#DCB239',fontSize:'15px'}}>
                     <b>Contact</b>
                 </Button>
                 { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 
@@ -179,19 +179,19 @@ class TopBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >                   
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(20)}>
+                    <MenuItem style={{backgroundColor: '#8FD8D2', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(20)}>
                         Settings
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(5)}>
+                    <MenuItem style={{backgroundColor: '#8FD8D2', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(5)}>
                         Change Password
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(10)}>
+                    <MenuItem style={{backgroundColor: '#8FD8D2', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(10)}>
                         Update Email
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(15)}>
+                    <MenuItem style={{backgroundColor: '#8FD8D2', color: 'purple',fontWeight:'bold'}} onClick={() => this.goToAccountHome(15)}>
                         Update Mobile Number
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#DDA0DD', color: 'purple',fontWeight:'bold'}} onClick={this.logoutClick}>
+                    <MenuItem style={{backgroundColor: '#8FD8D2', color: 'purple',fontWeight:'bold'}} onClick={this.logoutClick}>
                         Logout
                     </MenuItem>
                 </Menu>
