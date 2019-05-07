@@ -138,21 +138,21 @@ class TopBar extends React.Component {
         <AppBar position="fixed" color="secondary">           
           <Toolbar>                 
           <div className="menuContainerFull">
-                <Button onClick={this.goToHome} style={{width:'100px',color:'#DCB239',fontSize:'15px'}}>
+                <Button onClick={this.goToHome} style={{width:'100px',color:'#DCB239',fontSize:'16px', fontWeight:'bold'}}>
                     <b>Home</b>
                 </Button>                     
-                <Button onClick={this.goToSearch} style={{width:'100px',color:'#DCB239',fontSize:'15px'}}>
+                <Button onClick={this.goToSearch} style={{width:'100px',color:'#DCB239',fontSize:'16px'}}>
                     <b>Search</b>
                 </Button>
                 { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 
-                <Button onClick={this.goToMessages} style={{width:'100px',color:'#DCB239',fontSize:'15px'}}>
+                <Button onClick={this.goToMessages} style={{width:'100px',color:'#DCB239',fontSize:'16px'}}>
                     <b>Messages</b>
                 </Button>
                 }
-                <Button onClick={this.goToPayment} style={{width:'100px',color:'#DCB239',fontSize:'15px'}}>
+                <Button onClick={this.goToPayment} style={{width:'100px',color:'#DCB239',fontSize:'16px'}}>
                     <b>Payment</b>
                 </Button>
-                <Button onClick={this.contactClick} style={{width:'100px',color:'#DCB239',fontSize:'15px'}}>
+                <Button onClick={this.contactClick} style={{width:'100px',color:'#DCB239',fontSize:'16px'}}>
                     <b>Contact</b>
                 </Button>
                 { (sessionStorage.getItem(Constant.USER_PROFILE_ID)  !== null) && 

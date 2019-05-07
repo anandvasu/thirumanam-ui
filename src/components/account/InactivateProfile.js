@@ -74,7 +74,7 @@ class InactivateProfile extends Component {
     render() {
         return(
         <div>
-                <div className="hs30" />
+                <div className="hs100" />
                 <div className="identityContainer">
                     <div className="header2">
                         <div><label>Inactivate Profile</label></div>                    
@@ -102,7 +102,7 @@ class InactivateProfile extends Component {
                         </div>                  
                     </div>                                      
                     <div className="identityFieldParent" style={{paddingBottom:'50px'}} id="submitButton">
-                        <button onClick={this.inactivateProfile}>Submit</button>
+                        <button className="standard-button" onClick={this.inactivateProfile}>Submit</button>
                     </div>
                 </div>
         </div>

@@ -56,7 +56,7 @@ class ActivateProfile extends Component {
     render() {
         return(
         <div>
-                <div className="hs30" />
+                <div className="hs100" />
                 <div className="identityContainer">
                     <div className="header2">
                         <div><label>Activate Profile</label></div>                    
@@ -67,7 +67,7 @@ class ActivateProfile extends Component {
                         </div>                
                     </div>                                      
                     <div className="identityFieldParent" style={{paddingBottom:'50px'}} id="submitButton">
-                        <button onClick={this.activateProfile}>Activate</button>
+                        <button classname="standard-button" conClick={this.activateProfile}>Activate</button>
                     </div>
                 </div>
         </div>

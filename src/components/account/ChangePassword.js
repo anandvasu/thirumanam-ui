@@ -82,7 +82,7 @@ class ChangePassword extends Component {
     render() {
         return(
         <div>
-            <div className="hs30" />
+            <div className="hs100" />
             <div>
                 <div className="identityContainer">
                     <div className="header2">
@@ -113,7 +113,7 @@ class ChangePassword extends Component {
                         </div>
                     </div>
                     <div className="identityFieldParent" style={{paddingBottom:'50px'}}>
-                        <button onClick={this.changePassword}>Submit</button>
+                        <button className="standard-button" onClick={this.changePassword}>Submit</button>
                     </div>
                 </div>
             </div>

@@ -91,7 +91,7 @@ class Notification extends Component {
     render() {
         return(
         <div>
-                <div className="hs30" />
+                <div className="hs100" />
                 <div className="identityContainer">
                     <div className="header2">
                         <div><label>Notification Settings</label></div>                    
@@ -121,7 +121,7 @@ class Notification extends Component {
                         </div>            
                     </div>                                    
                     <div className="identityFieldParent" style={{paddingBottom:'50px'}} id="submitButton">
-                        <button onClick={this.updateNotification}>Submit</button>
+                        <button className="standard-button" onClick={this.updateNotification}>Submit</button>
                     </div>
                 </div>
         </div>

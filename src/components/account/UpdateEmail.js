@@ -106,7 +106,7 @@ class UpdateEmail extends Component {
     render() {
         return(
         <div>
-                <div className="hs30" />
+                <div className="hs100" />
                 <div className="identityContainer">
                     <div className="header2">
                         <div><label>Update Email</label></div>                    
@@ -121,7 +121,7 @@ class UpdateEmail extends Component {
                         </div>
                     </div>                                      
                     <div className="identityFieldParent" style={{paddingBottom:'50px'}} id="submitButton">
-                        <button onClick={this.updateEmail}>Submit</button>
+                        <button className="standard-button" onClick={this.updateEmail}>Submit</button>
                     </div>
                 </div>
         </div>

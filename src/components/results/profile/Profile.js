@@ -129,7 +129,7 @@ class Profile extends Component {
                             /> 
                          </div> 
                  </Modal>
-                <div className="hs20" />
+                <div className="hs100" />
                 <div className="profileParentLeft">
                 <div className="sectionContainer"> 
                     <div className="profileRowContainer">

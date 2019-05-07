@@ -1,6 +1,7 @@
 import React from 'react';
 import confirmSignUp from '../../assets/images/confirmSignUp.jpg';
 import Constant from '../utils/Constant';
+import '../../App.css';
 
 function logout(props) {
 
@@ -22,7 +23,7 @@ function logout(props) {
             }
             <div className="codeParent">     
                 <div className="paddingTop10"> 
-                    <button onClick={() => props.history.push("/ilogin")} >Login</button> </div>
+                    <button classname="standard-button" onClick={() => props.history.push("/ilogin")} >Login</button> </div>
                 </div>
             </div>
     </div>

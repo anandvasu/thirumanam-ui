@@ -63,7 +63,7 @@ class DeleteProfile extends Component {
     render() {
         return(
         <div>
-                <div className="hs30" />
+                <div className="hs100" />
                 <div className="identityContainer">
                     <div className="header2">
                         <div><label>Delete Profile</label></div>                    
@@ -85,7 +85,7 @@ class DeleteProfile extends Component {
                         </div>
                     </div>                                      
                     <div className="identityFieldParent" style={{paddingBottom:'50px'}} id="submitButton">
-                        <button onClick={this.deleteProfile}>Submit</button>
+                        <button className="standard-button" onClick={this.deleteProfile}>Submit</button>
                     </div>
                 </div>
         </div>
