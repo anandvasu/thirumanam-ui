@@ -1,6 +1,6 @@
 .topBar{
     height:120px;
-    background-color: #229954;
+    background-color: #00AA66;
     width:100%;
     position: fixed;
     overflow: hidden;
@@ -9,7 +9,7 @@
 
 .globalBar {
     height:35px;
-    background-color: #229954;
+    background-color: #00AA66;
     width:100%;
 }
 
