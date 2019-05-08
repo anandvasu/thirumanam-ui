@@ -3,7 +3,6 @@ import './Register.css';
 import axios from 'axios';
 import {Redirect} from "react-router-dom";
 import {toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Constant from '../utils/Constant';
 import ApiConstant from '../utils/ApiConstant';
 import ReligionSelect from '../utils/ReligionSelect';
@@ -426,7 +425,7 @@ class Register extends Component {
                                     <a href="#" onClick={this.openPrivacyPolicy}><b><u>Privacy Policy</u></b></a>
                             </div>
                             <div className='registerButton'>
-                                <button onClick={this.register} >Register</button>
+                                <button className="standard-button" onClick={this.register} >Register</button>
                             </div>
                         </div>
                     }
