@@ -14,7 +14,7 @@ class VisitedProfilesHome extends Component {
                 return (
                 <div>
                         <TopBar />
-                        <div className='hs10' />
+                        <div className='hs100' />
                         <div style={{textAlign:'left',paddingLeft:'5%'}}><b>Hello! {sessionStorage.getItem("name")}</b></div>
                         <div className='hs10' />
                         <div className="topLeftSection">

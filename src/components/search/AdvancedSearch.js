@@ -342,7 +342,7 @@ class AdvancedSearch extends Component {
                 }}/>
         }
         return (
-                <div>
+                <div>                     
                     <div className={this.props.prefClassName}>
                         <div className="gFieldRow"> 
                             <div className="glabel" style={{verticalAlign:'top'}}>
@@ -603,12 +603,12 @@ class AdvancedSearch extends Component {
                 </div>
                 { this.props.fromPage === "P" &&
                     <div style={{paddingBottom:'20px',paddingTop:'15px'}}>                               
-                        <button onClick={this.savePreference}>Save</button>  
+                        <button className="standard-button" onClick={this.savePreference}>Save</button>  
                     </div>
                 }
                  { this.props.fromPage !== "P" &&
                     <div style={{paddingBottom:'20px',paddingTop:'15px'}}>                               
-                        <button onClick={this.search}>Search</button>  
+                        <button className="standard-button" onClick={this.search}>Search</button>  
                     </div>
                 }
         </div>

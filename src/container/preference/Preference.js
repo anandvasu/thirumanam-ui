@@ -11,7 +11,7 @@ class Preference extends Component {
         return(
             <div>
                 <TopBar />
-               <div className='hs50' />
+               <div className='hs100' />
                <div className="homeFullSection">
                <div className='header2allborder'>
                     <label>Partner Preference</label>

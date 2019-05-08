@@ -5,11 +5,11 @@ import prevImage from '../../assets/images/prev.png';
 import nextImage from '../../assets/images/next.png';
 import ApiConstant from '../utils/ApiConstant';
 import '../profile/MyMatchProfileSummary.css';
-import VisitedProfile from './VisitedProfile';
 import {formatDate} from '../../components/utils/Util';
 import {
     withRouter
   } from 'react-router-dom';
+import ProfileSummary from './ProfileSummary';
   
 class VisitedProfiles extends Component {
 
@@ -118,7 +118,7 @@ class VisitedProfiles extends Component {
         let profiles = profileData.map((data, i) => {
             return (
                 <div key={"blockedProfileParent"+ i}>                
-                    <VisitedProfile 
+                    <ProfileSummary 
                         id={data.id}
                         age={data.age}
                         firstName = {data.firstName}
@@ -148,7 +148,7 @@ class VisitedProfiles extends Component {
     render() {     
         
         return(
-            <div className="myMatchContainer">               
+            <div className="myMatchContainer">        
                <div className="header2"> 
                     <div className="vs5px inlineBlock"/>
                     <div className="inlineBlock"><b>People Visited Your Profiles ({this.state.totalMatches})</b>&nbsp;&nbsp;</div>

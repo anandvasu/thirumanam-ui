@@ -14,29 +14,22 @@ class ShortListedProfilesHome extends Component {
                 return (
                 <div>
                         <TopBar />
-                        <div className='hs10' />
-                        <div style={{textAlign:'left',paddingLeft:'5%'}}><b>Hello! {sessionStorage.getItem("name")}</b></div>
-                        <div className='hs10' />
-                        <div className="topLeftSection">
-                                <ProfileSelfSummary />
-                                <div className='hs20' />
-                                <Explore />
-                        </div>
-                        <div className='vs15' />
-                        <div className="topMiddleSection">                                
-                                <div className='hs10' />
-                                <ShortListedProfiles />
-                                <div className='hs10' />
-                        </div>
-                        <div className='vs15' />
-                        <div className="topRightSection">                               
-                               <div style={{paddingBottom:'20px'}}>
-                                       <DashboardSearch />
-                               </div>
-                               <div>
-                                        <img src={adImage} alt="Not Available" style={{height:'300px'}}/>
-                               </div>
-                        </div>
+                        <div className='hs100' />    
+                        <div className="homeFullSection">                  
+                                <div className="profileParentLeft">                                
+                                        <ShortListedProfiles />
+                                        <div className='hs10' />
+                                </div>
+                                <div className='vs15' />
+                                <div className="topRightSection">                               
+                                <div style={{paddingBottom:'20px'}}>
+                                        <DashboardSearch />
+                                </div>
+                                <div>
+                                                <img src={adImage} alt="Not Available" style={{height:'300px'}}/>
+                                </div>
+                                </div>
+                        </div>  
                         <Footer />                       
                 </div>                        
                 );
