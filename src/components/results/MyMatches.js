@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {toast} from 'react-toastify';
 import ApiConstant from '../utils/ApiConstant';
-import '../profile/MyMatchProfileSummary.css';
-import MyMatchProfileSummary from '../../components/profile/MyMatchProfileSummary';
+import '../profile/ProfileSummaryMini.css';
+import ProfileSummaryMini from '../profile/ProfileSummaryMini';
 import {formatDate} from '../../components/utils/Util';
 import Constant from '../utils/Constant';
 import {
@@ -231,7 +231,7 @@ class MyMatches extends Component {
             { i = i + 1}
             return (
                 <div key={"myMatchSummaryParent"+ i}>                
-                    <MyMatchProfileSummary 
+                    <ProfileSummaryMini 
                         id={data.id}
                         age={data.age}
                         firstName = {data.firstName}

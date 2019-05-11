@@ -4,12 +4,12 @@ import {toast} from 'react-toastify';
 import prevImage from '../../assets/images/prev.png';
 import nextImage from '../../assets/images/next.png';
 import ApiConstant from '../utils/ApiConstant';
-import '../profile/MyMatchProfileSummary.css';
-import BlockedProfile from './BlockedProfile';
+import '../profile/ProfileSummaryMini.css';
 import {formatDate} from '../../components/utils/Util';
 import {
     withRouter
   } from 'react-router-dom';
+import ProfileSummary from './ProfileSummary';
   
 class BlockedProfiles extends Component {
 
@@ -146,7 +146,7 @@ class BlockedProfiles extends Component {
         let profiles = profileData.map((data, i) => {
             return (
                 <div key={"blockedProfileParent"+ i}>                
-                    <BlockedProfile 
+                    <ProfileSummary 
                         id={data.id}
                         age={data.age}
                         firstName = {data.firstName}

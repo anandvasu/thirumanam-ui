@@ -179,19 +179,19 @@ class TopBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}                  
                 >                   
-                    <MenuItem style={{backgroundColor: '#8FD8D2', color: '#DCB239',fontWeight:'bold'}} onClick={() => this.goToAccountHome(20)}>
+                    <MenuItem style={{backgroundColor: '#00AA66', color: '#DCB239',fontWeight:'bold'}} onClick={() => this.goToAccountHome(20)}>
                         Settings
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#8FD8D2', color: '#DCB239',fontWeight:'bold'}} onClick={() => this.goToAccountHome(5)}>
+                    <MenuItem style={{backgroundColor: '#00AA66', color: '#DCB239',fontWeight:'bold'}} onClick={() => this.goToAccountHome(5)}>
                         Change Password
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#8FD8D2', color: '#DCB239',fontWeight:'bold'}} onClick={() => this.goToAccountHome(10)}>
+                    <MenuItem style={{backgroundColor: '#00AA66', color: '#DCB239',fontWeight:'bold'}} onClick={() => this.goToAccountHome(10)}>
                         Update Email
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#8FD8D2', color: '#DCB239',fontWeight:'bold'}} onClick={() => this.goToAccountHome(15)}>
+                    <MenuItem style={{backgroundColor: '#00AA66', color: '#DCB239',fontWeight:'bold'}} onClick={() => this.goToAccountHome(15)}>
                         Update Mobile Number
                     </MenuItem>
-                    <MenuItem style={{backgroundColor: '#8FD8D2', color: 'red',fontWeight:'bold'}} onClick={this.logoutClick}>
+                    <MenuItem style={{backgroundColor: '#00AA66', color: 'red',fontWeight:'bold'}} onClick={this.logoutClick}>
                         Logout
                     </MenuItem>
                 </Menu>

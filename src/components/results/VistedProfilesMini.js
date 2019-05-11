@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {toast} from 'react-toastify';
 import ApiConstant from '../utils/ApiConstant';
-import '../profile/MyMatchProfileSummary.css';
+import '../profile/ProfileSummaryMini.css';
 import {
     withRouter
   } from 'react-router-dom';
-import MyMatchProfileSummary from '../profile/MyMatchProfileSummary';
+import ProfileSummaryMini from '../profile/ProfileSummaryMini';
 
 class VisitedProfilesMini extends Component {
 
@@ -57,7 +57,7 @@ class VisitedProfilesMini extends Component {
             { i = i + 1}
             return (
                 <div key={"myMatchSummaryParent"+ i}>                
-                    <MyMatchProfileSummary 
+                    <ProfileSummaryMini 
                         id={data.id}
                         age={data.age}
                         firstName = {data.firstName}

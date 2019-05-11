@@ -4,7 +4,7 @@ import {toast} from 'react-toastify';
 import prevImage from '../../assets/images/prev.png';
 import nextImage from '../../assets/images/next.png';
 import ApiConstant from '../utils/ApiConstant';
-import '../profile/MyMatchProfileSummary.css';
+import '../profile/ProfileSummaryMini.css';
 import {formatDate} from '../../components/utils/Util';
 import {
     withRouter

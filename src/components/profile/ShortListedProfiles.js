@@ -4,12 +4,12 @@ import {toast} from 'react-toastify';
 import prevImage from '../../assets/images/prev.png';
 import nextImage from '../../assets/images/next.png';
 import ApiConstant from '../utils/ApiConstant';
-import '../profile/MyMatchProfileSummary.css';
-import ShortListedProfile from './ShortListedProfile';
+import '../profile/ProfileSummaryMini.css';
 import {formatDate} from '../../components/utils/Util';
 import {
     withRouter
   } from 'react-router-dom';
+import ProfileSummaryMedium from './ProfileSummaryMedium';
   
 class ShortListedProfiles extends Component {
 
@@ -17,7 +17,7 @@ class ShortListedProfiles extends Component {
         super(props);
 
         this.profileClick = this.profileClick.bind(this);     
-        this.unBlockProfile = this.unBlockProfile.bind(this);  
+        this.unshortlistProfile = this.unshortlistProfile.bind(this);  
         this.loadShortListedProfiles = this.loadShortListedProfiles.bind(this);  
         this.nextClick = this.nextClick.bind(this);  
         this.prevClick = this.prevClick.bind(this);  
@@ -67,7 +67,7 @@ class ShortListedProfiles extends Component {
         } 
     }
 
-    unBlockProfile(profileId) {
+    unshortlistProfile(profileId) {
         axios.put(ApiConstant.SHORT_LISTED_PROFILE+sessionStorage.getItem("profileId")+"?unBlockProfileId="+profileId, {                
         })
         .then((res) => {
@@ -118,7 +118,7 @@ class ShortListedProfiles extends Component {
         let profiles = profileData.map((data, i) => {
             return (
                 <div key={"blockedProfileParent"+ i}>                
-                    <ShortListedProfile 
+                    <ProfileSummaryMedium
                         id={data.id}
                         age={data.age}
                         firstName = {data.firstName}
@@ -126,7 +126,7 @@ class ShortListedProfiles extends Component {
                         email = {data.email}
                         thumbImage = {data.thumbImage}
                         profileClick = {this.profileClick}
-                        unBlockProfile = {this.unBlockProfile}
+                        unshortlistProfile = {this.unshortlistProfile}
                         gender = {data.gender}
                         bDate = {formatDate(data.bDay, data.bMonth, data.bYear)}
                         education = {data.education}
